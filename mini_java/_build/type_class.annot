@@ -1,0 +1,6421 @@
+"type_class.ml" 5 58 62 "type_class.ml" 5 58 67
+type(
+  string -> Ast.position -> 'a
+)
+ident(
+  def error "type_class.ml" 7 104 104 "_none_" 1 0 -1
+)
+"type_class.ml" 5 58 68 "type_class.ml" 5 58 69
+type(
+  string
+)
+ident(
+  def s "type_class.ml" 5 58 70 "type_class.ml" 5 58 100
+)
+"type_class.ml" 5 58 70 "type_class.ml" 5 58 71
+type(
+  Ast.position
+)
+ident(
+  def p "type_class.ml" 5 58 74 "type_class.ml" 5 58 100
+)
+"type_class.ml" 5 58 74 "type_class.ml" 5 58 79
+type(
+  exn -> 'a
+)
+ident(
+  ext_ref Pervasives.raise
+)
+"type_class.ml" 5 58 94 "type_class.ml" 5 58 95
+type(
+  string
+)
+ident(
+  int_ref s "type_class.ml" 5 58 68 "type_class.ml" 5 58 69
+)
+"type_class.ml" 5 58 97 "type_class.ml" 5 58 98
+type(
+  Ast.position
+)
+ident(
+  int_ref p "type_class.ml" 5 58 70 "type_class.ml" 5 58 71
+)
+"type_class.ml" 5 58 80 "type_class.ml" 5 58 100
+type(
+  exn
+)
+"type_class.ml" 5 58 74 "type_class.ml" 5 58 100
+type(
+  'a
+)
+"type_class.ml" 16 468 472 "type_class.ml" 16 468 483
+type(
+  class_info
+)
+ident(
+  def object_info "type_class.ml" 27 713 713 "_none_" 1 0 -1
+)
+"type_class.ml" 18 491 500 "type_class.ml" 18 491 508
+type(
+  string
+)
+"type_class.ml" 19 511 522 "type_class.ml" 19 511 524
+type(
+  string
+)
+"type_class.ml" 20 527 542 "type_class.ml" 20 527 544
+type(
+  (string * (Ast.typ * string)) list
+)
+"type_class.ml" 21 547 557 "type_class.ml" 21 547 559
+type(
+  (Ast.typ * string) list list
+)
+"type_class.ml" 23 575 580 "type_class.ml" 23 575 588
+type(
+  string
+)
+"type_class.ml" 23 575 591 "type_class.ml" 23 575 599
+type(
+  Ast.typ
+)
+"type_class.ml" 23 575 612 "type_class.ml" 23 575 620
+type(
+  string
+)
+"type_class.ml" 23 575 604 "type_class.ml" 23 575 621
+type(
+  Ast.typ
+)
+"type_class.ml" 23 575 623 "type_class.ml" 23 575 626
+type(
+  string
+)
+"type_class.ml" 23 575 603 "type_class.ml" 23 575 627
+type(
+  Ast.typ * string
+)
+"type_class.ml" 23 575 601 "type_class.ml" 23 575 629
+type(
+  (Ast.typ * string) list
+)
+"type_class.ml" 23 575 631 "type_class.ml" 23 575 639
+type(
+  string
+)
+"type_class.ml" 23 575 590 "type_class.ml" 23 575 640
+type(
+  Ast.typ * (Ast.typ * string) list * string
+)
+"type_class.ml" 23 575 580 "type_class.ml" 23 575 640
+type(
+  string * (Ast.typ * (Ast.typ * string) list * string)
+)
+"type_class.ml" 23 575 578 "type_class.ml" 23 575 642
+type(
+  (string * (Ast.typ * (Ast.typ * string) list * string)) list
+)
+"type_class.ml" 17 487 488 "type_class.ml" 24 645 647
+type(
+  class_info
+)
+"type_class.ml" 27 713 717 "type_class.ml" 27 713 728
+type(
+  class_info
+)
+ident(
+  def string_info "type_class.ml" 38 933 933 "_none_" 1 0 -1
+)
+"type_class.ml" 29 736 745 "type_class.ml" 29 736 753
+type(
+  string
+)
+"type_class.ml" 30 756 767 "type_class.ml" 30 756 775
+type(
+  string
+)
+"type_class.ml" 31 778 793 "type_class.ml" 31 778 795
+type(
+  (string * (Ast.typ * string)) list
+)
+"type_class.ml" 32 798 808 "type_class.ml" 32 798 810
+type(
+  (Ast.typ * string) list list
+)
+"type_class.ml" 34 826 831 "type_class.ml" 34 826 839
+type(
+  string
+)
+"type_class.ml" 34 826 842 "type_class.ml" 34 826 850
+type(
+  Ast.typ
+)
+"type_class.ml" 34 826 863 "type_class.ml" 34 826 871
+type(
+  string
+)
+"type_class.ml" 34 826 855 "type_class.ml" 34 826 872
+type(
+  Ast.typ
+)
+"type_class.ml" 34 826 874 "type_class.ml" 34 826 877
+type(
+  string
+)
+"type_class.ml" 34 826 854 "type_class.ml" 34 826 878
+type(
+  Ast.typ * string
+)
+"type_class.ml" 34 826 852 "type_class.ml" 34 826 880
+type(
+  (Ast.typ * string) list
+)
+"type_class.ml" 34 826 882 "type_class.ml" 34 826 890
+type(
+  string
+)
+"type_class.ml" 34 826 841 "type_class.ml" 34 826 891
+type(
+  Ast.typ * (Ast.typ * string) list * string
+)
+"type_class.ml" 34 826 831 "type_class.ml" 34 826 891
+type(
+  string * (Ast.typ * (Ast.typ * string) list * string)
+)
+"type_class.ml" 34 826 829 "type_class.ml" 34 826 893
+type(
+  (string * (Ast.typ * (Ast.typ * string) list * string)) list
+)
+"type_class.ml" 28 732 733 "type_class.ml" 35 896 898
+type(
+  class_info
+)
+"type_class.ml" 38 933 937 "type_class.ml" 38 933 948
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  def class_table "type_class.ml" 46 1116 1116 "_none_" 1 0 -1
+)
+"type_class.ml" 39 952 957 "type_class.ml" 39 952 958
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  def h "type_class.ml" 41 985 986 "type_class.ml" 43 1063 1067
+)
+"type_class.ml" 39 952 961 "type_class.ml" 39 952 975
+type(
+  ?random:bool -> int -> (string, class_info) Hashtbl.t
+)
+ident(
+  ext_ref Hashtbl.create
+)
+"type_class.ml" 39 952 976 "type_class.ml" 39 952 978
+type(
+  int
+)
+"type_class.ml" 39 952 961 "type_class.ml" 39 952 978
+call(
+  stack
+)
+type(
+  (string, class_info) Hashtbl.t
+)
+"type_class.ml" 41 985 987 "type_class.ml" 41 985 998
+type(
+  (string, class_info) Hashtbl.t -> string -> class_info -> unit
+)
+ident(
+  ext_ref Hashtbl.add
+)
+"type_class.ml" 41 985 999 "type_class.ml" 41 985 1000
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  int_ref h "type_class.ml" 39 952 957 "type_class.ml" 39 952 958
+)
+"type_class.ml" 41 985 1001 "type_class.ml" 41 985 1009
+type(
+  string
+)
+"type_class.ml" 41 985 1010 "type_class.ml" 41 985 1021
+type(
+  class_info
+)
+ident(
+  int_ref object_info "type_class.ml" 16 468 472 "type_class.ml" 16 468 483
+)
+"type_class.ml" 41 985 987 "type_class.ml" 41 985 1021
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 42 1024 1026 "type_class.ml" 42 1024 1037
+type(
+  (string, class_info) Hashtbl.t -> string -> class_info -> unit
+)
+ident(
+  ext_ref Hashtbl.add
+)
+"type_class.ml" 42 1024 1038 "type_class.ml" 42 1024 1039
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  int_ref h "type_class.ml" 39 952 957 "type_class.ml" 39 952 958
+)
+"type_class.ml" 42 1024 1040 "type_class.ml" 42 1024 1048
+type(
+  string
+)
+"type_class.ml" 42 1024 1049 "type_class.ml" 42 1024 1060
+type(
+  class_info
+)
+ident(
+  int_ref string_info "type_class.ml" 27 713 717 "type_class.ml" 27 713 728
+)
+"type_class.ml" 42 1024 1026 "type_class.ml" 42 1024 1060
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 43 1063 1065 "type_class.ml" 43 1063 1066
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  int_ref h "type_class.ml" 39 952 957 "type_class.ml" 39 952 958
+)
+"type_class.ml" 42 1024 1026 "type_class.ml" 43 1063 1066
+type(
+  (string, class_info) Hashtbl.t
+)
+"type_class.ml" 41 985 986 "type_class.ml" 43 1063 1067
+type(
+  (string, class_info) Hashtbl.t
+)
+"type_class.ml" 39 952 953 "type_class.ml" 43 1063 1067
+type(
+  (string, class_info) Hashtbl.t
+)
+"type_class.ml" 46 1116 1120 "type_class.ml" 46 1116 1135
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  def tmp_class_table "type_class.ml" 54 1314 1314 "_none_" 1 0 -1
+)
+"type_class.ml" 47 1140 1145 "type_class.ml" 47 1140 1146
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  def h "type_class.ml" 49 1173 1174 "type_class.ml" 51 1251 1255
+)
+"type_class.ml" 47 1140 1149 "type_class.ml" 47 1140 1163
+type(
+  ?random:bool -> int -> (string, class_info) Hashtbl.t
+)
+ident(
+  ext_ref Hashtbl.create
+)
+"type_class.ml" 47 1140 1164 "type_class.ml" 47 1140 1166
+type(
+  int
+)
+"type_class.ml" 47 1140 1149 "type_class.ml" 47 1140 1166
+call(
+  stack
+)
+type(
+  (string, class_info) Hashtbl.t
+)
+"type_class.ml" 49 1173 1175 "type_class.ml" 49 1173 1186
+type(
+  (string, class_info) Hashtbl.t -> string -> class_info -> unit
+)
+ident(
+  ext_ref Hashtbl.add
+)
+"type_class.ml" 49 1173 1187 "type_class.ml" 49 1173 1188
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  int_ref h "type_class.ml" 47 1140 1145 "type_class.ml" 47 1140 1146
+)
+"type_class.ml" 49 1173 1189 "type_class.ml" 49 1173 1197
+type(
+  string
+)
+"type_class.ml" 49 1173 1198 "type_class.ml" 49 1173 1209
+type(
+  class_info
+)
+ident(
+  int_ref object_info "type_class.ml" 16 468 472 "type_class.ml" 16 468 483
+)
+"type_class.ml" 49 1173 1175 "type_class.ml" 49 1173 1209
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 50 1212 1214 "type_class.ml" 50 1212 1225
+type(
+  (string, class_info) Hashtbl.t -> string -> class_info -> unit
+)
+ident(
+  ext_ref Hashtbl.add
+)
+"type_class.ml" 50 1212 1226 "type_class.ml" 50 1212 1227
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  int_ref h "type_class.ml" 47 1140 1145 "type_class.ml" 47 1140 1146
+)
+"type_class.ml" 50 1212 1228 "type_class.ml" 50 1212 1236
+type(
+  string
+)
+"type_class.ml" 50 1212 1237 "type_class.ml" 50 1212 1248
+type(
+  class_info
+)
+ident(
+  int_ref string_info "type_class.ml" 27 713 717 "type_class.ml" 27 713 728
+)
+"type_class.ml" 50 1212 1214 "type_class.ml" 50 1212 1248
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 51 1251 1253 "type_class.ml" 51 1251 1254
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  int_ref h "type_class.ml" 47 1140 1145 "type_class.ml" 47 1140 1146
+)
+"type_class.ml" 50 1212 1214 "type_class.ml" 51 1251 1254
+type(
+  (string, class_info) Hashtbl.t
+)
+"type_class.ml" 49 1173 1174 "type_class.ml" 51 1251 1255
+type(
+  (string, class_info) Hashtbl.t
+)
+"type_class.ml" 47 1140 1141 "type_class.ml" 51 1251 1255
+type(
+  (string, class_info) Hashtbl.t
+)
+"type_class.ml" 54 1314 1318 "type_class.ml" 54 1314 1327
+type(
+  string -> class_info
+)
+ident(
+  def get_class "type_class.ml" 60 1513 1513 "_none_" 1 0 -1
+)
+"type_class.ml" 54 1314 1328 "type_class.ml" 54 1314 1338
+type(
+  string
+)
+ident(
+  def class_name "type_class.ml" 55 1342 1343 "type_class.ml" 57 1387 1458
+)
+"type_class.ml" 56 1348 1350 "type_class.ml" 56 1348 1362
+type(
+  (string, class_info) Hashtbl.t -> string -> class_info
+)
+ident(
+  ext_ref Hashtbl.find
+)
+"type_class.ml" 56 1348 1363 "type_class.ml" 56 1348 1374
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  int_ref class_table "type_class.ml" 38 933 937 "type_class.ml" 38 933 948
+)
+"type_class.ml" 56 1348 1375 "type_class.ml" 56 1348 1385
+type(
+  string
+)
+ident(
+  int_ref class_name "type_class.ml" 54 1314 1328 "type_class.ml" 54 1314 1338
+)
+"type_class.ml" 56 1348 1350 "type_class.ml" 56 1348 1385
+call(
+  stack
+)
+type(
+  class_info
+)
+"type_class.ml" 57 1387 1393 "type_class.ml" 57 1387 1402
+type(
+  exn
+)
+"type_class.ml" 57 1387 1406 "type_class.ml" 57 1387 1414
+type(
+  string -> class_info
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"type_class.ml" 57 1387 1415 "type_class.ml" 57 1387 1458
+type(
+  string
+)
+"type_class.ml" 57 1387 1406 "type_class.ml" 57 1387 1458
+call(
+  tail
+)
+type(
+  class_info
+)
+"type_class.ml" 55 1342 1343 "type_class.ml" 57 1387 1458
+type(
+  class_info
+)
+"type_class.ml" 60 1513 1517 "type_class.ml" 60 1513 1527
+type(
+  class_info -> string -> Ast.typ * (Ast.typ * string) list * string
+)
+ident(
+  def get_method "type_class.ml" 65 1681 1681 "_none_" 1 0 -1
+)
+"type_class.ml" 60 1513 1528 "type_class.ml" 60 1513 1538
+type(
+  class_info
+)
+ident(
+  def class_info "type_class.ml" 60 1513 1539 "type_class.ml" 63 1605 1677
+)
+"type_class.ml" 60 1513 1539 "type_class.ml" 60 1513 1550
+type(
+  string
+)
+ident(
+  def method_name "type_class.ml" 61 1554 1555 "type_class.ml" 63 1605 1677
+)
+"type_class.ml" 62 1560 1562 "type_class.ml" 62 1560 1572
+type(
+  string ->
+  (string * (Ast.typ * (Ast.typ * string) list * string)) list ->
+  Ast.typ * (Ast.typ * string) list * string
+)
+ident(
+  ext_ref List.assoc
+)
+"type_class.ml" 62 1560 1573 "type_class.ml" 62 1560 1584
+type(
+  string
+)
+ident(
+  int_ref method_name "type_class.ml" 60 1513 1539 "type_class.ml" 60 1513 1550
+)
+"type_class.ml" 62 1560 1585 "type_class.ml" 62 1560 1595
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 60 1513 1528 "type_class.ml" 60 1513 1538
+)
+"type_class.ml" 62 1560 1585 "type_class.ml" 62 1560 1603
+type(
+  (string * (Ast.typ * (Ast.typ * string) list * string)) list
+)
+"type_class.ml" 62 1560 1562 "type_class.ml" 62 1560 1603
+call(
+  stack
+)
+type(
+  Ast.typ * (Ast.typ * string) list * string
+)
+"type_class.ml" 63 1605 1611 "type_class.ml" 63 1605 1620
+type(
+  exn
+)
+"type_class.ml" 63 1605 1624 "type_class.ml" 63 1605 1632
+type(
+  string -> Ast.typ * (Ast.typ * string) list * string
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"type_class.ml" 63 1605 1633 "type_class.ml" 63 1605 1677
+type(
+  string
+)
+"type_class.ml" 63 1605 1624 "type_class.ml" 63 1605 1677
+call(
+  tail
+)
+type(
+  Ast.typ * (Ast.typ * string) list * string
+)
+"type_class.ml" 61 1554 1555 "type_class.ml" 63 1605 1677
+type(
+  Ast.typ * (Ast.typ * string) list * string
+)
+"type_class.ml" 65 1681 1685 "type_class.ml" 65 1681 1695
+type(
+  Lexing.position * Lexing.position
+)
+ident(
+  def dummy_pos2 "type_class.ml" 67 1738 1738 "_none_" 1 0 -1
+)
+"type_class.ml" 65 1681 1699 "type_class.ml" 65 1681 1715
+type(
+  Lexing.position
+)
+ident(
+  ext_ref Lexing.dummy_pos
+)
+"type_class.ml" 65 1681 1717 "type_class.ml" 65 1681 1733
+type(
+  Lexing.position
+)
+ident(
+  ext_ref Lexing.dummy_pos
+)
+"type_class.ml" 65 1681 1698 "type_class.ml" 65 1681 1734
+type(
+  Lexing.position * Lexing.position
+)
+"type_class.ml" 67 1738 1742 "type_class.ml" 67 1738 1752
+type(
+  (Lexing.position * Lexing.position, string) Ast.node *
+  (Lexing.position * Lexing.position, string) Ast.node * 'a list
+)
+ident(
+  def object_ast "type_class.ml" 73 2002 2002 "_none_" 1 0 -1
+)
+"type_class.ml" 68 1756 1767 "type_class.ml" 68 1756 1775
+type(
+  string
+)
+"type_class.ml" 68 1756 1784 "type_class.ml" 68 1756 1794
+type(
+  Lexing.position * Lexing.position
+)
+ident(
+  int_ref dummy_pos2 "type_class.ml" 65 1681 1685 "type_class.ml" 65 1681 1695
+)
+"type_class.ml" 68 1756 1758 "type_class.ml" 68 1756 1797
+type(
+  (Lexing.position * Lexing.position, string) Ast.node
+)
+"type_class.ml" 69 1800 1811 "type_class.ml" 69 1800 1813
+type(
+  string
+)
+"type_class.ml" 69 1800 1822 "type_class.ml" 69 1800 1832
+type(
+  Lexing.position * Lexing.position
+)
+ident(
+  int_ref dummy_pos2 "type_class.ml" 65 1681 1685 "type_class.ml" 65 1681 1695
+)
+"type_class.ml" 69 1800 1802 "type_class.ml" 69 1800 1835
+type(
+  (Lexing.position * Lexing.position, string) Ast.node
+)
+"type_class.ml" 69 1800 1837 "type_class.ml" 69 1800 1839
+type(
+  'a list
+)
+"type_class.ml" 68 1756 1757 "type_class.ml" 69 1800 1840
+type(
+  (Lexing.position * Lexing.position, string) Ast.node *
+  (Lexing.position * Lexing.position, string) Ast.node * 'a list
+)
+"type_class.ml" 73 2002 2006 "type_class.ml" 73 2002 2018
+type(
+  string -> string -> Ast.typ * string
+)
+ident(
+  def select_field "type_class.ml" 81 2286 2286 "_none_" 1 0 -1
+)
+"type_class.ml" 73 2002 2019 "type_class.ml" 73 2002 2029
+type(
+  string
+)
+ident(
+  def class_name "type_class.ml" 73 2002 2030 "type_class.ml" 78 2147 2221
+)
+"type_class.ml" 73 2002 2030 "type_class.ml" 73 2002 2044
+type(
+  string
+)
+ident(
+  def attribute_name "type_class.ml" 74 2048 2049 "type_class.ml" 78 2147 2221
+)
+"type_class.ml" 74 2048 2053 "type_class.ml" 74 2048 2059
+type(
+  class_info
+)
+ident(
+  def class_ "type_class.ml" 75 2087 2088 "type_class.ml" 78 2147 2221
+)
+"type_class.ml" 74 2048 2062 "type_class.ml" 74 2048 2071
+type(
+  string -> class_info
+)
+ident(
+  int_ref get_class "type_class.ml" 54 1314 1318 "type_class.ml" 54 1314 1327
+)
+"type_class.ml" 74 2048 2072 "type_class.ml" 74 2048 2082
+type(
+  string
+)
+ident(
+  int_ref class_name "type_class.ml" 73 2002 2019 "type_class.ml" 73 2002 2029
+)
+"type_class.ml" 74 2048 2062 "type_class.ml" 74 2048 2082
+call(
+  stack
+)
+type(
+  class_info
+)
+"type_class.ml" 76 2093 2095 "type_class.ml" 76 2093 2105
+type(
+  string -> (string * (Ast.typ * string)) list -> Ast.typ * string
+)
+ident(
+  ext_ref List.assoc
+)
+"type_class.ml" 76 2093 2106 "type_class.ml" 76 2093 2120
+type(
+  string
+)
+ident(
+  int_ref attribute_name "type_class.ml" 73 2002 2030 "type_class.ml" 73 2002 2044
+)
+"type_class.ml" 76 2093 2121 "type_class.ml" 76 2093 2127
+type(
+  class_info
+)
+ident(
+  int_ref class_ "type_class.ml" 74 2048 2053 "type_class.ml" 74 2048 2059
+)
+"type_class.ml" 76 2093 2121 "type_class.ml" 76 2093 2138
+type(
+  (string * (Ast.typ * string)) list
+)
+"type_class.ml" 76 2093 2095 "type_class.ml" 76 2093 2138
+call(
+  stack
+)
+type(
+  Ast.typ * string
+)
+"type_class.ml" 78 2147 2150 "type_class.ml" 78 2147 2159
+type(
+  exn
+)
+"type_class.ml" 78 2147 2163 "type_class.ml" 78 2147 2171
+type(
+  string -> Ast.typ * string
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"type_class.ml" 78 2147 2173 "type_class.ml" 78 2147 2186
+type(
+  string
+)
+"type_class.ml" 78 2147 2187 "type_class.ml" 78 2147 2188
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 78 2147 2189 "type_class.ml" 78 2147 2203
+type(
+  string
+)
+ident(
+  int_ref attribute_name "type_class.ml" 73 2002 2030 "type_class.ml" 73 2002 2044
+)
+"type_class.ml" 78 2147 2204 "type_class.ml" 78 2147 2205
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 78 2147 2206 "type_class.ml" 78 2147 2220
+type(
+  string
+)
+"type_class.ml" 78 2147 2189 "type_class.ml" 78 2147 2220
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 78 2147 2172 "type_class.ml" 78 2147 2221
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 78 2147 2163 "type_class.ml" 78 2147 2221
+call(
+  tail
+)
+type(
+  Ast.typ * string
+)
+"type_class.ml" 75 2087 2088 "type_class.ml" 78 2147 2221
+type(
+  Ast.typ * string
+)
+"type_class.ml" 74 2048 2049 "type_class.ml" 78 2147 2221
+type(
+  Ast.typ * string
+)
+"type_class.ml" 81 2286 2290 "type_class.ml" 81 2286 2306
+type(
+  Ast.position Ast.klass list -> Ast.position Ast.klass list
+)
+ident(
+  def topological_sort "type_class.ml" 121 3414 3414 "_none_" 1 0 -1
+)
+"type_class.ml" 81 2286 2308 "type_class.ml" 81 2286 2313
+type(
+  Ast.position Ast.klass list
+)
+ident(
+  def clist "type_class.ml" 82 2342 2343 "type_class.ml" 117 3228 3252
+)
+"type_class.ml" 82 2342 2347 "type_class.ml" 82 2342 2348
+type(
+  Ast.position Ast.klass list ref
+)
+ident(
+  def l "type_class.ml" 83 2362 2363 "type_class.ml" 117 3228 3252
+)
+"type_class.ml" 82 2342 2351 "type_class.ml" 82 2342 2354
+type(
+  Ast.position Ast.klass list -> Ast.position Ast.klass list ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"type_class.ml" 82 2342 2355 "type_class.ml" 82 2342 2357
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 82 2342 2351 "type_class.ml" 82 2342 2357
+type(
+  Ast.position Ast.klass list ref
+)
+"type_class.ml" 83 2362 2367 "type_class.ml" 83 2362 2368
+type(
+  Ast.position Ast.klass list ref
+)
+ident(
+  def s "type_class.ml" 84 2394 2395 "type_class.ml" 117 3228 3252
+)
+"type_class.ml" 83 2362 2371 "type_class.ml" 83 2362 2374
+type(
+  Ast.position Ast.klass list -> Ast.position Ast.klass list ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"type_class.ml" 83 2362 2377 "type_class.ml" 83 2362 2387
+type(
+  Ast.position Ast.klass
+)
+ident(
+  int_ref object_ast "type_class.ml" 67 1738 1742 "type_class.ml" 67 1738 1752
+)
+"type_class.ml" 83 2362 2375 "type_class.ml" 83 2362 2389
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 83 2362 2371 "type_class.ml" 83 2362 2389
+type(
+  Ast.position Ast.klass list ref
+)
+"type_class.ml" 84 2394 2399 "type_class.ml" 84 2394 2404
+type(
+  Ast.position Ast.klass list ref
+)
+ident(
+  def graph "type_class.ml" 86 2423 2424 "type_class.ml" 117 3228 3252
+)
+"type_class.ml" 84 2394 2407 "type_class.ml" 84 2394 2410
+type(
+  Ast.position Ast.klass list -> Ast.position Ast.klass list ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"type_class.ml" 84 2394 2411 "type_class.ml" 84 2394 2416
+type(
+  Ast.position Ast.klass list
+)
+ident(
+  int_ref clist "type_class.ml" 81 2286 2308 "type_class.ml" 81 2286 2313
+)
+"type_class.ml" 84 2394 2407 "type_class.ml" 84 2394 2416
+type(
+  Ast.position Ast.klass list ref
+)
+"type_class.ml" 86 2423 2431 "type_class.ml" 86 2423 2432
+type(
+  Ast.position Ast.klass list ref -> Ast.position Ast.klass list
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"type_class.ml" 86 2423 2432 "type_class.ml" 86 2423 2433
+type(
+  Ast.position Ast.klass list ref
+)
+ident(
+  int_ref s "type_class.ml" 83 2362 2367 "type_class.ml" 83 2362 2368
+)
+"type_class.ml" 86 2423 2431 "type_class.ml" 86 2423 2433
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 86 2423 2434 "type_class.ml" 86 2423 2436
+type(
+  Ast.position Ast.klass list -> Ast.position Ast.klass list -> bool
+)
+ident(
+  ext_ref Pervasives.( <> )
+)
+"type_class.ml" 86 2423 2437 "type_class.ml" 86 2423 2439
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 86 2423 2431 "type_class.ml" 86 2423 2439
+type(
+  bool
+)
+"type_class.ml" 87 2444 2452 "type_class.ml" 87 2444 2453
+type(
+  Ast.position Ast.klass
+)
+ident(
+  def n "type_class.ml" 88 2471 2475 "type_class.ml" 108 3005 3021
+)
+"type_class.ml" 87 2444 2456 "type_class.ml" 87 2444 2463
+type(
+  Ast.position Ast.klass list -> Ast.position Ast.klass
+)
+ident(
+  ext_ref List.hd
+)
+"type_class.ml" 87 2444 2464 "type_class.ml" 87 2444 2465
+type(
+  Ast.position Ast.klass list ref -> Ast.position Ast.klass list
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"type_class.ml" 87 2444 2465 "type_class.ml" 87 2444 2466
+type(
+  Ast.position Ast.klass list ref
+)
+ident(
+  int_ref s "type_class.ml" 83 2362 2367 "type_class.ml" 83 2362 2368
+)
+"type_class.ml" 87 2444 2464 "type_class.ml" 87 2444 2466
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 87 2444 2456 "type_class.ml" 87 2444 2466
+call(
+  stack
+)
+type(
+  Ast.position Ast.klass
+)
+"type_class.ml" 88 2471 2480 "type_class.ml" 88 2471 2485
+type(
+  Ast.position Ast.ident
+)
+ident(
+  def cname "type_class.ml" 90 2506 2510 "type_class.ml" 108 3005 3021
+)
+"type_class.ml" 88 2471 2487 "type_class.ml" 88 2471 2488
+type(
+  Ast.position Ast.ident
+)
+"type_class.ml" 88 2471 2490 "type_class.ml" 88 2471 2491
+type(
+  Ast.position Ast.class_decl list
+)
+"type_class.ml" 88 2471 2479 "type_class.ml" 88 2471 2492
+type(
+  Ast.position Ast.klass
+)
+"type_class.ml" 88 2471 2495 "type_class.ml" 88 2471 2496
+type(
+  Ast.position Ast.klass
+)
+ident(
+  int_ref n "type_class.ml" 87 2444 2452 "type_class.ml" 87 2444 2453
+)
+"type_class.ml" 90 2506 2511 "type_class.ml" 90 2506 2512
+type(
+  Ast.position Ast.klass list ref
+)
+ident(
+  int_ref s "type_class.ml" 83 2362 2367 "type_class.ml" 83 2362 2368
+)
+"type_class.ml" 90 2506 2513 "type_class.ml" 90 2506 2515
+type(
+  Ast.position Ast.klass list ref -> Ast.position Ast.klass list -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"type_class.ml" 90 2506 2516 "type_class.ml" 90 2506 2523
+type(
+  Ast.position Ast.klass list -> Ast.position Ast.klass list
+)
+ident(
+  ext_ref List.tl
+)
+"type_class.ml" 90 2506 2524 "type_class.ml" 90 2506 2525
+type(
+  Ast.position Ast.klass list ref -> Ast.position Ast.klass list
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"type_class.ml" 90 2506 2525 "type_class.ml" 90 2506 2526
+type(
+  Ast.position Ast.klass list ref
+)
+ident(
+  int_ref s "type_class.ml" 83 2362 2367 "type_class.ml" 83 2362 2368
+)
+"type_class.ml" 90 2506 2524 "type_class.ml" 90 2506 2526
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 90 2506 2516 "type_class.ml" 90 2506 2526
+call(
+  stack
+)
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 90 2506 2511 "type_class.ml" 90 2506 2526
+type(
+  unit
+)
+"type_class.ml" 91 2529 2534 "type_class.ml" 91 2529 2535
+type(
+  Ast.position Ast.klass list ref
+)
+ident(
+  int_ref l "type_class.ml" 82 2342 2347 "type_class.ml" 82 2342 2348
+)
+"type_class.ml" 91 2529 2536 "type_class.ml" 91 2529 2538
+type(
+  Ast.position Ast.klass list ref -> Ast.position Ast.klass list -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"type_class.ml" 91 2529 2539 "type_class.ml" 91 2529 2540
+type(
+  Ast.position Ast.klass
+)
+ident(
+  int_ref n "type_class.ml" 87 2444 2452 "type_class.ml" 87 2444 2453
+)
+"type_class.ml" 91 2529 2544 "type_class.ml" 91 2529 2545
+type(
+  Ast.position Ast.klass list ref -> Ast.position Ast.klass list
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"type_class.ml" 91 2529 2545 "type_class.ml" 91 2529 2546
+type(
+  Ast.position Ast.klass list ref
+)
+ident(
+  int_ref l "type_class.ml" 82 2342 2347 "type_class.ml" 82 2342 2348
+)
+"type_class.ml" 91 2529 2544 "type_class.ml" 91 2529 2546
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 91 2529 2539 "type_class.ml" 91 2529 2546
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 91 2529 2534 "type_class.ml" 91 2529 2546
+type(
+  unit
+)
+"type_class.ml" 92 2549 2554 "type_class.ml" 92 2549 2559
+type(
+  Ast.position Ast.klass list ref
+)
+ident(
+  int_ref graph "type_class.ml" 84 2394 2399 "type_class.ml" 84 2394 2404
+)
+"type_class.ml" 92 2549 2560 "type_class.ml" 92 2549 2562
+type(
+  Ast.position Ast.klass list ref -> Ast.position Ast.klass list -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"type_class.ml" 93 2564 2569 "type_class.ml" 93 2564 2583
+type(
+  (Ast.position Ast.klass list ->
+   Ast.position Ast.klass -> Ast.position Ast.klass list) ->
+  Ast.position Ast.klass list ->
+  Ast.position Ast.klass list -> Ast.position Ast.klass list
+)
+ident(
+  ext_ref List.fold_left
+)
+"type_class.ml" 94 2585 2596 "type_class.ml" 94 2585 2602
+type(
+  Ast.position Ast.klass list
+)
+ident(
+  def agraph "type_class.ml" 94 2585 2603 "type_class.ml" 107 2977 3002
+)
+"type_class.ml" 94 2585 2603 "type_class.ml" 94 2585 2604
+type(
+  Ast.position Ast.klass
+)
+ident(
+  def m "type_class.ml" 95 2609 2618 "type_class.ml" 107 2977 3002
+)
+"type_class.ml" 95 2609 2623 "type_class.ml" 95 2609 2628
+type(
+  Ast.position Ast.ident
+)
+ident(
+  def mname "type_class.ml" 96 2644 2653 "type_class.ml" 107 2977 3002
+)
+"type_class.ml" 95 2609 2630 "type_class.ml" 95 2609 2631
+type(
+  Ast.position Ast.ident
+)
+"type_class.ml" 95 2609 2633 "type_class.ml" 95 2609 2634
+type(
+  Ast.position Ast.class_decl list
+)
+"type_class.ml" 95 2609 2622 "type_class.ml" 95 2609 2635
+type(
+  Ast.position Ast.klass
+)
+"type_class.ml" 95 2609 2638 "type_class.ml" 95 2609 2639
+type(
+  Ast.position Ast.klass
+)
+ident(
+  int_ref m "type_class.ml" 94 2585 2603 "type_class.ml" 94 2585 2604
+)
+"type_class.ml" 96 2644 2657 "type_class.ml" 96 2644 2662
+type(
+  class_info
+)
+ident(
+  def minfo "type_class.ml" 105 2900 2909 "type_class.ml" 107 2977 3002
+)
+"type_class.ml" 97 2666 2680 "type_class.ml" 97 2666 2692
+type(
+  (string, class_info) Hashtbl.t -> string -> class_info
+)
+ident(
+  ext_ref Hashtbl.find
+)
+"type_class.ml" 97 2666 2693 "type_class.ml" 97 2666 2704
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  int_ref class_table "type_class.ml" 38 933 937 "type_class.ml" 38 933 948
+)
+"type_class.ml" 97 2666 2705 "type_class.ml" 97 2666 2710
+type(
+  Ast.position Ast.ident
+)
+ident(
+  int_ref mname "type_class.ml" 95 2609 2623 "type_class.ml" 95 2609 2628
+)
+"type_class.ml" 97 2666 2705 "type_class.ml" 97 2666 2715
+type(
+  string
+)
+"type_class.ml" 97 2666 2680 "type_class.ml" 97 2666 2715
+call(
+  stack
+)
+type(
+  class_info
+)
+"type_class.ml" 99 2733 2745 "type_class.ml" 99 2733 2754
+type(
+  exn
+)
+"type_class.ml" 100 2759 2771 "type_class.ml" 100 2759 2776
+type(
+  string -> Ast.position -> class_info
+)
+ident(
+  int_ref error "type_class.ml" 5 58 62 "type_class.ml" 5 58 67
+)
+"type_class.ml" 101 2778 2792 "type_class.ml" 101 2778 2804
+type(
+  string
+)
+"type_class.ml" 101 2778 2805 "type_class.ml" 101 2778 2806
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 102 2808 2823 "type_class.ml" 102 2808 2828
+type(
+  Ast.position Ast.ident
+)
+ident(
+  int_ref mname "type_class.ml" 95 2609 2623 "type_class.ml" 95 2609 2628
+)
+"type_class.ml" 102 2808 2823 "type_class.ml" 102 2808 2833
+type(
+  string
+)
+"type_class.ml" 102 2808 2834 "type_class.ml" 102 2808 2835
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 102 2808 2836 "type_class.ml" 102 2808 2858
+type(
+  string
+)
+"type_class.ml" 102 2808 2822 "type_class.ml" 102 2808 2859
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 101 2778 2791 "type_class.ml" 102 2808 2860
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 103 2862 2875 "type_class.ml" 103 2862 2880
+type(
+  Ast.position Ast.ident
+)
+ident(
+  int_ref mname "type_class.ml" 95 2609 2623 "type_class.ml" 95 2609 2628
+)
+"type_class.ml" 103 2862 2875 "type_class.ml" 103 2862 2885
+type(
+  Ast.position
+)
+"type_class.ml" 100 2759 2771 "type_class.ml" 103 2862 2885
+call(
+  stack
+)
+type(
+  class_info
+)
+"type_class.ml" 97 2666 2676 "type_class.ml" 103 2862 2885
+type(
+  class_info
+)
+"type_class.ml" 105 2900 2912 "type_class.ml" 105 2900 2917
+type(
+  class_info
+)
+ident(
+  int_ref minfo "type_class.ml" 96 2644 2657 "type_class.ml" 96 2644 2662
+)
+"type_class.ml" 105 2900 2912 "type_class.ml" 105 2900 2924
+type(
+  string
+)
+"type_class.ml" 105 2900 2925 "type_class.ml" 105 2900 2926
+type(
+  string -> string -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"type_class.ml" 105 2900 2927 "type_class.ml" 105 2900 2932
+type(
+  Ast.position Ast.ident
+)
+ident(
+  int_ref cname "type_class.ml" 88 2471 2480 "type_class.ml" 88 2471 2485
+)
+"type_class.ml" 105 2900 2927 "type_class.ml" 105 2900 2937
+type(
+  string
+)
+"type_class.ml" 105 2900 2912 "type_class.ml" 105 2900 2937
+type(
+  bool
+)
+"type_class.ml" 106 2939 2954 "type_class.ml" 106 2939 2955
+type(
+  Ast.position Ast.klass list ref
+)
+ident(
+  int_ref s "type_class.ml" 83 2362 2367 "type_class.ml" 83 2362 2368
+)
+"type_class.ml" 106 2939 2956 "type_class.ml" 106 2939 2958
+type(
+  Ast.position Ast.klass list ref -> Ast.position Ast.klass list -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"type_class.ml" 106 2939 2959 "type_class.ml" 106 2939 2960
+type(
+  Ast.position Ast.klass
+)
+ident(
+  int_ref m "type_class.ml" 94 2585 2603 "type_class.ml" 94 2585 2604
+)
+"type_class.ml" 106 2939 2964 "type_class.ml" 106 2939 2965
+type(
+  Ast.position Ast.klass list ref -> Ast.position Ast.klass list
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"type_class.ml" 106 2939 2965 "type_class.ml" 106 2939 2966
+type(
+  Ast.position Ast.klass list ref
+)
+ident(
+  int_ref s "type_class.ml" 83 2362 2367 "type_class.ml" 83 2362 2368
+)
+"type_class.ml" 106 2939 2964 "type_class.ml" 106 2939 2966
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 106 2939 2959 "type_class.ml" 106 2939 2966
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 106 2939 2954 "type_class.ml" 106 2939 2966
+type(
+  unit
+)
+"type_class.ml" 106 2939 2968 "type_class.ml" 106 2939 2974
+type(
+  Ast.position Ast.klass list
+)
+ident(
+  int_ref agraph "type_class.ml" 94 2585 2596 "type_class.ml" 94 2585 2602
+)
+"type_class.ml" 106 2939 2953 "type_class.ml" 106 2939 2975
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 107 2977 2991 "type_class.ml" 107 2977 2992
+type(
+  Ast.position Ast.klass
+)
+ident(
+  int_ref m "type_class.ml" 94 2585 2603 "type_class.ml" 94 2585 2604
+)
+"type_class.ml" 107 2977 2996 "type_class.ml" 107 2977 3002
+type(
+  Ast.position Ast.klass list
+)
+ident(
+  int_ref agraph "type_class.ml" 94 2585 2596 "type_class.ml" 94 2585 2602
+)
+"type_class.ml" 107 2977 2991 "type_class.ml" 107 2977 3002
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 105 2900 2909 "type_class.ml" 107 2977 3002
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 96 2644 2653 "type_class.ml" 107 2977 3002
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 95 2609 2618 "type_class.ml" 107 2977 3002
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 94 2585 2591 "type_class.ml" 107 2977 3003
+type(
+  Ast.position Ast.klass list ->
+  Ast.position Ast.klass -> Ast.position Ast.klass list
+)
+"type_class.ml" 108 3005 3011 "type_class.ml" 108 3005 3013
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 108 3005 3014 "type_class.ml" 108 3005 3015
+type(
+  Ast.position Ast.klass list ref -> Ast.position Ast.klass list
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"type_class.ml" 108 3005 3015 "type_class.ml" 108 3005 3020
+type(
+  Ast.position Ast.klass list ref
+)
+ident(
+  int_ref graph "type_class.ml" 84 2394 2399 "type_class.ml" 84 2394 2404
+)
+"type_class.ml" 108 3005 3014 "type_class.ml" 108 3005 3020
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 93 2564 2569 "type_class.ml" 108 3005 3020
+call(
+  stack
+)
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 92 2549 2554 "type_class.ml" 108 3005 3020
+type(
+  unit
+)
+"type_class.ml" 91 2529 2534 "type_class.ml" 108 3005 3020
+type(
+  unit
+)
+"type_class.ml" 90 2506 2510 "type_class.ml" 108 3005 3021
+type(
+  unit
+)
+"type_class.ml" 88 2471 2475 "type_class.ml" 108 3005 3021
+type(
+  unit
+)
+"type_class.ml" 87 2444 2447 "type_class.ml" 108 3005 3022
+type(
+  unit
+)
+"type_class.ml" 86 2423 2425 "type_class.ml" 109 3024 3030
+type(
+  unit
+)
+"type_class.ml" 110 3033 3038 "type_class.ml" 110 3033 3039
+type(
+  Ast.position Ast.klass list ref -> Ast.position Ast.klass list
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"type_class.ml" 110 3033 3039 "type_class.ml" 110 3033 3044
+type(
+  Ast.position Ast.klass list ref
+)
+ident(
+  int_ref graph "type_class.ml" 84 2394 2399 "type_class.ml" 84 2394 2404
+)
+"type_class.ml" 110 3033 3038 "type_class.ml" 110 3033 3044
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 110 3033 3045 "type_class.ml" 110 3033 3047
+type(
+  Ast.position Ast.klass list -> Ast.position Ast.klass list -> bool
+)
+ident(
+  ext_ref Pervasives.( <> )
+)
+"type_class.ml" 110 3033 3048 "type_class.ml" 110 3033 3050
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 110 3033 3038 "type_class.ml" 110 3033 3050
+type(
+  bool
+)
+"type_class.ml" 112 3060 3069 "type_class.ml" 112 3060 3075
+type(
+  Ast.position Ast.ident
+)
+ident(
+  def class_ "type_class.ml" 114 3120 3124 "type_class.ml" 115 3191 3213
+)
+"type_class.ml" 112 3060 3077 "type_class.ml" 112 3060 3089
+type(
+  Ast.position Ast.ident
+)
+ident(
+  def class_parent "type_class.ml" 114 3120 3124 "type_class.ml" 115 3191 3213
+)
+"type_class.ml" 112 3060 3091 "type_class.ml" 112 3060 3092
+type(
+  Ast.position Ast.class_decl list
+)
+"type_class.ml" 112 3060 3068 "type_class.ml" 112 3060 3093
+type(
+  Ast.position Ast.klass
+)
+"type_class.ml" 112 3060 3096 "type_class.ml" 112 3060 3103
+type(
+  Ast.position Ast.klass list -> Ast.position Ast.klass
+)
+ident(
+  ext_ref List.hd
+)
+"type_class.ml" 112 3060 3104 "type_class.ml" 112 3060 3105
+type(
+  Ast.position Ast.klass list ref -> Ast.position Ast.klass list
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"type_class.ml" 112 3060 3105 "type_class.ml" 112 3060 3110
+type(
+  Ast.position Ast.klass list ref
+)
+ident(
+  int_ref graph "type_class.ml" 84 2394 2399 "type_class.ml" 84 2394 2404
+)
+"type_class.ml" 112 3060 3104 "type_class.ml" 112 3060 3110
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 112 3060 3096 "type_class.ml" 112 3060 3110
+call(
+  stack
+)
+type(
+  Ast.position Ast.klass
+)
+"type_class.ml" 114 3120 3124 "type_class.ml" 114 3120 3129
+type(
+  string -> Ast.position -> unit
+)
+ident(
+  int_ref error "type_class.ml" 5 58 62 "type_class.ml" 5 58 67
+)
+"type_class.ml" 114 3120 3131 "type_class.ml" 114 3120 3168
+type(
+  string
+)
+"type_class.ml" 114 3120 3169 "type_class.ml" 114 3120 3170
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 114 3120 3171 "type_class.ml" 114 3120 3183
+type(
+  Ast.position Ast.ident
+)
+ident(
+  int_ref class_parent "type_class.ml" 112 3060 3077 "type_class.ml" 112 3060 3089
+)
+"type_class.ml" 114 3120 3171 "type_class.ml" 114 3120 3188
+type(
+  string
+)
+"type_class.ml" 114 3120 3130 "type_class.ml" 114 3120 3189
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 115 3191 3196 "type_class.ml" 115 3191 3208
+type(
+  Ast.position Ast.ident
+)
+ident(
+  int_ref class_parent "type_class.ml" 112 3060 3077 "type_class.ml" 112 3060 3089
+)
+"type_class.ml" 115 3191 3196 "type_class.ml" 115 3191 3213
+type(
+  Ast.position
+)
+"type_class.ml" 114 3120 3124 "type_class.ml" 115 3191 3213
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 112 3060 3063 "type_class.ml" 115 3191 3214
+type(
+  unit
+)
+"type_class.ml" 116 3216 3223 "type_class.ml" 116 3216 3225
+type(
+  unit
+)
+"type_class.ml" 110 3033 3035 "type_class.ml" 116 3216 3225
+type(
+  unit
+)
+"type_class.ml" 117 3228 3230 "type_class.ml" 117 3228 3237
+type(
+  Ast.position Ast.klass list -> Ast.position Ast.klass list
+)
+ident(
+  ext_ref List.tl
+)
+"type_class.ml" 117 3228 3239 "type_class.ml" 117 3228 3247
+type(
+  Ast.position Ast.klass list -> Ast.position Ast.klass list
+)
+ident(
+  ext_ref List.rev
+)
+"type_class.ml" 117 3228 3248 "type_class.ml" 117 3228 3249
+type(
+  Ast.position Ast.klass list ref -> Ast.position Ast.klass list
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"type_class.ml" 117 3228 3249 "type_class.ml" 117 3228 3250
+type(
+  Ast.position Ast.klass list ref
+)
+ident(
+  int_ref l "type_class.ml" 82 2342 2347 "type_class.ml" 82 2342 2348
+)
+"type_class.ml" 117 3228 3248 "type_class.ml" 117 3228 3250
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 117 3228 3238 "type_class.ml" 117 3228 3251
+call(
+  stack
+)
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 117 3228 3230 "type_class.ml" 117 3228 3251
+call(
+  tail
+)
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 110 3033 3035 "type_class.ml" 117 3228 3251
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 86 2423 2424 "type_class.ml" 117 3228 3252
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 84 2394 2395 "type_class.ml" 117 3228 3252
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 83 2362 2363 "type_class.ml" 117 3228 3252
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 82 2342 2343 "type_class.ml" 117 3228 3252
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 121 3414 3418 "type_class.ml" 121 3414 3435
+type(
+  class_info -> class_info -> class_info
+)
+ident(
+  def copy_parent_decls "type_class.ml" 131 3707 3707 "_none_" 1 0 -1
+)
+"type_class.ml" 121 3414 3436 "type_class.ml" 121 3414 3442
+type(
+  class_info
+)
+ident(
+  def class_ "type_class.ml" 121 3414 3443 "type_class.ml" 128 3642 3652
+)
+"type_class.ml" 121 3414 3443 "type_class.ml" 121 3414 3455
+type(
+  class_info
+)
+ident(
+  def class_parent "type_class.ml" 122 3459 3460 "type_class.ml" 128 3642 3652
+)
+"type_class.ml" 122 3459 3463 "type_class.ml" 122 3459 3475
+type(
+  class_info
+)
+ident(
+  int_ref class_parent "type_class.ml" 121 3414 3443 "type_class.ml" 121 3414 3455
+)
+"type_class.ml" 122 3459 3463 "type_class.ml" 122 3459 3480
+type(
+  string
+)
+"type_class.ml" 122 3459 3481 "type_class.ml" 122 3459 3482
+type(
+  string -> string -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"type_class.ml" 122 3459 3483 "type_class.ml" 122 3459 3485
+type(
+  string
+)
+"type_class.ml" 122 3459 3463 "type_class.ml" 122 3459 3485
+type(
+  bool
+)
+"type_class.ml" 123 3487 3493 "type_class.ml" 123 3487 3499
+type(
+  class_info
+)
+ident(
+  int_ref class_ "type_class.ml" 121 3414 3436 "type_class.ml" 121 3414 3442
+)
+"type_class.ml" 125 3508 3511 "type_class.ml" 125 3508 3517
+type(
+  class_info
+)
+ident(
+  int_ref class_ "type_class.ml" 121 3414 3436 "type_class.ml" 121 3414 3442
+)
+"type_class.ml" 125 3508 3532 "type_class.ml" 125 3508 3544
+type(
+  class_info
+)
+ident(
+  int_ref class_parent "type_class.ml" 121 3414 3443 "type_class.ml" 121 3414 3455
+)
+"type_class.ml" 125 3508 3532 "type_class.ml" 125 3508 3555
+type(
+  (string * (Ast.typ * string)) list
+)
+"type_class.ml" 125 3508 3511 "type_class.ml" 125 3508 3555
+type(
+  unit
+)
+"type_class.ml" 126 3558 3561 "type_class.ml" 126 3558 3567
+type(
+  class_info
+)
+ident(
+  int_ref class_ "type_class.ml" 121 3414 3436 "type_class.ml" 121 3414 3442
+)
+"type_class.ml" 126 3558 3577 "type_class.ml" 126 3558 3589
+type(
+  class_info
+)
+ident(
+  int_ref class_parent "type_class.ml" 121 3414 3443 "type_class.ml" 121 3414 3455
+)
+"type_class.ml" 126 3558 3577 "type_class.ml" 126 3558 3595
+type(
+  (Ast.typ * string) list list
+)
+"type_class.ml" 126 3558 3561 "type_class.ml" 126 3558 3595
+type(
+  unit
+)
+"type_class.ml" 127 3598 3601 "type_class.ml" 127 3598 3607
+type(
+  class_info
+)
+ident(
+  int_ref class_ "type_class.ml" 121 3414 3436 "type_class.ml" 121 3414 3442
+)
+"type_class.ml" 127 3598 3619 "type_class.ml" 127 3598 3631
+type(
+  class_info
+)
+ident(
+  int_ref class_parent "type_class.ml" 121 3414 3443 "type_class.ml" 121 3414 3455
+)
+"type_class.ml" 127 3598 3619 "type_class.ml" 127 3598 3639
+type(
+  (string * (Ast.typ * (Ast.typ * string) list * string)) list
+)
+"type_class.ml" 127 3598 3601 "type_class.ml" 127 3598 3639
+type(
+  unit
+)
+"type_class.ml" 128 3642 3645 "type_class.ml" 128 3642 3651
+type(
+  class_info
+)
+ident(
+  int_ref class_ "type_class.ml" 121 3414 3436 "type_class.ml" 121 3414 3442
+)
+"type_class.ml" 127 3598 3601 "type_class.ml" 128 3642 3651
+type(
+  class_info
+)
+"type_class.ml" 126 3558 3561 "type_class.ml" 128 3642 3651
+type(
+  class_info
+)
+"type_class.ml" 125 3508 3510 "type_class.ml" 128 3642 3652
+type(
+  class_info
+)
+"type_class.ml" 122 3459 3460 "type_class.ml" 128 3642 3652
+type(
+  class_info
+)
+"type_class.ml" 131 3707 3711 "type_class.ml" 131 3707 3723
+type(
+  string -> bool
+)
+ident(
+  def class_exists "type_class.ml" 135 3829 3829 "_none_" 1 0 -1
+)
+"type_class.ml" 131 3707 3724 "type_class.ml" 131 3707 3734
+type(
+  string
+)
+ident(
+  def class_name "type_class.ml" 132 3738 3739 "type_class.ml" 132 3738 3773
+)
+"type_class.ml" 132 3738 3739 "type_class.ml" 132 3738 3750
+type(
+  (string, class_info) Hashtbl.t -> string -> bool
+)
+ident(
+  ext_ref Hashtbl.mem
+)
+"type_class.ml" 132 3738 3751 "type_class.ml" 132 3738 3762
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  int_ref class_table "type_class.ml" 38 933 937 "type_class.ml" 38 933 948
+)
+"type_class.ml" 132 3738 3763 "type_class.ml" 132 3738 3773
+type(
+  string
+)
+ident(
+  int_ref class_name "type_class.ml" 131 3707 3724 "type_class.ml" 131 3707 3734
+)
+"type_class.ml" 132 3738 3739 "type_class.ml" 132 3738 3773
+call(
+  tail
+)
+type(
+  bool
+)
+"type_class.ml" 135 3829 3833 "type_class.ml" 135 3829 3843
+type(
+  class_info -> string -> bool
+)
+ident(
+  def exist_attr "type_class.ml" 139 3971 3971 "_none_" 1 0 -1
+)
+"type_class.ml" 135 3829 3844 "type_class.ml" 135 3829 3854
+type(
+  class_info
+)
+ident(
+  def class_info "type_class.ml" 135 3829 3855 "type_class.ml" 136 3868 3915
+)
+"type_class.ml" 135 3829 3855 "type_class.ml" 135 3829 3864
+type(
+  string
+)
+ident(
+  def attr_name "type_class.ml" 136 3868 3869 "type_class.ml" 136 3868 3915
+)
+"type_class.ml" 136 3868 3869 "type_class.ml" 136 3868 3883
+type(
+  string -> (string * (Ast.typ * string)) list -> bool
+)
+ident(
+  ext_ref List.mem_assoc
+)
+"type_class.ml" 136 3868 3884 "type_class.ml" 136 3868 3893
+type(
+  string
+)
+ident(
+  int_ref attr_name "type_class.ml" 135 3829 3855 "type_class.ml" 135 3829 3864
+)
+"type_class.ml" 136 3868 3894 "type_class.ml" 136 3868 3904
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 135 3829 3844 "type_class.ml" 135 3829 3854
+)
+"type_class.ml" 136 3868 3894 "type_class.ml" 136 3868 3915
+type(
+  (string * (Ast.typ * string)) list
+)
+"type_class.ml" 136 3868 3869 "type_class.ml" 136 3868 3915
+call(
+  tail
+)
+type(
+  bool
+)
+"type_class.ml" 139 3971 3975 "type_class.ml" 139 3971 3987
+type(
+  class_info -> string -> bool
+)
+ident(
+  def method_exist "type_class.ml" 142 4064 4064 "_none_" 1 0 -1
+)
+"type_class.ml" 139 3971 3988 "type_class.ml" 139 3971 3998
+type(
+  class_info
+)
+ident(
+  def class_info "type_class.ml" 139 3971 3999 "type_class.ml" 140 4014 4060
+)
+"type_class.ml" 139 3971 3999 "type_class.ml" 139 3971 4010
+type(
+  string
+)
+ident(
+  def method_name "type_class.ml" 140 4014 4015 "type_class.ml" 140 4014 4060
+)
+"type_class.ml" 140 4014 4015 "type_class.ml" 140 4014 4029
+type(
+  string ->
+  (string * (Ast.typ * (Ast.typ * string) list * string)) list -> bool
+)
+ident(
+  ext_ref List.mem_assoc
+)
+"type_class.ml" 140 4014 4030 "type_class.ml" 140 4014 4041
+type(
+  string
+)
+ident(
+  int_ref method_name "type_class.ml" 139 3971 3999 "type_class.ml" 139 3971 4010
+)
+"type_class.ml" 140 4014 4042 "type_class.ml" 140 4014 4052
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 139 3971 3988 "type_class.ml" 139 3971 3998
+)
+"type_class.ml" 140 4014 4042 "type_class.ml" 140 4014 4060
+type(
+  (string * (Ast.typ * (Ast.typ * string) list * string)) list
+)
+"type_class.ml" 140 4014 4015 "type_class.ml" 140 4014 4060
+call(
+  tail
+)
+type(
+  bool
+)
+"type_class.ml" 142 4064 4068 "type_class.ml" 142 4064 4079
+type(
+  Ast.typ -> bool
+)
+ident(
+  def is_function "type_class.ml" 155 4488 4488 "_none_" 1 0 -1
+)
+"type_class.ml" 142 4064 4080 "type_class.ml" 142 4064 4085
+type(
+  Ast.typ
+)
+ident(
+  def type_ "type_class.ml" 143 4089 4090 "type_class.ml" 145 4126 4139
+)
+"type_class.ml" 143 4089 4096 "type_class.ml" 143 4089 4101
+type(
+  Ast.typ
+)
+ident(
+  int_ref type_ "type_class.ml" 142 4064 4080 "type_class.ml" 142 4064 4085
+)
+"type_class.ml" 144 4108 4111 "type_class.ml" 144 4108 4116
+type(
+  Ast.typ
+)
+"type_class.ml" 144 4108 4120 "type_class.ml" 144 4108 4124
+type(
+  bool
+)
+"type_class.ml" 145 4126 4129 "type_class.ml" 145 4126 4130
+type(
+  Ast.typ
+)
+"type_class.ml" 145 4126 4134 "type_class.ml" 145 4126 4139
+type(
+  bool
+)
+"type_class.ml" 143 4089 4090 "type_class.ml" 145 4126 4139
+type(
+  bool
+)
+"type_class.ml" 155 4488 4492 "type_class.ml" 155 4488 4505
+type(
+  'a * ('b, 'c) Ast.node * ('d * ('e, 'f) Ast.node) list ->
+  'g -> 'c * ('a * ('d * 'f) list * 'g)
+)
+ident(
+  def create_method "type_class.ml" 162 4818 4818 "_none_" 1 0 -1
+)
+"type_class.ml" 155 4488 4506 "type_class.ml" 155 4488 4513
+type(
+  'a * ('b, 'c) Ast.node * ('d * ('e, 'f) Ast.node) list
+)
+ident(
+  def method_ "type_class.ml" 155 4488 4514 "type_class.ml" 159 4695 4732
+)
+"type_class.ml" 155 4488 4514 "type_class.ml" 155 4488 4524
+type(
+  'g
+)
+ident(
+  def class_name "type_class.ml" 156 4528 4529 "type_class.ml" 159 4695 4732
+)
+"type_class.ml" 156 4528 4533 "type_class.ml" 156 4528 4538
+type(
+  'a
+)
+ident(
+  def type_ "type_class.ml" 157 4568 4569 "type_class.ml" 159 4695 4732
+)
+"type_class.ml" 156 4528 4540 "type_class.ml" 156 4528 4545
+type(
+  ('b, 'c) Ast.node
+)
+ident(
+  def name_ "type_class.ml" 157 4568 4569 "type_class.ml" 159 4695 4732
+)
+"type_class.ml" 156 4528 4547 "type_class.ml" 156 4528 4553
+type(
+  ('d * ('e, 'f) Ast.node) list
+)
+ident(
+  def params "type_class.ml" 157 4568 4569 "type_class.ml" 159 4695 4732
+)
+"type_class.ml" 156 4528 4533 "type_class.ml" 156 4528 4553
+type(
+  'a * ('b, 'c) Ast.node * ('d * ('e, 'f) Ast.node) list
+)
+"type_class.ml" 156 4528 4556 "type_class.ml" 156 4528 4563
+type(
+  'a * ('b, 'c) Ast.node * ('d * ('e, 'f) Ast.node) list
+)
+ident(
+  int_ref method_ "type_class.ml" 155 4488 4506 "type_class.ml" 155 4488 4513
+)
+"type_class.ml" 157 4568 4573 "type_class.ml" 157 4568 4580
+type(
+  ('d * 'f) list
+)
+ident(
+  def params_ "type_class.ml" 158 4663 4664 "type_class.ml" 159 4695 4732
+)
+"type_class.ml" 157 4568 4583 "type_class.ml" 157 4568 4597
+type(
+  (('d * 'f) list -> 'd * ('e, 'f) Ast.node -> ('d * 'f) list) ->
+  ('d * 'f) list -> ('d * ('e, 'f) Ast.node) list -> ('d * 'f) list
+)
+ident(
+  ext_ref List.fold_left
+)
+"type_class.ml" 157 4568 4604 "type_class.ml" 157 4568 4605
+type(
+  ('d * 'f) list
+)
+ident(
+  def x "type_class.ml" 157 4568 4606 "type_class.ml" 157 4568 4647
+)
+"type_class.ml" 157 4568 4607 "type_class.ml" 157 4568 4612
+type(
+  'd
+)
+ident(
+  def type_ "type_class.ml" 157 4568 4624 "type_class.ml" 157 4568 4647
+)
+"type_class.ml" 157 4568 4614 "type_class.ml" 157 4568 4619
+type(
+  ('e, 'f) Ast.node
+)
+ident(
+  def name_ "type_class.ml" 157 4568 4624 "type_class.ml" 157 4568 4647
+)
+"type_class.ml" 157 4568 4606 "type_class.ml" 157 4568 4620
+type(
+  'd * ('e, 'f) Ast.node
+)
+"type_class.ml" 157 4568 4625 "type_class.ml" 157 4568 4630
+type(
+  'd
+)
+ident(
+  int_ref type_ "type_class.ml" 157 4568 4607 "type_class.ml" 157 4568 4612
+)
+"type_class.ml" 157 4568 4632 "type_class.ml" 157 4568 4637
+type(
+  ('e, 'f) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 157 4568 4614 "type_class.ml" 157 4568 4619
+)
+"type_class.ml" 157 4568 4632 "type_class.ml" 157 4568 4642
+type(
+  'f
+)
+"type_class.ml" 157 4568 4624 "type_class.ml" 157 4568 4643
+type(
+  'd * 'f
+)
+"type_class.ml" 157 4568 4646 "type_class.ml" 157 4568 4647
+type(
+  ('d * 'f) list
+)
+ident(
+  int_ref x "type_class.ml" 157 4568 4604 "type_class.ml" 157 4568 4605
+)
+"type_class.ml" 157 4568 4624 "type_class.ml" 157 4568 4647
+type(
+  ('d * 'f) list
+)
+"type_class.ml" 157 4568 4598 "type_class.ml" 157 4568 4648
+type(
+  ('d * 'f) list -> 'd * ('e, 'f) Ast.node -> ('d * 'f) list
+)
+"type_class.ml" 157 4568 4649 "type_class.ml" 157 4568 4651
+type(
+  ('d * 'f) list
+)
+"type_class.ml" 157 4568 4652 "type_class.ml" 157 4568 4658
+type(
+  ('d * ('e, 'f) Ast.node) list
+)
+ident(
+  int_ref params "type_class.ml" 156 4528 4547 "type_class.ml" 156 4528 4553
+)
+"type_class.ml" 157 4568 4583 "type_class.ml" 157 4568 4658
+call(
+  stack
+)
+type(
+  ('d * 'f) list
+)
+"type_class.ml" 158 4663 4668 "type_class.ml" 158 4663 4671
+type(
+  ('d * 'f) list
+)
+ident(
+  def rev "type_class.ml" 159 4695 4696 "type_class.ml" 159 4695 4732
+)
+"type_class.ml" 158 4663 4674 "type_class.ml" 158 4663 4682
+type(
+  ('d * 'f) list -> ('d * 'f) list
+)
+ident(
+  ext_ref List.rev
+)
+"type_class.ml" 158 4663 4683 "type_class.ml" 158 4663 4690
+type(
+  ('d * 'f) list
+)
+ident(
+  int_ref params_ "type_class.ml" 157 4568 4573 "type_class.ml" 157 4568 4580
+)
+"type_class.ml" 158 4663 4674 "type_class.ml" 158 4663 4690
+call(
+  stack
+)
+type(
+  ('d * 'f) list
+)
+"type_class.ml" 159 4695 4696 "type_class.ml" 159 4695 4701
+type(
+  ('b, 'c) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 156 4528 4540 "type_class.ml" 156 4528 4545
+)
+"type_class.ml" 159 4695 4696 "type_class.ml" 159 4695 4706
+type(
+  'c
+)
+"type_class.ml" 159 4695 4709 "type_class.ml" 159 4695 4714
+type(
+  'a
+)
+ident(
+  int_ref type_ "type_class.ml" 156 4528 4533 "type_class.ml" 156 4528 4538
+)
+"type_class.ml" 159 4695 4716 "type_class.ml" 159 4695 4719
+type(
+  ('d * 'f) list
+)
+ident(
+  int_ref rev "type_class.ml" 158 4663 4668 "type_class.ml" 158 4663 4671
+)
+"type_class.ml" 159 4695 4721 "type_class.ml" 159 4695 4731
+type(
+  'g
+)
+ident(
+  int_ref class_name "type_class.ml" 155 4488 4514 "type_class.ml" 155 4488 4524
+)
+"type_class.ml" 159 4695 4708 "type_class.ml" 159 4695 4732
+type(
+  'a * ('d * 'f) list * 'g
+)
+"type_class.ml" 159 4695 4696 "type_class.ml" 159 4695 4732
+type(
+  'c * ('a * ('d * 'f) list * 'g)
+)
+"type_class.ml" 158 4663 4664 "type_class.ml" 159 4695 4732
+type(
+  'c * ('a * ('d * 'f) list * 'g)
+)
+"type_class.ml" 157 4568 4569 "type_class.ml" 159 4695 4732
+type(
+  'c * ('a * ('d * 'f) list * 'g)
+)
+"type_class.ml" 156 4528 4529 "type_class.ml" 159 4695 4732
+type(
+  'c * ('a * ('d * 'f) list * 'g)
+)
+"type_class.ml" 162 4818 4822 "type_class.ml" 162 4818 4841
+type(
+  ('a * (Ast.position, string) Ast.node) list -> unit
+)
+ident(
+  def check_unique_vparam "type_class.ml" 173 5106 5106 "_none_" 1 0 -1
+)
+"type_class.ml" 162 4818 4842 "type_class.ml" 162 4818 4848
+type(
+  ('a * (Ast.position, string) Ast.node) list
+)
+ident(
+  def params "type_class.ml" 163 4852 4853 "type_class.ml" 170 5072 5078
+)
+"type_class.ml" 163 4852 4857 "type_class.ml" 163 4852 4858
+type(
+  string list
+)
+"type_class.ml" 164 4862 4863 "type_class.ml" 164 4862 4877
+type(
+  (string list -> 'a * (Ast.position, string) Ast.node -> string list) ->
+  string list -> ('a * (Ast.position, string) Ast.node) list -> string list
+)
+ident(
+  ext_ref List.fold_left
+)
+"type_class.ml" 165 4881 4887 "type_class.ml" 165 4881 4896
+type(
+  string list
+)
+ident(
+  def tmp_names "type_class.ml" 165 4881 4897 "type_class.ml" 168 5024 5055
+)
+"type_class.ml" 165 4881 4898 "type_class.ml" 165 4881 4899
+type(
+  'a
+)
+"type_class.ml" 165 4881 4900 "type_class.ml" 165 4881 4905
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  def name_ "type_class.ml" 166 4911 4914 "type_class.ml" 168 5024 5055
+)
+"type_class.ml" 165 4881 4897 "type_class.ml" 165 4881 4906
+type(
+  'a * (Ast.position, string) Ast.node
+)
+"type_class.ml" 166 4911 4917 "type_class.ml" 166 4911 4925
+type(
+  string -> string list -> bool
+)
+ident(
+  ext_ref List.mem
+)
+"type_class.ml" 166 4911 4926 "type_class.ml" 166 4911 4931
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 165 4881 4900 "type_class.ml" 165 4881 4905
+)
+"type_class.ml" 166 4911 4926 "type_class.ml" 166 4911 4936
+type(
+  string
+)
+"type_class.ml" 166 4911 4937 "type_class.ml" 166 4911 4946
+type(
+  string list
+)
+ident(
+  int_ref tmp_names "type_class.ml" 165 4881 4887 "type_class.ml" 165 4881 4896
+)
+"type_class.ml" 166 4911 4917 "type_class.ml" 166 4911 4946
+call(
+  stack
+)
+type(
+  bool
+)
+"type_class.ml" 167 4953 4957 "type_class.ml" 167 4953 4962
+type(
+  string -> Ast.position -> string list
+)
+ident(
+  int_ref error "type_class.ml" 5 58 62 "type_class.ml" 5 58 67
+)
+"type_class.ml" 167 4953 4964 "type_class.ml" 167 4953 4979
+type(
+  string
+)
+"type_class.ml" 167 4953 4980 "type_class.ml" 167 4953 4981
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 167 4953 4982 "type_class.ml" 167 4953 4987
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 165 4881 4900 "type_class.ml" 165 4881 4905
+)
+"type_class.ml" 167 4953 4982 "type_class.ml" 167 4953 4992
+type(
+  string
+)
+"type_class.ml" 167 4953 4993 "type_class.ml" 167 4953 4994
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 167 4953 4995 "type_class.ml" 167 4953 5010
+type(
+  string
+)
+"type_class.ml" 167 4953 4982 "type_class.ml" 167 4953 5010
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 167 4953 4963 "type_class.ml" 167 4953 5011
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 167 4953 5012 "type_class.ml" 167 4953 5017
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 165 4881 4900 "type_class.ml" 165 4881 4905
+)
+"type_class.ml" 167 4953 5012 "type_class.ml" 167 4953 5022
+type(
+  Ast.position
+)
+"type_class.ml" 167 4953 4957 "type_class.ml" 167 4953 5022
+call(
+  tail
+)
+type(
+  string list
+)
+"type_class.ml" 168 5024 5032 "type_class.ml" 168 5024 5037
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 165 4881 4900 "type_class.ml" 165 4881 4905
+)
+"type_class.ml" 168 5024 5032 "type_class.ml" 168 5024 5042
+type(
+  string
+)
+"type_class.ml" 168 5024 5046 "type_class.ml" 168 5024 5055
+type(
+  string list
+)
+ident(
+  int_ref tmp_names "type_class.ml" 165 4881 4887 "type_class.ml" 165 4881 4896
+)
+"type_class.ml" 168 5024 5032 "type_class.ml" 168 5024 5055
+type(
+  string list
+)
+"type_class.ml" 166 4911 4914 "type_class.ml" 168 5024 5055
+type(
+  string list
+)
+"type_class.ml" 164 4862 4878 "type_class.ml" 169 5057 5060
+type(
+  string list -> 'a * (Ast.position, string) Ast.node -> string list
+)
+"type_class.ml" 169 5057 5061 "type_class.ml" 169 5057 5063
+type(
+  string list
+)
+"type_class.ml" 169 5057 5064 "type_class.ml" 169 5057 5070
+type(
+  ('a * (Ast.position, string) Ast.node) list
+)
+ident(
+  int_ref params "type_class.ml" 162 4818 4842 "type_class.ml" 162 4818 4848
+)
+"type_class.ml" 164 4862 4863 "type_class.ml" 169 5057 5070
+call(
+  stack
+)
+type(
+  string list
+)
+"type_class.ml" 170 5072 5076 "type_class.ml" 170 5072 5078
+type(
+  unit
+)
+"type_class.ml" 163 4852 4853 "type_class.ml" 170 5072 5078
+type(
+  unit
+)
+"type_class.ml" 173 5106 5110 "type_class.ml" 173 5106 5123
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  def compare_types "type_class.ml" 181 5395 5395 "_none_" 1 0 -1
+)
+"type_class.ml" 173 5106 5124 "type_class.ml" 173 5106 5129
+type(
+  Ast.typ
+)
+ident(
+  def type_ "type_class.ml" 173 5106 5130 "type_class.ml" 178 5290 5317
+)
+"type_class.ml" 173 5106 5130 "type_class.ml" 173 5106 5136
+type(
+  Ast.typ
+)
+ident(
+  def type2_ "type_class.ml" 174 5140 5141 "type_class.ml" 178 5290 5317
+)
+"type_class.ml" 174 5140 5147 "type_class.ml" 174 5140 5152
+type(
+  Ast.typ
+)
+ident(
+  int_ref type_ "type_class.ml" 173 5106 5124 "type_class.ml" 173 5106 5129
+)
+"type_class.ml" 174 5140 5153 "type_class.ml" 174 5140 5159
+type(
+  Ast.typ
+)
+ident(
+  int_ref type2_ "type_class.ml" 173 5106 5130 "type_class.ml" 173 5106 5136
+)
+"type_class.ml" 174 5140 5147 "type_class.ml" 174 5140 5159
+type(
+  Ast.typ * Ast.typ
+)
+"type_class.ml" 175 5166 5177 "type_class.ml" 175 5166 5183
+type(
+  string
+)
+ident(
+  def cname1 "type_class.ml" 175 5166 5201 "type_class.ml" 175 5166 5218
+)
+"type_class.ml" 175 5166 5170 "type_class.ml" 175 5166 5183
+type(
+  Ast.typ
+)
+"type_class.ml" 175 5166 5191 "type_class.ml" 175 5166 5197
+type(
+  string
+)
+ident(
+  def cname2 "type_class.ml" 175 5166 5201 "type_class.ml" 175 5166 5218
+)
+"type_class.ml" 175 5166 5184 "type_class.ml" 175 5166 5197
+type(
+  Ast.typ
+)
+"type_class.ml" 175 5166 5170 "type_class.ml" 175 5166 5197
+type(
+  Ast.typ * Ast.typ
+)
+"type_class.ml" 175 5166 5202 "type_class.ml" 175 5166 5208
+type(
+  string
+)
+ident(
+  int_ref cname1 "type_class.ml" 175 5166 5177 "type_class.ml" 175 5166 5183
+)
+"type_class.ml" 175 5166 5209 "type_class.ml" 175 5166 5210
+type(
+  string -> string -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"type_class.ml" 175 5166 5211 "type_class.ml" 175 5166 5217
+type(
+  string
+)
+ident(
+  int_ref cname2 "type_class.ml" 175 5166 5191 "type_class.ml" 175 5166 5197
+)
+"type_class.ml" 175 5166 5201 "type_class.ml" 175 5166 5218
+type(
+  bool
+)
+"type_class.ml" 176 5220 5231 "type_class.ml" 176 5220 5242
+type(
+  string
+)
+ident(
+  def class_name1 "type_class.ml" 176 5220 5248 "type_class.ml" 176 5220 5253
+)
+"type_class.ml" 176 5220 5224 "type_class.ml" 176 5220 5242
+type(
+  Ast.typ
+)
+"type_class.ml" 176 5220 5243 "type_class.ml" 176 5220 5244
+type(
+  Ast.typ
+)
+"type_class.ml" 176 5220 5224 "type_class.ml" 176 5220 5244
+type(
+  Ast.typ * Ast.typ
+)
+"type_class.ml" 176 5220 5248 "type_class.ml" 176 5220 5253
+type(
+  bool
+)
+"type_class.ml" 177 5255 5259 "type_class.ml" 177 5255 5260
+type(
+  Ast.typ
+)
+"type_class.ml" 177 5255 5268 "type_class.ml" 177 5255 5279
+type(
+  string
+)
+ident(
+  def class_name2 "type_class.ml" 177 5255 5283 "type_class.ml" 177 5255 5288
+)
+"type_class.ml" 177 5255 5261 "type_class.ml" 177 5255 5279
+type(
+  Ast.typ
+)
+"type_class.ml" 177 5255 5259 "type_class.ml" 177 5255 5279
+type(
+  Ast.typ * Ast.typ
+)
+"type_class.ml" 177 5255 5283 "type_class.ml" 177 5255 5288
+type(
+  bool
+)
+"type_class.ml" 178 5290 5294 "type_class.ml" 178 5290 5295
+type(
+  Ast.typ
+)
+"type_class.ml" 178 5290 5296 "type_class.ml" 178 5290 5297
+type(
+  Ast.typ
+)
+"type_class.ml" 178 5290 5294 "type_class.ml" 178 5290 5297
+type(
+  Ast.typ * Ast.typ
+)
+"type_class.ml" 178 5290 5302 "type_class.ml" 178 5290 5307
+type(
+  Ast.typ
+)
+ident(
+  int_ref type_ "type_class.ml" 173 5106 5124 "type_class.ml" 173 5106 5129
+)
+"type_class.ml" 178 5290 5308 "type_class.ml" 178 5290 5309
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"type_class.ml" 178 5290 5310 "type_class.ml" 178 5290 5316
+type(
+  Ast.typ
+)
+ident(
+  int_ref type2_ "type_class.ml" 173 5106 5130 "type_class.ml" 173 5106 5136
+)
+"type_class.ml" 178 5290 5301 "type_class.ml" 178 5290 5317
+type(
+  bool
+)
+"type_class.ml" 174 5140 5141 "type_class.ml" 178 5290 5317
+type(
+  bool
+)
+"type_class.ml" 181 5395 5403 "type_class.ml" 181 5395 5414
+type(
+  (Ast.typ * 'a) list -> (Ast.typ * 'b) list -> bool
+)
+ident(
+  def check_types "type_class.ml" 181 5395 5395 "_none_" 1 0 -1
+)
+"type_class.ml" 181 5395 5415 "type_class.ml" 181 5395 5421
+type(
+  (Ast.typ * 'a) list
+)
+ident(
+  def plist1 "type_class.ml" 181 5395 5422 "type_class.ml" 187 5554 5611
+)
+"type_class.ml" 181 5395 5422 "type_class.ml" 181 5395 5428
+type(
+  (Ast.typ * 'b) list
+)
+ident(
+  def plist2 "type_class.ml" 182 5432 5433 "type_class.ml" 187 5554 5611
+)
+"type_class.ml" 182 5432 5439 "type_class.ml" 182 5432 5445
+type(
+  (Ast.typ * 'a) list
+)
+ident(
+  int_ref plist1 "type_class.ml" 181 5395 5415 "type_class.ml" 181 5395 5421
+)
+"type_class.ml" 182 5432 5447 "type_class.ml" 182 5432 5453
+type(
+  (Ast.typ * 'b) list
+)
+ident(
+  int_ref plist2 "type_class.ml" 181 5395 5422 "type_class.ml" 181 5395 5428
+)
+"type_class.ml" 182 5432 5439 "type_class.ml" 182 5432 5453
+type(
+  (Ast.typ * 'a) list * (Ast.typ * 'b) list
+)
+"type_class.ml" 183 5460 5463 "type_class.ml" 183 5460 5465
+type(
+  (Ast.typ * 'a) list
+)
+"type_class.ml" 183 5460 5466 "type_class.ml" 183 5460 5468
+type(
+  (Ast.typ * 'b) list
+)
+"type_class.ml" 183 5460 5463 "type_class.ml" 183 5460 5468
+type(
+  (Ast.typ * 'a) list * (Ast.typ * 'b) list
+)
+"type_class.ml" 183 5460 5472 "type_class.ml" 183 5460 5476
+type(
+  bool
+)
+"type_class.ml" 184 5478 5481 "type_class.ml" 184 5478 5483
+type(
+  (Ast.typ * 'a) list
+)
+"type_class.ml" 184 5478 5485 "type_class.ml" 184 5478 5486
+type(
+  (Ast.typ * 'b) list
+)
+"type_class.ml" 184 5478 5481 "type_class.ml" 184 5478 5486
+type(
+  (Ast.typ * 'a) list * (Ast.typ * 'b) list
+)
+"type_class.ml" 184 5478 5490 "type_class.ml" 184 5478 5495
+type(
+  bool
+)
+"type_class.ml" 185 5497 5500 "type_class.ml" 185 5497 5501
+type(
+  (Ast.typ * 'a) list
+)
+"type_class.ml" 185 5497 5502 "type_class.ml" 185 5497 5504
+type(
+  (Ast.typ * 'b) list
+)
+"type_class.ml" 185 5497 5500 "type_class.ml" 185 5497 5504
+type(
+  (Ast.typ * 'a) list * (Ast.typ * 'b) list
+)
+"type_class.ml" 185 5497 5508 "type_class.ml" 185 5497 5513
+type(
+  bool
+)
+"type_class.ml" 186 5515 5519 "type_class.ml" 186 5515 5524
+type(
+  Ast.typ
+)
+ident(
+  def type_ "type_class.ml" 187 5554 5564 "type_class.ml" 187 5554 5611
+)
+"type_class.ml" 186 5515 5526 "type_class.ml" 186 5515 5527
+type(
+  'a
+)
+"type_class.ml" 186 5515 5518 "type_class.ml" 186 5515 5528
+type(
+  Ast.typ * 'a
+)
+"type_class.ml" 186 5515 5531 "type_class.ml" 186 5515 5532
+type(
+  (Ast.typ * 'a) list
+)
+ident(
+  def r "type_class.ml" 187 5554 5564 "type_class.ml" 187 5554 5611
+)
+"type_class.ml" 186 5515 5518 "type_class.ml" 186 5515 5532
+type(
+  (Ast.typ * 'a) list
+)
+"type_class.ml" 186 5515 5535 "type_class.ml" 186 5515 5541
+type(
+  Ast.typ
+)
+ident(
+  def type2_ "type_class.ml" 187 5554 5564 "type_class.ml" 187 5554 5611
+)
+"type_class.ml" 186 5515 5543 "type_class.ml" 186 5515 5544
+type(
+  'b
+)
+"type_class.ml" 186 5515 5534 "type_class.ml" 186 5515 5545
+type(
+  Ast.typ * 'b
+)
+"type_class.ml" 186 5515 5548 "type_class.ml" 186 5515 5549
+type(
+  (Ast.typ * 'b) list
+)
+ident(
+  def s "type_class.ml" 187 5554 5564 "type_class.ml" 187 5554 5611
+)
+"type_class.ml" 186 5515 5534 "type_class.ml" 186 5515 5549
+type(
+  (Ast.typ * 'b) list
+)
+"type_class.ml" 186 5515 5518 "type_class.ml" 186 5515 5549
+type(
+  (Ast.typ * 'a) list * (Ast.typ * 'b) list
+)
+"type_class.ml" 187 5554 5565 "type_class.ml" 187 5554 5578
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compare_types "type_class.ml" 173 5106 5110 "type_class.ml" 173 5106 5123
+)
+"type_class.ml" 187 5554 5579 "type_class.ml" 187 5554 5584
+type(
+  Ast.typ
+)
+ident(
+  int_ref type_ "type_class.ml" 186 5515 5519 "type_class.ml" 186 5515 5524
+)
+"type_class.ml" 187 5554 5585 "type_class.ml" 187 5554 5591
+type(
+  Ast.typ
+)
+ident(
+  int_ref type2_ "type_class.ml" 186 5515 5535 "type_class.ml" 186 5515 5541
+)
+"type_class.ml" 187 5554 5564 "type_class.ml" 187 5554 5592
+call(
+  stack
+)
+type(
+  bool
+)
+"type_class.ml" 187 5554 5593 "type_class.ml" 187 5554 5595
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"type_class.ml" 187 5554 5596 "type_class.ml" 187 5554 5607
+type(
+  (Ast.typ * 'a) list -> (Ast.typ * 'b) list -> bool
+)
+ident(
+  int_ref check_types "type_class.ml" 181 5395 5403 "type_class.ml" 181 5395 5414
+)
+"type_class.ml" 187 5554 5608 "type_class.ml" 187 5554 5609
+type(
+  (Ast.typ * 'a) list
+)
+ident(
+  int_ref r "type_class.ml" 186 5515 5531 "type_class.ml" 186 5515 5532
+)
+"type_class.ml" 187 5554 5610 "type_class.ml" 187 5554 5611
+type(
+  (Ast.typ * 'b) list
+)
+ident(
+  int_ref s "type_class.ml" 186 5515 5548 "type_class.ml" 186 5515 5549
+)
+"type_class.ml" 187 5554 5596 "type_class.ml" 187 5554 5611
+call(
+  tail
+)
+type(
+  bool
+)
+"type_class.ml" 187 5554 5564 "type_class.ml" 187 5554 5611
+type(
+  bool
+)
+"type_class.ml" 182 5432 5433 "type_class.ml" 187 5554 5611
+type(
+  bool
+)
+"type_class.ml" 189 5617 5621 "type_class.ml" 189 5617 5643
+type(
+  'a * (Ast.position, string) Ast.node * (Ast.typ * 'b) list ->
+  class_info -> unit
+)
+ident(
+  def check_method_signature "type_class.ml" 201 6135 6135 "_none_" 1 0 -1
+)
+"type_class.ml" 189 5617 5644 "type_class.ml" 189 5617 5651
+type(
+  'a * (Ast.position, string) Ast.node * (Ast.typ * 'b) list
+)
+ident(
+  def method_ "type_class.ml" 189 5617 5652 "type_class.ml" 198 6031 6052
+)
+"type_class.ml" 189 5617 5652 "type_class.ml" 189 5617 5662
+type(
+  class_info
+)
+ident(
+  def class_info "type_class.ml" 190 5666 5667 "type_class.ml" 198 6031 6052
+)
+"type_class.ml" 190 5666 5671 "type_class.ml" 190 5666 5676
+type(
+  'a
+)
+ident(
+  def type_ "type_class.ml" 191 5705 5706 "type_class.ml" 198 6031 6052
+)
+"type_class.ml" 190 5666 5677 "type_class.ml" 190 5666 5682
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  def name_ "type_class.ml" 191 5705 5706 "type_class.ml" 198 6031 6052
+)
+"type_class.ml" 190 5666 5683 "type_class.ml" 190 5666 5690
+type(
+  (Ast.typ * 'b) list
+)
+ident(
+  def params_ "type_class.ml" 191 5705 5706 "type_class.ml" 198 6031 6052
+)
+"type_class.ml" 190 5666 5671 "type_class.ml" 190 5666 5690
+type(
+  'a * (Ast.position, string) Ast.node * (Ast.typ * 'b) list
+)
+"type_class.ml" 190 5666 5693 "type_class.ml" 190 5666 5700
+type(
+  'a * (Ast.position, string) Ast.node * (Ast.typ * 'b) list
+)
+ident(
+  int_ref method_ "type_class.ml" 189 5617 5644 "type_class.ml" 189 5617 5651
+)
+"type_class.ml" 191 5705 5710 "type_class.ml" 191 5705 5717
+type(
+  int
+)
+ident(
+  def length1 "type_class.ml" 192 5744 5745 "type_class.ml" 198 6031 6052
+)
+"type_class.ml" 191 5705 5720 "type_class.ml" 191 5705 5731
+type(
+  (Ast.typ * 'b) list -> int
+)
+ident(
+  ext_ref List.length
+)
+"type_class.ml" 191 5705 5732 "type_class.ml" 191 5705 5739
+type(
+  (Ast.typ * 'b) list
+)
+ident(
+  int_ref params_ "type_class.ml" 190 5666 5683 "type_class.ml" 190 5666 5690
+)
+"type_class.ml" 191 5705 5720 "type_class.ml" 191 5705 5739
+call(
+  stack
+)
+type(
+  int
+)
+"type_class.ml" 192 5744 5745 "type_class.ml" 192 5744 5754
+type(
+  (string * (Ast.typ * (Ast.typ * string) list * string) -> unit) ->
+  (string * (Ast.typ * (Ast.typ * string) list * string)) list -> unit
+)
+ident(
+  ext_ref List.iter
+)
+"type_class.ml" 193 5758 5765 "type_class.ml" 193 5758 5771
+type(
+  string
+)
+ident(
+  def mname_ "type_class.ml" 194 5807 5810 "type_class.ml" 197 5976 6029
+)
+"type_class.ml" 193 5758 5773 "type_class.ml" 193 5758 5779
+type(
+  Ast.typ
+)
+ident(
+  def mtype_ "type_class.ml" 194 5807 5810 "type_class.ml" 197 5976 6029
+)
+"type_class.ml" 193 5758 5780 "type_class.ml" 193 5758 5788
+type(
+  (Ast.typ * string) list
+)
+ident(
+  def mparams_ "type_class.ml" 194 5807 5810 "type_class.ml" 197 5976 6029
+)
+"type_class.ml" 193 5758 5789 "type_class.ml" 193 5758 5800
+type(
+  string
+)
+ident(
+  def mclass_name "type_class.ml" 194 5807 5810 "type_class.ml" 197 5976 6029
+)
+"type_class.ml" 193 5758 5772 "type_class.ml" 193 5758 5801
+type(
+  Ast.typ * (Ast.typ * string) list * string
+)
+"type_class.ml" 193 5758 5764 "type_class.ml" 193 5758 5802
+type(
+  string * (Ast.typ * (Ast.typ * string) list * string)
+)
+"type_class.ml" 194 5807 5814 "type_class.ml" 194 5807 5821
+type(
+  int
+)
+ident(
+  def length2 "type_class.ml" 195 5849 5853 "type_class.ml" 197 5976 6029
+)
+"type_class.ml" 194 5807 5824 "type_class.ml" 194 5807 5835
+type(
+  (Ast.typ * string) list -> int
+)
+ident(
+  ext_ref List.length
+)
+"type_class.ml" 194 5807 5836 "type_class.ml" 194 5807 5844
+type(
+  (Ast.typ * string) list
+)
+ident(
+  int_ref mparams_ "type_class.ml" 193 5758 5780 "type_class.ml" 193 5758 5788
+)
+"type_class.ml" 194 5807 5824 "type_class.ml" 194 5807 5844
+call(
+  stack
+)
+type(
+  int
+)
+"type_class.ml" 195 5849 5856 "type_class.ml" 195 5849 5861
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 190 5666 5677 "type_class.ml" 190 5666 5682
+)
+"type_class.ml" 195 5849 5856 "type_class.ml" 195 5849 5866
+type(
+  string
+)
+"type_class.ml" 195 5849 5867 "type_class.ml" 195 5849 5868
+type(
+  string -> string -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"type_class.ml" 195 5849 5869 "type_class.ml" 195 5849 5875
+type(
+  string
+)
+ident(
+  int_ref mname_ "type_class.ml" 193 5758 5765 "type_class.ml" 193 5758 5771
+)
+"type_class.ml" 195 5849 5856 "type_class.ml" 195 5849 5875
+type(
+  bool
+)
+"type_class.ml" 196 5913 5920 "type_class.ml" 196 5913 5927
+type(
+  int
+)
+ident(
+  int_ref length1 "type_class.ml" 191 5705 5710 "type_class.ml" 191 5705 5717
+)
+"type_class.ml" 196 5913 5928 "type_class.ml" 196 5913 5929
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"type_class.ml" 196 5913 5930 "type_class.ml" 196 5913 5937
+type(
+  int
+)
+ident(
+  int_ref length2 "type_class.ml" 194 5807 5814 "type_class.ml" 194 5807 5821
+)
+"type_class.ml" 196 5913 5920 "type_class.ml" 196 5913 5937
+type(
+  bool
+)
+"type_class.ml" 196 5913 5938 "type_class.ml" 196 5913 5940
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"type_class.ml" 196 5913 5941 "type_class.ml" 196 5913 5952
+type(
+  (Ast.typ * 'b) list -> (Ast.typ * string) list -> bool
+)
+ident(
+  int_ref check_types "type_class.ml" 181 5395 5403 "type_class.ml" 181 5395 5414
+)
+"type_class.ml" 196 5913 5953 "type_class.ml" 196 5913 5960
+type(
+  (Ast.typ * 'b) list
+)
+ident(
+  int_ref params_ "type_class.ml" 190 5666 5683 "type_class.ml" 190 5666 5690
+)
+"type_class.ml" 196 5913 5961 "type_class.ml" 196 5913 5969
+type(
+  (Ast.typ * string) list
+)
+ident(
+  int_ref mparams_ "type_class.ml" 193 5758 5780 "type_class.ml" 193 5758 5788
+)
+"type_class.ml" 196 5913 5941 "type_class.ml" 196 5913 5969
+call(
+  stack
+)
+type(
+  bool
+)
+"type_class.ml" 196 5913 5920 "type_class.ml" 196 5913 5969
+type(
+  bool
+)
+"type_class.ml" 197 5976 5981 "type_class.ml" 197 5976 5986
+type(
+  string -> Ast.position -> unit
+)
+ident(
+  int_ref error "type_class.ml" 5 58 62 "type_class.ml" 5 58 67
+)
+"type_class.ml" 197 5976 5988 "type_class.ml" 197 5976 6008
+type(
+  string
+)
+"type_class.ml" 197 5976 6009 "type_class.ml" 197 5976 6010
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 197 5976 6011 "type_class.ml" 197 5976 6017
+type(
+  string
+)
+ident(
+  int_ref mname_ "type_class.ml" 193 5758 5765 "type_class.ml" 193 5758 5771
+)
+"type_class.ml" 197 5976 5987 "type_class.ml" 197 5976 6018
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 197 5976 6019 "type_class.ml" 197 5976 6024
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 190 5666 5677 "type_class.ml" 190 5666 5682
+)
+"type_class.ml" 197 5976 6019 "type_class.ml" 197 5976 6029
+type(
+  Ast.position
+)
+"type_class.ml" 197 5976 5981 "type_class.ml" 197 5976 6029
+call(
+  tail
+)
+type(
+  unit
+)
+"type_class.ml" 196 5913 5917 "type_class.ml" 197 5976 6029
+type(
+  unit
+)
+"type_class.ml" 195 5849 5853 "type_class.ml" 197 5976 6029
+type(
+  unit
+)
+"type_class.ml" 194 5807 5810 "type_class.ml" 197 5976 6029
+type(
+  unit
+)
+"type_class.ml" 192 5744 5755 "type_class.ml" 198 6031 6033
+type(
+  string * (Ast.typ * (Ast.typ * string) list * string) -> unit
+)
+"type_class.ml" 198 6031 6034 "type_class.ml" 198 6031 6044
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 189 5617 5652 "type_class.ml" 189 5617 5662
+)
+"type_class.ml" 198 6031 6034 "type_class.ml" 198 6031 6052
+type(
+  (string * (Ast.typ * (Ast.typ * string) list * string)) list
+)
+"type_class.ml" 192 5744 5745 "type_class.ml" 198 6031 6052
+call(
+  tail
+)
+type(
+  unit
+)
+"type_class.ml" 191 5705 5706 "type_class.ml" 198 6031 6052
+type(
+  unit
+)
+"type_class.ml" 190 5666 5667 "type_class.ml" 198 6031 6052
+type(
+  unit
+)
+"type_class.ml" 201 6135 6139 "type_class.ml" 201 6135 6161
+type(
+  Ast.typ -> (Ast.position, 'a) Ast.node -> unit
+)
+ident(
+  def check_class_var_exists "type_class.ml" 208 6427 6427 "_none_" 1 0 -1
+)
+"type_class.ml" 201 6135 6162 "type_class.ml" 201 6135 6167
+type(
+  Ast.typ
+)
+ident(
+  def type_ "type_class.ml" 201 6135 6168 "type_class.ml" 205 6329 6339
+)
+"type_class.ml" 201 6135 6168 "type_class.ml" 201 6135 6173
+type(
+  (Ast.position, 'a) Ast.node
+)
+ident(
+  def name_ "type_class.ml" 202 6177 6178 "type_class.ml" 205 6329 6339
+)
+"type_class.ml" 202 6177 6184 "type_class.ml" 202 6177 6189
+type(
+  Ast.typ
+)
+ident(
+  int_ref type_ "type_class.ml" 201 6135 6162 "type_class.ml" 201 6135 6167
+)
+"type_class.ml" 203 6196 6206 "type_class.ml" 203 6196 6216
+type(
+  string
+)
+ident(
+  def class_name "type_class.ml" 203 6196 6220 "type_class.ml" 204 6259 6327
+)
+"type_class.ml" 203 6196 6199 "type_class.ml" 203 6196 6216
+type(
+  Ast.typ
+)
+"type_class.ml" 203 6196 6223 "type_class.ml" 203 6196 6226
+type(
+  bool -> bool
+)
+ident(
+  ext_ref Pervasives.not
+)
+"type_class.ml" 203 6196 6228 "type_class.ml" 203 6196 6240
+type(
+  string -> bool
+)
+ident(
+  int_ref class_exists "type_class.ml" 131 3707 3711 "type_class.ml" 131 3707 3723
+)
+"type_class.ml" 203 6196 6241 "type_class.ml" 203 6196 6251
+type(
+  string
+)
+ident(
+  int_ref class_name "type_class.ml" 203 6196 6206 "type_class.ml" 203 6196 6216
+)
+"type_class.ml" 203 6196 6227 "type_class.ml" 203 6196 6252
+call(
+  stack
+)
+type(
+  bool
+)
+"type_class.ml" 203 6196 6223 "type_class.ml" 203 6196 6252
+type(
+  bool
+)
+"type_class.ml" 204 6259 6263 "type_class.ml" 204 6259 6268
+type(
+  string -> Ast.position -> unit
+)
+ident(
+  int_ref error "type_class.ml" 5 58 62 "type_class.ml" 5 58 67
+)
+"type_class.ml" 204 6259 6270 "type_class.ml" 204 6259 6282
+type(
+  string
+)
+"type_class.ml" 204 6259 6283 "type_class.ml" 204 6259 6284
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 204 6259 6285 "type_class.ml" 204 6259 6295
+type(
+  string
+)
+ident(
+  int_ref class_name "type_class.ml" 203 6196 6206 "type_class.ml" 203 6196 6216
+)
+"type_class.ml" 204 6259 6296 "type_class.ml" 204 6259 6297
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 204 6259 6298 "type_class.ml" 204 6259 6314
+type(
+  string
+)
+"type_class.ml" 204 6259 6285 "type_class.ml" 204 6259 6314
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 204 6259 6269 "type_class.ml" 204 6259 6315
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 204 6259 6316 "type_class.ml" 204 6259 6321
+type(
+  (Ast.position, 'a) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 201 6135 6168 "type_class.ml" 201 6135 6173
+)
+"type_class.ml" 204 6259 6316 "type_class.ml" 204 6259 6326
+type(
+  Ast.position
+)
+"type_class.ml" 204 6259 6263 "type_class.ml" 204 6259 6326
+call(
+  tail
+)
+type(
+  unit
+)
+"type_class.ml" 203 6196 6220 "type_class.ml" 204 6259 6327
+type(
+  unit
+)
+"type_class.ml" 205 6329 6332 "type_class.ml" 205 6329 6333
+type(
+  Ast.typ
+)
+"type_class.ml" 205 6329 6337 "type_class.ml" 205 6329 6339
+type(
+  unit
+)
+"type_class.ml" 202 6177 6178 "type_class.ml" 205 6329 6339
+type(
+  unit
+)
+"type_class.ml" 208 6427 6431 "type_class.ml" 208 6427 6455
+type(
+  (Ast.typ * (Ast.position, 'a) Ast.node) list -> unit
+)
+ident(
+  def check_class_vlist_exists "type_class.ml" 213 6557 6557 "_none_" 1 0 -1
+)
+"type_class.ml" 208 6427 6456 "type_class.ml" 208 6427 6462
+type(
+  (Ast.typ * (Ast.position, 'a) Ast.node) list
+)
+ident(
+  def params "type_class.ml" 209 6466 6467 "type_class.ml" 211 6543 6553
+)
+"type_class.ml" 209 6466 6467 "type_class.ml" 209 6466 6476
+type(
+  (Ast.typ * (Ast.position, 'a) Ast.node -> unit) ->
+  (Ast.typ * (Ast.position, 'a) Ast.node) list -> unit
+)
+ident(
+  ext_ref List.iter
+)
+"type_class.ml" 209 6466 6484 "type_class.ml" 209 6466 6489
+type(
+  Ast.typ
+)
+ident(
+  def type_ "type_class.ml" 210 6502 6507 "type_class.ml" 210 6502 6541
+)
+"type_class.ml" 209 6466 6491 "type_class.ml" 209 6466 6496
+type(
+  (Ast.position, 'a) Ast.node
+)
+ident(
+  def name_ "type_class.ml" 210 6502 6507 "type_class.ml" 210 6502 6541
+)
+"type_class.ml" 209 6466 6483 "type_class.ml" 209 6466 6497
+type(
+  Ast.typ * (Ast.position, 'a) Ast.node
+)
+"type_class.ml" 210 6502 6507 "type_class.ml" 210 6502 6529
+type(
+  Ast.typ -> (Ast.position, 'a) Ast.node -> unit
+)
+ident(
+  int_ref check_class_var_exists "type_class.ml" 201 6135 6139 "type_class.ml" 201 6135 6161
+)
+"type_class.ml" 210 6502 6530 "type_class.ml" 210 6502 6535
+type(
+  Ast.typ
+)
+ident(
+  int_ref type_ "type_class.ml" 209 6466 6484 "type_class.ml" 209 6466 6489
+)
+"type_class.ml" 210 6502 6536 "type_class.ml" 210 6502 6541
+type(
+  (Ast.position, 'a) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 209 6466 6491 "type_class.ml" 209 6466 6496
+)
+"type_class.ml" 210 6502 6507 "type_class.ml" 210 6502 6541
+call(
+  tail
+)
+type(
+  unit
+)
+"type_class.ml" 209 6466 6477 "type_class.ml" 211 6543 6546
+type(
+  Ast.typ * (Ast.position, 'a) Ast.node -> unit
+)
+"type_class.ml" 211 6543 6547 "type_class.ml" 211 6543 6553
+type(
+  (Ast.typ * (Ast.position, 'a) Ast.node) list
+)
+ident(
+  int_ref params "type_class.ml" 208 6427 6456 "type_class.ml" 208 6427 6462
+)
+"type_class.ml" 209 6466 6467 "type_class.ml" 211 6543 6553
+call(
+  tail
+)
+type(
+  unit
+)
+"type_class.ml" 213 6557 6561 "type_class.ml" 213 6557 6566
+type(
+  Ast.typ -> unit
+)
+ident(
+  def print "type_class.ml" 223 6899 6899 "_none_" 1 0 -1
+)
+"type_class.ml" 213 6557 6567 "type_class.ml" 213 6557 6572
+type(
+  Ast.typ
+)
+ident(
+  def type_ "type_class.ml" 214 6576 6577 "type_class.ml" 218 6724 6735
+)
+"type_class.ml" 214 6576 6583 "type_class.ml" 214 6576 6588
+type(
+  Ast.typ
+)
+ident(
+  int_ref type_ "type_class.ml" 213 6557 6567 "type_class.ml" 213 6557 6572
+)
+"type_class.ml" 215 6595 6606 "type_class.ml" 215 6595 6611
+type(
+  string
+)
+ident(
+  def cname "type_class.ml" 215 6595 6615 "type_class.ml" 215 6595 6644
+)
+"type_class.ml" 215 6595 6599 "type_class.ml" 215 6595 6611
+type(
+  Ast.typ
+)
+"type_class.ml" 215 6595 6615 "type_class.ml" 215 6595 6628
+type(
+  (string -> unit, out_channel, unit) format -> string -> unit
+)
+ident(
+  ext_ref Printf.printf
+)
+"type_class.ml" 215 6595 6629 "type_class.ml" 215 6595 6637
+type(
+  (string -> unit, out_channel, unit) format
+)
+"type_class.ml" 215 6595 6638 "type_class.ml" 215 6595 6643
+type(
+  string
+)
+ident(
+  int_ref cname "type_class.ml" 215 6595 6606 "type_class.ml" 215 6595 6611
+)
+"type_class.ml" 215 6595 6615 "type_class.ml" 215 6595 6644
+call(
+  tail
+)
+type(
+  unit
+)
+"type_class.ml" 216 6646 6650 "type_class.ml" 216 6646 6654
+type(
+  Ast.typ
+)
+"type_class.ml" 216 6646 6658 "type_class.ml" 216 6646 6671
+type(
+  (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Printf.printf
+)
+"type_class.ml" 216 6646 6672 "type_class.ml" 216 6646 6681
+type(
+  (unit, out_channel, unit) format
+)
+"type_class.ml" 216 6646 6658 "type_class.ml" 216 6646 6682
+call(
+  tail
+)
+type(
+  unit
+)
+"type_class.ml" 217 6684 6688 "type_class.ml" 217 6684 6693
+type(
+  Ast.typ
+)
+"type_class.ml" 217 6684 6697 "type_class.ml" 217 6684 6710
+type(
+  (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Printf.printf
+)
+"type_class.ml" 217 6684 6711 "type_class.ml" 217 6684 6721
+type(
+  (unit, out_channel, unit) format
+)
+"type_class.ml" 217 6684 6697 "type_class.ml" 217 6684 6722
+call(
+  tail
+)
+type(
+  unit
+)
+"type_class.ml" 218 6724 6728 "type_class.ml" 218 6724 6729
+type(
+  Ast.typ
+)
+"type_class.ml" 218 6724 6733 "type_class.ml" 218 6724 6735
+type(
+  unit
+)
+"type_class.ml" 214 6576 6577 "type_class.ml" 218 6724 6735
+type(
+  unit
+)
+"type_class.ml" 223 6899 6903 "type_class.ml" 223 6899 6925
+type(
+  'a ->
+  class_info ->
+  Ast.typ * (Ast.position, string) Ast.node * (Ast.typ * 'b) list -> unit
+)
+ident(
+  def check_is_parent_method "type_class.ml" 235 7553 7553 "_none_" 1 0 -1
+)
+"type_class.ml" 223 6899 6926 "type_class.ml" 223 6899 6936
+type(
+  'a
+)
+ident(
+  def class_info "type_class.ml" 223 6899 6937 "type_class.ml" 231 7295 7391
+)
+"type_class.ml" 223 6899 6937 "type_class.ml" 223 6899 6949
+type(
+  class_info
+)
+ident(
+  def class_parent "type_class.ml" 223 6899 6950 "type_class.ml" 231 7295 7391
+)
+"type_class.ml" 223 6899 6950 "type_class.ml" 223 6899 6957
+type(
+  Ast.typ * (Ast.position, string) Ast.node * (Ast.typ * 'b) list
+)
+ident(
+  def method_ "type_class.ml" 224 6961 6962 "type_class.ml" 231 7295 7391
+)
+"type_class.ml" 224 6961 6966 "type_class.ml" 224 6961 6971
+type(
+  Ast.typ
+)
+ident(
+  def type_ "type_class.ml" 225 7001 7002 "type_class.ml" 231 7295 7391
+)
+"type_class.ml" 224 6961 6973 "type_class.ml" 224 6961 6978
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  def name_ "type_class.ml" 225 7001 7002 "type_class.ml" 231 7295 7391
+)
+"type_class.ml" 224 6961 6980 "type_class.ml" 224 6961 6986
+type(
+  (Ast.typ * 'b) list
+)
+ident(
+  def params "type_class.ml" 225 7001 7002 "type_class.ml" 231 7295 7391
+)
+"type_class.ml" 224 6961 6966 "type_class.ml" 224 6961 6986
+type(
+  Ast.typ * (Ast.position, string) Ast.node * (Ast.typ * 'b) list
+)
+"type_class.ml" 224 6961 6989 "type_class.ml" 224 6961 6996
+type(
+  Ast.typ * (Ast.position, string) Ast.node * (Ast.typ * 'b) list
+)
+ident(
+  int_ref method_ "type_class.ml" 223 6899 6950 "type_class.ml" 223 6899 6957
+)
+"type_class.ml" 225 7001 7005 "type_class.ml" 225 7001 7017
+type(
+  class_info -> string -> bool
+)
+ident(
+  int_ref method_exist "type_class.ml" 139 3971 3975 "type_class.ml" 139 3971 3987
+)
+"type_class.ml" 225 7001 7018 "type_class.ml" 225 7001 7030
+type(
+  class_info
+)
+ident(
+  int_ref class_parent "type_class.ml" 223 6899 6937 "type_class.ml" 223 6899 6949
+)
+"type_class.ml" 225 7001 7031 "type_class.ml" 225 7001 7036
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 224 6961 6973 "type_class.ml" 224 6961 6978
+)
+"type_class.ml" 225 7001 7031 "type_class.ml" 225 7001 7041
+type(
+  string
+)
+"type_class.ml" 225 7001 7005 "type_class.ml" 225 7001 7041
+call(
+  stack
+)
+type(
+  bool
+)
+"type_class.ml" 226 7048 7055 "type_class.ml" 226 7048 7061
+type(
+  Ast.typ
+)
+ident(
+  def mtype_ "type_class.ml" 227 7116 7118 "type_class.ml" 231 7295 7391
+)
+"type_class.ml" 226 7048 7063 "type_class.ml" 226 7048 7070
+type(
+  (Ast.typ * string) list
+)
+ident(
+  def mparams "type_class.ml" 227 7116 7118 "type_class.ml" 231 7295 7391
+)
+"type_class.ml" 226 7048 7072 "type_class.ml" 226 7048 7073
+type(
+  string
+)
+"type_class.ml" 226 7048 7054 "type_class.ml" 226 7048 7074
+type(
+  Ast.typ * (Ast.typ * string) list * string
+)
+"type_class.ml" 226 7048 7077 "type_class.ml" 226 7048 7087
+type(
+  class_info -> string -> Ast.typ * (Ast.typ * string) list * string
+)
+ident(
+  int_ref get_method "type_class.ml" 60 1513 1517 "type_class.ml" 60 1513 1527
+)
+"type_class.ml" 226 7048 7088 "type_class.ml" 226 7048 7100
+type(
+  class_info
+)
+ident(
+  int_ref class_parent "type_class.ml" 223 6899 6937 "type_class.ml" 223 6899 6949
+)
+"type_class.ml" 226 7048 7101 "type_class.ml" 226 7048 7106
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 224 6961 6973 "type_class.ml" 224 6961 6978
+)
+"type_class.ml" 226 7048 7101 "type_class.ml" 226 7048 7111
+type(
+  string
+)
+"type_class.ml" 226 7048 7077 "type_class.ml" 226 7048 7111
+call(
+  stack
+)
+type(
+  Ast.typ * (Ast.typ * string) list * string
+)
+"type_class.ml" 227 7116 7122 "type_class.ml" 227 7116 7129
+type(
+  int
+)
+ident(
+  def length1 "type_class.ml" 228 7155 7157 "type_class.ml" 231 7295 7391
+)
+"type_class.ml" 227 7116 7132 "type_class.ml" 227 7116 7143
+type(
+  (Ast.typ * 'b) list -> int
+)
+ident(
+  ext_ref List.length
+)
+"type_class.ml" 227 7116 7144 "type_class.ml" 227 7116 7150
+type(
+  (Ast.typ * 'b) list
+)
+ident(
+  int_ref params "type_class.ml" 224 6961 6980 "type_class.ml" 224 6961 6986
+)
+"type_class.ml" 227 7116 7132 "type_class.ml" 227 7116 7150
+call(
+  stack
+)
+type(
+  int
+)
+"type_class.ml" 228 7155 7161 "type_class.ml" 228 7155 7168
+type(
+  int
+)
+ident(
+  def length2 "type_class.ml" 229 7195 7197 "type_class.ml" 231 7295 7391
+)
+"type_class.ml" 228 7155 7171 "type_class.ml" 228 7155 7182
+type(
+  (Ast.typ * string) list -> int
+)
+ident(
+  ext_ref List.length
+)
+"type_class.ml" 228 7155 7183 "type_class.ml" 228 7155 7190
+type(
+  (Ast.typ * string) list
+)
+ident(
+  int_ref mparams "type_class.ml" 226 7048 7063 "type_class.ml" 226 7048 7070
+)
+"type_class.ml" 228 7155 7171 "type_class.ml" 228 7155 7190
+call(
+  stack
+)
+type(
+  int
+)
+"type_class.ml" 229 7195 7201 "type_class.ml" 229 7195 7208
+type(
+  int
+)
+ident(
+  int_ref length1 "type_class.ml" 227 7116 7122 "type_class.ml" 227 7116 7129
+)
+"type_class.ml" 229 7195 7209 "type_class.ml" 229 7195 7210
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"type_class.ml" 229 7195 7211 "type_class.ml" 229 7195 7218
+type(
+  int
+)
+ident(
+  int_ref length2 "type_class.ml" 228 7155 7161 "type_class.ml" 228 7155 7168
+)
+"type_class.ml" 229 7195 7200 "type_class.ml" 229 7195 7219
+type(
+  bool
+)
+"type_class.ml" 229 7195 7220 "type_class.ml" 229 7195 7222
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"type_class.ml" 229 7195 7223 "type_class.ml" 229 7195 7234
+type(
+  (Ast.typ * string) list -> (Ast.typ * 'b) list -> bool
+)
+ident(
+  int_ref check_types "type_class.ml" 181 5395 5403 "type_class.ml" 181 5395 5414
+)
+"type_class.ml" 229 7195 7235 "type_class.ml" 229 7195 7242
+type(
+  (Ast.typ * string) list
+)
+ident(
+  int_ref mparams "type_class.ml" 226 7048 7063 "type_class.ml" 226 7048 7070
+)
+"type_class.ml" 229 7195 7243 "type_class.ml" 229 7195 7249
+type(
+  (Ast.typ * 'b) list
+)
+ident(
+  int_ref params "type_class.ml" 224 6961 6980 "type_class.ml" 224 6961 6986
+)
+"type_class.ml" 229 7195 7223 "type_class.ml" 229 7195 7249
+call(
+  stack
+)
+type(
+  bool
+)
+"type_class.ml" 230 7251 7253 "type_class.ml" 230 7251 7255
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"type_class.ml" 230 7251 7256 "type_class.ml" 230 7251 7259
+type(
+  bool -> bool
+)
+ident(
+  ext_ref Pervasives.not
+)
+"type_class.ml" 230 7251 7261 "type_class.ml" 230 7251 7274
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compare_types "type_class.ml" 173 5106 5110 "type_class.ml" 173 5106 5123
+)
+"type_class.ml" 230 7251 7275 "type_class.ml" 230 7251 7281
+type(
+  Ast.typ
+)
+ident(
+  int_ref mtype_ "type_class.ml" 226 7048 7055 "type_class.ml" 226 7048 7061
+)
+"type_class.ml" 230 7251 7282 "type_class.ml" 230 7251 7287
+type(
+  Ast.typ
+)
+ident(
+  int_ref type_ "type_class.ml" 224 6961 6966 "type_class.ml" 224 6961 6971
+)
+"type_class.ml" 230 7251 7260 "type_class.ml" 230 7251 7288
+call(
+  stack
+)
+type(
+  bool
+)
+"type_class.ml" 230 7251 7256 "type_class.ml" 230 7251 7288
+type(
+  bool
+)
+"type_class.ml" 229 7195 7223 "type_class.ml" 230 7251 7288
+type(
+  bool
+)
+"type_class.ml" 229 7195 7200 "type_class.ml" 230 7251 7288
+type(
+  bool
+)
+"type_class.ml" 231 7295 7298 "type_class.ml" 231 7295 7303
+type(
+  string -> Ast.position -> unit
+)
+ident(
+  int_ref error "type_class.ml" 5 58 62 "type_class.ml" 5 58 67
+)
+"type_class.ml" 231 7295 7305 "type_class.ml" 231 7295 7366
+type(
+  string
+)
+"type_class.ml" 231 7295 7367 "type_class.ml" 231 7295 7368
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 231 7295 7369 "type_class.ml" 231 7295 7374
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 224 6961 6973 "type_class.ml" 224 6961 6978
+)
+"type_class.ml" 231 7295 7369 "type_class.ml" 231 7295 7379
+type(
+  string
+)
+"type_class.ml" 231 7295 7304 "type_class.ml" 231 7295 7380
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 231 7295 7381 "type_class.ml" 231 7295 7386
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 224 6961 6973 "type_class.ml" 224 6961 6978
+)
+"type_class.ml" 231 7295 7381 "type_class.ml" 231 7295 7391
+type(
+  Ast.position
+)
+"type_class.ml" 231 7295 7298 "type_class.ml" 231 7295 7391
+call(
+  tail
+)
+type(
+  unit
+)
+"type_class.ml" 229 7195 7197 "type_class.ml" 231 7295 7391
+type(
+  unit
+)
+"type_class.ml" 228 7155 7157 "type_class.ml" 231 7295 7391
+type(
+  unit
+)
+"type_class.ml" 227 7116 7118 "type_class.ml" 231 7295 7391
+type(
+  unit
+)
+"type_class.ml" 226 7048 7050 "type_class.ml" 231 7295 7391
+type(
+  unit
+)
+"type_class.ml" 225 7001 7002 "type_class.ml" 231 7295 7391
+type(
+  unit
+)
+"type_class.ml" 224 6961 6962 "type_class.ml" 231 7295 7391
+type(
+  unit
+)
+"type_class.ml" 235 7553 7557 "type_class.ml" 235 7553 7569
+type(
+  class_info -> (Ast.typ * 'a) list -> bool
+)
+ident(
+  def exist_constr "type_class.ml" 249 7981 7981 "_none_" 1 0 -1
+)
+"type_class.ml" 235 7553 7570 "type_class.ml" 235 7553 7580
+type(
+  class_info
+)
+ident(
+  def class_info "type_class.ml" 235 7553 7581 "type_class.ml" 246 7868 7902
+)
+"type_class.ml" 235 7553 7581 "type_class.ml" 235 7553 7587
+type(
+  (Ast.typ * 'a) list
+)
+ident(
+  def params "type_class.ml" 236 7591 7592 "type_class.ml" 246 7868 7902
+)
+"type_class.ml" 236 7591 7596 "type_class.ml" 236 7591 7603
+type(
+  int
+)
+ident(
+  def length1 "type_class.ml" 237 7629 7630 "type_class.ml" 246 7868 7902
+)
+"type_class.ml" 236 7591 7606 "type_class.ml" 236 7591 7617
+type(
+  (Ast.typ * 'a) list -> int
+)
+ident(
+  ext_ref List.length
+)
+"type_class.ml" 236 7591 7618 "type_class.ml" 236 7591 7624
+type(
+  (Ast.typ * 'a) list
+)
+ident(
+  int_ref params "type_class.ml" 235 7553 7581 "type_class.ml" 235 7553 7587
+)
+"type_class.ml" 236 7591 7606 "type_class.ml" 236 7591 7624
+call(
+  stack
+)
+type(
+  int
+)
+"type_class.ml" 237 7629 7638 "type_class.ml" 237 7629 7651
+type(
+  (Ast.typ * 'b) list list -> bool
+)
+ident(
+  def check_constrs "type_class.ml" 237 7629 7630 "type_class.ml" 246 7868 7902
+)
+"type_class.ml" 237 7629 7652 "type_class.ml" 237 7629 7657
+type(
+  (Ast.typ * 'b) list list
+)
+ident(
+  def clist "type_class.ml" 238 7661 7663 "type_class.ml" 245 7822 7866
+)
+"type_class.ml" 238 7661 7669 "type_class.ml" 238 7661 7674
+type(
+  (Ast.typ * 'b) list list
+)
+ident(
+  int_ref clist "type_class.ml" 237 7629 7652 "type_class.ml" 237 7629 7657
+)
+"type_class.ml" 239 7681 7685 "type_class.ml" 239 7681 7687
+type(
+  (Ast.typ * 'b) list list
+)
+"type_class.ml" 239 7681 7691 "type_class.ml" 239 7681 7696
+type(
+  bool
+)
+"type_class.ml" 240 7698 7702 "type_class.ml" 240 7698 7703
+type(
+  (Ast.typ * 'b) list
+)
+ident(
+  def a "type_class.ml" 241 7713 7717 "type_class.ml" 245 7822 7866
+)
+"type_class.ml" 240 7698 7707 "type_class.ml" 240 7698 7708
+type(
+  (Ast.typ * 'b) list list
+)
+ident(
+  def r "type_class.ml" 241 7713 7717 "type_class.ml" 245 7822 7866
+)
+"type_class.ml" 240 7698 7702 "type_class.ml" 240 7698 7708
+type(
+  (Ast.typ * 'b) list list
+)
+"type_class.ml" 241 7713 7721 "type_class.ml" 241 7713 7728
+type(
+  int
+)
+ident(
+  def length2 "type_class.ml" 242 7749 7753 "type_class.ml" 245 7822 7866
+)
+"type_class.ml" 241 7713 7731 "type_class.ml" 241 7713 7742
+type(
+  (Ast.typ * 'b) list -> int
+)
+ident(
+  ext_ref List.length
+)
+"type_class.ml" 241 7713 7743 "type_class.ml" 241 7713 7744
+type(
+  (Ast.typ * 'b) list
+)
+ident(
+  int_ref a "type_class.ml" 240 7698 7702 "type_class.ml" 240 7698 7703
+)
+"type_class.ml" 241 7713 7731 "type_class.ml" 241 7713 7744
+call(
+  stack
+)
+type(
+  int
+)
+"type_class.ml" 242 7749 7756 "type_class.ml" 242 7749 7763
+type(
+  int
+)
+ident(
+  int_ref length1 "type_class.ml" 236 7591 7596 "type_class.ml" 236 7591 7603
+)
+"type_class.ml" 242 7749 7764 "type_class.ml" 242 7749 7766
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( <> )
+)
+"type_class.ml" 242 7749 7767 "type_class.ml" 242 7749 7774
+type(
+  int
+)
+ident(
+  int_ref length2 "type_class.ml" 241 7713 7721 "type_class.ml" 241 7713 7728
+)
+"type_class.ml" 242 7749 7756 "type_class.ml" 242 7749 7774
+type(
+  bool
+)
+"type_class.ml" 243 7781 7786 "type_class.ml" 243 7781 7791
+type(
+  bool
+)
+"type_class.ml" 243 7781 7792 "type_class.ml" 243 7781 7794
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( || )
+)
+"type_class.ml" 243 7781 7795 "type_class.ml" 243 7781 7808
+type(
+  (Ast.typ * 'b) list list -> bool
+)
+ident(
+  int_ref check_constrs "type_class.ml" 237 7629 7638 "type_class.ml" 237 7629 7651
+)
+"type_class.ml" 243 7781 7809 "type_class.ml" 243 7781 7810
+type(
+  (Ast.typ * 'b) list list
+)
+ident(
+  int_ref r "type_class.ml" 240 7698 7707 "type_class.ml" 240 7698 7708
+)
+"type_class.ml" 243 7781 7795 "type_class.ml" 243 7781 7810
+call(
+  tail
+)
+type(
+  bool
+)
+"type_class.ml" 243 7781 7786 "type_class.ml" 243 7781 7810
+type(
+  bool
+)
+"type_class.ml" 245 7822 7827 "type_class.ml" 245 7822 7838
+type(
+  (Ast.typ * 'b) list -> (Ast.typ * 'a) list -> bool
+)
+ident(
+  int_ref check_types "type_class.ml" 181 5395 5403 "type_class.ml" 181 5395 5414
+)
+"type_class.ml" 245 7822 7839 "type_class.ml" 245 7822 7840
+type(
+  (Ast.typ * 'b) list
+)
+ident(
+  int_ref a "type_class.ml" 240 7698 7702 "type_class.ml" 240 7698 7703
+)
+"type_class.ml" 245 7822 7841 "type_class.ml" 245 7822 7847
+type(
+  (Ast.typ * 'a) list
+)
+ident(
+  int_ref params "type_class.ml" 235 7553 7581 "type_class.ml" 235 7553 7587
+)
+"type_class.ml" 245 7822 7827 "type_class.ml" 245 7822 7847
+call(
+  stack
+)
+type(
+  bool
+)
+"type_class.ml" 245 7822 7848 "type_class.ml" 245 7822 7850
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( || )
+)
+"type_class.ml" 245 7822 7851 "type_class.ml" 245 7822 7864
+type(
+  (Ast.typ * 'b) list list -> bool
+)
+ident(
+  int_ref check_constrs "type_class.ml" 237 7629 7638 "type_class.ml" 237 7629 7651
+)
+"type_class.ml" 245 7822 7865 "type_class.ml" 245 7822 7866
+type(
+  (Ast.typ * 'b) list list
+)
+ident(
+  int_ref r "type_class.ml" 240 7698 7707 "type_class.ml" 240 7698 7708
+)
+"type_class.ml" 245 7822 7851 "type_class.ml" 245 7822 7866
+call(
+  tail
+)
+type(
+  bool
+)
+"type_class.ml" 245 7822 7827 "type_class.ml" 245 7822 7866
+type(
+  bool
+)
+"type_class.ml" 242 7749 7753 "type_class.ml" 245 7822 7866
+type(
+  bool
+)
+"type_class.ml" 241 7713 7717 "type_class.ml" 245 7822 7866
+type(
+  bool
+)
+"type_class.ml" 238 7661 7663 "type_class.ml" 245 7822 7866
+type(
+  bool
+)
+"type_class.ml" 246 7868 7872 "type_class.ml" 246 7868 7885
+type(
+  (Ast.typ * string) list list -> bool
+)
+ident(
+  int_ref check_constrs "type_class.ml" 237 7629 7638 "type_class.ml" 237 7629 7651
+)
+"type_class.ml" 246 7868 7886 "type_class.ml" 246 7868 7896
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 235 7553 7570 "type_class.ml" 235 7553 7580
+)
+"type_class.ml" 246 7868 7886 "type_class.ml" 246 7868 7902
+type(
+  (Ast.typ * string) list list
+)
+"type_class.ml" 246 7868 7872 "type_class.ml" 246 7868 7902
+call(
+  tail
+)
+type(
+  bool
+)
+"type_class.ml" 237 7629 7630 "type_class.ml" 246 7868 7902
+type(
+  bool
+)
+"type_class.ml" 236 7591 7592 "type_class.ml" 246 7868 7902
+type(
+  bool
+)
+"type_class.ml" 249 7981 7985 "type_class.ml" 249 7981 7997
+type(
+  ('a * ('b, 'c) Ast.node) list -> ('a * 'c) list
+)
+ident(
+  def create_cotrs "type_class.ml" 253 8147 8147 "_none_" 1 0 -1
+)
+"type_class.ml" 249 7981 7998 "type_class.ml" 249 7981 8006
+type(
+  ('a * ('b, 'c) Ast.node) list
+)
+ident(
+  def cparams_ "type_class.ml" 250 8010 8011 "type_class.ml" 250 8010 8088
+)
+"type_class.ml" 250 8010 8011 "type_class.ml" 250 8010 8025
+type(
+  (('a * 'c) list -> 'a * ('b, 'c) Ast.node -> ('a * 'c) list) ->
+  ('a * 'c) list -> ('a * ('b, 'c) Ast.node) list -> ('a * 'c) list
+)
+ident(
+  ext_ref List.fold_left
+)
+"type_class.ml" 250 8010 8032 "type_class.ml" 250 8010 8033
+type(
+  ('a * 'c) list
+)
+ident(
+  def x "type_class.ml" 250 8010 8034 "type_class.ml" 250 8010 8075
+)
+"type_class.ml" 250 8010 8035 "type_class.ml" 250 8010 8040
+type(
+  'a
+)
+ident(
+  def type_ "type_class.ml" 250 8010 8052 "type_class.ml" 250 8010 8075
+)
+"type_class.ml" 250 8010 8042 "type_class.ml" 250 8010 8047
+type(
+  ('b, 'c) Ast.node
+)
+ident(
+  def name_ "type_class.ml" 250 8010 8052 "type_class.ml" 250 8010 8075
+)
+"type_class.ml" 250 8010 8034 "type_class.ml" 250 8010 8048
+type(
+  'a * ('b, 'c) Ast.node
+)
+"type_class.ml" 250 8010 8053 "type_class.ml" 250 8010 8058
+type(
+  'a
+)
+ident(
+  int_ref type_ "type_class.ml" 250 8010 8035 "type_class.ml" 250 8010 8040
+)
+"type_class.ml" 250 8010 8060 "type_class.ml" 250 8010 8065
+type(
+  ('b, 'c) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 250 8010 8042 "type_class.ml" 250 8010 8047
+)
+"type_class.ml" 250 8010 8060 "type_class.ml" 250 8010 8070
+type(
+  'c
+)
+"type_class.ml" 250 8010 8052 "type_class.ml" 250 8010 8071
+type(
+  'a * 'c
+)
+"type_class.ml" 250 8010 8074 "type_class.ml" 250 8010 8075
+type(
+  ('a * 'c) list
+)
+ident(
+  int_ref x "type_class.ml" 250 8010 8032 "type_class.ml" 250 8010 8033
+)
+"type_class.ml" 250 8010 8052 "type_class.ml" 250 8010 8075
+type(
+  ('a * 'c) list
+)
+"type_class.ml" 250 8010 8026 "type_class.ml" 250 8010 8076
+type(
+  ('a * 'c) list -> 'a * ('b, 'c) Ast.node -> ('a * 'c) list
+)
+"type_class.ml" 250 8010 8077 "type_class.ml" 250 8010 8079
+type(
+  ('a * 'c) list
+)
+"type_class.ml" 250 8010 8080 "type_class.ml" 250 8010 8088
+type(
+  ('a * ('b, 'c) Ast.node) list
+)
+ident(
+  int_ref cparams_ "type_class.ml" 249 7981 7998 "type_class.ml" 249 7981 8006
+)
+"type_class.ml" 250 8010 8011 "type_class.ml" 250 8010 8088
+call(
+  tail
+)
+type(
+  ('a * 'c) list
+)
+"type_class.ml" 253 8147 8155 "type_class.ml" 253 8147 8173
+type(
+  Ast.position Ast.class_decl list -> class_info -> class_info -> class_info
+)
+ident(
+  def parse_declarations "type_class.ml" 253 8147 8147 "_none_" 1 0 -1
+)
+"type_class.ml" 253 8147 8174 "type_class.ml" 253 8147 8179
+type(
+  Ast.position Ast.class_decl list
+)
+ident(
+  def cdecl "type_class.ml" 253 8147 8180 "type_class.ml" 289 9970 10017
+)
+"type_class.ml" 253 8147 8180 "type_class.ml" 253 8147 8190
+type(
+  class_info
+)
+ident(
+  def class_info "type_class.ml" 253 8147 8191 "type_class.ml" 289 9970 10017
+)
+"type_class.ml" 253 8147 8191 "type_class.ml" 253 8147 8203
+type(
+  class_info
+)
+ident(
+  def class_parent "type_class.ml" 254 8207 8208 "type_class.ml" 289 9970 10017
+)
+"type_class.ml" 254 8207 8214 "type_class.ml" 254 8207 8219
+type(
+  Ast.position Ast.class_decl list
+)
+ident(
+  int_ref cdecl "type_class.ml" 253 8147 8174 "type_class.ml" 253 8147 8179
+)
+"type_class.ml" 255 8226 8229 "type_class.ml" 255 8226 8231
+type(
+  Ast.position Ast.class_decl list
+)
+"type_class.ml" 255 8226 8235 "type_class.ml" 255 8226 8245
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 253 8147 8180 "type_class.ml" 253 8147 8190
+)
+"type_class.ml" 256 8247 8258 "type_class.ml" 256 8247 8263
+type(
+  Ast.typ
+)
+ident(
+  def type_ "type_class.ml" 258 8347 8350 "type_class.ml" 264 8675 8722
+)
+"type_class.ml" 256 8247 8265 "type_class.ml" 256 8247 8270
+type(
+  Ast.position Ast.ident
+)
+ident(
+  def name_ "type_class.ml" 258 8347 8350 "type_class.ml" 264 8675 8722
+)
+"type_class.ml" 256 8247 8250 "type_class.ml" 256 8247 8271
+type(
+  Ast.position Ast.class_decl
+)
+"type_class.ml" 256 8247 8275 "type_class.ml" 256 8247 8276
+type(
+  Ast.position Ast.class_decl list
+)
+ident(
+  def r "type_class.ml" 258 8347 8350 "type_class.ml" 264 8675 8722
+)
+"type_class.ml" 256 8247 8250 "type_class.ml" 256 8247 8276
+type(
+  Ast.position Ast.class_decl list
+)
+"type_class.ml" 258 8347 8353 "type_class.ml" 258 8347 8363
+type(
+  class_info -> string -> bool
+)
+ident(
+  int_ref exist_attr "type_class.ml" 135 3829 3833 "type_class.ml" 135 3829 3843
+)
+"type_class.ml" 258 8347 8364 "type_class.ml" 258 8347 8376
+type(
+  class_info
+)
+ident(
+  int_ref class_parent "type_class.ml" 253 8147 8191 "type_class.ml" 253 8147 8203
+)
+"type_class.ml" 258 8347 8377 "type_class.ml" 258 8347 8382
+type(
+  Ast.position Ast.ident
+)
+ident(
+  int_ref name_ "type_class.ml" 256 8247 8265 "type_class.ml" 256 8247 8270
+)
+"type_class.ml" 258 8347 8377 "type_class.ml" 258 8347 8387
+type(
+  string
+)
+"type_class.ml" 258 8347 8353 "type_class.ml" 258 8347 8387
+call(
+  stack
+)
+type(
+  bool
+)
+"type_class.ml" 259 8394 8398 "type_class.ml" 259 8394 8403
+type(
+  string -> Ast.position -> unit
+)
+ident(
+  int_ref error "type_class.ml" 5 58 62 "type_class.ml" 5 58 67
+)
+"type_class.ml" 259 8394 8405 "type_class.ml" 259 8394 8418
+type(
+  string
+)
+"type_class.ml" 259 8394 8419 "type_class.ml" 259 8394 8420
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 259 8394 8421 "type_class.ml" 259 8394 8426
+type(
+  Ast.position Ast.ident
+)
+ident(
+  int_ref name_ "type_class.ml" 256 8247 8265 "type_class.ml" 256 8247 8270
+)
+"type_class.ml" 259 8394 8421 "type_class.ml" 259 8394 8431
+type(
+  string
+)
+"type_class.ml" 259 8394 8432 "type_class.ml" 259 8394 8433
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 259 8394 8434 "type_class.ml" 259 8394 8451
+type(
+  string
+)
+"type_class.ml" 259 8394 8421 "type_class.ml" 259 8394 8451
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 259 8394 8404 "type_class.ml" 259 8394 8452
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 259 8394 8453 "type_class.ml" 259 8394 8458
+type(
+  Ast.position Ast.ident
+)
+ident(
+  int_ref name_ "type_class.ml" 256 8247 8265 "type_class.ml" 256 8247 8270
+)
+"type_class.ml" 259 8394 8453 "type_class.ml" 259 8394 8463
+type(
+  Ast.position
+)
+"type_class.ml" 259 8394 8398 "type_class.ml" 259 8394 8463
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 258 8347 8350 "type_class.ml" 259 8394 8463
+type(
+  unit
+)
+"type_class.ml" 261 8537 8540 "type_class.ml" 261 8537 8562
+type(
+  Ast.typ -> Ast.position Ast.ident -> unit
+)
+ident(
+  int_ref check_class_var_exists "type_class.ml" 201 6135 6139 "type_class.ml" 201 6135 6161
+)
+"type_class.ml" 261 8537 8563 "type_class.ml" 261 8537 8568
+type(
+  Ast.typ
+)
+ident(
+  int_ref type_ "type_class.ml" 256 8247 8258 "type_class.ml" 256 8247 8263
+)
+"type_class.ml" 261 8537 8569 "type_class.ml" 261 8537 8574
+type(
+  Ast.position Ast.ident
+)
+ident(
+  int_ref name_ "type_class.ml" 256 8247 8265 "type_class.ml" 256 8247 8270
+)
+"type_class.ml" 261 8537 8540 "type_class.ml" 261 8537 8574
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 263 8582 8585 "type_class.ml" 263 8582 8595
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 253 8147 8180 "type_class.ml" 253 8147 8190
+)
+"type_class.ml" 263 8582 8611 "type_class.ml" 263 8582 8616
+type(
+  Ast.position Ast.ident
+)
+ident(
+  int_ref name_ "type_class.ml" 256 8247 8265 "type_class.ml" 256 8247 8270
+)
+"type_class.ml" 263 8582 8611 "type_class.ml" 263 8582 8621
+type(
+  string
+)
+"type_class.ml" 263 8582 8624 "type_class.ml" 263 8582 8629
+type(
+  Ast.typ
+)
+ident(
+  int_ref type_ "type_class.ml" 256 8247 8258 "type_class.ml" 256 8247 8263
+)
+"type_class.ml" 263 8582 8631 "type_class.ml" 263 8582 8641
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 253 8147 8180 "type_class.ml" 253 8147 8190
+)
+"type_class.ml" 263 8582 8631 "type_class.ml" 263 8582 8646
+type(
+  string
+)
+"type_class.ml" 263 8582 8623 "type_class.ml" 263 8582 8647
+type(
+  Ast.typ * string
+)
+"type_class.ml" 263 8582 8610 "type_class.ml" 263 8582 8648
+type(
+  string * (Ast.typ * string)
+)
+"type_class.ml" 263 8582 8651 "type_class.ml" 263 8582 8661
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 253 8147 8180 "type_class.ml" 253 8147 8190
+)
+"type_class.ml" 263 8582 8651 "type_class.ml" 263 8582 8672
+type(
+  (string * (Ast.typ * string)) list
+)
+"type_class.ml" 263 8582 8610 "type_class.ml" 263 8582 8672
+type(
+  (string * (Ast.typ * string)) list
+)
+"type_class.ml" 263 8582 8585 "type_class.ml" 263 8582 8672
+type(
+  unit
+)
+"type_class.ml" 264 8675 8678 "type_class.ml" 264 8675 8696
+type(
+  Ast.position Ast.class_decl list -> class_info -> class_info -> class_info
+)
+ident(
+  int_ref parse_declarations "type_class.ml" 253 8147 8155 "type_class.ml" 253 8147 8173
+)
+"type_class.ml" 264 8675 8697 "type_class.ml" 264 8675 8698
+type(
+  Ast.position Ast.class_decl list
+)
+ident(
+  int_ref r "type_class.ml" 256 8247 8275 "type_class.ml" 256 8247 8276
+)
+"type_class.ml" 264 8675 8699 "type_class.ml" 264 8675 8709
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 253 8147 8180 "type_class.ml" 253 8147 8190
+)
+"type_class.ml" 264 8675 8710 "type_class.ml" 264 8675 8722
+type(
+  class_info
+)
+ident(
+  int_ref class_parent "type_class.ml" 253 8147 8191 "type_class.ml" 253 8147 8203
+)
+"type_class.ml" 264 8675 8678 "type_class.ml" 264 8675 8722
+call(
+  tail
+)
+type(
+  class_info
+)
+"type_class.ml" 263 8582 8585 "type_class.ml" 264 8675 8722
+type(
+  class_info
+)
+"type_class.ml" 261 8537 8540 "type_class.ml" 264 8675 8722
+type(
+  class_info
+)
+"type_class.ml" 258 8347 8350 "type_class.ml" 264 8675 8722
+type(
+  class_info
+)
+"type_class.ml" 265 8724 8736 "type_class.ml" 265 8724 8741
+type(
+  Ast.position Ast.ident
+)
+ident(
+  def name_ "type_class.ml" 268 8921 8924 "type_class.ml" 279 9465 9512
+)
+"type_class.ml" 265 8724 8743 "type_class.ml" 265 8724 8751
+type(
+  (Ast.typ * Ast.position Ast.ident) list
+)
+ident(
+  def cparams_ "type_class.ml" 268 8921 8924 "type_class.ml" 279 9465 9512
+)
+"type_class.ml" 265 8724 8753 "type_class.ml" 265 8724 8754
+type(
+  Ast.position Ast.instr
+)
+"type_class.ml" 265 8724 8727 "type_class.ml" 265 8724 8755
+type(
+  Ast.position Ast.class_decl
+)
+"type_class.ml" 265 8724 8759 "type_class.ml" 265 8724 8760
+type(
+  Ast.position Ast.class_decl list
+)
+ident(
+  def r "type_class.ml" 268 8921 8924 "type_class.ml" 279 9465 9512
+)
+"type_class.ml" 265 8724 8727 "type_class.ml" 265 8724 8760
+type(
+  Ast.position Ast.class_decl list
+)
+"type_class.ml" 268 8921 8927 "type_class.ml" 268 8921 8932
+type(
+  Ast.position Ast.ident
+)
+ident(
+  int_ref name_ "type_class.ml" 265 8724 8736 "type_class.ml" 265 8724 8741
+)
+"type_class.ml" 268 8921 8927 "type_class.ml" 268 8921 8937
+type(
+  string
+)
+"type_class.ml" 268 8921 8938 "type_class.ml" 268 8921 8940
+type(
+  string -> string -> bool
+)
+ident(
+  ext_ref Pervasives.( <> )
+)
+"type_class.ml" 268 8921 8941 "type_class.ml" 268 8921 8951
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 253 8147 8180 "type_class.ml" 253 8147 8190
+)
+"type_class.ml" 268 8921 8941 "type_class.ml" 268 8921 8956
+type(
+  string
+)
+"type_class.ml" 268 8921 8927 "type_class.ml" 268 8921 8956
+type(
+  bool
+)
+"type_class.ml" 269 8963 8967 "type_class.ml" 269 8963 8972
+type(
+  string -> Ast.position -> unit
+)
+ident(
+  int_ref error "type_class.ml" 5 58 62 "type_class.ml" 5 58 67
+)
+"type_class.ml" 269 8963 8974 "type_class.ml" 269 8963 8992
+type(
+  string
+)
+"type_class.ml" 269 8963 8993 "type_class.ml" 269 8963 8994
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 269 8963 8995 "type_class.ml" 269 8963 9000
+type(
+  Ast.position Ast.ident
+)
+ident(
+  int_ref name_ "type_class.ml" 265 8724 8736 "type_class.ml" 265 8724 8741
+)
+"type_class.ml" 269 8963 8995 "type_class.ml" 269 8963 9005
+type(
+  string
+)
+"type_class.ml" 269 8963 9006 "type_class.ml" 269 8963 9007
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 269 8963 9008 "type_class.ml" 269 8963 9048
+type(
+  string
+)
+"type_class.ml" 269 8963 8995 "type_class.ml" 269 8963 9048
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 269 8963 8973 "type_class.ml" 269 8963 9049
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 269 8963 9050 "type_class.ml" 269 8963 9055
+type(
+  Ast.position Ast.ident
+)
+ident(
+  int_ref name_ "type_class.ml" 265 8724 8736 "type_class.ml" 265 8724 8741
+)
+"type_class.ml" 269 8963 9050 "type_class.ml" 269 8963 9060
+type(
+  Ast.position
+)
+"type_class.ml" 269 8963 8967 "type_class.ml" 269 8963 9060
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 268 8921 8924 "type_class.ml" 269 8963 9060
+type(
+  unit
+)
+"type_class.ml" 271 9130 9136 "type_class.ml" 271 9130 9148
+type(
+  class_info -> (Ast.typ * Ast.position Ast.ident) list -> bool
+)
+ident(
+  int_ref exist_constr "type_class.ml" 235 7553 7557 "type_class.ml" 235 7553 7569
+)
+"type_class.ml" 271 9130 9149 "type_class.ml" 271 9130 9159
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 253 8147 8180 "type_class.ml" 253 8147 8190
+)
+"type_class.ml" 271 9130 9160 "type_class.ml" 271 9130 9168
+type(
+  (Ast.typ * Ast.position Ast.ident) list
+)
+ident(
+  int_ref cparams_ "type_class.ml" 265 8724 8743 "type_class.ml" 265 8724 8751
+)
+"type_class.ml" 271 9130 9136 "type_class.ml" 271 9130 9168
+call(
+  stack
+)
+type(
+  bool
+)
+"type_class.ml" 272 9175 9179 "type_class.ml" 272 9175 9184
+type(
+  string -> Ast.position -> unit
+)
+ident(
+  int_ref error "type_class.ml" 5 58 62 "type_class.ml" 5 58 67
+)
+"type_class.ml" 272 9175 9186 "type_class.ml" 272 9175 9204
+type(
+  string
+)
+"type_class.ml" 272 9175 9205 "type_class.ml" 272 9175 9206
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 272 9175 9207 "type_class.ml" 272 9175 9212
+type(
+  Ast.position Ast.ident
+)
+ident(
+  int_ref name_ "type_class.ml" 265 8724 8736 "type_class.ml" 265 8724 8741
+)
+"type_class.ml" 272 9175 9207 "type_class.ml" 272 9175 9217
+type(
+  string
+)
+"type_class.ml" 272 9175 9218 "type_class.ml" 272 9175 9219
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 272 9175 9220 "type_class.ml" 272 9175 9238
+type(
+  string
+)
+"type_class.ml" 272 9175 9207 "type_class.ml" 272 9175 9238
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 272 9175 9185 "type_class.ml" 272 9175 9239
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 272 9175 9240 "type_class.ml" 272 9175 9245
+type(
+  Ast.position Ast.ident
+)
+ident(
+  int_ref name_ "type_class.ml" 265 8724 8736 "type_class.ml" 265 8724 8741
+)
+"type_class.ml" 272 9175 9240 "type_class.ml" 272 9175 9250
+type(
+  Ast.position
+)
+"type_class.ml" 272 9175 9179 "type_class.ml" 272 9175 9250
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 271 9130 9133 "type_class.ml" 272 9175 9250
+type(
+  unit
+)
+"type_class.ml" 274 9296 9299 "type_class.ml" 274 9296 9323
+type(
+  (Ast.typ * Ast.position Ast.ident) list -> unit
+)
+ident(
+  int_ref check_class_vlist_exists "type_class.ml" 208 6427 6431 "type_class.ml" 208 6427 6455
+)
+"type_class.ml" 274 9296 9324 "type_class.ml" 274 9296 9332
+type(
+  (Ast.typ * Ast.position Ast.ident) list
+)
+ident(
+  int_ref cparams_ "type_class.ml" 265 8724 8743 "type_class.ml" 265 8724 8751
+)
+"type_class.ml" 274 9296 9299 "type_class.ml" 274 9296 9332
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 275 9335 9338 "type_class.ml" 275 9335 9357
+type(
+  (Ast.typ * Ast.position Ast.ident) list -> unit
+)
+ident(
+  int_ref check_unique_vparam "type_class.ml" 162 4818 4822 "type_class.ml" 162 4818 4841
+)
+"type_class.ml" 275 9335 9358 "type_class.ml" 275 9335 9366
+type(
+  (Ast.typ * Ast.position Ast.ident) list
+)
+ident(
+  int_ref cparams_ "type_class.ml" 265 8724 8743 "type_class.ml" 265 8724 8751
+)
+"type_class.ml" 275 9335 9338 "type_class.ml" 275 9335 9366
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 276 9369 9376 "type_class.ml" 276 9369 9381
+type(
+  (Ast.typ * string) list
+)
+ident(
+  def cotrs "type_class.ml" 277 9410 9413 "type_class.ml" 279 9465 9512
+)
+"type_class.ml" 276 9369 9384 "type_class.ml" 276 9369 9396
+type(
+  (Ast.typ * Ast.position Ast.ident) list -> (Ast.typ * string) list
+)
+ident(
+  int_ref create_cotrs "type_class.ml" 249 7981 7985 "type_class.ml" 249 7981 7997
+)
+"type_class.ml" 276 9369 9397 "type_class.ml" 276 9369 9405
+type(
+  (Ast.typ * Ast.position Ast.ident) list
+)
+ident(
+  int_ref cparams_ "type_class.ml" 265 8724 8743 "type_class.ml" 265 8724 8751
+)
+"type_class.ml" 276 9369 9384 "type_class.ml" 276 9369 9405
+call(
+  stack
+)
+type(
+  (Ast.typ * string) list
+)
+"type_class.ml" 277 9410 9413 "type_class.ml" 277 9410 9423
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 253 8147 8180 "type_class.ml" 253 8147 8190
+)
+"type_class.ml" 277 9410 9433 "type_class.ml" 277 9410 9438
+type(
+  (Ast.typ * string) list
+)
+ident(
+  int_ref cotrs "type_class.ml" 276 9369 9376 "type_class.ml" 276 9369 9381
+)
+"type_class.ml" 277 9410 9441 "type_class.ml" 277 9410 9451
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 253 8147 8180 "type_class.ml" 253 8147 8190
+)
+"type_class.ml" 277 9410 9441 "type_class.ml" 277 9410 9457
+type(
+  (Ast.typ * string) list list
+)
+"type_class.ml" 277 9410 9433 "type_class.ml" 277 9410 9457
+type(
+  (Ast.typ * string) list list
+)
+"type_class.ml" 277 9410 9413 "type_class.ml" 277 9410 9457
+type(
+  unit
+)
+"type_class.ml" 279 9465 9468 "type_class.ml" 279 9465 9486
+type(
+  Ast.position Ast.class_decl list -> class_info -> class_info -> class_info
+)
+ident(
+  int_ref parse_declarations "type_class.ml" 253 8147 8155 "type_class.ml" 253 8147 8173
+)
+"type_class.ml" 279 9465 9487 "type_class.ml" 279 9465 9488
+type(
+  Ast.position Ast.class_decl list
+)
+ident(
+  int_ref r "type_class.ml" 265 8724 8759 "type_class.ml" 265 8724 8760
+)
+"type_class.ml" 279 9465 9489 "type_class.ml" 279 9465 9499
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 253 8147 8180 "type_class.ml" 253 8147 8190
+)
+"type_class.ml" 279 9465 9500 "type_class.ml" 279 9465 9512
+type(
+  class_info
+)
+ident(
+  int_ref class_parent "type_class.ml" 253 8147 8191 "type_class.ml" 253 8147 8203
+)
+"type_class.ml" 279 9465 9468 "type_class.ml" 279 9465 9512
+call(
+  tail
+)
+type(
+  class_info
+)
+"type_class.ml" 277 9410 9413 "type_class.ml" 279 9465 9512
+type(
+  class_info
+)
+"type_class.ml" 276 9369 9372 "type_class.ml" 279 9465 9512
+type(
+  class_info
+)
+"type_class.ml" 275 9335 9338 "type_class.ml" 279 9465 9512
+type(
+  class_info
+)
+"type_class.ml" 274 9296 9299 "type_class.ml" 279 9465 9512
+type(
+  class_info
+)
+"type_class.ml" 271 9130 9133 "type_class.ml" 279 9465 9512
+type(
+  class_info
+)
+"type_class.ml" 268 8921 8924 "type_class.ml" 279 9465 9512
+type(
+  class_info
+)
+"type_class.ml" 280 9514 9524 "type_class.ml" 280 9514 9529
+type(
+  Ast.typ
+)
+ident(
+  def type_ "type_class.ml" 281 9563 9566 "type_class.ml" 289 9970 10017
+)
+"type_class.ml" 280 9514 9531 "type_class.ml" 280 9514 9536
+type(
+  Ast.position Ast.ident
+)
+ident(
+  def name_ "type_class.ml" 281 9563 9566 "type_class.ml" 289 9970 10017
+)
+"type_class.ml" 280 9514 9538 "type_class.ml" 280 9514 9544
+type(
+  (Ast.typ * Ast.position Ast.ident) list
+)
+ident(
+  def params "type_class.ml" 281 9563 9566 "type_class.ml" 289 9970 10017
+)
+"type_class.ml" 280 9514 9546 "type_class.ml" 280 9514 9552
+type(
+  Ast.position Ast.instr
+)
+ident(
+  def instrs "type_class.ml" 281 9563 9566 "type_class.ml" 289 9970 10017
+)
+"type_class.ml" 280 9514 9517 "type_class.ml" 280 9514 9553
+type(
+  Ast.position Ast.class_decl
+)
+"type_class.ml" 280 9514 9557 "type_class.ml" 280 9514 9558
+type(
+  Ast.position Ast.class_decl list
+)
+ident(
+  def r "type_class.ml" 281 9563 9566 "type_class.ml" 289 9970 10017
+)
+"type_class.ml" 280 9514 9517 "type_class.ml" 280 9514 9558
+type(
+  Ast.position Ast.class_decl list
+)
+"type_class.ml" 281 9563 9566 "type_class.ml" 281 9563 9588
+type(
+  class_info ->
+  class_info ->
+  Ast.typ * Ast.position Ast.ident * (Ast.typ * Ast.position Ast.ident) list ->
+  unit
+)
+ident(
+  int_ref check_is_parent_method "type_class.ml" 223 6899 6903 "type_class.ml" 223 6899 6925
+)
+"type_class.ml" 281 9563 9589 "type_class.ml" 281 9563 9599
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 253 8147 8180 "type_class.ml" 253 8147 8190
+)
+"type_class.ml" 281 9563 9600 "type_class.ml" 281 9563 9612
+type(
+  class_info
+)
+ident(
+  int_ref class_parent "type_class.ml" 253 8147 8191 "type_class.ml" 253 8147 8203
+)
+"type_class.ml" 281 9563 9614 "type_class.ml" 281 9563 9619
+type(
+  Ast.typ
+)
+ident(
+  int_ref type_ "type_class.ml" 280 9514 9524 "type_class.ml" 280 9514 9529
+)
+"type_class.ml" 281 9563 9621 "type_class.ml" 281 9563 9626
+type(
+  Ast.position Ast.ident
+)
+ident(
+  int_ref name_ "type_class.ml" 280 9514 9531 "type_class.ml" 280 9514 9536
+)
+"type_class.ml" 281 9563 9628 "type_class.ml" 281 9563 9634
+type(
+  (Ast.typ * Ast.position Ast.ident) list
+)
+ident(
+  int_ref params "type_class.ml" 280 9514 9538 "type_class.ml" 280 9514 9544
+)
+"type_class.ml" 281 9563 9613 "type_class.ml" 281 9563 9635
+type(
+  Ast.typ * Ast.position Ast.ident * (Ast.typ * Ast.position Ast.ident) list
+)
+"type_class.ml" 281 9563 9566 "type_class.ml" 281 9563 9635
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 282 9638 9641 "type_class.ml" 282 9638 9665
+type(
+  (Ast.typ * Ast.position Ast.ident) list -> unit
+)
+ident(
+  int_ref check_class_vlist_exists "type_class.ml" 208 6427 6431 "type_class.ml" 208 6427 6455
+)
+"type_class.ml" 282 9638 9666 "type_class.ml" 282 9638 9672
+type(
+  (Ast.typ * Ast.position Ast.ident) list
+)
+ident(
+  int_ref params "type_class.ml" 280 9514 9538 "type_class.ml" 280 9514 9544
+)
+"type_class.ml" 282 9638 9641 "type_class.ml" 282 9638 9672
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 283 9675 9678 "type_class.ml" 283 9675 9697
+type(
+  (Ast.typ * Ast.position Ast.ident) list -> unit
+)
+ident(
+  int_ref check_unique_vparam "type_class.ml" 162 4818 4822 "type_class.ml" 162 4818 4841
+)
+"type_class.ml" 283 9675 9698 "type_class.ml" 283 9675 9704
+type(
+  (Ast.typ * Ast.position Ast.ident) list
+)
+ident(
+  int_ref params "type_class.ml" 280 9514 9538 "type_class.ml" 280 9514 9544
+)
+"type_class.ml" 283 9675 9678 "type_class.ml" 283 9675 9704
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 286 9778 9781 "type_class.ml" 286 9778 9803
+type(
+  Ast.typ * Ast.position Ast.ident * (Ast.typ * Ast.position Ast.ident) list ->
+  class_info -> unit
+)
+ident(
+  int_ref check_method_signature "type_class.ml" 189 5617 5621 "type_class.ml" 189 5617 5643
+)
+"type_class.ml" 286 9778 9805 "type_class.ml" 286 9778 9810
+type(
+  Ast.typ
+)
+ident(
+  int_ref type_ "type_class.ml" 280 9514 9524 "type_class.ml" 280 9514 9529
+)
+"type_class.ml" 286 9778 9812 "type_class.ml" 286 9778 9817
+type(
+  Ast.position Ast.ident
+)
+ident(
+  int_ref name_ "type_class.ml" 280 9514 9531 "type_class.ml" 280 9514 9536
+)
+"type_class.ml" 286 9778 9819 "type_class.ml" 286 9778 9825
+type(
+  (Ast.typ * Ast.position Ast.ident) list
+)
+ident(
+  int_ref params "type_class.ml" 280 9514 9538 "type_class.ml" 280 9514 9544
+)
+"type_class.ml" 286 9778 9804 "type_class.ml" 286 9778 9826
+type(
+  Ast.typ * Ast.position Ast.ident * (Ast.typ * Ast.position Ast.ident) list
+)
+"type_class.ml" 286 9778 9827 "type_class.ml" 286 9778 9837
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 253 8147 8180 "type_class.ml" 253 8147 8190
+)
+"type_class.ml" 286 9778 9781 "type_class.ml" 286 9778 9837
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 287 9840 9847 "type_class.ml" 287 9840 9854
+type(
+  string * (Ast.typ * (Ast.typ * string) list * string)
+)
+ident(
+  def cmethod "type_class.ml" 288 9914 9917 "type_class.ml" 289 9970 10017
+)
+"type_class.ml" 287 9840 9857 "type_class.ml" 287 9840 9870
+type(
+  Ast.typ * Ast.position Ast.ident * (Ast.typ * Ast.position Ast.ident) list ->
+  string -> string * (Ast.typ * (Ast.typ * string) list * string)
+)
+ident(
+  int_ref create_method "type_class.ml" 155 4488 4492 "type_class.ml" 155 4488 4505
+)
+"type_class.ml" 287 9840 9872 "type_class.ml" 287 9840 9877
+type(
+  Ast.typ
+)
+ident(
+  int_ref type_ "type_class.ml" 280 9514 9524 "type_class.ml" 280 9514 9529
+)
+"type_class.ml" 287 9840 9879 "type_class.ml" 287 9840 9884
+type(
+  Ast.position Ast.ident
+)
+ident(
+  int_ref name_ "type_class.ml" 280 9514 9531 "type_class.ml" 280 9514 9536
+)
+"type_class.ml" 287 9840 9886 "type_class.ml" 287 9840 9892
+type(
+  (Ast.typ * Ast.position Ast.ident) list
+)
+ident(
+  int_ref params "type_class.ml" 280 9514 9538 "type_class.ml" 280 9514 9544
+)
+"type_class.ml" 287 9840 9871 "type_class.ml" 287 9840 9893
+type(
+  Ast.typ * Ast.position Ast.ident * (Ast.typ * Ast.position Ast.ident) list
+)
+"type_class.ml" 287 9840 9894 "type_class.ml" 287 9840 9904
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 253 8147 8180 "type_class.ml" 253 8147 8190
+)
+"type_class.ml" 287 9840 9894 "type_class.ml" 287 9840 9909
+type(
+  string
+)
+"type_class.ml" 287 9840 9857 "type_class.ml" 287 9840 9909
+call(
+  stack
+)
+type(
+  string * (Ast.typ * (Ast.typ * string) list * string)
+)
+"type_class.ml" 288 9914 9917 "type_class.ml" 288 9914 9927
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 253 8147 8180 "type_class.ml" 253 8147 8190
+)
+"type_class.ml" 288 9914 9939 "type_class.ml" 288 9914 9946
+type(
+  string * (Ast.typ * (Ast.typ * string) list * string)
+)
+ident(
+  int_ref cmethod "type_class.ml" 287 9840 9847 "type_class.ml" 287 9840 9854
+)
+"type_class.ml" 288 9914 9949 "type_class.ml" 288 9914 9959
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 253 8147 8180 "type_class.ml" 253 8147 8190
+)
+"type_class.ml" 288 9914 9949 "type_class.ml" 288 9914 9967
+type(
+  (string * (Ast.typ * (Ast.typ * string) list * string)) list
+)
+"type_class.ml" 288 9914 9939 "type_class.ml" 288 9914 9967
+type(
+  (string * (Ast.typ * (Ast.typ * string) list * string)) list
+)
+"type_class.ml" 288 9914 9917 "type_class.ml" 288 9914 9967
+type(
+  unit
+)
+"type_class.ml" 289 9970 9973 "type_class.ml" 289 9970 9991
+type(
+  Ast.position Ast.class_decl list -> class_info -> class_info -> class_info
+)
+ident(
+  int_ref parse_declarations "type_class.ml" 253 8147 8155 "type_class.ml" 253 8147 8173
+)
+"type_class.ml" 289 9970 9992 "type_class.ml" 289 9970 9993
+type(
+  Ast.position Ast.class_decl list
+)
+ident(
+  int_ref r "type_class.ml" 280 9514 9557 "type_class.ml" 280 9514 9558
+)
+"type_class.ml" 289 9970 9994 "type_class.ml" 289 9970 10004
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 253 8147 8180 "type_class.ml" 253 8147 8190
+)
+"type_class.ml" 289 9970 10005 "type_class.ml" 289 9970 10017
+type(
+  class_info
+)
+ident(
+  int_ref class_parent "type_class.ml" 253 8147 8191 "type_class.ml" 253 8147 8203
+)
+"type_class.ml" 289 9970 9973 "type_class.ml" 289 9970 10017
+call(
+  tail
+)
+type(
+  class_info
+)
+"type_class.ml" 288 9914 9917 "type_class.ml" 289 9970 10017
+type(
+  class_info
+)
+"type_class.ml" 287 9840 9843 "type_class.ml" 289 9970 10017
+type(
+  class_info
+)
+"type_class.ml" 286 9778 9781 "type_class.ml" 289 9970 10017
+type(
+  class_info
+)
+"type_class.ml" 283 9675 9678 "type_class.ml" 289 9970 10017
+type(
+  class_info
+)
+"type_class.ml" 282 9638 9641 "type_class.ml" 289 9970 10017
+type(
+  class_info
+)
+"type_class.ml" 281 9563 9566 "type_class.ml" 289 9970 10017
+type(
+  class_info
+)
+"type_class.ml" 254 8207 8208 "type_class.ml" 289 9970 10017
+type(
+  class_info
+)
+"type_class.ml" 292 10084 10092 "type_class.ml" 292 10084 10105
+type(
+  ((Ast.position, string) Ast.node * (Ast.position, string) Ast.node * 'a)
+  list -> unit
+)
+ident(
+  def parse_classes "type_class.ml" 292 10084 10084 "_none_" 1 0 -1
+)
+"type_class.ml" 292 10084 10106 "type_class.ml" 292 10084 10111
+type(
+  ((Ast.position, string) Ast.node * (Ast.position, string) Ast.node * 'a)
+  list
+)
+ident(
+  def clist "type_class.ml" 293 10115 10116 "type_class.ml" 310 10654 10674
+)
+"type_class.ml" 293 10115 10122 "type_class.ml" 293 10115 10127
+type(
+  ((Ast.position, string) Ast.node * (Ast.position, string) Ast.node * 'a)
+  list
+)
+ident(
+  int_ref clist "type_class.ml" 292 10084 10106 "type_class.ml" 292 10084 10111
+)
+"type_class.ml" 294 10134 10137 "type_class.ml" 294 10134 10139
+type(
+  ((Ast.position, string) Ast.node * (Ast.position, string) Ast.node * 'a)
+  list
+)
+"type_class.ml" 294 10134 10143 "type_class.ml" 294 10134 10145
+type(
+  unit
+)
+"type_class.ml" 295 10147 10151 "type_class.ml" 295 10147 10156
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  def name_ "type_class.ml" 296 10225 10228 "type_class.ml" 310 10654 10674
+)
+"type_class.ml" 295 10147 10158 "type_class.ml" 295 10147 10165
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  def parent_ "type_class.ml" 296 10225 10228 "type_class.ml" 310 10654 10674
+)
+"type_class.ml" 295 10147 10167 "type_class.ml" 295 10147 10177
+type(
+  'a
+)
+ident(
+  def decl_class "type_class.ml" 296 10225 10228 "type_class.ml" 310 10654 10674
+)
+"type_class.ml" 295 10147 10150 "type_class.ml" 295 10147 10178
+type(
+  (Ast.position, string) Ast.node * (Ast.position, string) Ast.node * 'a
+)
+"type_class.ml" 295 10147 10182 "type_class.ml" 295 10147 10183
+type(
+  ((Ast.position, string) Ast.node * (Ast.position, string) Ast.node * 'a)
+  list
+)
+ident(
+  def s "type_class.ml" 296 10225 10228 "type_class.ml" 310 10654 10674
+)
+"type_class.ml" 295 10147 10150 "type_class.ml" 295 10147 10183
+type(
+  ((Ast.position, string) Ast.node * (Ast.position, string) Ast.node * 'a)
+  list
+)
+"type_class.ml" 296 10225 10232 "type_class.ml" 296 10225 10239
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref parent_ "type_class.ml" 295 10147 10158 "type_class.ml" 295 10147 10165
+)
+"type_class.ml" 296 10225 10232 "type_class.ml" 296 10225 10244
+type(
+  string
+)
+"type_class.ml" 296 10225 10245 "type_class.ml" 296 10225 10246
+type(
+  string -> string -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"type_class.ml" 296 10225 10247 "type_class.ml" 296 10225 10255
+type(
+  string
+)
+"type_class.ml" 296 10225 10232 "type_class.ml" 296 10225 10255
+type(
+  bool
+)
+"type_class.ml" 297 10257 10266 "type_class.ml" 297 10257 10271
+type(
+  string -> Ast.position -> unit
+)
+ident(
+  int_ref error "type_class.ml" 5 58 62 "type_class.ml" 5 58 67
+)
+"type_class.ml" 297 10257 10272 "type_class.ml" 297 10257 10316
+type(
+  string
+)
+"type_class.ml" 297 10257 10317 "type_class.ml" 297 10257 10324
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref parent_ "type_class.ml" 295 10147 10158 "type_class.ml" 295 10147 10165
+)
+"type_class.ml" 297 10257 10317 "type_class.ml" 297 10257 10329
+type(
+  Ast.position
+)
+"type_class.ml" 297 10257 10266 "type_class.ml" 297 10257 10329
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 298 10331 10340 "type_class.ml" 298 10331 10342
+type(
+  unit
+)
+"type_class.ml" 296 10225 10229 "type_class.ml" 298 10331 10342
+type(
+  unit
+)
+"type_class.ml" 299 10345 10352 "type_class.ml" 299 10345 10363
+type(
+  (string, class_info) Hashtbl.t -> string -> bool
+)
+ident(
+  ext_ref Hashtbl.mem
+)
+"type_class.ml" 299 10345 10364 "type_class.ml" 299 10345 10375
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  int_ref class_table "type_class.ml" 38 933 937 "type_class.ml" 38 933 948
+)
+"type_class.ml" 299 10345 10376 "type_class.ml" 299 10345 10381
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 295 10147 10151 "type_class.ml" 295 10147 10156
+)
+"type_class.ml" 299 10345 10376 "type_class.ml" 299 10345 10386
+type(
+  string
+)
+"type_class.ml" 299 10345 10352 "type_class.ml" 299 10345 10386
+call(
+  stack
+)
+type(
+  bool
+)
+"type_class.ml" 300 10388 10397 "type_class.ml" 300 10388 10402
+type(
+  string -> Ast.position -> unit
+)
+ident(
+  int_ref error "type_class.ml" 5 58 62 "type_class.ml" 5 58 67
+)
+"type_class.ml" 300 10388 10404 "type_class.ml" 300 10388 10432
+type(
+  string
+)
+"type_class.ml" 300 10388 10433 "type_class.ml" 300 10388 10434
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 300 10388 10435 "type_class.ml" 300 10388 10440
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 295 10147 10151 "type_class.ml" 295 10147 10156
+)
+"type_class.ml" 300 10388 10435 "type_class.ml" 300 10388 10445
+type(
+  string
+)
+"type_class.ml" 300 10388 10403 "type_class.ml" 300 10388 10446
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 300 10388 10447 "type_class.ml" 300 10388 10452
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 295 10147 10151 "type_class.ml" 295 10147 10156
+)
+"type_class.ml" 300 10388 10447 "type_class.ml" 300 10388 10457
+type(
+  Ast.position
+)
+"type_class.ml" 300 10388 10397 "type_class.ml" 300 10388 10457
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 302 10469 10474 "type_class.ml" 302 10469 10485
+type(
+  (string, class_info) Hashtbl.t -> string -> class_info -> unit
+)
+ident(
+  ext_ref Hashtbl.add
+)
+"type_class.ml" 302 10469 10486 "type_class.ml" 302 10469 10497
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  int_ref class_table "type_class.ml" 38 933 937 "type_class.ml" 38 933 948
+)
+"type_class.ml" 302 10469 10498 "type_class.ml" 302 10469 10503
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 295 10147 10151 "type_class.ml" 295 10147 10156
+)
+"type_class.ml" 302 10469 10498 "type_class.ml" 302 10469 10508
+type(
+  string
+)
+"type_class.ml" 304 10519 10533 "type_class.ml" 304 10519 10538
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 295 10147 10151 "type_class.ml" 295 10147 10156
+)
+"type_class.ml" 304 10519 10533 "type_class.ml" 304 10519 10543
+type(
+  string
+)
+"type_class.ml" 305 10546 10562 "type_class.ml" 305 10546 10569
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref parent_ "type_class.ml" 295 10147 10158 "type_class.ml" 295 10147 10165
+)
+"type_class.ml" 305 10546 10562 "type_class.ml" 305 10546 10574
+type(
+  string
+)
+"type_class.ml" 306 10577 10597 "type_class.ml" 306 10577 10599
+type(
+  (string * (Ast.typ * string)) list
+)
+"type_class.ml" 307 10602 10617 "type_class.ml" 307 10602 10619
+type(
+  (Ast.typ * string) list list
+)
+"type_class.ml" 308 10622 10639 "type_class.ml" 308 10622 10641
+type(
+  (string * (Ast.typ * (Ast.typ * string) list * string)) list
+)
+"type_class.ml" 303 10510 10516 "type_class.ml" 309 10644 10651
+type(
+  class_info
+)
+"type_class.ml" 302 10469 10474 "type_class.ml" 309 10644 10651
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 299 10345 10349 "type_class.ml" 309 10644 10651
+type(
+  unit
+)
+"type_class.ml" 310 10654 10658 "type_class.ml" 310 10654 10671
+type(
+  ((Ast.position, string) Ast.node * (Ast.position, string) Ast.node * 'a)
+  list -> unit
+)
+ident(
+  int_ref parse_classes "type_class.ml" 292 10084 10092 "type_class.ml" 292 10084 10105
+)
+"type_class.ml" 310 10654 10672 "type_class.ml" 310 10654 10673
+type(
+  ((Ast.position, string) Ast.node * (Ast.position, string) Ast.node * 'a)
+  list
+)
+ident(
+  int_ref s "type_class.ml" 295 10147 10182 "type_class.ml" 295 10147 10183
+)
+"type_class.ml" 310 10654 10658 "type_class.ml" 310 10654 10673
+call(
+  tail
+)
+type(
+  unit
+)
+"type_class.ml" 299 10345 10349 "type_class.ml" 310 10654 10673
+type(
+  unit
+)
+"type_class.ml" 296 10225 10228 "type_class.ml" 310 10654 10674
+type(
+  unit
+)
+"type_class.ml" 293 10115 10116 "type_class.ml" 310 10654 10674
+type(
+  unit
+)
+"type_class.ml" 314 10836 10844 "type_class.ml" 314 10836 10858
+type(
+  (('a, string) Ast.node * (Ast.position, string) Ast.node *
+   Ast.position Ast.class_decl list)
+  list -> unit
+)
+ident(
+  def parse_classes2 "type_class.ml" 314 10836 10836 "_none_" 1 0 -1
+)
+"type_class.ml" 314 10836 10859 "type_class.ml" 314 10836 10864
+type(
+  (('a, string) Ast.node * (Ast.position, string) Ast.node *
+   Ast.position Ast.class_decl list)
+  list
+)
+ident(
+  def clist "type_class.ml" 315 10868 10869 "type_class.ml" 339 11638 11658
+)
+"type_class.ml" 315 10868 10875 "type_class.ml" 315 10868 10880
+type(
+  (('a, string) Ast.node * (Ast.position, string) Ast.node *
+   Ast.position Ast.class_decl list)
+  list
+)
+ident(
+  int_ref clist "type_class.ml" 314 10836 10859 "type_class.ml" 314 10836 10864
+)
+"type_class.ml" 316 10887 10890 "type_class.ml" 316 10887 10892
+type(
+  (('a, string) Ast.node * (Ast.position, string) Ast.node *
+   Ast.position Ast.class_decl list)
+  list
+)
+"type_class.ml" 316 10887 10896 "type_class.ml" 316 10887 10898
+type(
+  unit
+)
+"type_class.ml" 317 10900 10904 "type_class.ml" 317 10900 10909
+type(
+  ('a, string) Ast.node
+)
+ident(
+  def name_ "type_class.ml" 318 10977 10980 "type_class.ml" 339 11638 11658
+)
+"type_class.ml" 317 10900 10911 "type_class.ml" 317 10900 10918
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  def parent_ "type_class.ml" 318 10977 10980 "type_class.ml" 339 11638 11658
+)
+"type_class.ml" 317 10900 10920 "type_class.ml" 317 10900 10930
+type(
+  Ast.position Ast.class_decl list
+)
+ident(
+  def decl_class "type_class.ml" 318 10977 10980 "type_class.ml" 339 11638 11658
+)
+"type_class.ml" 317 10900 10903 "type_class.ml" 317 10900 10931
+type(
+  ('a, string) Ast.node * (Ast.position, string) Ast.node *
+  Ast.position Ast.class_decl list
+)
+"type_class.ml" 317 10900 10935 "type_class.ml" 317 10900 10936
+type(
+  (('a, string) Ast.node * (Ast.position, string) Ast.node *
+   Ast.position Ast.class_decl list)
+  list
+)
+ident(
+  def s "type_class.ml" 318 10977 10980 "type_class.ml" 339 11638 11658
+)
+"type_class.ml" 317 10900 10903 "type_class.ml" 317 10900 10936
+type(
+  (('a, string) Ast.node * (Ast.position, string) Ast.node *
+   Ast.position Ast.class_decl list)
+  list
+)
+"type_class.ml" 318 10977 10983 "type_class.ml" 318 10977 10986
+type(
+  bool -> bool
+)
+ident(
+  ext_ref Pervasives.not
+)
+"type_class.ml" 318 10977 10988 "type_class.ml" 318 10977 10999
+type(
+  (string, class_info) Hashtbl.t -> string -> bool
+)
+ident(
+  ext_ref Hashtbl.mem
+)
+"type_class.ml" 318 10977 11000 "type_class.ml" 318 10977 11011
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  int_ref class_table "type_class.ml" 38 933 937 "type_class.ml" 38 933 948
+)
+"type_class.ml" 318 10977 11012 "type_class.ml" 318 10977 11019
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref parent_ "type_class.ml" 317 10900 10911 "type_class.ml" 317 10900 10918
+)
+"type_class.ml" 318 10977 11012 "type_class.ml" 318 10977 11024
+type(
+  string
+)
+"type_class.ml" 318 10977 10987 "type_class.ml" 318 10977 11025
+call(
+  stack
+)
+type(
+  bool
+)
+"type_class.ml" 318 10977 10983 "type_class.ml" 318 10977 11025
+type(
+  bool
+)
+"type_class.ml" 320 11036 11040 "type_class.ml" 320 11036 11045
+type(
+  string -> Ast.position -> unit
+)
+ident(
+  int_ref error "type_class.ml" 5 58 62 "type_class.ml" 5 58 67
+)
+"type_class.ml" 320 11036 11047 "type_class.ml" 320 11036 11059
+type(
+  string
+)
+"type_class.ml" 320 11036 11060 "type_class.ml" 320 11036 11061
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 320 11036 11063 "type_class.ml" 320 11036 11070
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref parent_ "type_class.ml" 317 10900 10911 "type_class.ml" 317 10900 10918
+)
+"type_class.ml" 320 11036 11063 "type_class.ml" 320 11036 11075
+type(
+  string
+)
+"type_class.ml" 320 11036 11076 "type_class.ml" 320 11036 11077
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"type_class.ml" 320 11036 11078 "type_class.ml" 320 11036 11100
+type(
+  string
+)
+"type_class.ml" 320 11036 11062 "type_class.ml" 320 11036 11101
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 320 11036 11046 "type_class.ml" 320 11036 11102
+call(
+  stack
+)
+type(
+  string
+)
+"type_class.ml" 321 11104 11109 "type_class.ml" 321 11104 11116
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref parent_ "type_class.ml" 317 10900 10911 "type_class.ml" 317 10900 10918
+)
+"type_class.ml" 321 11104 11109 "type_class.ml" 321 11104 11121
+type(
+  Ast.position
+)
+"type_class.ml" 320 11036 11040 "type_class.ml" 321 11104 11121
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 318 10977 10980 "type_class.ml" 321 11104 11121
+type(
+  unit
+)
+"type_class.ml" 323 11129 11136 "type_class.ml" 323 11129 11146
+type(
+  class_info
+)
+ident(
+  def class_info "type_class.ml" 331 11282 11285 "type_class.ml" 339 11638 11658
+)
+"type_class.ml" 325 11157 11169 "type_class.ml" 325 11157 11174
+type(
+  ('a, string) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 317 10900 10904 "type_class.ml" 317 10900 10909
+)
+"type_class.ml" 325 11157 11169 "type_class.ml" 325 11157 11179
+type(
+  string
+)
+"type_class.ml" 326 11182 11196 "type_class.ml" 326 11182 11203
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref parent_ "type_class.ml" 317 10900 10911 "type_class.ml" 317 10900 10918
+)
+"type_class.ml" 326 11182 11196 "type_class.ml" 326 11182 11208
+type(
+  string
+)
+"type_class.ml" 327 11211 11229 "type_class.ml" 327 11211 11231
+type(
+  (string * (Ast.typ * string)) list
+)
+"type_class.ml" 328 11234 11247 "type_class.ml" 328 11234 11249
+type(
+  (Ast.typ * string) list list
+)
+"type_class.ml" 329 11252 11267 "type_class.ml" 329 11252 11269
+type(
+  (string * (Ast.typ * (Ast.typ * string) list * string)) list
+)
+"type_class.ml" 324 11150 11154 "type_class.ml" 330 11272 11277
+type(
+  class_info
+)
+"type_class.ml" 331 11282 11289 "type_class.ml" 331 11282 11301
+type(
+  class_info
+)
+ident(
+  def class_parent "type_class.ml" 334 11407 11410 "type_class.ml" 339 11638 11658
+)
+"type_class.ml" 332 11305 11314 "type_class.ml" 332 11305 11326
+type(
+  (string, class_info) Hashtbl.t -> string -> class_info
+)
+ident(
+  ext_ref Hashtbl.find
+)
+"type_class.ml" 332 11305 11327 "type_class.ml" 332 11305 11338
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  int_ref class_table "type_class.ml" 38 933 937 "type_class.ml" 38 933 948
+)
+"type_class.ml" 332 11305 11339 "type_class.ml" 332 11305 11346
+type(
+  (Ast.position, string) Ast.node
+)
+ident(
+  int_ref parent_ "type_class.ml" 317 10900 10911 "type_class.ml" 317 10900 10918
+)
+"type_class.ml" 332 11305 11339 "type_class.ml" 332 11305 11351
+type(
+  string
+)
+"type_class.ml" 332 11305 11314 "type_class.ml" 332 11305 11351
+call(
+  stack
+)
+type(
+  class_info
+)
+"type_class.ml" 333 11353 11364 "type_class.ml" 333 11353 11373
+type(
+  exn
+)
+"type_class.ml" 333 11353 11377 "type_class.ml" 333 11353 11385
+type(
+  string -> class_info
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"type_class.ml" 333 11353 11386 "type_class.ml" 333 11353 11401
+type(
+  string
+)
+"type_class.ml" 333 11353 11377 "type_class.ml" 333 11353 11401
+call(
+  stack
+)
+type(
+  class_info
+)
+"type_class.ml" 332 11305 11309 "type_class.ml" 333 11353 11402
+type(
+  class_info
+)
+"type_class.ml" 334 11407 11414 "type_class.ml" 334 11407 11431
+type(
+  class_info
+)
+ident(
+  def class_info_parent "type_class.ml" 335 11480 11483 "type_class.ml" 339 11638 11658
+)
+"type_class.ml" 334 11407 11434 "type_class.ml" 334 11407 11451
+type(
+  class_info -> class_info -> class_info
+)
+ident(
+  int_ref copy_parent_decls "type_class.ml" 121 3414 3418 "type_class.ml" 121 3414 3435
+)
+"type_class.ml" 334 11407 11452 "type_class.ml" 334 11407 11462
+type(
+  class_info
+)
+ident(
+  int_ref class_info "type_class.ml" 323 11129 11136 "type_class.ml" 323 11129 11146
+)
+"type_class.ml" 334 11407 11463 "type_class.ml" 334 11407 11475
+type(
+  class_info
+)
+ident(
+  int_ref class_parent "type_class.ml" 331 11282 11289 "type_class.ml" 331 11282 11301
+)
+"type_class.ml" 334 11407 11434 "type_class.ml" 334 11407 11475
+call(
+  stack
+)
+type(
+  class_info
+)
+"type_class.ml" 335 11480 11487 "type_class.ml" 335 11480 11503
+type(
+  class_info
+)
+ident(
+  def check_class_info "type_class.ml" 338 11580 11584 "type_class.ml" 339 11638 11658
+)
+"type_class.ml" 336 11507 11511 "type_class.ml" 336 11507 11529
+type(
+  Ast.position Ast.class_decl list -> class_info -> class_info -> class_info
+)
+ident(
+  int_ref parse_declarations "type_class.ml" 253 8147 8155 "type_class.ml" 253 8147 8173
+)
+"type_class.ml" 336 11507 11530 "type_class.ml" 336 11507 11540
+type(
+  Ast.position Ast.class_decl list
+)
+ident(
+  int_ref decl_class "type_class.ml" 317 10900 10920 "type_class.ml" 317 10900 10930
+)
+"type_class.ml" 336 11507 11541 "type_class.ml" 336 11507 11558
+type(
+  class_info
+)
+ident(
+  int_ref class_info_parent "type_class.ml" 334 11407 11414 "type_class.ml" 334 11407 11431
+)
+"type_class.ml" 336 11507 11559 "type_class.ml" 336 11507 11571
+type(
+  class_info
+)
+ident(
+  int_ref class_parent "type_class.ml" 331 11282 11289 "type_class.ml" 331 11282 11301
+)
+"type_class.ml" 336 11507 11511 "type_class.ml" 336 11507 11571
+call(
+  stack
+)
+type(
+  class_info
+)
+"type_class.ml" 338 11580 11584 "type_class.ml" 338 11580 11595
+type(
+  (string, class_info) Hashtbl.t -> string -> class_info -> unit
+)
+ident(
+  ext_ref Hashtbl.add
+)
+"type_class.ml" 338 11580 11596 "type_class.ml" 338 11580 11607
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  int_ref class_table "type_class.ml" 38 933 937 "type_class.ml" 38 933 948
+)
+"type_class.ml" 338 11580 11608 "type_class.ml" 338 11580 11613
+type(
+  ('a, string) Ast.node
+)
+ident(
+  int_ref name_ "type_class.ml" 317 10900 10904 "type_class.ml" 317 10900 10909
+)
+"type_class.ml" 338 11580 11608 "type_class.ml" 338 11580 11618
+type(
+  string
+)
+"type_class.ml" 338 11580 11619 "type_class.ml" 338 11580 11635
+type(
+  class_info
+)
+ident(
+  int_ref check_class_info "type_class.ml" 335 11480 11487 "type_class.ml" 335 11480 11503
+)
+"type_class.ml" 338 11580 11584 "type_class.ml" 338 11580 11635
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 339 11638 11642 "type_class.ml" 339 11638 11656
+type(
+  (('a, string) Ast.node * (Ast.position, string) Ast.node *
+   Ast.position Ast.class_decl list)
+  list -> unit
+)
+ident(
+  int_ref parse_classes2 "type_class.ml" 314 10836 10844 "type_class.ml" 314 10836 10858
+)
+"type_class.ml" 339 11638 11657 "type_class.ml" 339 11638 11658
+type(
+  (('a, string) Ast.node * (Ast.position, string) Ast.node *
+   Ast.position Ast.class_decl list)
+  list
+)
+ident(
+  int_ref s "type_class.ml" 317 10900 10935 "type_class.ml" 317 10900 10936
+)
+"type_class.ml" 339 11638 11642 "type_class.ml" 339 11638 11658
+call(
+  tail
+)
+type(
+  unit
+)
+"type_class.ml" 338 11580 11584 "type_class.ml" 339 11638 11658
+type(
+  unit
+)
+"type_class.ml" 335 11480 11483 "type_class.ml" 339 11638 11658
+type(
+  unit
+)
+"type_class.ml" 334 11407 11410 "type_class.ml" 339 11638 11658
+type(
+  unit
+)
+"type_class.ml" 331 11282 11285 "type_class.ml" 339 11638 11658
+type(
+  unit
+)
+"type_class.ml" 323 11129 11132 "type_class.ml" 339 11638 11658
+type(
+  unit
+)
+"type_class.ml" 318 10977 10980 "type_class.ml" 339 11638 11658
+type(
+  unit
+)
+"type_class.ml" 315 10868 10869 "type_class.ml" 339 11638 11658
+type(
+  unit
+)
+"type_class.ml" 341 11662 11666 "type_class.ml" 341 11662 11676
+type(
+  Ast.position Ast.klass list * 'a * 'b -> unit
+)
+ident(
+  def init_table "type_class.ml" 351 11942 11966 "_none_" 1 0 -1
+)
+"type_class.ml" 341 11662 11677 "type_class.ml" 341 11662 11681
+type(
+  Ast.position Ast.klass list * 'a * 'b
+)
+ident(
+  def prog "type_class.ml" 342 11685 11686 "type_class.ml" 351 11942 11966
+)
+"type_class.ml" 342 11685 11691 "type_class.ml" 342 11685 11696
+type(
+  Ast.position Ast.klass list
+)
+ident(
+  def clist "type_class.ml" 344 11717 11718 "type_class.ml" 351 11942 11966
+)
+"type_class.ml" 342 11685 11698 "type_class.ml" 342 11685 11699
+type(
+  'a
+)
+"type_class.ml" 342 11685 11701 "type_class.ml" 342 11685 11702
+type(
+  'b
+)
+"type_class.ml" 342 11685 11690 "type_class.ml" 342 11685 11703
+type(
+  Ast.position Ast.klass list * 'a * 'b
+)
+"type_class.ml" 342 11685 11706 "type_class.ml" 342 11685 11710
+type(
+  Ast.position Ast.klass list * 'a * 'b
+)
+ident(
+  int_ref prog "type_class.ml" 341 11662 11677 "type_class.ml" 341 11662 11681
+)
+"type_class.ml" 344 11717 11718 "type_class.ml" 344 11717 11731
+type(
+  Ast.position Ast.klass list -> unit
+)
+ident(
+  int_ref parse_classes "type_class.ml" 292 10084 10092 "type_class.ml" 292 10084 10105
+)
+"type_class.ml" 344 11717 11732 "type_class.ml" 344 11717 11737
+type(
+  Ast.position Ast.klass list
+)
+ident(
+  int_ref clist "type_class.ml" 342 11685 11691 "type_class.ml" 342 11685 11696
+)
+"type_class.ml" 344 11717 11718 "type_class.ml" 344 11717 11737
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 345 11740 11746 "type_class.ml" 345 11740 11752
+type(
+  Ast.position Ast.klass list
+)
+ident(
+  def clist2 "type_class.ml" 347 11785 11788 "type_class.ml" 351 11942 11966
+)
+"type_class.ml" 345 11740 11755 "type_class.ml" 345 11740 11771
+type(
+  Ast.position Ast.klass list -> Ast.position Ast.klass list
+)
+ident(
+  int_ref topological_sort "type_class.ml" 81 2286 2290 "type_class.ml" 81 2286 2306
+)
+"type_class.ml" 345 11740 11772 "type_class.ml" 345 11740 11777
+type(
+  Ast.position Ast.klass list
+)
+ident(
+  int_ref clist "type_class.ml" 342 11685 11691 "type_class.ml" 342 11685 11696
+)
+"type_class.ml" 345 11740 11755 "type_class.ml" 345 11740 11777
+call(
+  stack
+)
+type(
+  Ast.position Ast.klass list
+)
+"type_class.ml" 347 11785 11788 "type_class.ml" 347 11785 11801
+type(
+  (string, class_info) Hashtbl.t -> unit
+)
+ident(
+  ext_ref Hashtbl.reset
+)
+"type_class.ml" 347 11785 11802 "type_class.ml" 347 11785 11813
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  int_ref class_table "type_class.ml" 38 933 937 "type_class.ml" 38 933 948
+)
+"type_class.ml" 347 11785 11788 "type_class.ml" 347 11785 11813
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 348 11816 11819 "type_class.ml" 348 11816 11830
+type(
+  (string, class_info) Hashtbl.t -> string -> class_info -> unit
+)
+ident(
+  ext_ref Hashtbl.add
+)
+"type_class.ml" 348 11816 11831 "type_class.ml" 348 11816 11842
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  int_ref class_table "type_class.ml" 38 933 937 "type_class.ml" 38 933 948
+)
+"type_class.ml" 348 11816 11843 "type_class.ml" 348 11816 11851
+type(
+  string
+)
+"type_class.ml" 348 11816 11852 "type_class.ml" 348 11816 11863
+type(
+  class_info
+)
+ident(
+  int_ref object_info "type_class.ml" 16 468 472 "type_class.ml" 16 468 483
+)
+"type_class.ml" 348 11816 11819 "type_class.ml" 348 11816 11863
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 349 11866 11869 "type_class.ml" 349 11866 11880
+type(
+  (string, class_info) Hashtbl.t -> string -> class_info -> unit
+)
+ident(
+  ext_ref Hashtbl.add
+)
+"type_class.ml" 349 11866 11881 "type_class.ml" 349 11866 11892
+type(
+  (string, class_info) Hashtbl.t
+)
+ident(
+  int_ref class_table "type_class.ml" 38 933 937 "type_class.ml" 38 933 948
+)
+"type_class.ml" 349 11866 11893 "type_class.ml" 349 11866 11901
+type(
+  string
+)
+"type_class.ml" 349 11866 11902 "type_class.ml" 349 11866 11913
+type(
+  class_info
+)
+ident(
+  int_ref string_info "type_class.ml" 27 713 717 "type_class.ml" 27 713 728
+)
+"type_class.ml" 349 11866 11869 "type_class.ml" 349 11866 11913
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 350 11916 11919 "type_class.ml" 350 11916 11932
+type(
+  Ast.position Ast.klass list -> unit
+)
+ident(
+  int_ref parse_classes "type_class.ml" 292 10084 10092 "type_class.ml" 292 10084 10105
+)
+"type_class.ml" 350 11916 11933 "type_class.ml" 350 11916 11939
+type(
+  Ast.position Ast.klass list
+)
+ident(
+  int_ref clist2 "type_class.ml" 345 11740 11746 "type_class.ml" 345 11740 11752
+)
+"type_class.ml" 350 11916 11919 "type_class.ml" 350 11916 11939
+call(
+  stack
+)
+type(
+  unit
+)
+"type_class.ml" 351 11942 11945 "type_class.ml" 351 11942 11959
+type(
+  Ast.position Ast.klass list -> unit
+)
+ident(
+  int_ref parse_classes2 "type_class.ml" 314 10836 10844 "type_class.ml" 314 10836 10858
+)
+"type_class.ml" 351 11942 11960 "type_class.ml" 351 11942 11966
+type(
+  Ast.position Ast.klass list
+)
+ident(
+  int_ref clist2 "type_class.ml" 345 11740 11746 "type_class.ml" 345 11740 11752
+)
+"type_class.ml" 351 11942 11945 "type_class.ml" 351 11942 11966
+call(
+  tail
+)
+type(
+  unit
+)
+"type_class.ml" 350 11916 11919 "type_class.ml" 351 11942 11966
+type(
+  unit
+)
+"type_class.ml" 349 11866 11869 "type_class.ml" 351 11942 11966
+type(
+  unit
+)
+"type_class.ml" 348 11816 11819 "type_class.ml" 351 11942 11966
+type(
+  unit
+)
+"type_class.ml" 347 11785 11788 "type_class.ml" 351 11942 11966
+type(
+  unit
+)
+"type_class.ml" 345 11740 11742 "type_class.ml" 351 11942 11966
+type(
+  unit
+)
+"type_class.ml" 344 11717 11718 "type_class.ml" 351 11942 11966
+type(
+  unit
+)
+"type_class.ml" 342 11685 11686 "type_class.ml" 351 11942 11966
+type(
+  unit
+)

@@ -1,0 +1,2782 @@
+"typing.ml" 6 43 47 "typing.ml" 6 43 55
+type(
+  'a -> 'a
+)
+ident(
+  def stringOf "typing.ml" 7 62 62 "_none_" 1 0 -1
+)
+"typing.ml" 6 43 56 "typing.ml" 6 43 57
+type(
+  'a
+)
+ident(
+  def t "typing.ml" 6 43 60 "typing.ml" 6 43 61
+)
+"typing.ml" 6 43 60 "typing.ml" 6 43 61
+type(
+  'a
+)
+ident(
+  int_ref t "typing.ml" 6 43 56 "typing.ml" 6 43 57
+)
+"typing.ml" 7 62 66 "typing.ml" 7 62 76
+type(
+  'a -> 'a
+)
+ident(
+  def fromString "typing.ml" 9 84 84 "_none_" 1 0 -1
+)
+"typing.ml" 7 62 77 "typing.ml" 7 62 78
+type(
+  'a
+)
+ident(
+  def t "typing.ml" 7 62 81 "typing.ml" 7 62 82
+)
+"typing.ml" 7 62 81 "typing.ml" 7 62 82
+type(
+  'a
+)
+ident(
+  int_ref t "typing.ml" 7 62 77 "typing.ml" 7 62 78
+)
+"typing.ml" 9 84 97 "typing.ml" 9 84 113
+call(
+  stack
+)
+"typing.ml" 10 114 118 "typing.ml" 10 114 121
+type(
+  'a Env.t
+)
+ident(
+  def env "typing.ml" 12 135 135 "_none_" 1 0 -1
+)
+"typing.ml" 10 114 124 "typing.ml" 10 114 133
+type(
+  'a Env.t
+)
+ident(
+  ext_ref Env.empty
+)
+"typing.ml" 12 135 139 "typing.ml" 12 135 146
+type(
+  'a Env.t
+)
+ident(
+  def env_fun "typing.ml" 13 159 159 "_none_" 1 0 -1
+)
+"typing.ml" 12 135 149 "typing.ml" 12 135 158
+type(
+  'a Env.t
+)
+ident(
+  ext_ref Env.empty
+)
+"typing.ml" 13 159 163 "typing.ml" 13 159 171
+type(
+  'a Env.t
+)
+ident(
+  def env_glob "typing.ml" 15 185 185 "_none_" 1 0 -1
+)
+"typing.ml" 13 159 174 "typing.ml" 13 159 183
+type(
+  'a Env.t
+)
+ident(
+  ext_ref Env.empty
+)
+"typing.ml" 15 185 193 "typing.ml" 15 185 200
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  def subtype "typing.ml" 15 185 185 "_none_" 1 0 -1
+)
+"typing.ml" 15 185 201 "typing.ml" 15 185 203
+type(
+  Ast.typ
+)
+ident(
+  def t1 "typing.ml" 15 185 204 "typing.ml" 24 482 498
+)
+"typing.ml" 15 185 204 "typing.ml" 15 185 206
+type(
+  Ast.typ
+)
+ident(
+  def t2 "typing.ml" 16 210 212 "typing.ml" 24 482 498
+)
+"typing.ml" 16 210 219 "typing.ml" 16 210 221
+type(
+  Ast.typ
+)
+ident(
+  int_ref t1 "typing.ml" 15 185 201 "typing.ml" 15 185 203
+)
+"typing.ml" 16 210 222 "typing.ml" 16 210 224
+type(
+  Ast.typ
+)
+ident(
+  int_ref t2 "typing.ml" 15 185 204 "typing.ml" 15 185 206
+)
+"typing.ml" 16 210 219 "typing.ml" 16 210 224
+type(
+  Ast.typ * Ast.typ
+)
+"typing.ml" 17 231 235 "typing.ml" 17 231 240
+type(
+  Ast.typ
+)
+"typing.ml" 17 231 241 "typing.ml" 17 231 246
+type(
+  Ast.typ
+)
+"typing.ml" 17 231 235 "typing.ml" 17 231 246
+type(
+  Ast.typ * Ast.typ
+)
+"typing.ml" 17 231 250 "typing.ml" 17 231 254
+type(
+  bool
+)
+"typing.ml" 18 255 259 "typing.ml" 18 255 267
+type(
+  Ast.typ
+)
+"typing.ml" 18 255 269 "typing.ml" 18 255 277
+type(
+  Ast.typ
+)
+"typing.ml" 18 255 259 "typing.ml" 18 255 277
+type(
+  Ast.typ * Ast.typ
+)
+"typing.ml" 18 255 281 "typing.ml" 18 255 285
+type(
+  bool
+)
+"typing.ml" 19 287 291 "typing.ml" 19 287 295
+type(
+  Ast.typ
+)
+"typing.ml" 19 287 297 "typing.ml" 19 287 301
+type(
+  Ast.typ
+)
+"typing.ml" 19 287 291 "typing.ml" 19 287 301
+type(
+  Ast.typ * Ast.typ
+)
+"typing.ml" 19 287 305 "typing.ml" 19 287 309
+type(
+  bool
+)
+"typing.ml" 20 310 314 "typing.ml" 20 310 319
+type(
+  Ast.typ
+)
+"typing.ml" 20 310 321 "typing.ml" 20 310 326
+type(
+  Ast.typ
+)
+"typing.ml" 20 310 314 "typing.ml" 20 310 326
+type(
+  Ast.typ * Ast.typ
+)
+"typing.ml" 20 310 330 "typing.ml" 20 310 334
+type(
+  bool
+)
+"typing.ml" 21 335 340 "typing.ml" 21 335 344
+type(
+  Ast.typ
+)
+"typing.ml" 21 335 352 "typing.ml" 21 335 360
+type(
+  string
+)
+"typing.ml" 21 335 345 "typing.ml" 21 335 360
+type(
+  Ast.typ
+)
+"typing.ml" 21 335 339 "typing.ml" 21 335 361
+type(
+  Ast.typ
+)
+"typing.ml" 21 335 371 "typing.ml" 21 335 379
+type(
+  string
+)
+"typing.ml" 21 335 364 "typing.ml" 21 335 379
+type(
+  Ast.typ
+)
+"typing.ml" 21 335 380 "typing.ml" 21 335 384
+type(
+  Ast.typ
+)
+"typing.ml" 21 335 363 "typing.ml" 21 335 385
+type(
+  Ast.typ
+)
+"typing.ml" 21 335 339 "typing.ml" 21 335 385
+type(
+  Ast.typ * Ast.typ
+)
+"typing.ml" 21 335 389 "typing.ml" 21 335 393
+type(
+  bool
+)
+"typing.ml" 22 394 405 "typing.ml" 22 394 407
+type(
+  string
+)
+ident(
+  def s1 "typing.ml" 22 394 422 "typing.ml" 22 394 453
+)
+"typing.ml" 22 394 398 "typing.ml" 22 394 407
+type(
+  Ast.typ
+)
+"typing.ml" 22 394 416 "typing.ml" 22 394 418
+type(
+  string
+)
+ident(
+  def s2 "typing.ml" 22 394 422 "typing.ml" 22 394 453
+)
+"typing.ml" 22 394 409 "typing.ml" 22 394 418
+type(
+  Ast.typ
+)
+"typing.ml" 22 394 398 "typing.ml" 22 394 418
+type(
+  Ast.typ * Ast.typ
+)
+"typing.ml" 22 394 425 "typing.ml" 22 394 427
+type(
+  string
+)
+ident(
+  int_ref s1 "typing.ml" 22 394 405 "typing.ml" 22 394 407
+)
+"typing.ml" 22 394 428 "typing.ml" 22 394 429
+type(
+  string -> string -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"typing.ml" 22 394 430 "typing.ml" 22 394 432
+type(
+  string
+)
+ident(
+  int_ref s2 "typing.ml" 22 394 416 "typing.ml" 22 394 418
+)
+"typing.ml" 22 394 425 "typing.ml" 22 394 432
+type(
+  bool
+)
+"typing.ml" 22 394 438 "typing.ml" 22 394 442
+type(
+  bool
+)
+"typing.ml" 22 394 448 "typing.ml" 22 394 453
+type(
+  bool
+)
+"typing.ml" 22 394 422 "typing.ml" 22 394 453
+type(
+  bool
+)
+"typing.ml" 23 454 458 "typing.ml" 23 454 463
+type(
+  Ast.typ
+)
+"typing.ml" 23 454 472 "typing.ml" 23 454 473
+type(
+  string
+)
+"typing.ml" 23 454 465 "typing.ml" 23 454 473
+type(
+  Ast.typ
+)
+"typing.ml" 23 454 458 "typing.ml" 23 454 473
+type(
+  Ast.typ * Ast.typ
+)
+"typing.ml" 23 454 477 "typing.ml" 23 454 481
+type(
+  bool
+)
+"typing.ml" 24 482 486 "typing.ml" 24 482 487
+type(
+  Ast.typ
+)
+"typing.ml" 24 482 488 "typing.ml" 24 482 489
+type(
+  Ast.typ
+)
+"typing.ml" 24 482 486 "typing.ml" 24 482 489
+type(
+  Ast.typ * Ast.typ
+)
+"typing.ml" 24 482 493 "typing.ml" 24 482 498
+type(
+  bool
+)
+"typing.ml" 16 210 212 "typing.ml" 24 482 498
+type(
+  bool
+)
+"typing.ml" 26 500 504 "typing.ml" 26 500 512
+type(
+  'a -> 'b -> ('a, 'b) Ast.node
+)
+ident(
+  def add_node "typing.ml" 28 543 543 "_none_" 1 0 -1
+)
+"typing.ml" 26 500 513 "typing.ml" 26 500 514
+type(
+  'a
+)
+ident(
+  def i "typing.ml" 26 500 515 "typing.ml" 26 500 541
+)
+"typing.ml" 26 500 515 "typing.ml" 26 500 516
+type(
+  'b
+)
+ident(
+  def n "typing.ml" 26 500 519 "typing.ml" 26 500 541
+)
+"typing.ml" 26 500 527 "typing.ml" 26 500 528
+type(
+  'b
+)
+ident(
+  int_ref n "typing.ml" 26 500 515 "typing.ml" 26 500 516
+)
+"typing.ml" 26 500 538 "typing.ml" 26 500 539
+type(
+  'a
+)
+ident(
+  int_ref i "typing.ml" 26 500 513 "typing.ml" 26 500 514
+)
+"typing.ml" 26 500 519 "typing.ml" 26 500 541
+type(
+  ('a, 'b) Ast.node
+)
+"typing.ml" 28 543 547 "typing.ml" 28 543 557
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  def compatible "typing.ml" 38 712 712 "_none_" 1 0 -1
+)
+"typing.ml" 28 543 558 "typing.ml" 28 543 560
+type(
+  Ast.typ
+)
+ident(
+  def t1 "typing.ml" 28 543 561 "typing.ml" 28 543 596
+)
+"typing.ml" 28 543 561 "typing.ml" 28 543 563
+type(
+  Ast.typ
+)
+ident(
+  def t2 "typing.ml" 28 543 566 "typing.ml" 28 543 596
+)
+"typing.ml" 28 543 566 "typing.ml" 28 543 573
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref subtype "typing.ml" 15 185 193 "typing.ml" 15 185 200
+)
+"typing.ml" 28 543 574 "typing.ml" 28 543 576
+type(
+  Ast.typ
+)
+ident(
+  int_ref t1 "typing.ml" 28 543 558 "typing.ml" 28 543 560
+)
+"typing.ml" 28 543 577 "typing.ml" 28 543 579
+type(
+  Ast.typ
+)
+ident(
+  int_ref t2 "typing.ml" 28 543 561 "typing.ml" 28 543 563
+)
+"typing.ml" 28 543 566 "typing.ml" 28 543 579
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 28 543 580 "typing.ml" 28 543 582
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( || )
+)
+"typing.ml" 28 543 583 "typing.ml" 28 543 590
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref subtype "typing.ml" 15 185 193 "typing.ml" 15 185 200
+)
+"typing.ml" 28 543 591 "typing.ml" 28 543 593
+type(
+  Ast.typ
+)
+ident(
+  int_ref t2 "typing.ml" 28 543 561 "typing.ml" 28 543 563
+)
+"typing.ml" 28 543 594 "typing.ml" 28 543 596
+type(
+  Ast.typ
+)
+ident(
+  int_ref t1 "typing.ml" 28 543 558 "typing.ml" 28 543 560
+)
+"typing.ml" 28 543 583 "typing.ml" 28 543 596
+call(
+  tail
+)
+type(
+  bool
+)
+"typing.ml" 28 543 566 "typing.ml" 28 543 596
+type(
+  bool
+)
+"typing.ml" 38 712 716 "typing.ml" 38 712 725
+type(
+  Ast.typ -> bool
+)
+ident(
+  def is_string "typing.ml" 44 785 785 "_none_" 1 0 -1
+)
+"typing.ml" 38 712 726 "typing.ml" 38 712 727
+type(
+  Ast.typ
+)
+ident(
+  def t "typing.ml" 39 730 731 "typing.ml" 41 770 782
+)
+"typing.ml" 39 730 737 "typing.ml" 39 730 738
+type(
+  Ast.typ
+)
+ident(
+  int_ref t "typing.ml" 38 712 726 "typing.ml" 38 712 727
+)
+"typing.ml" 40 744 753 "typing.ml" 40 744 761
+type(
+  string
+)
+"typing.ml" 40 744 746 "typing.ml" 40 744 761
+type(
+  Ast.typ
+)
+"typing.ml" 40 744 765 "typing.ml" 40 744 769
+type(
+  bool
+)
+"typing.ml" 41 770 772 "typing.ml" 41 770 773
+type(
+  Ast.typ
+)
+"typing.ml" 41 770 777 "typing.ml" 41 770 782
+type(
+  bool
+)
+"typing.ml" 39 730 731 "typing.ml" 41 770 782
+type(
+  bool
+)
+"typing.ml" 44 785 789 "typing.ml" 44 785 798
+type(
+  'a Env.t -> Env.key -> bool
+)
+ident(
+  def findClass "typing.ml" 45 822 822 "_none_" 1 0 -1
+)
+"typing.ml" 44 785 799 "typing.ml" 44 785 802
+type(
+  'a Env.t
+)
+ident(
+  def env "typing.ml" 44 785 803 "typing.ml" 44 785 821
+)
+"typing.ml" 44 785 803 "typing.ml" 44 785 804
+type(
+  Env.key
+)
+ident(
+  def c "typing.ml" 44 785 808 "typing.ml" 44 785 821
+)
+"typing.ml" 44 785 808 "typing.ml" 44 785 815
+type(
+  Env.key -> 'a Env.t -> bool
+)
+ident(
+  ext_ref Env.mem
+)
+"typing.ml" 44 785 816 "typing.ml" 44 785 817
+type(
+  Env.key
+)
+ident(
+  int_ref c "typing.ml" 44 785 803 "typing.ml" 44 785 804
+)
+"typing.ml" 44 785 818 "typing.ml" 44 785 821
+type(
+  'a Env.t
+)
+ident(
+  int_ref env "typing.ml" 44 785 799 "typing.ml" 44 785 802
+)
+"typing.ml" 44 785 808 "typing.ml" 44 785 821
+call(
+  tail
+)
+type(
+  bool
+)
+"typing.ml" 45 822 826 "typing.ml" 45 822 833
+type(
+  'a Env.t -> Env.key -> bool
+)
+ident(
+  def isClass "typing.ml" 54 1027 1027 "_none_" 1 0 -1
+)
+"typing.ml" 45 822 834 "typing.ml" 45 822 837
+type(
+  'a Env.t
+)
+ident(
+  def env "typing.ml" 45 822 838 "typing.ml" 49 873 893
+)
+"typing.ml" 45 822 838 "typing.ml" 45 822 839
+type(
+  Env.key
+)
+ident(
+  def c "typing.ml" 46 843 844 "typing.ml" 49 873 893
+)
+"typing.ml" 47 848 850 "typing.ml" 47 848 859
+type(
+  'a Env.t -> Env.key -> bool
+)
+ident(
+  int_ref findClass "typing.ml" 44 785 789 "typing.ml" 44 785 798
+)
+"typing.ml" 47 848 860 "typing.ml" 47 848 863
+type(
+  'a Env.t
+)
+ident(
+  int_ref env "typing.ml" 45 822 834 "typing.ml" 45 822 837
+)
+"typing.ml" 47 848 864 "typing.ml" 47 848 865
+type(
+  Env.key
+)
+ident(
+  int_ref c "typing.ml" 45 822 838 "typing.ml" 45 822 839
+)
+"typing.ml" 47 848 850 "typing.ml" 47 848 865
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 49 873 876 "typing.ml" 49 873 885
+type(
+  exn
+)
+"typing.ml" 49 873 888 "typing.ml" 49 873 893
+type(
+  bool
+)
+"typing.ml" 46 843 844 "typing.ml" 49 873 893
+type(
+  bool
+)
+"typing.ml" 54 1027 1035 "typing.ml" 54 1027 1044
+type(
+  'a -> 'b Ast.expr -> Ast.typ Ast.expr
+)
+ident(
+  def type_expr "typing.ml" 54 1027 1027 "_none_" 1 0 -1
+)
+"typing.ml" 54 1027 1045 "typing.ml" 54 1027 1048
+type(
+  'a
+)
+ident(
+  def env "typing.ml" 54 1027 1049 "typing.ml" 189 4291 4296
+)
+"typing.ml" 54 1027 1049 "typing.ml" 54 1027 1050
+type(
+  'b Ast.expr
+)
+ident(
+  def e "typing.ml" 55 1054 1055 "typing.ml" 189 4291 4296
+)
+"typing.ml" 55 1054 1061 "typing.ml" 55 1054 1062
+type(
+  'b Ast.expr
+)
+ident(
+  int_ref e "typing.ml" 54 1027 1049 "typing.ml" 54 1027 1050
+)
+"typing.ml" 55 1054 1061 "typing.ml" 55 1054 1067
+type(
+  'b Ast.expr_node
+)
+"typing.ml" 56 1073 1082 "typing.ml" 56 1073 1083
+type(
+  Ast.const
+)
+ident(
+  def c "typing.ml" 56 1073 1087 "typing.ml" 66 1251 1289
+)
+"typing.ml" 56 1073 1075 "typing.ml" 56 1073 1083
+type(
+  'b Ast.expr_node
+)
+"typing.ml" 56 1073 1091 "typing.ml" 56 1073 1099
+type(
+  Ast.typ
+)
+ident(
+  def out_type "typing.ml" 66 1251 1261 "typing.ml" 66 1251 1289
+)
+"typing.ml" 57 1103 1118 "typing.ml" 57 1103 1119
+type(
+  Ast.const
+)
+ident(
+  int_ref c "typing.ml" 56 1073 1082 "typing.ml" 56 1073 1083
+)
+"typing.ml" 58 1125 1135 "typing.ml" 58 1125 1136
+type(
+  Int32.t
+)
+ident(
+  def c "typing.ml" 59 1140 1146 "typing.ml" 59 1140 1150
+)
+"typing.ml" 58 1125 1130 "typing.ml" 58 1125 1136
+type(
+  Ast.const
+)
+"typing.ml" 59 1140 1146 "typing.ml" 59 1140 1150
+type(
+  Ast.typ
+)
+"typing.ml" 60 1151 1164 "typing.ml" 60 1151 1165
+type(
+  string
+)
+ident(
+  def s "typing.ml" 61 1170 1176 "typing.ml" 61 1170 1191
+)
+"typing.ml" 60 1151 1156 "typing.ml" 60 1151 1165
+type(
+  Ast.const
+)
+"typing.ml" 61 1170 1183 "typing.ml" 61 1170 1191
+type(
+  string
+)
+"typing.ml" 61 1170 1176 "typing.ml" 61 1170 1191
+type(
+  Ast.typ
+)
+"typing.ml" 62 1192 1203 "typing.ml" 62 1192 1204
+type(
+  bool
+)
+ident(
+  def b "typing.ml" 63 1209 1215 "typing.ml" 63 1209 1223
+)
+"typing.ml" 62 1192 1197 "typing.ml" 62 1192 1204
+type(
+  Ast.const
+)
+"typing.ml" 63 1209 1215 "typing.ml" 63 1209 1223
+type(
+  Ast.typ
+)
+"typing.ml" 64 1224 1229 "typing.ml" 64 1224 1234
+type(
+  Ast.const
+)
+"typing.ml" 65 1239 1245 "typing.ml" 65 1239 1250
+type(
+  Ast.typ
+)
+"typing.ml" 57 1103 1112 "typing.ml" 65 1239 1250
+type(
+  Ast.typ
+)
+"typing.ml" 66 1251 1261 "typing.ml" 66 1251 1269
+type(
+  Ast.typ -> Ast.typ Ast.expr_node -> Ast.typ Ast.expr
+)
+ident(
+  int_ref add_node "typing.ml" 26 500 504 "typing.ml" 26 500 512
+)
+"typing.ml" 66 1251 1270 "typing.ml" 66 1251 1278
+type(
+  Ast.typ
+)
+ident(
+  int_ref out_type "typing.ml" 56 1073 1091 "typing.ml" 56 1073 1099
+)
+"typing.ml" 66 1251 1287 "typing.ml" 66 1251 1288
+type(
+  Ast.const
+)
+ident(
+  int_ref c "typing.ml" 56 1073 1082 "typing.ml" 56 1073 1083
+)
+"typing.ml" 66 1251 1279 "typing.ml" 66 1251 1289
+type(
+  Ast.typ Ast.expr_node
+)
+"typing.ml" 66 1251 1261 "typing.ml" 66 1251 1289
+call(
+  tail
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 56 1073 1087 "typing.ml" 66 1251 1289
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 115 2275 2283 "typing.ml" 115 2275 2285
+type(
+  Ast.unop
+)
+ident(
+  def op "typing.ml" 116 2293 2295 "typing.ml" 140 2726 2760
+)
+"typing.ml" 115 2275 2286 "typing.ml" 115 2275 2287
+type(
+  'b Ast.expr
+)
+ident(
+  def e "typing.ml" 116 2293 2295 "typing.ml" 140 2726 2760
+)
+"typing.ml" 115 2275 2277 "typing.ml" 115 2275 2288
+type(
+  'b Ast.expr_node
+)
+"typing.ml" 116 2293 2299 "typing.ml" 116 2293 2301
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  def te "typing.ml" 118 2325 2327 "typing.ml" 140 2726 2760
+)
+"typing.ml" 116 2293 2304 "typing.ml" 116 2293 2313
+type(
+  'a -> 'b Ast.expr -> Ast.typ Ast.expr
+)
+ident(
+  int_ref type_expr "typing.ml" 54 1027 1035 "typing.ml" 54 1027 1044
+)
+"typing.ml" 116 2293 2314 "typing.ml" 116 2293 2317
+type(
+  'a
+)
+ident(
+  int_ref env "typing.ml" 54 1027 1045 "typing.ml" 54 1027 1048
+)
+"typing.ml" 116 2293 2318 "typing.ml" 116 2293 2319
+type(
+  'b Ast.expr
+)
+ident(
+  int_ref e "typing.ml" 115 2275 2286 "typing.ml" 115 2275 2287
+)
+"typing.ml" 116 2293 2304 "typing.ml" 116 2293 2319
+call(
+  stack
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 118 2325 2331 "typing.ml" 118 2325 2339
+type(
+  Ast.typ
+)
+ident(
+  def out_type "typing.ml" 140 2726 2728 "typing.ml" 140 2726 2760
+)
+"typing.ml" 119 2343 2353 "typing.ml" 119 2343 2355
+type(
+  Ast.unop
+)
+ident(
+  int_ref op "typing.ml" 115 2275 2283 "typing.ml" 115 2275 2285
+)
+"typing.ml" 120 2361 2366 "typing.ml" 120 2361 2375
+type(
+  Ast.unop
+)
+"typing.ml" 120 2361 2378 "typing.ml" 120 2361 2387
+type(
+  Ast.unop
+)
+"typing.ml" 120 2361 2366 "typing.ml" 120 2361 2387
+type(
+  Ast.unop
+)
+"typing.ml" 121 2388 2393 "typing.ml" 121 2388 2401
+type(
+  Ast.unop
+)
+"typing.ml" 120 2361 2366 "typing.ml" 121 2388 2401
+type(
+  Ast.unop
+)
+"typing.ml" 121 2388 2404 "typing.ml" 121 2388 2412
+type(
+  Ast.unop
+)
+"typing.ml" 120 2361 2366 "typing.ml" 121 2388 2412
+type(
+  Ast.unop
+)
+"typing.ml" 122 2417 2423 "typing.ml" 122 2417 2433
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compatible "typing.ml" 28 543 547 "typing.ml" 28 543 557
+)
+"typing.ml" 122 2417 2434 "typing.ml" 122 2417 2436
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref te "typing.ml" 116 2293 2299 "typing.ml" 116 2293 2301
+)
+"typing.ml" 122 2417 2434 "typing.ml" 122 2417 2441
+type(
+  Ast.typ
+)
+"typing.ml" 122 2417 2442 "typing.ml" 122 2417 2446
+type(
+  Ast.typ
+)
+"typing.ml" 122 2417 2423 "typing.ml" 122 2417 2446
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 124 2455 2460 "typing.ml" 124 2455 2462
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref te "typing.ml" 116 2293 2299 "typing.ml" 116 2293 2301
+)
+"typing.ml" 124 2455 2460 "typing.ml" 124 2455 2467
+type(
+  Ast.typ
+)
+"typing.ml" 126 2477 2482 "typing.ml" 126 2477 2490
+type(
+  string -> Ast.typ
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"typing.ml" 126 2477 2491 "typing.ml" 126 2477 2511
+type(
+  string
+)
+"typing.ml" 126 2477 2482 "typing.ml" 126 2477 2511
+call(
+  stack
+)
+type(
+  Ast.typ
+)
+"typing.ml" 122 2417 2420 "typing.ml" 126 2477 2511
+type(
+  Ast.typ
+)
+"typing.ml" 127 2512 2515 "typing.ml" 127 2512 2519
+type(
+  Ast.unop
+)
+"typing.ml" 128 2523 2529 "typing.ml" 128 2523 2539
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compatible "typing.ml" 28 543 547 "typing.ml" 28 543 557
+)
+"typing.ml" 128 2523 2540 "typing.ml" 128 2523 2542
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref te "typing.ml" 116 2293 2299 "typing.ml" 116 2293 2301
+)
+"typing.ml" 128 2523 2540 "typing.ml" 128 2523 2547
+type(
+  Ast.typ
+)
+"typing.ml" 128 2523 2548 "typing.ml" 128 2523 2556
+type(
+  Ast.typ
+)
+"typing.ml" 128 2523 2529 "typing.ml" 128 2523 2556
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 130 2565 2570 "typing.ml" 130 2565 2572
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref te "typing.ml" 116 2293 2299 "typing.ml" 116 2293 2301
+)
+"typing.ml" 130 2565 2570 "typing.ml" 130 2565 2577
+type(
+  Ast.typ
+)
+"typing.ml" 132 2587 2591 "typing.ml" 132 2587 2599
+type(
+  string -> Ast.typ
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"typing.ml" 132 2587 2600 "typing.ml" 132 2587 2617
+type(
+  string
+)
+"typing.ml" 132 2587 2591 "typing.ml" 132 2587 2617
+call(
+  stack
+)
+type(
+  Ast.typ
+)
+"typing.ml" 128 2523 2526 "typing.ml" 132 2587 2617
+type(
+  Ast.typ
+)
+"typing.ml" 133 2618 2621 "typing.ml" 133 2618 2625
+type(
+  Ast.unop
+)
+"typing.ml" 134 2630 2636 "typing.ml" 134 2630 2646
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compatible "typing.ml" 28 543 547 "typing.ml" 28 543 557
+)
+"typing.ml" 134 2630 2647 "typing.ml" 134 2630 2649
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref te "typing.ml" 116 2293 2299 "typing.ml" 116 2293 2301
+)
+"typing.ml" 134 2630 2647 "typing.ml" 134 2630 2654
+type(
+  Ast.typ
+)
+"typing.ml" 134 2630 2655 "typing.ml" 134 2630 2659
+type(
+  Ast.typ
+)
+"typing.ml" 134 2630 2636 "typing.ml" 134 2630 2659
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 136 2669 2673 "typing.ml" 136 2669 2675
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref te "typing.ml" 116 2293 2299 "typing.ml" 116 2293 2301
+)
+"typing.ml" 136 2669 2673 "typing.ml" 136 2669 2680
+type(
+  Ast.typ
+)
+"typing.ml" 138 2690 2694 "typing.ml" 138 2690 2702
+type(
+  string -> Ast.typ
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"typing.ml" 138 2690 2703 "typing.ml" 138 2690 2720
+type(
+  string
+)
+"typing.ml" 138 2690 2694 "typing.ml" 138 2690 2720
+call(
+  stack
+)
+type(
+  Ast.typ
+)
+"typing.ml" 134 2630 2633 "typing.ml" 138 2690 2720
+type(
+  Ast.typ
+)
+"typing.ml" 119 2343 2347 "typing.ml" 138 2690 2720
+type(
+  Ast.typ
+)
+"typing.ml" 140 2726 2728 "typing.ml" 140 2726 2736
+type(
+  Ast.typ -> Ast.typ Ast.expr_node -> Ast.typ Ast.expr
+)
+ident(
+  int_ref add_node "typing.ml" 26 500 504 "typing.ml" 26 500 512
+)
+"typing.ml" 140 2726 2737 "typing.ml" 140 2726 2745
+type(
+  Ast.typ
+)
+ident(
+  int_ref out_type "typing.ml" 118 2325 2331 "typing.ml" 118 2325 2339
+)
+"typing.ml" 140 2726 2753 "typing.ml" 140 2726 2755
+type(
+  Ast.unop
+)
+ident(
+  int_ref op "typing.ml" 115 2275 2283 "typing.ml" 115 2275 2285
+)
+"typing.ml" 140 2726 2756 "typing.ml" 140 2726 2758
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref te "typing.ml" 116 2293 2299 "typing.ml" 116 2293 2301
+)
+"typing.ml" 140 2726 2746 "typing.ml" 140 2726 2760
+type(
+  Ast.typ Ast.expr_node
+)
+"typing.ml" 140 2726 2728 "typing.ml" 140 2726 2760
+call(
+  tail
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 118 2325 2327 "typing.ml" 140 2726 2760
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 116 2293 2295 "typing.ml" 140 2726 2760
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 142 2762 2772 "typing.ml" 142 2762 2774
+type(
+  'b Ast.expr
+)
+ident(
+  def e1 "typing.ml" 143 2786 2788 "typing.ml" 189 4291 4296
+)
+"typing.ml" 142 2762 2775 "typing.ml" 142 2762 2777
+type(
+  Ast.binop
+)
+ident(
+  def op "typing.ml" 143 2786 2788 "typing.ml" 189 4291 4296
+)
+"typing.ml" 142 2762 2778 "typing.ml" 142 2762 2780
+type(
+  'b Ast.expr
+)
+ident(
+  def e2 "typing.ml" 143 2786 2788 "typing.ml" 189 4291 4296
+)
+"typing.ml" 142 2762 2764 "typing.ml" 142 2762 2781
+type(
+  'b Ast.expr_node
+)
+"typing.ml" 143 2786 2792 "typing.ml" 143 2786 2794
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  def t1 "typing.ml" 146 2847 2849 "typing.ml" 189 4291 4296
+)
+"typing.ml" 143 2786 2797 "typing.ml" 143 2786 2806
+type(
+  'a -> 'b Ast.expr -> Ast.typ Ast.expr
+)
+ident(
+  int_ref type_expr "typing.ml" 54 1027 1035 "typing.ml" 54 1027 1044
+)
+"typing.ml" 143 2786 2807 "typing.ml" 143 2786 2810
+type(
+  'a
+)
+ident(
+  int_ref env "typing.ml" 54 1027 1045 "typing.ml" 54 1027 1048
+)
+"typing.ml" 143 2786 2811 "typing.ml" 143 2786 2813
+type(
+  'b Ast.expr
+)
+ident(
+  int_ref e1 "typing.ml" 142 2762 2772 "typing.ml" 142 2762 2774
+)
+"typing.ml" 143 2786 2797 "typing.ml" 143 2786 2813
+call(
+  stack
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 144 2814 2820 "typing.ml" 144 2814 2822
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  def t2 "typing.ml" 146 2847 2849 "typing.ml" 189 4291 4296
+)
+"typing.ml" 144 2814 2825 "typing.ml" 144 2814 2834
+type(
+  'a -> 'b Ast.expr -> Ast.typ Ast.expr
+)
+ident(
+  int_ref type_expr "typing.ml" 54 1027 1035 "typing.ml" 54 1027 1044
+)
+"typing.ml" 144 2814 2835 "typing.ml" 144 2814 2838
+type(
+  'a
+)
+ident(
+  int_ref env "typing.ml" 54 1027 1045 "typing.ml" 54 1027 1048
+)
+"typing.ml" 144 2814 2839 "typing.ml" 144 2814 2841
+type(
+  'b Ast.expr
+)
+ident(
+  int_ref e2 "typing.ml" 142 2762 2778 "typing.ml" 142 2762 2780
+)
+"typing.ml" 144 2814 2825 "typing.ml" 144 2814 2841
+call(
+  stack
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 147 2855 2865 "typing.ml" 147 2855 2867
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "typing.ml" 142 2762 2775 "typing.ml" 142 2762 2777
+)
+"typing.ml" 148 2873 2878 "typing.ml" 148 2873 2882
+type(
+  Ast.binop
+)
+"typing.ml" 148 2873 2885 "typing.ml" 148 2873 2888
+type(
+  Ast.binop
+)
+"typing.ml" 148 2873 2878 "typing.ml" 148 2873 2888
+type(
+  Ast.binop
+)
+"typing.ml" 149 2893 2902 "typing.ml" 149 2893 2912
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compatible "typing.ml" 28 543 547 "typing.ml" 28 543 557
+)
+"typing.ml" 149 2893 2913 "typing.ml" 149 2893 2915
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t1 "typing.ml" 143 2786 2792 "typing.ml" 143 2786 2794
+)
+"typing.ml" 149 2893 2913 "typing.ml" 149 2893 2920
+type(
+  Ast.typ
+)
+"typing.ml" 149 2893 2921 "typing.ml" 149 2893 2929
+type(
+  Ast.typ
+)
+"typing.ml" 149 2893 2902 "typing.ml" 149 2893 2929
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 149 2893 2930 "typing.ml" 149 2893 2932
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"typing.ml" 149 2893 2933 "typing.ml" 149 2893 2943
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compatible "typing.ml" 28 543 547 "typing.ml" 28 543 557
+)
+"typing.ml" 149 2893 2944 "typing.ml" 149 2893 2946
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t2 "typing.ml" 144 2814 2820 "typing.ml" 144 2814 2822
+)
+"typing.ml" 149 2893 2944 "typing.ml" 149 2893 2951
+type(
+  Ast.typ
+)
+"typing.ml" 149 2893 2952 "typing.ml" 149 2893 2960
+type(
+  Ast.typ
+)
+"typing.ml" 149 2893 2933 "typing.ml" 149 2893 2960
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 149 2893 2902 "typing.ml" 149 2893 2960
+type(
+  bool
+)
+"typing.ml" 151 2972 2980 "typing.ml" 151 2972 2988
+type(
+  Ast.typ -> Ast.typ Ast.expr_node -> Ast.typ Ast.expr
+)
+ident(
+  int_ref add_node "typing.ml" 26 500 504 "typing.ml" 26 500 512
+)
+"typing.ml" 151 2972 2989 "typing.ml" 151 2972 2997
+type(
+  Ast.typ
+)
+"typing.ml" 151 2972 3006 "typing.ml" 151 2972 3008
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t1 "typing.ml" 143 2786 2792 "typing.ml" 143 2786 2794
+)
+"typing.ml" 151 2972 3009 "typing.ml" 151 2972 3011
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "typing.ml" 142 2762 2775 "typing.ml" 142 2762 2777
+)
+"typing.ml" 151 2972 3012 "typing.ml" 151 2972 3014
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t2 "typing.ml" 144 2814 2820 "typing.ml" 144 2814 2822
+)
+"typing.ml" 151 2972 2998 "typing.ml" 151 2972 3016
+type(
+  Ast.typ Ast.expr_node
+)
+"typing.ml" 151 2972 2980 "typing.ml" 151 2972 3016
+call(
+  tail
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 153 3029 3037 "typing.ml" 153 3029 3045
+type(
+  string -> Ast.typ Ast.expr
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"typing.ml" 153 3029 3046 "typing.ml" 153 3029 3063
+type(
+  string
+)
+"typing.ml" 153 3029 3037 "typing.ml" 153 3029 3063
+call(
+  tail
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 149 2893 2899 "typing.ml" 153 3029 3063
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 154 3066 3071 "typing.ml" 154 3066 3074
+type(
+  Ast.binop
+)
+"typing.ml" 154 3066 3077 "typing.ml" 154 3066 3081
+type(
+  Ast.binop
+)
+"typing.ml" 154 3066 3071 "typing.ml" 154 3066 3081
+type(
+  Ast.binop
+)
+"typing.ml" 155 3086 3095 "typing.ml" 155 3086 3105
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compatible "typing.ml" 28 543 547 "typing.ml" 28 543 557
+)
+"typing.ml" 155 3086 3106 "typing.ml" 155 3086 3108
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t1 "typing.ml" 143 2786 2792 "typing.ml" 143 2786 2794
+)
+"typing.ml" 155 3086 3106 "typing.ml" 155 3086 3113
+type(
+  Ast.typ
+)
+"typing.ml" 155 3086 3114 "typing.ml" 155 3086 3116
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t2 "typing.ml" 144 2814 2820 "typing.ml" 144 2814 2822
+)
+"typing.ml" 155 3086 3114 "typing.ml" 155 3086 3121
+type(
+  Ast.typ
+)
+"typing.ml" 155 3086 3095 "typing.ml" 155 3086 3121
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 157 3134 3142 "typing.ml" 157 3134 3150
+type(
+  Ast.typ -> Ast.typ Ast.expr_node -> Ast.typ Ast.expr
+)
+ident(
+  int_ref add_node "typing.ml" 26 500 504 "typing.ml" 26 500 512
+)
+"typing.ml" 157 3134 3151 "typing.ml" 157 3134 3153
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t1 "typing.ml" 143 2786 2792 "typing.ml" 143 2786 2794
+)
+"typing.ml" 157 3134 3151 "typing.ml" 157 3134 3158
+type(
+  Ast.typ
+)
+"typing.ml" 157 3134 3167 "typing.ml" 157 3134 3169
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t1 "typing.ml" 143 2786 2792 "typing.ml" 143 2786 2794
+)
+"typing.ml" 157 3134 3170 "typing.ml" 157 3134 3172
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "typing.ml" 142 2762 2775 "typing.ml" 142 2762 2777
+)
+"typing.ml" 157 3134 3173 "typing.ml" 157 3134 3175
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t2 "typing.ml" 144 2814 2820 "typing.ml" 144 2814 2822
+)
+"typing.ml" 157 3134 3159 "typing.ml" 157 3134 3177
+type(
+  Ast.typ Ast.expr_node
+)
+"typing.ml" 157 3134 3142 "typing.ml" 157 3134 3177
+call(
+  tail
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 159 3189 3197 "typing.ml" 159 3189 3205
+type(
+  string -> Ast.typ Ast.expr
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"typing.ml" 159 3189 3206 "typing.ml" 159 3189 3230
+type(
+  string
+)
+"typing.ml" 159 3189 3197 "typing.ml" 159 3189 3230
+call(
+  tail
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 155 3086 3092 "typing.ml" 159 3189 3230
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 160 3231 3236 "typing.ml" 160 3231 3239
+type(
+  Ast.binop
+)
+"typing.ml" 160 3231 3241 "typing.ml" 160 3231 3245
+type(
+  Ast.binop
+)
+"typing.ml" 160 3231 3236 "typing.ml" 160 3231 3245
+type(
+  Ast.binop
+)
+"typing.ml" 160 3231 3248 "typing.ml" 160 3231 3251
+type(
+  Ast.binop
+)
+"typing.ml" 160 3231 3236 "typing.ml" 160 3231 3251
+type(
+  Ast.binop
+)
+"typing.ml" 160 3231 3254 "typing.ml" 160 3231 3258
+type(
+  Ast.binop
+)
+"typing.ml" 160 3231 3236 "typing.ml" 160 3231 3258
+type(
+  Ast.binop
+)
+"typing.ml" 161 3262 3271 "typing.ml" 161 3262 3281
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compatible "typing.ml" 28 543 547 "typing.ml" 28 543 557
+)
+"typing.ml" 161 3262 3282 "typing.ml" 161 3262 3284
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t1 "typing.ml" 143 2786 2792 "typing.ml" 143 2786 2794
+)
+"typing.ml" 161 3262 3282 "typing.ml" 161 3262 3289
+type(
+  Ast.typ
+)
+"typing.ml" 161 3262 3290 "typing.ml" 161 3262 3294
+type(
+  Ast.typ
+)
+"typing.ml" 161 3262 3271 "typing.ml" 161 3262 3294
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 161 3262 3295 "typing.ml" 161 3262 3297
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"typing.ml" 161 3262 3298 "typing.ml" 161 3262 3308
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compatible "typing.ml" 28 543 547 "typing.ml" 28 543 557
+)
+"typing.ml" 161 3262 3309 "typing.ml" 161 3262 3311
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t2 "typing.ml" 144 2814 2820 "typing.ml" 144 2814 2822
+)
+"typing.ml" 161 3262 3309 "typing.ml" 161 3262 3316
+type(
+  Ast.typ
+)
+"typing.ml" 161 3262 3317 "typing.ml" 161 3262 3321
+type(
+  Ast.typ
+)
+"typing.ml" 161 3262 3298 "typing.ml" 161 3262 3321
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 161 3262 3271 "typing.ml" 161 3262 3321
+type(
+  bool
+)
+"typing.ml" 163 3333 3341 "typing.ml" 163 3333 3349
+type(
+  Ast.typ -> Ast.typ Ast.expr_node -> Ast.typ Ast.expr
+)
+ident(
+  int_ref add_node "typing.ml" 26 500 504 "typing.ml" 26 500 512
+)
+"typing.ml" 163 3333 3350 "typing.ml" 163 3333 3354
+type(
+  Ast.typ
+)
+"typing.ml" 163 3333 3363 "typing.ml" 163 3333 3365
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t1 "typing.ml" 143 2786 2792 "typing.ml" 143 2786 2794
+)
+"typing.ml" 163 3333 3366 "typing.ml" 163 3333 3368
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "typing.ml" 142 2762 2775 "typing.ml" 142 2762 2777
+)
+"typing.ml" 163 3333 3369 "typing.ml" 163 3333 3371
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t2 "typing.ml" 144 2814 2820 "typing.ml" 144 2814 2822
+)
+"typing.ml" 163 3333 3355 "typing.ml" 163 3333 3373
+type(
+  Ast.typ Ast.expr_node
+)
+"typing.ml" 163 3333 3341 "typing.ml" 163 3333 3373
+call(
+  tail
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 165 3385 3393 "typing.ml" 165 3385 3401
+type(
+  string -> Ast.typ Ast.expr
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"typing.ml" 165 3385 3402 "typing.ml" 165 3385 3433
+type(
+  string
+)
+"typing.ml" 165 3385 3393 "typing.ml" 165 3385 3433
+call(
+  tail
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 161 3262 3268 "typing.ml" 165 3385 3433
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 166 3435 3441 "typing.ml" 166 3435 3445
+type(
+  Ast.binop
+)
+"typing.ml" 166 3435 3448 "typing.ml" 166 3435 3452
+type(
+  Ast.binop
+)
+"typing.ml" 166 3435 3441 "typing.ml" 166 3435 3452
+type(
+  Ast.binop
+)
+"typing.ml" 166 3435 3455 "typing.ml" 166 3435 3459
+type(
+  Ast.binop
+)
+"typing.ml" 166 3435 3441 "typing.ml" 166 3435 3459
+type(
+  Ast.binop
+)
+"typing.ml" 166 3435 3462 "typing.ml" 166 3435 3466
+type(
+  Ast.binop
+)
+"typing.ml" 166 3435 3441 "typing.ml" 166 3435 3466
+type(
+  Ast.binop
+)
+"typing.ml" 167 3470 3479 "typing.ml" 167 3470 3489
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compatible "typing.ml" 28 543 547 "typing.ml" 28 543 557
+)
+"typing.ml" 167 3470 3490 "typing.ml" 167 3470 3492
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t1 "typing.ml" 143 2786 2792 "typing.ml" 143 2786 2794
+)
+"typing.ml" 167 3470 3490 "typing.ml" 167 3470 3497
+type(
+  Ast.typ
+)
+"typing.ml" 167 3470 3498 "typing.ml" 167 3470 3502
+type(
+  Ast.typ
+)
+"typing.ml" 167 3470 3479 "typing.ml" 167 3470 3502
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 167 3470 3503 "typing.ml" 167 3470 3505
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"typing.ml" 167 3470 3506 "typing.ml" 167 3470 3516
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compatible "typing.ml" 28 543 547 "typing.ml" 28 543 557
+)
+"typing.ml" 167 3470 3517 "typing.ml" 167 3470 3519
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t2 "typing.ml" 144 2814 2820 "typing.ml" 144 2814 2822
+)
+"typing.ml" 167 3470 3517 "typing.ml" 167 3470 3524
+type(
+  Ast.typ
+)
+"typing.ml" 167 3470 3525 "typing.ml" 167 3470 3529
+type(
+  Ast.typ
+)
+"typing.ml" 167 3470 3506 "typing.ml" 167 3470 3529
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 167 3470 3479 "typing.ml" 167 3470 3529
+type(
+  bool
+)
+"typing.ml" 169 3542 3550 "typing.ml" 169 3542 3558
+type(
+  Ast.typ -> Ast.typ Ast.expr_node -> Ast.typ Ast.expr
+)
+ident(
+  int_ref add_node "typing.ml" 26 500 504 "typing.ml" 26 500 512
+)
+"typing.ml" 169 3542 3559 "typing.ml" 169 3542 3563
+type(
+  Ast.typ
+)
+"typing.ml" 169 3542 3572 "typing.ml" 169 3542 3574
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t1 "typing.ml" 143 2786 2792 "typing.ml" 143 2786 2794
+)
+"typing.ml" 169 3542 3575 "typing.ml" 169 3542 3577
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "typing.ml" 142 2762 2775 "typing.ml" 142 2762 2777
+)
+"typing.ml" 169 3542 3578 "typing.ml" 169 3542 3580
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t2 "typing.ml" 144 2814 2820 "typing.ml" 144 2814 2822
+)
+"typing.ml" 169 3542 3564 "typing.ml" 169 3542 3582
+type(
+  Ast.typ Ast.expr_node
+)
+"typing.ml" 169 3542 3550 "typing.ml" 169 3542 3582
+call(
+  tail
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 171 3596 3604 "typing.ml" 171 3596 3612
+type(
+  string -> Ast.typ Ast.expr
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"typing.ml" 171 3596 3613 "typing.ml" 171 3596 3634
+type(
+  string
+)
+"typing.ml" 171 3596 3604 "typing.ml" 171 3596 3634
+call(
+  tail
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 167 3470 3476 "typing.ml" 171 3596 3634
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 172 3635 3640 "typing.ml" 172 3635 3644
+type(
+  Ast.binop
+)
+"typing.ml" 173 3649 3658 "typing.ml" 173 3649 3668
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compatible "typing.ml" 28 543 547 "typing.ml" 28 543 557
+)
+"typing.ml" 173 3649 3669 "typing.ml" 173 3649 3671
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t1 "typing.ml" 143 2786 2792 "typing.ml" 143 2786 2794
+)
+"typing.ml" 173 3649 3669 "typing.ml" 173 3649 3676
+type(
+  Ast.typ
+)
+"typing.ml" 173 3649 3685 "typing.ml" 173 3649 3693
+type(
+  string
+)
+"typing.ml" 173 3649 3677 "typing.ml" 173 3649 3695
+type(
+  Ast.typ
+)
+"typing.ml" 173 3649 3658 "typing.ml" 173 3649 3695
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 174 3697 3711 "typing.ml" 174 3697 3721
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compatible "typing.ml" 28 543 547 "typing.ml" 28 543 557
+)
+"typing.ml" 174 3697 3722 "typing.ml" 174 3697 3724
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t2 "typing.ml" 144 2814 2820 "typing.ml" 144 2814 2822
+)
+"typing.ml" 174 3697 3722 "typing.ml" 174 3697 3729
+type(
+  Ast.typ
+)
+"typing.ml" 174 3697 3730 "typing.ml" 174 3697 3734
+type(
+  Ast.typ
+)
+"typing.ml" 174 3697 3711 "typing.ml" 174 3697 3734
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 174 3697 3735 "typing.ml" 174 3697 3737
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( || )
+)
+"typing.ml" 174 3697 3738 "typing.ml" 174 3697 3748
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compatible "typing.ml" 28 543 547 "typing.ml" 28 543 557
+)
+"typing.ml" 174 3697 3749 "typing.ml" 174 3697 3751
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t2 "typing.ml" 144 2814 2820 "typing.ml" 144 2814 2822
+)
+"typing.ml" 174 3697 3749 "typing.ml" 174 3697 3756
+type(
+  Ast.typ
+)
+"typing.ml" 174 3697 3765 "typing.ml" 174 3697 3773
+type(
+  string
+)
+"typing.ml" 174 3697 3757 "typing.ml" 174 3697 3774
+type(
+  Ast.typ
+)
+"typing.ml" 174 3697 3738 "typing.ml" 174 3697 3774
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 174 3697 3711 "typing.ml" 174 3697 3774
+type(
+  bool
+)
+"typing.ml" 176 3789 3792 "typing.ml" 176 3789 3800
+type(
+  Ast.typ -> Ast.typ Ast.expr_node -> Ast.typ Ast.expr
+)
+ident(
+  int_ref add_node "typing.ml" 26 500 504 "typing.ml" 26 500 512
+)
+"typing.ml" 176 3789 3809 "typing.ml" 176 3789 3817
+type(
+  string
+)
+"typing.ml" 176 3789 3801 "typing.ml" 176 3789 3818
+type(
+  Ast.typ
+)
+"typing.ml" 176 3789 3827 "typing.ml" 176 3789 3829
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t1 "typing.ml" 143 2786 2792 "typing.ml" 143 2786 2794
+)
+"typing.ml" 176 3789 3830 "typing.ml" 176 3789 3832
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "typing.ml" 142 2762 2775 "typing.ml" 142 2762 2777
+)
+"typing.ml" 176 3789 3833 "typing.ml" 176 3789 3835
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t2 "typing.ml" 144 2814 2820 "typing.ml" 144 2814 2822
+)
+"typing.ml" 176 3789 3819 "typing.ml" 176 3789 3837
+type(
+  Ast.typ Ast.expr_node
+)
+"typing.ml" 176 3789 3792 "typing.ml" 176 3789 3837
+call(
+  tail
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 177 3838 3851 "typing.ml" 177 3838 3859
+type(
+  string -> Ast.typ Ast.expr
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"typing.ml" 177 3838 3860 "typing.ml" 177 3838 3883
+type(
+  string
+)
+"typing.ml" 177 3838 3851 "typing.ml" 177 3838 3883
+call(
+  tail
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 174 3697 3708 "typing.ml" 177 3838 3883
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 179 3899 3902 "typing.ml" 179 3899 3912
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compatible "typing.ml" 28 543 547 "typing.ml" 28 543 557
+)
+"typing.ml" 179 3899 3913 "typing.ml" 179 3899 3915
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t2 "typing.ml" 144 2814 2820 "typing.ml" 144 2814 2822
+)
+"typing.ml" 179 3899 3913 "typing.ml" 179 3899 3920
+type(
+  Ast.typ
+)
+"typing.ml" 179 3899 3929 "typing.ml" 179 3899 3937
+type(
+  string
+)
+"typing.ml" 179 3899 3921 "typing.ml" 179 3899 3938
+type(
+  Ast.typ
+)
+"typing.ml" 179 3899 3902 "typing.ml" 179 3899 3938
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 180 3939 3953 "typing.ml" 180 3939 3963
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compatible "typing.ml" 28 543 547 "typing.ml" 28 543 557
+)
+"typing.ml" 180 3939 3964 "typing.ml" 180 3939 3966
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t1 "typing.ml" 143 2786 2792 "typing.ml" 143 2786 2794
+)
+"typing.ml" 180 3939 3964 "typing.ml" 180 3939 3971
+type(
+  Ast.typ
+)
+"typing.ml" 180 3939 3972 "typing.ml" 180 3939 3976
+type(
+  Ast.typ
+)
+"typing.ml" 180 3939 3953 "typing.ml" 180 3939 3976
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 180 3939 3977 "typing.ml" 180 3939 3979
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( || )
+)
+"typing.ml" 180 3939 3980 "typing.ml" 180 3939 3990
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compatible "typing.ml" 28 543 547 "typing.ml" 28 543 557
+)
+"typing.ml" 180 3939 3991 "typing.ml" 180 3939 3993
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t1 "typing.ml" 143 2786 2792 "typing.ml" 143 2786 2794
+)
+"typing.ml" 180 3939 3991 "typing.ml" 180 3939 3998
+type(
+  Ast.typ
+)
+"typing.ml" 180 3939 4007 "typing.ml" 180 3939 4015
+type(
+  string
+)
+"typing.ml" 180 3939 3999 "typing.ml" 180 3939 4016
+type(
+  Ast.typ
+)
+"typing.ml" 180 3939 3980 "typing.ml" 180 3939 4016
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 180 3939 3953 "typing.ml" 180 3939 4016
+type(
+  bool
+)
+"typing.ml" 182 4031 4034 "typing.ml" 182 4031 4042
+type(
+  Ast.typ -> Ast.typ Ast.expr_node -> Ast.typ Ast.expr
+)
+ident(
+  int_ref add_node "typing.ml" 26 500 504 "typing.ml" 26 500 512
+)
+"typing.ml" 182 4031 4051 "typing.ml" 182 4031 4059
+type(
+  string
+)
+"typing.ml" 182 4031 4043 "typing.ml" 182 4031 4060
+type(
+  Ast.typ
+)
+"typing.ml" 182 4031 4070 "typing.ml" 182 4031 4072
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t1 "typing.ml" 143 2786 2792 "typing.ml" 143 2786 2794
+)
+"typing.ml" 182 4031 4073 "typing.ml" 182 4031 4075
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "typing.ml" 142 2762 2775 "typing.ml" 142 2762 2777
+)
+"typing.ml" 182 4031 4076 "typing.ml" 182 4031 4078
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t2 "typing.ml" 144 2814 2820 "typing.ml" 144 2814 2822
+)
+"typing.ml" 182 4031 4061 "typing.ml" 182 4031 4080
+type(
+  Ast.typ Ast.expr_node
+)
+"typing.ml" 182 4031 4034 "typing.ml" 182 4031 4080
+call(
+  tail
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 184 4095 4098 "typing.ml" 184 4095 4106
+type(
+  string -> Ast.typ Ast.expr
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"typing.ml" 184 4095 4107 "typing.ml" 184 4095 4130
+type(
+  string
+)
+"typing.ml" 184 4095 4098 "typing.ml" 184 4095 4130
+call(
+  tail
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 180 3939 3950 "typing.ml" 184 4095 4130
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 185 4131 4145 "typing.ml" 185 4131 4155
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compatible "typing.ml" 28 543 547 "typing.ml" 28 543 557
+)
+"typing.ml" 185 4131 4156 "typing.ml" 185 4131 4158
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t1 "typing.ml" 143 2786 2792 "typing.ml" 143 2786 2794
+)
+"typing.ml" 185 4131 4156 "typing.ml" 185 4131 4163
+type(
+  Ast.typ
+)
+"typing.ml" 185 4131 4164 "typing.ml" 185 4131 4168
+type(
+  Ast.typ
+)
+"typing.ml" 185 4131 4145 "typing.ml" 185 4131 4168
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 185 4131 4169 "typing.ml" 185 4131 4171
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"typing.ml" 185 4131 4172 "typing.ml" 185 4131 4182
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  int_ref compatible "typing.ml" 28 543 547 "typing.ml" 28 543 557
+)
+"typing.ml" 185 4131 4183 "typing.ml" 185 4131 4185
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t2 "typing.ml" 144 2814 2820 "typing.ml" 144 2814 2822
+)
+"typing.ml" 185 4131 4183 "typing.ml" 185 4131 4190
+type(
+  Ast.typ
+)
+"typing.ml" 185 4131 4191 "typing.ml" 185 4131 4195
+type(
+  Ast.typ
+)
+"typing.ml" 185 4131 4172 "typing.ml" 185 4131 4195
+call(
+  stack
+)
+type(
+  bool
+)
+"typing.ml" 185 4131 4145 "typing.ml" 185 4131 4195
+type(
+  bool
+)
+"typing.ml" 187 4208 4216 "typing.ml" 187 4208 4224
+type(
+  Ast.typ -> Ast.typ Ast.expr_node -> Ast.typ Ast.expr
+)
+ident(
+  int_ref add_node "typing.ml" 26 500 504 "typing.ml" 26 500 512
+)
+"typing.ml" 187 4208 4225 "typing.ml" 187 4208 4229
+type(
+  Ast.typ
+)
+"typing.ml" 187 4208 4239 "typing.ml" 187 4208 4241
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t1 "typing.ml" 143 2786 2792 "typing.ml" 143 2786 2794
+)
+"typing.ml" 187 4208 4242 "typing.ml" 187 4208 4244
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "typing.ml" 142 2762 2775 "typing.ml" 142 2762 2777
+)
+"typing.ml" 187 4208 4245 "typing.ml" 187 4208 4247
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t2 "typing.ml" 144 2814 2820 "typing.ml" 144 2814 2822
+)
+"typing.ml" 187 4208 4230 "typing.ml" 187 4208 4249
+type(
+  Ast.typ Ast.expr_node
+)
+"typing.ml" 187 4208 4216 "typing.ml" 187 4208 4249
+call(
+  tail
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 188 4250 4261 "typing.ml" 188 4250 4269
+type(
+  string -> Ast.typ Ast.expr
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"typing.ml" 188 4250 4270 "typing.ml" 188 4250 4290
+type(
+  string
+)
+"typing.ml" 188 4250 4261 "typing.ml" 188 4250 4290
+call(
+  tail
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 185 4131 4142 "typing.ml" 188 4250 4290
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 178 3884 3895 "typing.ml" 188 4250 4290
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 173 3649 3655 "typing.ml" 188 4250 4290
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 146 2847 2849 "typing.ml" 189 4291 4296
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 143 2786 2788 "typing.ml" 189 4291 4296
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 55 1054 1055 "typing.ml" 189 4291 4296
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 217 4885 4893 "typing.ml" 217 4885 4903
+type(
+  'a -> Ast.typ Ast.instr -> Ast.typ Ast.instr
+)
+ident(
+  def type_instr "typing.ml" 217 4885 4885 "_none_" 1 0 -1
+)
+"typing.ml" 217 4885 4904 "typing.ml" 217 4885 4907
+type(
+  'a
+)
+ident(
+  def env "typing.ml" 217 4885 4908 "typing.ml" 233 5363 5404
+)
+"typing.ml" 217 4885 4908 "typing.ml" 217 4885 4909
+type(
+  Ast.typ Ast.instr
+)
+ident(
+  def i "typing.ml" 218 4953 4954 "typing.ml" 233 5363 5404
+)
+"typing.ml" 218 4953 4958 "typing.ml" 218 4953 4968
+type(
+  Ast.typ Ast.instr_node
+)
+ident(
+  def instr_node "typing.ml" 219 4981 4983 "typing.ml" 233 5363 5404
+)
+"typing.ml" 218 4953 4971 "typing.ml" 218 4953 4972
+type(
+  Ast.typ Ast.instr
+)
+ident(
+  int_ref i "typing.ml" 217 4885 4908 "typing.ml" 217 4885 4909
+)
+"typing.ml" 218 4953 4971 "typing.ml" 218 4953 4977
+type(
+  Ast.typ Ast.instr_node
+)
+"typing.ml" 219 4981 4989 "typing.ml" 219 4981 4999
+type(
+  Ast.typ Ast.instr_node
+)
+ident(
+  int_ref instr_node "typing.ml" 218 4953 4958 "typing.ml" 218 4953 4968
+)
+"typing.ml" 220 5005 5014 "typing.ml" 220 5005 5015
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  def e "typing.ml" 220 5005 5019 "typing.ml" 222 5054 5087
+)
+"typing.ml" 220 5005 5008 "typing.ml" 220 5005 5015
+type(
+  Ast.typ Ast.instr_node
+)
+"typing.ml" 220 5005 5023 "typing.ml" 220 5005 5025
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  def te "typing.ml" 222 5054 5061 "typing.ml" 222 5054 5087
+)
+"typing.ml" 220 5005 5028 "typing.ml" 220 5005 5037
+type(
+  'a -> Ast.typ Ast.expr -> Ast.typ Ast.expr
+)
+ident(
+  int_ref type_expr "typing.ml" 54 1027 1035 "typing.ml" 54 1027 1044
+)
+"typing.ml" 220 5005 5038 "typing.ml" 220 5005 5041
+type(
+  'a
+)
+ident(
+  int_ref env "typing.ml" 217 4885 4904 "typing.ml" 217 4885 4907
+)
+"typing.ml" 220 5005 5042 "typing.ml" 220 5005 5043
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref e "typing.ml" 220 5005 5014 "typing.ml" 220 5005 5015
+)
+"typing.ml" 220 5005 5028 "typing.ml" 220 5005 5043
+call(
+  stack
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 222 5054 5061 "typing.ml" 222 5054 5069
+type(
+  Ast.typ -> Ast.typ Ast.instr_node -> Ast.typ Ast.instr
+)
+ident(
+  int_ref add_node "typing.ml" 26 500 504 "typing.ml" 26 500 512
+)
+"typing.ml" 222 5054 5070 "typing.ml" 222 5054 5072
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref te "typing.ml" 220 5005 5023 "typing.ml" 220 5005 5025
+)
+"typing.ml" 222 5054 5070 "typing.ml" 222 5054 5077
+type(
+  Ast.typ
+)
+"typing.ml" 222 5054 5085 "typing.ml" 222 5054 5086
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref e "typing.ml" 220 5005 5014 "typing.ml" 220 5005 5015
+)
+"typing.ml" 222 5054 5078 "typing.ml" 222 5054 5087
+type(
+  Ast.typ Ast.instr_node
+)
+"typing.ml" 222 5054 5061 "typing.ml" 222 5054 5087
+call(
+  tail
+)
+type(
+  Ast.typ Ast.instr
+)
+"typing.ml" 220 5005 5019 "typing.ml" 222 5054 5087
+type(
+  Ast.typ Ast.instr
+)
+"typing.ml" 225 5157 5165 "typing.ml" 225 5157 5167
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  def e1 "typing.ml" 226 5180 5183 "typing.ml" 233 5363 5404
+)
+"typing.ml" 225 5157 5168 "typing.ml" 225 5157 5171
+type(
+  Ast.typ Ast.instr
+)
+ident(
+  def in1 "typing.ml" 226 5180 5183 "typing.ml" 233 5363 5404
+)
+"typing.ml" 225 5157 5172 "typing.ml" 225 5157 5175
+type(
+  Ast.typ Ast.instr
+)
+ident(
+  def in2 "typing.ml" 226 5180 5183 "typing.ml" 233 5363 5404
+)
+"typing.ml" 225 5157 5160 "typing.ml" 225 5157 5176
+type(
+  Ast.typ Ast.instr_node
+)
+"typing.ml" 226 5180 5187 "typing.ml" 226 5180 5189
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  def t1 "typing.ml" 227 5212 5216 "typing.ml" 233 5363 5404
+)
+"typing.ml" 226 5180 5192 "typing.ml" 226 5180 5201
+type(
+  'a -> Ast.typ Ast.expr -> Ast.typ Ast.expr
+)
+ident(
+  int_ref type_expr "typing.ml" 54 1027 1035 "typing.ml" 54 1027 1044
+)
+"typing.ml" 226 5180 5202 "typing.ml" 226 5180 5205
+type(
+  'a
+)
+ident(
+  int_ref env "typing.ml" 217 4885 4904 "typing.ml" 217 4885 4907
+)
+"typing.ml" 226 5180 5206 "typing.ml" 226 5180 5208
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref e1 "typing.ml" 225 5157 5165 "typing.ml" 225 5157 5167
+)
+"typing.ml" 226 5180 5192 "typing.ml" 226 5180 5208
+call(
+  stack
+)
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 227 5212 5219 "typing.ml" 227 5212 5221
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t1 "typing.ml" 226 5180 5187 "typing.ml" 226 5180 5189
+)
+"typing.ml" 227 5212 5219 "typing.ml" 227 5212 5226
+type(
+  Ast.typ
+)
+"typing.ml" 227 5212 5227 "typing.ml" 227 5212 5229
+type(
+  Ast.typ -> Ast.typ -> bool
+)
+ident(
+  ext_ref Pervasives.( <> )
+)
+"typing.ml" 227 5212 5230 "typing.ml" 227 5212 5238
+type(
+  Ast.typ
+)
+"typing.ml" 227 5212 5219 "typing.ml" 227 5212 5238
+type(
+  bool
+)
+"typing.ml" 228 5240 5249 "typing.ml" 228 5240 5257
+type(
+  string -> Ast.typ Ast.instr
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"typing.ml" 228 5240 5258 "typing.ml" 228 5240 5273
+type(
+  string
+)
+"typing.ml" 228 5240 5249 "typing.ml" 228 5240 5273
+call(
+  tail
+)
+type(
+  Ast.typ Ast.instr
+)
+"typing.ml" 230 5284 5294 "typing.ml" 230 5284 5298
+type(
+  Ast.typ Ast.instr
+)
+ident(
+  def tin1 "typing.ml" 233 5363 5369 "typing.ml" 233 5363 5404
+)
+"typing.ml" 230 5284 5301 "typing.ml" 230 5284 5311
+type(
+  'a -> Ast.typ Ast.instr -> Ast.typ Ast.instr
+)
+ident(
+  int_ref type_instr "typing.ml" 217 4885 4893 "typing.ml" 217 4885 4903
+)
+"typing.ml" 230 5284 5312 "typing.ml" 230 5284 5315
+type(
+  'a
+)
+ident(
+  int_ref env "typing.ml" 217 4885 4904 "typing.ml" 217 4885 4907
+)
+"typing.ml" 230 5284 5316 "typing.ml" 230 5284 5319
+type(
+  Ast.typ Ast.instr
+)
+ident(
+  int_ref in1 "typing.ml" 225 5157 5168 "typing.ml" 225 5157 5171
+)
+"typing.ml" 230 5284 5301 "typing.ml" 230 5284 5319
+call(
+  stack
+)
+type(
+  Ast.typ Ast.instr
+)
+"typing.ml" 231 5320 5330 "typing.ml" 231 5320 5334
+type(
+  Ast.typ Ast.instr
+)
+ident(
+  def tin2 "typing.ml" 233 5363 5369 "typing.ml" 233 5363 5404
+)
+"typing.ml" 231 5320 5337 "typing.ml" 231 5320 5347
+type(
+  'a -> Ast.typ Ast.instr -> Ast.typ Ast.instr
+)
+ident(
+  int_ref type_instr "typing.ml" 217 4885 4893 "typing.ml" 217 4885 4903
+)
+"typing.ml" 231 5320 5348 "typing.ml" 231 5320 5351
+type(
+  'a
+)
+ident(
+  int_ref env "typing.ml" 217 4885 4904 "typing.ml" 217 4885 4907
+)
+"typing.ml" 231 5320 5352 "typing.ml" 231 5320 5355
+type(
+  Ast.typ Ast.instr
+)
+ident(
+  int_ref in2 "typing.ml" 225 5157 5172 "typing.ml" 225 5157 5175
+)
+"typing.ml" 231 5320 5337 "typing.ml" 231 5320 5355
+call(
+  stack
+)
+type(
+  Ast.typ Ast.instr
+)
+"typing.ml" 233 5363 5369 "typing.ml" 233 5363 5377
+type(
+  Ast.typ -> Ast.typ Ast.instr_node -> Ast.typ Ast.instr
+)
+ident(
+  int_ref add_node "typing.ml" 26 500 504 "typing.ml" 26 500 512
+)
+"typing.ml" 233 5363 5378 "typing.ml" 233 5363 5383
+type(
+  Ast.typ
+)
+"typing.ml" 233 5363 5390 "typing.ml" 233 5363 5392
+type(
+  Ast.typ Ast.expr
+)
+ident(
+  int_ref t1 "typing.ml" 226 5180 5187 "typing.ml" 226 5180 5189
+)
+"typing.ml" 233 5363 5393 "typing.ml" 233 5363 5397
+type(
+  Ast.typ Ast.instr
+)
+ident(
+  int_ref tin1 "typing.ml" 230 5284 5294 "typing.ml" 230 5284 5298
+)
+"typing.ml" 233 5363 5398 "typing.ml" 233 5363 5402
+type(
+  Ast.typ Ast.instr
+)
+ident(
+  int_ref tin2 "typing.ml" 231 5320 5330 "typing.ml" 231 5320 5334
+)
+"typing.ml" 233 5363 5384 "typing.ml" 233 5363 5404
+type(
+  Ast.typ Ast.instr_node
+)
+"typing.ml" 233 5363 5369 "typing.ml" 233 5363 5404
+call(
+  tail
+)
+type(
+  Ast.typ Ast.instr
+)
+"typing.ml" 230 5284 5290 "typing.ml" 233 5363 5404
+type(
+  Ast.typ Ast.instr
+)
+"typing.ml" 227 5212 5216 "typing.ml" 233 5363 5404
+type(
+  Ast.typ Ast.instr
+)
+"typing.ml" 226 5180 5183 "typing.ml" 233 5363 5404
+type(
+  Ast.typ Ast.instr
+)
+"typing.ml" 219 4981 4983 "typing.ml" 233 5363 5404
+type(
+  Ast.typ Ast.instr
+)
+"typing.ml" 218 4953 4954 "typing.ml" 233 5363 5404
+type(
+  Ast.typ Ast.instr
+)
+"typing.ml" 252 5888 5892 "typing.ml" 252 5888 5901
+type(
+  Ast.position Ast.klass list * 'a * Ast.typ Ast.instr -> Ast.typ Ast.instr
+)
+ident(
+  def type_prog "typing.ml" 255 5967 5999 "_none_" 1 0 -1
+)
+"typing.ml" 252 5888 5902 "typing.ml" 252 5888 5906
+type(
+  Ast.position Ast.klass list * 'a * Ast.typ Ast.instr
+)
+ident(
+  def prog "typing.ml" 253 5911 5912 "typing.ml" 255 5967 5999
+)
+"typing.ml" 253 5911 5912 "typing.ml" 253 5911 5922
+type(
+  Ast.position Ast.klass list * 'a * Ast.typ Ast.instr -> unit
+)
+ident(
+  ext_ref Type_class.init_table
+)
+"typing.ml" 253 5911 5923 "typing.ml" 253 5911 5927
+type(
+  Ast.position Ast.klass list * 'a * Ast.typ Ast.instr
+)
+ident(
+  int_ref prog "typing.ml" 252 5888 5902 "typing.ml" 252 5888 5906
+)
+"typing.ml" 253 5911 5912 "typing.ml" 253 5911 5927
+call(
+  stack
+)
+type(
+  unit
+)
+"typing.ml" 254 5929 5934 "typing.ml" 254 5929 5939
+type(
+  Ast.position Ast.klass list
+)
+ident(
+  def clist "typing.ml" 255 5967 5968 "typing.ml" 255 5967 5999
+)
+"typing.ml" 254 5929 5941 "typing.ml" 254 5929 5945
+type(
+  'a
+)
+ident(
+  def name "typing.ml" 255 5967 5968 "typing.ml" 255 5967 5999
+)
+"typing.ml" 254 5929 5947 "typing.ml" 254 5929 5956
+type(
+  Ast.typ Ast.instr
+)
+ident(
+  def main_body "typing.ml" 255 5967 5968 "typing.ml" 255 5967 5999
+)
+"typing.ml" 254 5929 5934 "typing.ml" 254 5929 5956
+type(
+  Ast.position Ast.klass list * 'a * Ast.typ Ast.instr
+)
+"typing.ml" 254 5929 5959 "typing.ml" 254 5929 5963
+type(
+  Ast.position Ast.klass list * 'a * Ast.typ Ast.instr
+)
+ident(
+  int_ref prog "typing.ml" 252 5888 5902 "typing.ml" 252 5888 5906
+)
+"typing.ml" 255 5967 5968 "typing.ml" 255 5967 5978
+type(
+  '_b Env.t -> Ast.typ Ast.instr -> Ast.typ Ast.instr
+)
+ident(
+  int_ref type_instr "typing.ml" 217 4885 4893 "typing.ml" 217 4885 4903
+)
+"typing.ml" 255 5967 5979 "typing.ml" 255 5967 5988
+type(
+  '_b Env.t
+)
+ident(
+  ext_ref Env.empty
+)
+"typing.ml" 255 5967 5989 "typing.ml" 255 5967 5998
+type(
+  Ast.typ Ast.instr
+)
+ident(
+  int_ref main_body "typing.ml" 254 5929 5947 "typing.ml" 254 5929 5956
+)
+"typing.ml" 255 5967 5968 "typing.ml" 255 5967 5999
+call(
+  tail
+)
+type(
+  Ast.typ Ast.instr
+)
+"typing.ml" 254 5929 5930 "typing.ml" 255 5967 5999
+type(
+  Ast.typ Ast.instr
+)
+"typing.ml" 253 5911 5912 "typing.ml" 255 5967 5999
+type(
+  Ast.typ Ast.instr
+)

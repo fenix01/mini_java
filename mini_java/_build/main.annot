@@ -1,0 +1,954 @@
+"main.ml" 13 152 156 "main.ml" 13 152 159
+type(
+  string
+)
+ident(
+  def ext "main.ml" 14 170 170 "_none_" 1 0 -1
+)
+"main.ml" 13 152 162 "main.ml" 13 152 169
+type(
+  string
+)
+"main.ml" 14 170 174 "main.ml" 14 170 179
+type(
+  string
+)
+ident(
+  def usage "main.ml" 16 237 237 "_none_" 1 0 -1
+)
+"main.ml" 14 170 182 "main.ml" 14 170 189
+type(
+  (string -> string -> string, unit, string) format ->
+  string -> string -> string
+)
+ident(
+  ext_ref Format.sprintf
+)
+"main.ml" 14 170 190 "main.ml" 14 170 218
+type(
+  (string -> string -> string, unit, string) format
+)
+"main.ml" 14 170 219 "main.ml" 14 170 227
+type(
+  string array
+)
+ident(
+  ext_ref Sys.argv
+)
+"main.ml" 14 170 229 "main.ml" 14 170 230
+type(
+  int
+)
+"main.ml" 14 170 219 "main.ml" 14 170 231
+type(
+  string
+)
+"main.ml" 14 170 232 "main.ml" 14 170 235
+type(
+  string
+)
+ident(
+  int_ref ext "main.ml" 13 152 156 "main.ml" 13 152 159
+)
+"main.ml" 14 170 182 "main.ml" 14 170 235
+type(
+  string
+)
+"main.ml" 16 237 241 "main.ml" 16 237 251
+type(
+  bool ref
+)
+ident(
+  def parse_only "main.ml" 17 264 264 "_none_" 1 0 -1
+)
+"main.ml" 16 237 254 "main.ml" 16 237 257
+type(
+  bool -> bool ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"main.ml" 16 237 258 "main.ml" 16 237 263
+type(
+  bool
+)
+"main.ml" 16 237 254 "main.ml" 16 237 263
+type(
+  bool ref
+)
+"main.ml" 17 264 268 "main.ml" 17 264 277
+type(
+  bool ref
+)
+ident(
+  def type_only "main.ml" 20 292 292 "_none_" 1 0 -1
+)
+"main.ml" 17 264 280 "main.ml" 17 264 283
+type(
+  bool -> bool ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"main.ml" 17 264 284 "main.ml" 17 264 289
+type(
+  bool
+)
+"main.ml" 17 264 280 "main.ml" 17 264 289
+type(
+  bool ref
+)
+"main.ml" 20 292 296 "main.ml" 20 292 300
+type(
+  (string * Arg.spec * string) list
+)
+ident(
+  def spec "main.ml" 25 434 434 "_none_" 1 0 -1
+)
+"main.ml" 21 303 306 "main.ml" 21 303 319
+type(
+  string
+)
+"main.ml" 21 303 329 "main.ml" 21 303 339
+type(
+  bool ref
+)
+ident(
+  int_ref parse_only "main.ml" 16 237 241 "main.ml" 16 237 251
+)
+"main.ml" 21 303 321 "main.ml" 21 303 339
+type(
+  Arg.spec
+)
+"main.ml" 21 303 341 "main.ml" 21 303 364
+type(
+  string
+)
+"main.ml" 21 303 306 "main.ml" 21 303 364
+type(
+  string * Arg.spec * string
+)
+"main.ml" 21 303 305 "main.ml" 23 431 432
+type(
+  (string * Arg.spec * string) list
+)
+"main.ml" 25 434 438 "main.ml" 25 434 442
+type(
+  string
+)
+ident(
+  def file "main.ml" 35 706 706 "_none_" 1 0 -1
+)
+"main.ml" 26 445 451 "main.ml" 26 445 455
+type(
+  string option ref
+)
+ident(
+  def file "main.ml" 27 470 472 "main.ml" 33 635 704
+)
+"main.ml" 26 445 458 "main.ml" 26 445 461
+type(
+  string option -> string option ref
+)
+ident(
+  ext_ref Pervasives.ref
+)
+"main.ml" 26 445 462 "main.ml" 26 445 466
+type(
+  string option
+)
+"main.ml" 26 445 458 "main.ml" 26 445 466
+type(
+  string option ref
+)
+"main.ml" 27 470 476 "main.ml" 27 470 484
+type(
+  string -> unit
+)
+ident(
+  def set_file "main.ml" 32 602 604 "main.ml" 33 635 704
+)
+"main.ml" 27 470 485 "main.ml" 27 470 486
+type(
+  string
+)
+ident(
+  def s "main.ml" 28 489 493 "main.ml" 30 578 596
+)
+"main.ml" 28 489 496 "main.ml" 28 489 499
+type(
+  bool -> bool
+)
+ident(
+  ext_ref Pervasives.not
+)
+"main.ml" 28 489 501 "main.ml" 28 489 522
+type(
+  string -> string -> bool
+)
+ident(
+  ext_ref Filename.check_suffix
+)
+"main.ml" 28 489 523 "main.ml" 28 489 524
+type(
+  string
+)
+ident(
+  int_ref s "main.ml" 27 470 485 "main.ml" 27 470 486
+)
+"main.ml" 28 489 525 "main.ml" 28 489 528
+type(
+  string
+)
+ident(
+  int_ref ext "main.ml" 13 152 156 "main.ml" 13 152 159
+)
+"main.ml" 28 489 500 "main.ml" 28 489 529
+type(
+  bool
+)
+"main.ml" 28 489 496 "main.ml" 28 489 529
+type(
+  bool
+)
+"main.ml" 29 535 541 "main.ml" 29 535 546
+type(
+  exn -> unit
+)
+ident(
+  ext_ref Pervasives.raise
+)
+"main.ml" 29 535 556 "main.ml" 29 535 575
+type(
+  string
+)
+"main.ml" 29 535 547 "main.ml" 29 535 576
+type(
+  exn
+)
+"main.ml" 29 535 541 "main.ml" 29 535 576
+type(
+  unit
+)
+"main.ml" 28 489 493 "main.ml" 29 535 576
+type(
+  unit
+)
+"main.ml" 30 578 582 "main.ml" 30 578 586
+type(
+  string option ref
+)
+ident(
+  int_ref file "main.ml" 26 445 451 "main.ml" 26 445 455
+)
+"main.ml" 30 578 587 "main.ml" 30 578 589
+type(
+  string option ref -> string option -> unit
+)
+ident(
+  ext_ref Pervasives.( := )
+)
+"main.ml" 30 578 595 "main.ml" 30 578 596
+type(
+  string
+)
+ident(
+  int_ref s "main.ml" 27 470 485 "main.ml" 27 470 486
+)
+"main.ml" 30 578 590 "main.ml" 30 578 596
+type(
+  string option
+)
+"main.ml" 30 578 582 "main.ml" 30 578 596
+type(
+  unit
+)
+"main.ml" 28 489 493 "main.ml" 30 578 596
+type(
+  unit
+)
+"main.ml" 32 602 604 "main.ml" 32 602 613
+type(
+  (Arg.key * Arg.spec * Arg.doc) list ->
+  Arg.anon_fun -> Arg.usage_msg -> unit
+)
+ident(
+  ext_ref Arg.parse
+)
+"main.ml" 32 602 614 "main.ml" 32 602 618
+type(
+  (Arg.key * Arg.spec * Arg.doc) list
+)
+ident(
+  int_ref spec "main.ml" 20 292 296 "main.ml" 20 292 300
+)
+"main.ml" 32 602 619 "main.ml" 32 602 627
+type(
+  Arg.anon_fun
+)
+ident(
+  int_ref set_file "main.ml" 27 470 476 "main.ml" 27 470 484
+)
+"main.ml" 32 602 628 "main.ml" 32 602 633
+type(
+  Arg.usage_msg
+)
+ident(
+  int_ref usage "main.ml" 14 170 174 "main.ml" 14 170 179
+)
+"main.ml" 32 602 604 "main.ml" 32 602 633
+type(
+  unit
+)
+"main.ml" 33 635 643 "main.ml" 33 635 644
+type(
+  string option ref -> string option
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"main.ml" 33 635 644 "main.ml" 33 635 648
+type(
+  string option ref
+)
+ident(
+  int_ref file "main.ml" 26 445 451 "main.ml" 26 445 455
+)
+"main.ml" 33 635 643 "main.ml" 33 635 648
+type(
+  string option
+)
+"main.ml" 33 635 659 "main.ml" 33 635 660
+type(
+  string
+)
+ident(
+  def f "main.ml" 33 635 664 "main.ml" 33 635 665
+)
+"main.ml" 33 635 654 "main.ml" 33 635 660
+type(
+  string option
+)
+"main.ml" 33 635 664 "main.ml" 33 635 665
+type(
+  string
+)
+ident(
+  int_ref f "main.ml" 33 635 659 "main.ml" 33 635 660
+)
+"main.ml" 33 635 668 "main.ml" 33 635 672
+type(
+  string option
+)
+"main.ml" 33 635 676 "main.ml" 33 635 685
+type(
+  (Arg.key * Arg.spec * Arg.doc) list -> Arg.usage_msg -> unit
+)
+ident(
+  ext_ref Arg.usage
+)
+"main.ml" 33 635 686 "main.ml" 33 635 690
+type(
+  (Arg.key * Arg.spec * Arg.doc) list
+)
+ident(
+  int_ref spec "main.ml" 20 292 296 "main.ml" 20 292 300
+)
+"main.ml" 33 635 691 "main.ml" 33 635 696
+type(
+  Arg.usage_msg
+)
+ident(
+  int_ref usage "main.ml" 14 170 174 "main.ml" 14 170 179
+)
+"main.ml" 33 635 676 "main.ml" 33 635 696
+type(
+  unit
+)
+"main.ml" 33 635 698 "main.ml" 33 635 702
+type(
+  int -> string
+)
+ident(
+  ext_ref Pervasives.exit
+)
+"main.ml" 33 635 703 "main.ml" 33 635 704
+type(
+  int
+)
+"main.ml" 33 635 698 "main.ml" 33 635 704
+type(
+  string
+)
+"main.ml" 33 635 676 "main.ml" 33 635 704
+type(
+  string
+)
+"main.ml" 33 635 637 "main.ml" 33 635 704
+type(
+  string
+)
+"main.ml" 32 602 604 "main.ml" 33 635 704
+type(
+  string
+)
+"main.ml" 27 470 472 "main.ml" 33 635 704
+type(
+  string
+)
+"main.ml" 26 445 447 "main.ml" 33 635 704
+type(
+  string
+)
+"main.ml" 35 706 710 "main.ml" 35 706 720
+type(
+  Lexing.position * Lexing.position -> unit
+)
+ident(
+  def report_loc "main.ml" 44 995 995 "_none_" 1 0 -1
+)
+"main.ml" 35 706 722 "main.ml" 35 706 723
+type(
+  Lexing.position
+)
+ident(
+  def b "main.ml" 36 729 731 "main.ml" 42 921 993
+)
+"main.ml" 35 706 724 "main.ml" 35 706 725
+type(
+  Lexing.position
+)
+ident(
+  def e "main.ml" 36 729 731 "main.ml" 42 921 993
+)
+"main.ml" 35 706 721 "main.ml" 35 706 726
+type(
+  Lexing.position * Lexing.position
+)
+"main.ml" 36 729 734 "main.ml" 36 729 735
+type(
+  Lexing.position
+)
+ident(
+  int_ref b "main.ml" 35 706 722 "main.ml" 35 706 723
+)
+"main.ml" 36 729 736 "main.ml" 36 729 737
+type(
+  Lexing.position -> Lexing.position -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"main.ml" 36 729 738 "main.ml" 36 729 747
+type(
+  Lexing.position
+)
+ident(
+  ext_ref Lexing.dummy_pos
+)
+"main.ml" 36 729 734 "main.ml" 36 729 747
+type(
+  bool
+)
+"main.ml" 36 729 748 "main.ml" 36 729 750
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( || )
+)
+"main.ml" 36 729 751 "main.ml" 36 729 752
+type(
+  Lexing.position
+)
+ident(
+  int_ref e "main.ml" 35 706 724 "main.ml" 35 706 725
+)
+"main.ml" 36 729 753 "main.ml" 36 729 754
+type(
+  Lexing.position -> Lexing.position -> bool
+)
+ident(
+  ext_ref Pervasives.( = )
+)
+"main.ml" 36 729 755 "main.ml" 36 729 764
+type(
+  Lexing.position
+)
+ident(
+  ext_ref Lexing.dummy_pos
+)
+"main.ml" 36 729 751 "main.ml" 36 729 764
+type(
+  bool
+)
+"main.ml" 36 729 734 "main.ml" 36 729 764
+type(
+  bool
+)
+"main.ml" 37 770 772 "main.ml" 37 770 779
+type(
+  (string -> unit, Format.formatter, unit) format -> string -> unit
+)
+ident(
+  ext_ref Format.eprintf
+)
+"main.ml" 37 770 780 "main.ml" 37 770 802
+type(
+  (string -> unit, Format.formatter, unit) format
+)
+"main.ml" 37 770 803 "main.ml" 37 770 807
+type(
+  string
+)
+ident(
+  int_ref file "main.ml" 25 434 438 "main.ml" 25 434 442
+)
+"main.ml" 37 770 772 "main.ml" 37 770 807
+type(
+  unit
+)
+"main.ml" 39 815 821 "main.ml" 39 815 822
+type(
+  int
+)
+ident(
+  def l "main.ml" 40 839 841 "main.ml" 42 921 993
+)
+"main.ml" 39 815 825 "main.ml" 39 815 826
+type(
+  Lexing.position
+)
+ident(
+  int_ref b "main.ml" 35 706 722 "main.ml" 35 706 723
+)
+"main.ml" 39 815 825 "main.ml" 39 815 835
+type(
+  int
+)
+"main.ml" 40 839 845 "main.ml" 40 839 847
+type(
+  int
+)
+ident(
+  def fc "main.ml" 41 880 882 "main.ml" 42 921 993
+)
+"main.ml" 40 839 850 "main.ml" 40 839 851
+type(
+  Lexing.position
+)
+ident(
+  int_ref b "main.ml" 35 706 722 "main.ml" 35 706 723
+)
+"main.ml" 40 839 850 "main.ml" 40 839 860
+type(
+  int
+)
+"main.ml" 40 839 861 "main.ml" 40 839 862
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"main.ml" 40 839 863 "main.ml" 40 839 864
+type(
+  Lexing.position
+)
+ident(
+  int_ref b "main.ml" 35 706 722 "main.ml" 35 706 723
+)
+"main.ml" 40 839 863 "main.ml" 40 839 872
+type(
+  int
+)
+"main.ml" 40 839 850 "main.ml" 40 839 872
+type(
+  int
+)
+"main.ml" 40 839 873 "main.ml" 40 839 874
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"main.ml" 40 839 875 "main.ml" 40 839 876
+type(
+  int
+)
+"main.ml" 40 839 850 "main.ml" 40 839 876
+type(
+  int
+)
+"main.ml" 41 880 886 "main.ml" 41 880 888
+type(
+  int
+)
+ident(
+  def lc "main.ml" 42 921 923 "main.ml" 42 921 993
+)
+"main.ml" 41 880 891 "main.ml" 41 880 892
+type(
+  Lexing.position
+)
+ident(
+  int_ref e "main.ml" 35 706 724 "main.ml" 35 706 725
+)
+"main.ml" 41 880 891 "main.ml" 41 880 901
+type(
+  int
+)
+"main.ml" 41 880 902 "main.ml" 41 880 903
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( - )
+)
+"main.ml" 41 880 904 "main.ml" 41 880 905
+type(
+  Lexing.position
+)
+ident(
+  int_ref b "main.ml" 35 706 722 "main.ml" 35 706 723
+)
+"main.ml" 41 880 904 "main.ml" 41 880 913
+type(
+  int
+)
+"main.ml" 41 880 891 "main.ml" 41 880 913
+type(
+  int
+)
+"main.ml" 41 880 914 "main.ml" 41 880 915
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"main.ml" 41 880 916 "main.ml" 41 880 917
+type(
+  int
+)
+"main.ml" 41 880 891 "main.ml" 41 880 917
+type(
+  int
+)
+"main.ml" 42 921 923 "main.ml" 42 921 930
+type(
+  (string -> int -> int -> int -> unit, Format.formatter, unit) format ->
+  string -> int -> int -> int -> unit
+)
+ident(
+  ext_ref Format.eprintf
+)
+"main.ml" 42 921 931 "main.ml" 42 921 980
+type(
+  (string -> int -> int -> int -> unit, Format.formatter, unit) format
+)
+"main.ml" 42 921 981 "main.ml" 42 921 985
+type(
+  string
+)
+ident(
+  int_ref file "main.ml" 25 434 438 "main.ml" 25 434 442
+)
+"main.ml" 42 921 986 "main.ml" 42 921 987
+type(
+  int
+)
+ident(
+  int_ref l "main.ml" 39 815 821 "main.ml" 39 815 822
+)
+"main.ml" 42 921 988 "main.ml" 42 921 990
+type(
+  int
+)
+ident(
+  int_ref fc "main.ml" 40 839 845 "main.ml" 40 839 847
+)
+"main.ml" 42 921 991 "main.ml" 42 921 993
+type(
+  int
+)
+ident(
+  int_ref lc "main.ml" 41 880 886 "main.ml" 41 880 888
+)
+"main.ml" 42 921 923 "main.ml" 42 921 993
+type(
+  unit
+)
+"main.ml" 41 880 882 "main.ml" 42 921 993
+type(
+  unit
+)
+"main.ml" 40 839 841 "main.ml" 42 921 993
+type(
+  unit
+)
+"main.ml" 39 815 817 "main.ml" 42 921 993
+type(
+  unit
+)
+"main.ml" 36 729 731 "main.ml" 42 921 993
+type(
+  unit
+)
+"main.ml" 44 995 999 "main.ml" 44 995 1001
+type(
+  unit
+)
+"main.ml" 45 1004 1010 "main.ml" 45 1004 1011
+type(
+  in_channel
+)
+ident(
+  def c "main.ml" 46 1030 1032 "main.ml" 72 1805 1812
+)
+"main.ml" 45 1004 1014 "main.ml" 45 1004 1021
+type(
+  string -> in_channel
+)
+ident(
+  ext_ref Pervasives.open_in
+)
+"main.ml" 45 1004 1022 "main.ml" 45 1004 1026
+type(
+  string
+)
+ident(
+  int_ref file "main.ml" 25 434 438 "main.ml" 25 434 442
+)
+"main.ml" 45 1004 1014 "main.ml" 45 1004 1026
+type(
+  in_channel
+)
+"main.ml" 46 1030 1036 "main.ml" 46 1030 1038
+type(
+  Lexing.lexbuf
+)
+ident(
+  def lb "main.ml" 47 1066 1068 "main.ml" 72 1805 1812
+)
+"main.ml" 46 1030 1041 "main.ml" 46 1030 1060
+type(
+  in_channel -> Lexing.lexbuf
+)
+ident(
+  ext_ref Lexing.from_channel
+)
+"main.ml" 46 1030 1061 "main.ml" 46 1030 1062
+type(
+  in_channel
+)
+ident(
+  int_ref c "main.ml" 45 1004 1010 "main.ml" 45 1004 1011
+)
+"main.ml" 46 1030 1041 "main.ml" 46 1030 1062
+type(
+  Lexing.lexbuf
+)
+"main.ml" 48 1072 1081 "main.ml" 48 1072 1082
+type(
+  Ast.position Ast.klass list
+)
+"main.ml" 48 1072 1084 "main.ml" 48 1072 1088
+type(
+  string
+)
+ident(
+  def main "main.ml" 49 1130 1134 "main.ml" 52 1261 1275
+)
+"main.ml" 48 1072 1090 "main.ml" 48 1072 1091
+type(
+  Ast.position Ast.instr
+)
+"main.ml" 48 1072 1080 "main.ml" 48 1072 1092
+type(
+  Ast.parsed_prog
+)
+"main.ml" 48 1072 1096 "main.ml" 48 1072 1097
+ident(
+  def p "main.ml" 49 1130 1134 "main.ml" 52 1261 1275
+)
+"main.ml" 48 1072 1080 "main.ml" 48 1072 1097
+type(
+  Ast.parsed_prog
+)
+"main.ml" 48 1072 1100 "main.ml" 48 1072 1111
+type(
+  (Lexing.lexbuf -> Parser.token) -> Lexing.lexbuf -> Ast.parsed_prog
+)
+ident(
+  ext_ref Parser.prog
+)
+"main.ml" 48 1072 1112 "main.ml" 48 1072 1123
+type(
+  Lexing.lexbuf -> Parser.token
+)
+ident(
+  ext_ref Lexer.token
+)
+"main.ml" 48 1072 1124 "main.ml" 48 1072 1126
+type(
+  Lexing.lexbuf
+)
+ident(
+  int_ref lb "main.ml" 46 1030 1036 "main.ml" 46 1030 1038
+)
+"main.ml" 48 1072 1100 "main.ml" 48 1072 1126
+type(
+  Ast.parsed_prog
+)
+"main.ml" 49 1130 1137 "main.ml" 49 1130 1141
+type(
+  string
+)
+ident(
+  int_ref main "main.ml" 48 1072 1084 "main.ml" 48 1072 1088
+)
+"main.ml" 49 1130 1142 "main.ml" 49 1130 1143
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"main.ml" 49 1130 1144 "main.ml" 49 1130 1147
+type(
+  string
+)
+ident(
+  int_ref ext "main.ml" 13 152 156 "main.ml" 13 152 159
+)
+"main.ml" 49 1130 1137 "main.ml" 49 1130 1147
+type(
+  string
+)
+"main.ml" 49 1130 1148 "main.ml" 49 1130 1150
+type(
+  string -> string -> bool
+)
+ident(
+  ext_ref Pervasives.( <> )
+)
+"main.ml" 49 1130 1151 "main.ml" 49 1130 1168
+type(
+  string -> string
+)
+ident(
+  ext_ref Filename.basename
+)
+"main.ml" 49 1130 1169 "main.ml" 49 1130 1173
+type(
+  string
+)
+ident(
+  int_ref file "main.ml" 25 434 438 "main.ml" 25 434 442
+)
+"main.ml" 49 1130 1151 "main.ml" 49 1130 1173
+type(
+  string
+)
+"main.ml" 49 1130 1137 "main.ml" 49 1130 1173
+type(
+  bool
+)
+"main.ml" 49 1130 1180 "main.ml" 49 1130 1185
+type(
+  exn -> unit
+)
+ident(
+  ext_ref Pervasives.raise
+)
+"main.ml" 49 1130 1206 "main.ml" 49 1130 1210
+type(
+  string
+)
+ident(
+  int_ref main "main.ml" 48 1072 1084 "main.ml" 48 1072 1088
+)
+"main.ml" 49 1130 1186 "main.ml" 49 1130 1211
+type(
+  exn
+)
+"main.ml" 49 1130 1180 "main.ml" 49 1130 1211
+type(
+  unit
+)
+"main.ml" 49 1130 1134 "main.ml" 49 1130 1211
+type(
+  unit
+)
+"main.ml" 50 1213 1217 "main.ml" 50 1213 1225
+type(
+  in_channel -> unit
+)
+ident(
+  ext_ref Pervasives.close_in
+)
+"main.ml" 50 1213 1226 "main.ml" 50 1213 1227
+type(
+  in_channel
+)
+ident(
+  int_ref c "main.ml" 45 1004 1010 "main.ml" 45 1004 1011
+)
+"main.ml" 50 1213 1217 "main.ml" 50 1213 1227
+type(
+  unit
+)
+"main.ml" 51 1229 1236 "main.ml" 51 1229 1237
+type(
+  bool ref -> bool
+)
+ident(
+  ext_ref Pervasives.( ! )
+)
+"main.ml" 51 1229 1237 "main.ml" 51 1229 1247
+type(
+  bool ref
+)
+ident(
+  int_ref parse_only "main.ml" 16 237 241 "main.ml" 16 237 251
+)
+"main.ml" 51 1229 1236 "main.ml" 51 1229 1247
+type(
+  bool
+)
+"main.ml" 51 1229 1253 "main.ml" 51 1229 1257
+type(
+  int -> unit
+)
+ident(
+  ext_ref Pervasives.exit
+)
+"main.ml" 51 1229 1258 "main.ml" 51 1229 1259
+type(
+  int
+)
+"main.ml" 51 1229 1253 "main.ml" 51 1229 1259
+type(
+  unit
+)
+"main.ml" 51 1229 1233 "main.ml" 51 1229 1259
+type(
+  unit
+)
+"main.ml" 52 1261 1263 "main.ml" 52 1261 1272
+type(
+  Ast.position Ast.klass list * string * Ast.typ Ast.instr ->
+  Ast.typ Ast.instr
+)
+ident(
+  ext_ref Typing.type_prog
+)
+"main.ml" 52 1261 1273 "main.ml" 52 1261 1274
+type(
+  Ast.position Ast.klass list * string * Ast.position Ast.instr
+)
+ident(
+  int_ref p "main.ml" 48 1072 1080 "main.ml" 48 1072 1097
+)
