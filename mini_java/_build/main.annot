@@ -939,8 +939,8 @@ type(
 )
 "main.ml" 52 1261 1263 "main.ml" 52 1261 1272
 type(
-  Ast.position Ast.klass list * string * Ast.typ Ast.instr ->
-  Ast.typ Ast.instr
+  Ast.position Ast.klass list * string * Ast.position Ast.instr ->
+  (Ast.typ, Ast.position Ast.instr_node) Ast.node
 )
 ident(
   ext_ref Typing.type_prog
@@ -951,4 +951,8 @@ type(
 )
 ident(
   int_ref p "main.ml" 48 1072 1080 "main.ml" 48 1072 1097
+)
+"main.ml" 52 1261 1263 "main.ml" 52 1261 1275
+type(
+  (Ast.typ, Ast.position Ast.instr_node) Ast.node
 )

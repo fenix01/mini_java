@@ -2310,7 +2310,8 @@ type(
 )
 "typing.ml" 217 4885 4893 "typing.ml" 217 4885 4903
 type(
-  'a -> Ast.typ Ast.instr -> Ast.typ Ast.instr
+  'a ->
+  ('b, 'c Ast.instr_node) Ast.node -> (Ast.typ, 'c Ast.instr_node) Ast.node
 )
 ident(
   def type_instr "typing.ml" 217 4885 4885 "_none_" 1 0 -1
@@ -2320,50 +2321,50 @@ type(
   'a
 )
 ident(
-  def env "typing.ml" 217 4885 4908 "typing.ml" 233 5363 5404
+  def env "typing.ml" 217 4885 4908 "typing.ml" 222 5054 5087
 )
 "typing.ml" 217 4885 4908 "typing.ml" 217 4885 4909
 type(
-  Ast.typ Ast.instr
+  ('b, 'c Ast.instr_node) Ast.node
 )
 ident(
-  def i "typing.ml" 218 4953 4954 "typing.ml" 233 5363 5404
+  def i "typing.ml" 218 4953 4954 "typing.ml" 222 5054 5087
 )
 "typing.ml" 218 4953 4958 "typing.ml" 218 4953 4968
 type(
-  Ast.typ Ast.instr_node
+  'c Ast.instr_node
 )
 ident(
-  def instr_node "typing.ml" 219 4981 4983 "typing.ml" 233 5363 5404
+  def instr_node "typing.ml" 219 4981 4983 "typing.ml" 222 5054 5087
 )
 "typing.ml" 218 4953 4971 "typing.ml" 218 4953 4972
 type(
-  Ast.typ Ast.instr
+  ('b, 'c Ast.instr_node) Ast.node
 )
 ident(
   int_ref i "typing.ml" 217 4885 4908 "typing.ml" 217 4885 4909
 )
 "typing.ml" 218 4953 4971 "typing.ml" 218 4953 4977
 type(
-  Ast.typ Ast.instr_node
+  'c Ast.instr_node
 )
 "typing.ml" 219 4981 4989 "typing.ml" 219 4981 4999
 type(
-  Ast.typ Ast.instr_node
+  'c Ast.instr_node
 )
 ident(
   int_ref instr_node "typing.ml" 218 4953 4958 "typing.ml" 218 4953 4968
 )
 "typing.ml" 220 5005 5014 "typing.ml" 220 5005 5015
 type(
-  Ast.typ Ast.expr
+  'c Ast.expr
 )
 ident(
   def e "typing.ml" 220 5005 5019 "typing.ml" 222 5054 5087
 )
 "typing.ml" 220 5005 5008 "typing.ml" 220 5005 5015
 type(
-  Ast.typ Ast.instr_node
+  'c Ast.instr_node
 )
 "typing.ml" 220 5005 5023 "typing.ml" 220 5005 5025
 type(
@@ -2374,7 +2375,7 @@ ident(
 )
 "typing.ml" 220 5005 5028 "typing.ml" 220 5005 5037
 type(
-  'a -> Ast.typ Ast.expr -> Ast.typ Ast.expr
+  'a -> 'c Ast.expr -> Ast.typ Ast.expr
 )
 ident(
   int_ref type_expr "typing.ml" 54 1027 1035 "typing.ml" 54 1027 1044
@@ -2388,7 +2389,7 @@ ident(
 )
 "typing.ml" 220 5005 5042 "typing.ml" 220 5005 5043
 type(
-  Ast.typ Ast.expr
+  'c Ast.expr
 )
 ident(
   int_ref e "typing.ml" 220 5005 5014 "typing.ml" 220 5005 5015
@@ -2402,7 +2403,7 @@ type(
 )
 "typing.ml" 222 5054 5061 "typing.ml" 222 5054 5069
 type(
-  Ast.typ -> Ast.typ Ast.instr_node -> Ast.typ Ast.instr
+  Ast.typ -> 'c Ast.instr_node -> (Ast.typ, 'c Ast.instr_node) Ast.node
 )
 ident(
   int_ref add_node "typing.ml" 26 500 504 "typing.ml" 26 500 512
@@ -2420,363 +2421,136 @@ type(
 )
 "typing.ml" 222 5054 5085 "typing.ml" 222 5054 5086
 type(
-  Ast.typ Ast.expr
+  'c Ast.expr
 )
 ident(
   int_ref e "typing.ml" 220 5005 5014 "typing.ml" 220 5005 5015
 )
 "typing.ml" 222 5054 5078 "typing.ml" 222 5054 5087
 type(
-  Ast.typ Ast.instr_node
+  'c Ast.instr_node
 )
 "typing.ml" 222 5054 5061 "typing.ml" 222 5054 5087
 call(
   tail
 )
 type(
-  Ast.typ Ast.instr
+  (Ast.typ, 'c Ast.instr_node) Ast.node
 )
 "typing.ml" 220 5005 5019 "typing.ml" 222 5054 5087
 type(
-  Ast.typ Ast.instr
+  (Ast.typ, 'c Ast.instr_node) Ast.node
 )
-"typing.ml" 225 5157 5165 "typing.ml" 225 5157 5167
+"typing.ml" 219 4981 4983 "typing.ml" 222 5054 5087
 type(
-  Ast.typ Ast.expr
+  (Ast.typ, 'c Ast.instr_node) Ast.node
+)
+"typing.ml" 218 4953 4954 "typing.ml" 222 5054 5087
+type(
+  (Ast.typ, 'c Ast.instr_node) Ast.node
+)
+"typing.ml" 252 6084 6088 "typing.ml" 252 6084 6097
+type(
+  Ast.position Ast.klass list * 'a * ('b, 'c Ast.instr_node) Ast.node ->
+  (Ast.typ, 'c Ast.instr_node) Ast.node
 )
 ident(
-  def e1 "typing.ml" 226 5180 5183 "typing.ml" 233 5363 5404
+  def type_prog "typing.ml" 255 6163 6195 "_none_" 1 0 -1
 )
-"typing.ml" 225 5157 5168 "typing.ml" 225 5157 5171
+"typing.ml" 252 6084 6098 "typing.ml" 252 6084 6102
 type(
-  Ast.typ Ast.instr
+  Ast.position Ast.klass list * 'a * ('b, 'c Ast.instr_node) Ast.node
 )
 ident(
-  def in1 "typing.ml" 226 5180 5183 "typing.ml" 233 5363 5404
+  def prog "typing.ml" 253 6107 6108 "typing.ml" 255 6163 6195
 )
-"typing.ml" 225 5157 5172 "typing.ml" 225 5157 5175
+"typing.ml" 253 6107 6108 "typing.ml" 253 6107 6118
 type(
-  Ast.typ Ast.instr
-)
-ident(
-  def in2 "typing.ml" 226 5180 5183 "typing.ml" 233 5363 5404
-)
-"typing.ml" 225 5157 5160 "typing.ml" 225 5157 5176
-type(
-  Ast.typ Ast.instr_node
-)
-"typing.ml" 226 5180 5187 "typing.ml" 226 5180 5189
-type(
-  Ast.typ Ast.expr
-)
-ident(
-  def t1 "typing.ml" 227 5212 5216 "typing.ml" 233 5363 5404
-)
-"typing.ml" 226 5180 5192 "typing.ml" 226 5180 5201
-type(
-  'a -> Ast.typ Ast.expr -> Ast.typ Ast.expr
-)
-ident(
-  int_ref type_expr "typing.ml" 54 1027 1035 "typing.ml" 54 1027 1044
-)
-"typing.ml" 226 5180 5202 "typing.ml" 226 5180 5205
-type(
-  'a
-)
-ident(
-  int_ref env "typing.ml" 217 4885 4904 "typing.ml" 217 4885 4907
-)
-"typing.ml" 226 5180 5206 "typing.ml" 226 5180 5208
-type(
-  Ast.typ Ast.expr
-)
-ident(
-  int_ref e1 "typing.ml" 225 5157 5165 "typing.ml" 225 5157 5167
-)
-"typing.ml" 226 5180 5192 "typing.ml" 226 5180 5208
-call(
-  stack
-)
-type(
-  Ast.typ Ast.expr
-)
-"typing.ml" 227 5212 5219 "typing.ml" 227 5212 5221
-type(
-  Ast.typ Ast.expr
-)
-ident(
-  int_ref t1 "typing.ml" 226 5180 5187 "typing.ml" 226 5180 5189
-)
-"typing.ml" 227 5212 5219 "typing.ml" 227 5212 5226
-type(
-  Ast.typ
-)
-"typing.ml" 227 5212 5227 "typing.ml" 227 5212 5229
-type(
-  Ast.typ -> Ast.typ -> bool
-)
-ident(
-  ext_ref Pervasives.( <> )
-)
-"typing.ml" 227 5212 5230 "typing.ml" 227 5212 5238
-type(
-  Ast.typ
-)
-"typing.ml" 227 5212 5219 "typing.ml" 227 5212 5238
-type(
-  bool
-)
-"typing.ml" 228 5240 5249 "typing.ml" 228 5240 5257
-type(
-  string -> Ast.typ Ast.instr
-)
-ident(
-  ext_ref Pervasives.failwith
-)
-"typing.ml" 228 5240 5258 "typing.ml" 228 5240 5273
-type(
-  string
-)
-"typing.ml" 228 5240 5249 "typing.ml" 228 5240 5273
-call(
-  tail
-)
-type(
-  Ast.typ Ast.instr
-)
-"typing.ml" 230 5284 5294 "typing.ml" 230 5284 5298
-type(
-  Ast.typ Ast.instr
-)
-ident(
-  def tin1 "typing.ml" 233 5363 5369 "typing.ml" 233 5363 5404
-)
-"typing.ml" 230 5284 5301 "typing.ml" 230 5284 5311
-type(
-  'a -> Ast.typ Ast.instr -> Ast.typ Ast.instr
-)
-ident(
-  int_ref type_instr "typing.ml" 217 4885 4893 "typing.ml" 217 4885 4903
-)
-"typing.ml" 230 5284 5312 "typing.ml" 230 5284 5315
-type(
-  'a
-)
-ident(
-  int_ref env "typing.ml" 217 4885 4904 "typing.ml" 217 4885 4907
-)
-"typing.ml" 230 5284 5316 "typing.ml" 230 5284 5319
-type(
-  Ast.typ Ast.instr
-)
-ident(
-  int_ref in1 "typing.ml" 225 5157 5168 "typing.ml" 225 5157 5171
-)
-"typing.ml" 230 5284 5301 "typing.ml" 230 5284 5319
-call(
-  stack
-)
-type(
-  Ast.typ Ast.instr
-)
-"typing.ml" 231 5320 5330 "typing.ml" 231 5320 5334
-type(
-  Ast.typ Ast.instr
-)
-ident(
-  def tin2 "typing.ml" 233 5363 5369 "typing.ml" 233 5363 5404
-)
-"typing.ml" 231 5320 5337 "typing.ml" 231 5320 5347
-type(
-  'a -> Ast.typ Ast.instr -> Ast.typ Ast.instr
-)
-ident(
-  int_ref type_instr "typing.ml" 217 4885 4893 "typing.ml" 217 4885 4903
-)
-"typing.ml" 231 5320 5348 "typing.ml" 231 5320 5351
-type(
-  'a
-)
-ident(
-  int_ref env "typing.ml" 217 4885 4904 "typing.ml" 217 4885 4907
-)
-"typing.ml" 231 5320 5352 "typing.ml" 231 5320 5355
-type(
-  Ast.typ Ast.instr
-)
-ident(
-  int_ref in2 "typing.ml" 225 5157 5172 "typing.ml" 225 5157 5175
-)
-"typing.ml" 231 5320 5337 "typing.ml" 231 5320 5355
-call(
-  stack
-)
-type(
-  Ast.typ Ast.instr
-)
-"typing.ml" 233 5363 5369 "typing.ml" 233 5363 5377
-type(
-  Ast.typ -> Ast.typ Ast.instr_node -> Ast.typ Ast.instr
-)
-ident(
-  int_ref add_node "typing.ml" 26 500 504 "typing.ml" 26 500 512
-)
-"typing.ml" 233 5363 5378 "typing.ml" 233 5363 5383
-type(
-  Ast.typ
-)
-"typing.ml" 233 5363 5390 "typing.ml" 233 5363 5392
-type(
-  Ast.typ Ast.expr
-)
-ident(
-  int_ref t1 "typing.ml" 226 5180 5187 "typing.ml" 226 5180 5189
-)
-"typing.ml" 233 5363 5393 "typing.ml" 233 5363 5397
-type(
-  Ast.typ Ast.instr
-)
-ident(
-  int_ref tin1 "typing.ml" 230 5284 5294 "typing.ml" 230 5284 5298
-)
-"typing.ml" 233 5363 5398 "typing.ml" 233 5363 5402
-type(
-  Ast.typ Ast.instr
-)
-ident(
-  int_ref tin2 "typing.ml" 231 5320 5330 "typing.ml" 231 5320 5334
-)
-"typing.ml" 233 5363 5384 "typing.ml" 233 5363 5404
-type(
-  Ast.typ Ast.instr_node
-)
-"typing.ml" 233 5363 5369 "typing.ml" 233 5363 5404
-call(
-  tail
-)
-type(
-  Ast.typ Ast.instr
-)
-"typing.ml" 230 5284 5290 "typing.ml" 233 5363 5404
-type(
-  Ast.typ Ast.instr
-)
-"typing.ml" 227 5212 5216 "typing.ml" 233 5363 5404
-type(
-  Ast.typ Ast.instr
-)
-"typing.ml" 226 5180 5183 "typing.ml" 233 5363 5404
-type(
-  Ast.typ Ast.instr
-)
-"typing.ml" 219 4981 4983 "typing.ml" 233 5363 5404
-type(
-  Ast.typ Ast.instr
-)
-"typing.ml" 218 4953 4954 "typing.ml" 233 5363 5404
-type(
-  Ast.typ Ast.instr
-)
-"typing.ml" 252 5888 5892 "typing.ml" 252 5888 5901
-type(
-  Ast.position Ast.klass list * 'a * Ast.typ Ast.instr -> Ast.typ Ast.instr
-)
-ident(
-  def type_prog "typing.ml" 255 5967 5999 "_none_" 1 0 -1
-)
-"typing.ml" 252 5888 5902 "typing.ml" 252 5888 5906
-type(
-  Ast.position Ast.klass list * 'a * Ast.typ Ast.instr
-)
-ident(
-  def prog "typing.ml" 253 5911 5912 "typing.ml" 255 5967 5999
-)
-"typing.ml" 253 5911 5912 "typing.ml" 253 5911 5922
-type(
-  Ast.position Ast.klass list * 'a * Ast.typ Ast.instr -> unit
+  Ast.position Ast.klass list * 'a * ('b, 'c Ast.instr_node) Ast.node -> unit
 )
 ident(
   ext_ref Type_class.init_table
 )
-"typing.ml" 253 5911 5923 "typing.ml" 253 5911 5927
+"typing.ml" 253 6107 6119 "typing.ml" 253 6107 6123
 type(
-  Ast.position Ast.klass list * 'a * Ast.typ Ast.instr
+  Ast.position Ast.klass list * 'a * ('b, 'c Ast.instr_node) Ast.node
 )
 ident(
-  int_ref prog "typing.ml" 252 5888 5902 "typing.ml" 252 5888 5906
+  int_ref prog "typing.ml" 252 6084 6098 "typing.ml" 252 6084 6102
 )
-"typing.ml" 253 5911 5912 "typing.ml" 253 5911 5927
+"typing.ml" 253 6107 6108 "typing.ml" 253 6107 6123
 call(
   stack
 )
 type(
   unit
 )
-"typing.ml" 254 5929 5934 "typing.ml" 254 5929 5939
+"typing.ml" 254 6125 6130 "typing.ml" 254 6125 6135
 type(
   Ast.position Ast.klass list
 )
 ident(
-  def clist "typing.ml" 255 5967 5968 "typing.ml" 255 5967 5999
+  def clist "typing.ml" 255 6163 6164 "typing.ml" 255 6163 6195
 )
-"typing.ml" 254 5929 5941 "typing.ml" 254 5929 5945
+"typing.ml" 254 6125 6137 "typing.ml" 254 6125 6141
 type(
   'a
 )
 ident(
-  def name "typing.ml" 255 5967 5968 "typing.ml" 255 5967 5999
+  def name "typing.ml" 255 6163 6164 "typing.ml" 255 6163 6195
 )
-"typing.ml" 254 5929 5947 "typing.ml" 254 5929 5956
+"typing.ml" 254 6125 6143 "typing.ml" 254 6125 6152
 type(
-  Ast.typ Ast.instr
+  ('b, 'c Ast.instr_node) Ast.node
 )
 ident(
-  def main_body "typing.ml" 255 5967 5968 "typing.ml" 255 5967 5999
+  def main_body "typing.ml" 255 6163 6164 "typing.ml" 255 6163 6195
 )
-"typing.ml" 254 5929 5934 "typing.ml" 254 5929 5956
+"typing.ml" 254 6125 6130 "typing.ml" 254 6125 6152
 type(
-  Ast.position Ast.klass list * 'a * Ast.typ Ast.instr
+  Ast.position Ast.klass list * 'a * ('b, 'c Ast.instr_node) Ast.node
 )
-"typing.ml" 254 5929 5959 "typing.ml" 254 5929 5963
+"typing.ml" 254 6125 6155 "typing.ml" 254 6125 6159
 type(
-  Ast.position Ast.klass list * 'a * Ast.typ Ast.instr
+  Ast.position Ast.klass list * 'a * ('b, 'c Ast.instr_node) Ast.node
 )
 ident(
-  int_ref prog "typing.ml" 252 5888 5902 "typing.ml" 252 5888 5906
+  int_ref prog "typing.ml" 252 6084 6098 "typing.ml" 252 6084 6102
 )
-"typing.ml" 255 5967 5968 "typing.ml" 255 5967 5978
+"typing.ml" 255 6163 6164 "typing.ml" 255 6163 6174
 type(
-  '_b Env.t -> Ast.typ Ast.instr -> Ast.typ Ast.instr
+  '_d Env.t ->
+  ('b, 'c Ast.instr_node) Ast.node -> (Ast.typ, 'c Ast.instr_node) Ast.node
 )
 ident(
   int_ref type_instr "typing.ml" 217 4885 4893 "typing.ml" 217 4885 4903
 )
-"typing.ml" 255 5967 5979 "typing.ml" 255 5967 5988
+"typing.ml" 255 6163 6175 "typing.ml" 255 6163 6184
 type(
-  '_b Env.t
+  '_d Env.t
 )
 ident(
   ext_ref Env.empty
 )
-"typing.ml" 255 5967 5989 "typing.ml" 255 5967 5998
+"typing.ml" 255 6163 6185 "typing.ml" 255 6163 6194
 type(
-  Ast.typ Ast.instr
+  ('b, 'c Ast.instr_node) Ast.node
 )
 ident(
-  int_ref main_body "typing.ml" 254 5929 5947 "typing.ml" 254 5929 5956
+  int_ref main_body "typing.ml" 254 6125 6143 "typing.ml" 254 6125 6152
 )
-"typing.ml" 255 5967 5968 "typing.ml" 255 5967 5999
+"typing.ml" 255 6163 6164 "typing.ml" 255 6163 6195
 call(
   tail
 )
 type(
-  Ast.typ Ast.instr
+  (Ast.typ, 'c Ast.instr_node) Ast.node
 )
-"typing.ml" 254 5929 5930 "typing.ml" 255 5967 5999
+"typing.ml" 254 6125 6126 "typing.ml" 255 6163 6195
 type(
-  Ast.typ Ast.instr
+  (Ast.typ, 'c Ast.instr_node) Ast.node
 )
-"typing.ml" 253 5911 5912 "typing.ml" 255 5967 5999
+"typing.ml" 253 6107 6108 "typing.ml" 255 6163 6195
 type(
-  Ast.typ Ast.instr
+  (Ast.typ, 'c Ast.instr_node) Ast.node
 )

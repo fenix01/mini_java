@@ -222,15 +222,15 @@ let rec type_instr env i =   (* : type_instr Env.empty main_body *)
 			    add_node te.info (Iexpr e)
 		(* |Idecl(t,id,None) ->  ()  *)
 		(* |Idecl(t,id,Some e) -> () *)
-		|Iif (e1,in1,in2) ->
-			let t1 = type_expr env e1 in
-				if t1.info <> Tboolean 
-				then failwith "type error if"
-				else 
-				  let tin1 = type_instr env in1
-				  and tin2 = type_instr env in2 
-			in
-				  add_node Tvoid (Iif (t1,tin1,tin2))
+		(* |Iif (e1,in1,in2) ->                      *)
+		(* 	let t1 = type_expr env e1 in            *)
+		(* 		if t1.info <> Tboolean                *)
+		(* 		then failwith "type error if"         *)
+		(* 		else                                  *)
+		(* 		  let tin1 = type_instr env in1       *)
+		(* 		  and tin2 = type_instr env in2       *)
+		(* 	in                                      *)
+		(* 		  add_node Tvoid (Iif (t1,tin1,tin2)) *)
 		(*|Ifor (e1,e2,e3,in1) -> 
 			let _,te1 = type_block env ret [] e1 in
 			let te2 = type_expr env e2 in
