@@ -2451,29 +2451,28 @@ type(
 )
 "typing.ml" 252 6084 6088 "typing.ml" 252 6084 6097
 type(
-  Ast.position Ast.klass list * 'a * ('b, 'c Ast.instr_node) Ast.node ->
-  (Ast.typ, 'c Ast.instr_node) Ast.node
+  Ast.position Ast.klass list * 'a * 'b -> unit
 )
 ident(
-  def type_prog "typing.ml" 255 6163 6195 "_none_" 1 0 -1
+  def type_prog "typing.ml" 256 6202 6205 "_none_" 1 0 -1
 )
 "typing.ml" 252 6084 6098 "typing.ml" 252 6084 6102
 type(
-  Ast.position Ast.klass list * 'a * ('b, 'c Ast.instr_node) Ast.node
+  Ast.position Ast.klass list * 'a * 'b
 )
 ident(
-  def prog "typing.ml" 253 6107 6108 "typing.ml" 255 6163 6195
+  def prog "typing.ml" 253 6107 6108 "typing.ml" 256 6202 6205
 )
 "typing.ml" 253 6107 6108 "typing.ml" 253 6107 6118
 type(
-  Ast.position Ast.klass list * 'a * ('b, 'c Ast.instr_node) Ast.node -> unit
+  Ast.position Ast.klass list * 'a * 'b -> unit
 )
 ident(
   ext_ref Type_class.init_table
 )
 "typing.ml" 253 6107 6119 "typing.ml" 253 6107 6123
 type(
-  Ast.position Ast.klass list * 'a * ('b, 'c Ast.instr_node) Ast.node
+  Ast.position Ast.klass list * 'a * 'b
 )
 ident(
   int_ref prog "typing.ml" 252 6084 6098 "typing.ml" 252 6084 6102
@@ -2490,67 +2489,42 @@ type(
   Ast.position Ast.klass list
 )
 ident(
-  def clist "typing.ml" 255 6163 6164 "typing.ml" 255 6163 6195
+  def clist "typing.ml" 256 6202 6203 "typing.ml" 256 6202 6205
 )
 "typing.ml" 254 6125 6137 "typing.ml" 254 6125 6141
 type(
   'a
 )
 ident(
-  def name "typing.ml" 255 6163 6164 "typing.ml" 255 6163 6195
+  def name "typing.ml" 256 6202 6203 "typing.ml" 256 6202 6205
 )
 "typing.ml" 254 6125 6143 "typing.ml" 254 6125 6152
 type(
-  ('b, 'c Ast.instr_node) Ast.node
+  'b
 )
 ident(
-  def main_body "typing.ml" 255 6163 6164 "typing.ml" 255 6163 6195
+  def main_body "typing.ml" 256 6202 6203 "typing.ml" 256 6202 6205
 )
 "typing.ml" 254 6125 6130 "typing.ml" 254 6125 6152
 type(
-  Ast.position Ast.klass list * 'a * ('b, 'c Ast.instr_node) Ast.node
+  Ast.position Ast.klass list * 'a * 'b
 )
 "typing.ml" 254 6125 6155 "typing.ml" 254 6125 6159
 type(
-  Ast.position Ast.klass list * 'a * ('b, 'c Ast.instr_node) Ast.node
+  Ast.position Ast.klass list * 'a * 'b
 )
 ident(
   int_ref prog "typing.ml" 252 6084 6098 "typing.ml" 252 6084 6102
 )
-"typing.ml" 255 6163 6164 "typing.ml" 255 6163 6174
+"typing.ml" 256 6202 6203 "typing.ml" 256 6202 6205
 type(
-  '_d Env.t ->
-  ('b, 'c Ast.instr_node) Ast.node -> (Ast.typ, 'c Ast.instr_node) Ast.node
+  unit
 )
-ident(
-  int_ref type_instr "typing.ml" 217 4885 4893 "typing.ml" 217 4885 4903
-)
-"typing.ml" 255 6163 6175 "typing.ml" 255 6163 6184
+"typing.ml" 254 6125 6126 "typing.ml" 256 6202 6205
 type(
-  '_d Env.t
+  unit
 )
-ident(
-  ext_ref Env.empty
-)
-"typing.ml" 255 6163 6185 "typing.ml" 255 6163 6194
+"typing.ml" 253 6107 6108 "typing.ml" 256 6202 6205
 type(
-  ('b, 'c Ast.instr_node) Ast.node
-)
-ident(
-  int_ref main_body "typing.ml" 254 6125 6143 "typing.ml" 254 6125 6152
-)
-"typing.ml" 255 6163 6164 "typing.ml" 255 6163 6195
-call(
-  tail
-)
-type(
-  (Ast.typ, 'c Ast.instr_node) Ast.node
-)
-"typing.ml" 254 6125 6126 "typing.ml" 255 6163 6195
-type(
-  (Ast.typ, 'c Ast.instr_node) Ast.node
-)
-"typing.ml" 253 6107 6108 "typing.ml" 255 6163 6195
-type(
-  (Ast.typ, 'c Ast.instr_node) Ast.node
+  unit
 )

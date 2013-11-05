@@ -252,4 +252,5 @@ and type_block env ret il sl =
 let type_prog prog = 	
 	init_table prog;
 	let clist, name ,main_body = prog in
-	type_instr Env.empty main_body;
+	(* type_instr Env.empty main_body; *)
+	()
