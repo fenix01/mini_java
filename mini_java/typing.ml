@@ -23,7 +23,7 @@ let rec subtype t1 t2 =
 		| Tnull, Tclass _ -> true
 		| _,_ -> false
 
-let add_node i n = {node = n ; info = i }
+let add_node i n = {info = i ; node = n }
 
 let compatible t1 t2 = subtype t1 t2 || subtype t2 t1
 
@@ -217,40 +217,43 @@ let rec type_expr env e =
 let rec type_instr env i =   (* : type_instr Env.empty main_body *)
 	let instr_node = i.node in
 		match instr_node with
-		|Iexpr e -> let te = type_expr env e 
+		|Iexpr e -> let _ = type_expr env e 
 					in 
-			    add_node te.info (Iexpr e)
-		(* |Idecl(t,id,None) ->  ()  *)
-		(* |Idecl(t,id,Some e) -> () *)
-		(* |Iif (e1,in1,in2) ->                      *)
-		(* 	let t1 = type_expr env e1 in            *)
-		(* 		if t1.info <> Tboolean                *)
-		(* 		then failwith "type error if"         *)
-		(* 		else                                  *)
-		(* 		  let tin1 = type_instr env in1       *)
-		(* 		  and tin2 = type_instr env in2       *)
-		(* 	in                                      *)
-		(* 		  add_node Tvoid (Iif (t1,tin1,tin2)) *)
-		(*|Ifor (e1,e2,e3,in1) -> 
-			let _,te1 = type_block env ret [] e1 in
+			 	 env
+		|Idecl(t,id,None) ->  Env.empty
+		|Idecl(t,id,Some e) -> Env.empty
+		|Iif (e1,in1,in2) ->
+			let t1 = type_expr env e1 in
+				if t1.info <> Tboolean
+				then failwith "type error if"
+				else
+				  let _ = type_instr env in1
+				  and _ = type_instr env in2
+			in
+				  env
+		|Ifor (Some e1,Some e2,Some e3,in1) ->
+			(* let _,te1 = type_block env [] e1 in *)
 			let te2 = type_expr env e2 in
-			if not(compatible ct0.info Tint )
+			if not(compatible te2.info Tint )
 			then
-				failwith "type for error"
-			let _,te3 = type_block env ret [] e3 in
-			let tin1 = type_instr env b in
-			add_node Tvoid (Ifor(te1,te2,te3,tin1))
-		|Iblock(in_list)
-		|Ireturn
-		|_ -> failwith "todo"
+				failwith "type for error";
+			(* let _,te3 = type_block env [] e3 in *)
+			let _ = type_instr env in1 in
+				env
+		|Iblock(in_list) -> let rec aux list = 
+												match list with
+												| [] -> env
+												| a :: r -> let _ = type_instr env a in aux r
+												in aux in_list 
+		|Ireturn _ -> failwith "todo2"
+		|_ -> failwith "todo3"
 
-and type_block env ret il sl = 
-	let il0, env0 = type decl env il in
-	let sl0 = List.map(type_instr env ret) sl in
-	il0, sl0*)
+(* and type_block env il sl =                  *)
+(* 	(* let il0, env0 = type_decl env il in *) *)
+(* 	let sl0 = List.map(type_instr env) sl in  *)
+(* 	il0, sl0                                  *)
 
 let type_prog prog = 	
 	init_table prog;
 	let clist, name ,main_body = prog in
-	(* type_instr Env.empty main_body; *)
-	()
+	let _ = type_instr Env.empty main_body in ()

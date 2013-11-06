@@ -1,4 +1,4 @@
-class People extends Test{
+class People extends Peoples{
 	int leg;
 	int hand;
 	int age;
@@ -21,6 +21,10 @@ class People extends Test{
 }
 
 class Peoples{
+	int setAge(int a, int b){
+		this.age = a ;
+		return age;
+	}
 //classe en cours de développement
 /*
 date:01/10/2013
@@ -29,9 +33,7 @@ date:01/10/2013
 
 public class Peoples{
 	public static void main (String args[]){
-		People Jayden = new People("Jayden");
-		Jayden.init();
-		Jayden.setAge(10);
-		System.out.println("Jayden is "+Jayden.age +" years old \n");
+		int a;
+		a = "d";
 	}
     }
