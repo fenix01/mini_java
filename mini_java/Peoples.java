@@ -33,7 +33,6 @@ date:01/10/2013
 
 public class Peoples{
 	public static void main (String args[]){
-		int a;
-		a = "d";
+		int a = "String";
 	}
     }
