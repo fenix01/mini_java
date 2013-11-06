@@ -67,6 +67,10 @@ let () =
 	report_loc p;
 	eprintf "%s\n@." msg ;
 	exit 1
+    |  Instruction_error (msg,p) ->
+	report_loc p;
+	eprintf "%s\n@." msg ;
+	exit 1
     | e ->
 	eprintf "Anomaly: %s\n@." (Printexc.to_string e);
 	exit 2

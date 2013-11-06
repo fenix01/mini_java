@@ -726,7 +726,7 @@ type(
   in_channel
 )
 ident(
-  def c "main.ml" 46 1030 1032 "main.ml" 72 1805 1812
+  def c "main.ml" 46 1030 1032 "main.ml" 76 1888 1895
 )
 "main.ml" 45 1004 1014 "main.ml" 45 1004 1021
 type(
@@ -754,7 +754,7 @@ type(
   Lexing.lexbuf
 )
 ident(
-  def lb "main.ml" 47 1066 1068 "main.ml" 72 1805 1812
+  def lb "main.ml" 47 1066 1068 "main.ml" 76 1888 1895
 )
 "main.ml" 46 1030 1041 "main.ml" 46 1030 1060
 type(
@@ -1466,83 +1466,173 @@ type(
 type(
   unit
 )
-"main.ml" 70 1743 1749 "main.ml" 70 1743 1750
+"main.ml" 70 1743 1769 "main.ml" 70 1743 1772
+type(
+  string
+)
+ident(
+  def msg "main.ml" 71 1779 1780 "main.ml" 73 1818 1825
+)
+"main.ml" 70 1743 1773 "main.ml" 70 1743 1774
+type(
+  Ast.position
+)
+ident(
+  def p "main.ml" 71 1779 1780 "main.ml" 73 1818 1825
+)
+"main.ml" 70 1743 1750 "main.ml" 70 1743 1775
 type(
   exn
 )
-ident(
-  def e "main.ml" 71 1754 1755 "main.ml" 72 1805 1812
+"main.ml" 71 1779 1780 "main.ml" 71 1779 1790
+type(
+  Ast.position -> unit
 )
-"main.ml" 71 1754 1755 "main.ml" 71 1754 1762
+ident(
+  int_ref report_loc "main.ml" 35 706 710 "main.ml" 35 706 720
+)
+"main.ml" 71 1779 1791 "main.ml" 71 1779 1792
+type(
+  Ast.position
+)
+ident(
+  int_ref p "main.ml" 70 1743 1773 "main.ml" 70 1743 1774
+)
+"main.ml" 71 1779 1780 "main.ml" 71 1779 1792
+call(
+  stack
+)
+type(
+  unit
+)
+"main.ml" 72 1794 1795 "main.ml" 72 1794 1802
 type(
   (string -> unit, Format.formatter, unit) format -> string -> unit
 )
 ident(
   ext_ref Format.eprintf
 )
-"main.ml" 71 1754 1763 "main.ml" 71 1754 1780
+"main.ml" 72 1794 1803 "main.ml" 72 1794 1811
 type(
   (string -> unit, Format.formatter, unit) format
 )
-"main.ml" 71 1754 1782 "main.ml" 71 1754 1800
-type(
-  exn -> string
-)
-ident(
-  ext_ref Printexc.to_string
-)
-"main.ml" 71 1754 1801 "main.ml" 71 1754 1802
-type(
-  exn
-)
-ident(
-  int_ref e "main.ml" 70 1743 1749 "main.ml" 70 1743 1750
-)
-"main.ml" 71 1754 1781 "main.ml" 71 1754 1803
-call(
-  stack
-)
+"main.ml" 72 1794 1812 "main.ml" 72 1794 1815
 type(
   string
 )
-"main.ml" 71 1754 1755 "main.ml" 71 1754 1803
+ident(
+  int_ref msg "main.ml" 70 1743 1769 "main.ml" 70 1743 1772
+)
+"main.ml" 72 1794 1795 "main.ml" 72 1794 1815
 call(
   stack
 )
 type(
   unit
 )
-"main.ml" 72 1805 1806 "main.ml" 72 1805 1810
+"main.ml" 73 1818 1819 "main.ml" 73 1818 1823
 type(
   int -> unit
 )
 ident(
   ext_ref Pervasives.exit
 )
-"main.ml" 72 1805 1811 "main.ml" 72 1805 1812
+"main.ml" 73 1818 1824 "main.ml" 73 1818 1825
 type(
   int
 )
-"main.ml" 72 1805 1806 "main.ml" 72 1805 1812
+"main.ml" 73 1818 1819 "main.ml" 73 1818 1825
 call(
   stack
 )
 type(
   unit
 )
-"main.ml" 71 1754 1755 "main.ml" 72 1805 1812
+"main.ml" 72 1794 1795 "main.ml" 73 1818 1825
 type(
   unit
 )
-"main.ml" 47 1066 1068 "main.ml" 72 1805 1812
+"main.ml" 71 1779 1780 "main.ml" 73 1818 1825
 type(
   unit
 )
-"main.ml" 46 1030 1032 "main.ml" 72 1805 1812
+"main.ml" 74 1826 1832 "main.ml" 74 1826 1833
+type(
+  exn
+)
+ident(
+  def e "main.ml" 75 1837 1838 "main.ml" 76 1888 1895
+)
+"main.ml" 75 1837 1838 "main.ml" 75 1837 1845
+type(
+  (string -> unit, Format.formatter, unit) format -> string -> unit
+)
+ident(
+  ext_ref Format.eprintf
+)
+"main.ml" 75 1837 1846 "main.ml" 75 1837 1863
+type(
+  (string -> unit, Format.formatter, unit) format
+)
+"main.ml" 75 1837 1865 "main.ml" 75 1837 1883
+type(
+  exn -> string
+)
+ident(
+  ext_ref Printexc.to_string
+)
+"main.ml" 75 1837 1884 "main.ml" 75 1837 1885
+type(
+  exn
+)
+ident(
+  int_ref e "main.ml" 74 1826 1832 "main.ml" 74 1826 1833
+)
+"main.ml" 75 1837 1864 "main.ml" 75 1837 1886
+call(
+  stack
+)
+type(
+  string
+)
+"main.ml" 75 1837 1838 "main.ml" 75 1837 1886
+call(
+  stack
+)
 type(
   unit
 )
-"main.ml" 45 1004 1006 "main.ml" 72 1805 1812
+"main.ml" 76 1888 1889 "main.ml" 76 1888 1893
+type(
+  int -> unit
+)
+ident(
+  ext_ref Pervasives.exit
+)
+"main.ml" 76 1888 1894 "main.ml" 76 1888 1895
+type(
+  int
+)
+"main.ml" 76 1888 1889 "main.ml" 76 1888 1895
+call(
+  stack
+)
+type(
+  unit
+)
+"main.ml" 75 1837 1838 "main.ml" 76 1888 1895
+type(
+  unit
+)
+"main.ml" 47 1066 1068 "main.ml" 76 1888 1895
+type(
+  unit
+)
+"main.ml" 46 1030 1032 "main.ml" 76 1888 1895
+type(
+  unit
+)
+"main.ml" 45 1004 1006 "main.ml" 76 1888 1895
 type(
   unit
 )
