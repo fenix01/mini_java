@@ -34,8 +34,7 @@ date:01/10/2013
 public class Peoples{
 	public static void main (String args[]){
 		int a = 2;
-		if (x==3){
-			
-		}
+		boolean b;
+		b = -2 + 3 * 4;
 	}
     }
