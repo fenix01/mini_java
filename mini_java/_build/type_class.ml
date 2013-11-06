@@ -193,7 +193,8 @@ let check_method_signature method_ class_info =
 		fun (mname_,(mtype_,mparams_,mclass_name)) ->
 			let length2 = List.length mparams_ in
 			 if name_.node = mname_ then                               
-				if length1 = length2 && check_types params_ mparams_ then
+				if length1 = length2 && check_types params_ mparams_
+				&& mclass_name = class_info.name then
 					error ("méthode dupliquer " ^ mname_) name_.info
 	) class_info.methods
 
