@@ -465,14 +465,14 @@ type(
   Ast.typ Env.t
 )
 ident(
-  def env "typing.ml" 35 1021 1043 "typing.ml" 111 4833 4867
+  def env "typing.ml" 35 1021 1043 "typing.ml" 111 5318 5352
 )
 "typing.ml" 35 1021 1043 "typing.ml" 35 1021 1044
 type(
   'a Ast.expr
 )
 ident(
-  def e "typing.ml" 36 1048 1049 "typing.ml" 111 4833 4867
+  def e "typing.ml" 36 1048 1049 "typing.ml" 111 5318 5352
 )
 "typing.ml" 36 1048 1055 "typing.ml" 36 1048 1056
 type(
@@ -569,2229 +569,2173 @@ type(
   'a Ast.lvalue
 )
 ident(
-  def e "typing.ml" 45 1230 1233 "typing.ml" 53 1465 1469
+  def e "typing.ml" 44 1215 1229 "typing.ml" 44 1215 1246
 )
 "typing.ml" 44 1215 1218 "typing.ml" 44 1215 1225
 type(
   'a Ast.expr_node
 )
-"typing.ml" 45 1230 1240 "typing.ml" 45 1230 1241
+"typing.ml" 44 1215 1229 "typing.ml" 44 1215 1240
+type(
+  Ast.typ Env.t -> 'a Ast.lvalue -> Ast.typ
+)
+ident(
+  int_ref type_lvalue "typing.ml" 117 5664 5668 "typing.ml" 117 5664 5679
+)
+"typing.ml" 44 1215 1241 "typing.ml" 44 1215 1244
+type(
+  Ast.typ Env.t
+)
+ident(
+  int_ref env "typing.ml" 35 1021 1039 "typing.ml" 35 1021 1042
+)
+"typing.ml" 44 1215 1245 "typing.ml" 44 1215 1246
 type(
   'a Ast.lvalue
 )
 ident(
   int_ref e "typing.ml" 44 1215 1224 "typing.ml" 44 1215 1225
 )
-"typing.ml" 46 1248 1261 "typing.ml" 46 1248 1263
-type(
-  'a Ast.ident
-)
-ident(
-  def id "typing.ml" 47 1268 1274 "typing.ml" 51 1350 1419
-)
-"typing.ml" 46 1248 1254 "typing.ml" 46 1248 1263
-type(
-  'a Ast.lvalue
-)
-"typing.ml" 48 1280 1291 "typing.ml" 48 1280 1296
-type(
-  Ast.typ
-)
-ident(
-  def type_ "typing.ml" 49 1324 1331 "typing.ml" 49 1324 1336
-)
-"typing.ml" 48 1280 1299 "typing.ml" 48 1280 1307
-type(
-  Env.key -> Ast.typ Env.t -> Ast.typ
-)
-ident(
-  ext_ref Env.find
-)
-"typing.ml" 48 1280 1308 "typing.ml" 48 1280 1310
-type(
-  'a Ast.ident
-)
-ident(
-  int_ref id "typing.ml" 46 1248 1261 "typing.ml" 46 1248 1263
-)
-"typing.ml" 48 1280 1308 "typing.ml" 48 1280 1315
-type(
-  Env.key
-)
-"typing.ml" 48 1280 1316 "typing.ml" 48 1280 1319
-type(
-  Ast.typ Env.t
-)
-ident(
-  int_ref env "typing.ml" 35 1021 1039 "typing.ml" 35 1021 1042
-)
-"typing.ml" 48 1280 1299 "typing.ml" 48 1280 1319
-call(
-  stack
-)
-type(
-  Ast.typ
-)
-"typing.ml" 49 1324 1331 "typing.ml" 49 1324 1336
-type(
-  Ast.typ
-)
-ident(
-  int_ref type_ "typing.ml" 48 1280 1291 "typing.ml" 48 1280 1296
-)
-"typing.ml" 48 1280 1287 "typing.ml" 49 1324 1336
-type(
-  Ast.typ
-)
-"typing.ml" 51 1350 1357 "typing.ml" 51 1350 1366
-type(
-  exn
-)
-"typing.ml" 51 1350 1370 "typing.ml" 51 1350 1378
-type(
-  string -> Ast.typ
-)
-ident(
-  ext_ref Pervasives.failwith
-)
-"typing.ml" 51 1350 1379 "typing.ml" 51 1350 1418
-type(
-  string
-)
-"typing.ml" 51 1350 1370 "typing.ml" 51 1350 1418
+"typing.ml" 44 1215 1229 "typing.ml" 44 1215 1246
 call(
   tail
 )
 type(
   Ast.typ
 )
-"typing.ml" 47 1268 1274 "typing.ml" 51 1350 1419
-type(
-  Ast.typ
-)
-"typing.ml" 52 1421 1436 "typing.ml" 52 1421 1437
-type(
-  'a Ast.expr
-)
-"typing.ml" 52 1421 1439 "typing.ml" 52 1421 1440
-type(
-  'a Ast.ident
-)
-"typing.ml" 52 1421 1427 "typing.ml" 52 1421 1441
-type(
-  'a Ast.lvalue
-)
-"typing.ml" 52 1421 1445 "typing.ml" 52 1421 1453
-type(
-  string -> Ast.typ
-)
-ident(
-  ext_ref Pervasives.failwith
-)
-"typing.ml" 52 1421 1454 "typing.ml" 52 1421 1463
-type(
-  string
-)
-"typing.ml" 52 1421 1445 "typing.ml" 52 1421 1463
-call(
-  tail
-)
-type(
-  Ast.typ
-)
-"typing.ml" 45 1230 1233 "typing.ml" 53 1465 1469
-type(
-  Ast.typ
-)
-"typing.ml" 54 1471 1483 "typing.ml" 54 1471 1484
+"typing.ml" 54 1956 1968 "typing.ml" 54 1956 1969
 type(
   'a Ast.lvalue
 )
 ident(
-  def l "typing.ml" 58 1711 1714 "typing.ml" 58 1711 1729
+  def l "typing.ml" 58 2196 2199 "typing.ml" 58 2196 2214
 )
-"typing.ml" 54 1471 1486 "typing.ml" 54 1471 1489
+"typing.ml" 54 1956 1971 "typing.ml" 54 1956 1974
 type(
   'a Ast.expr
 )
 ident(
-  def exp "typing.ml" 58 1711 1714 "typing.ml" 58 1711 1729
+  def exp "typing.ml" 58 2196 2199 "typing.ml" 58 2196 2214
 )
-"typing.ml" 54 1471 1474 "typing.ml" 54 1471 1490
+"typing.ml" 54 1956 1959 "typing.ml" 54 1956 1975
 type(
   'a Ast.expr_node
 )
-"typing.ml" 58 1711 1714 "typing.ml" 58 1711 1722
+"typing.ml" 58 2196 2199 "typing.ml" 58 2196 2207
 type(
   string -> Ast.typ
 )
 ident(
   ext_ref Pervasives.failwith
 )
-"typing.ml" 58 1711 1723 "typing.ml" 58 1711 1729
+"typing.ml" 58 2196 2208 "typing.ml" 58 2196 2214
 type(
   string
 )
-"typing.ml" 58 1711 1714 "typing.ml" 58 1711 1729
+"typing.ml" 58 2196 2199 "typing.ml" 58 2196 2214
 call(
   tail
 )
 type(
   Ast.typ
 )
-"typing.ml" 59 1731 1741 "typing.ml" 59 1731 1742
+"typing.ml" 59 2216 2226 "typing.ml" 59 2216 2227
 type(
   'a Ast.lvalue
 )
 ident(
-  def l "typing.ml" 67 2287 2290 "typing.ml" 67 2287 2305
+  def l "typing.ml" 67 2772 2775 "typing.ml" 67 2772 2790
 )
-"typing.ml" 59 1731 1744 "typing.ml" 59 1731 1749
+"typing.ml" 59 2216 2229 "typing.ml" 59 2216 2234
 type(
   'a Ast.expr list
 )
 ident(
-  def elist "typing.ml" 67 2287 2290 "typing.ml" 67 2287 2305
+  def elist "typing.ml" 67 2772 2775 "typing.ml" 67 2772 2790
 )
-"typing.ml" 59 1731 1734 "typing.ml" 59 1731 1750
+"typing.ml" 59 2216 2219 "typing.ml" 59 2216 2235
 type(
   'a Ast.expr_node
 )
-"typing.ml" 67 2287 2290 "typing.ml" 67 2287 2298
+"typing.ml" 67 2772 2775 "typing.ml" 67 2772 2783
 type(
   string -> Ast.typ
 )
 ident(
   ext_ref Pervasives.failwith
 )
-"typing.ml" 67 2287 2299 "typing.ml" 67 2287 2305
+"typing.ml" 67 2772 2784 "typing.ml" 67 2772 2790
 type(
   string
 )
-"typing.ml" 67 2287 2290 "typing.ml" 67 2287 2305
+"typing.ml" 67 2772 2775 "typing.ml" 67 2772 2790
 call(
   tail
 )
 type(
   Ast.typ
 )
-"typing.ml" 68 2307 2316 "typing.ml" 68 2307 2318
+"typing.ml" 68 2792 2801 "typing.ml" 68 2792 2803
 type(
   'a Ast.ident
 )
 ident(
-  def id "typing.ml" 68 2307 2330 "typing.ml" 68 2307 2345
+  def id "typing.ml" 68 2792 2815 "typing.ml" 68 2792 2830
 )
-"typing.ml" 68 2307 2320 "typing.ml" 68 2307 2325
+"typing.ml" 68 2792 2805 "typing.ml" 68 2792 2810
 type(
   'a Ast.expr list
 )
 ident(
-  def elist "typing.ml" 68 2307 2330 "typing.ml" 68 2307 2345
+  def elist "typing.ml" 68 2792 2815 "typing.ml" 68 2792 2830
 )
-"typing.ml" 68 2307 2310 "typing.ml" 68 2307 2326
+"typing.ml" 68 2792 2795 "typing.ml" 68 2792 2811
 type(
   'a Ast.expr_node
 )
-"typing.ml" 68 2307 2330 "typing.ml" 68 2307 2338
+"typing.ml" 68 2792 2815 "typing.ml" 68 2792 2823
 type(
   string -> Ast.typ
 )
 ident(
   ext_ref Pervasives.failwith
 )
-"typing.ml" 68 2307 2339 "typing.ml" 68 2307 2345
+"typing.ml" 68 2792 2824 "typing.ml" 68 2792 2830
 type(
   string
 )
-"typing.ml" 68 2307 2330 "typing.ml" 68 2307 2345
+"typing.ml" 68 2792 2815 "typing.ml" 68 2792 2830
 call(
   tail
 )
 type(
   Ast.typ
 )
-"typing.ml" 69 2347 2356 "typing.ml" 69 2347 2358
+"typing.ml" 69 2832 2841 "typing.ml" 69 2832 2843
 type(
   Ast.unop
 )
 ident(
-  def op "typing.ml" 69 2347 2366 "typing.ml" 69 2347 2381
+  def op "typing.ml" 69 2832 2851 "typing.ml" 69 2832 2866
 )
-"typing.ml" 69 2347 2360 "typing.ml" 69 2347 2361
+"typing.ml" 69 2832 2845 "typing.ml" 69 2832 2846
 type(
   'a Ast.expr
 )
 ident(
-  def e "typing.ml" 69 2347 2366 "typing.ml" 69 2347 2381
+  def e "typing.ml" 69 2832 2851 "typing.ml" 69 2832 2866
 )
-"typing.ml" 69 2347 2350 "typing.ml" 69 2347 2362
+"typing.ml" 69 2832 2835 "typing.ml" 69 2832 2847
 type(
   'a Ast.expr_node
 )
-"typing.ml" 69 2347 2366 "typing.ml" 69 2347 2374
+"typing.ml" 69 2832 2851 "typing.ml" 69 2832 2859
 type(
   string -> Ast.typ
 )
 ident(
   ext_ref Pervasives.failwith
 )
-"typing.ml" 69 2347 2375 "typing.ml" 69 2347 2381
+"typing.ml" 69 2832 2860 "typing.ml" 69 2832 2866
 type(
   string
 )
-"typing.ml" 69 2347 2366 "typing.ml" 69 2347 2381
+"typing.ml" 69 2832 2851 "typing.ml" 69 2832 2866
 call(
   tail
 )
 type(
   Ast.typ
 )
-"typing.ml" 76 2851 2862 "typing.ml" 76 2851 2864
+"typing.ml" 76 3336 3347 "typing.ml" 76 3336 3349
 type(
   'a Ast.expr
 )
 ident(
-  def e1 "typing.ml" 77 2878 2881 "typing.ml" 89 3265 3269
+  def e1 "typing.ml" 77 3363 3366 "typing.ml" 89 3750 3754
 )
-"typing.ml" 76 2851 2866 "typing.ml" 76 2851 2868
+"typing.ml" 76 3336 3351 "typing.ml" 76 3336 3353
 type(
   Ast.binop
 )
 ident(
-  def op "typing.ml" 77 2878 2881 "typing.ml" 89 3265 3269
+  def op "typing.ml" 77 3363 3366 "typing.ml" 89 3750 3754
 )
-"typing.ml" 76 2851 2870 "typing.ml" 76 2851 2872
+"typing.ml" 76 3336 3355 "typing.ml" 76 3336 3357
 type(
   'a Ast.expr
 )
 ident(
-  def e2 "typing.ml" 77 2878 2881 "typing.ml" 89 3265 3269
+  def e2 "typing.ml" 77 3363 3366 "typing.ml" 89 3750 3754
 )
-"typing.ml" 76 2851 2854 "typing.ml" 76 2851 2873
+"typing.ml" 76 3336 3339 "typing.ml" 76 3336 3358
 type(
   'a Ast.expr_node
 )
-"typing.ml" 77 2878 2885 "typing.ml" 77 2878 2887
+"typing.ml" 77 3363 3370 "typing.ml" 77 3363 3372
 type(
   Ast.typ
 )
 ident(
-  def t1 "typing.ml" 78 2911 2914 "typing.ml" 89 3265 3269
+  def t1 "typing.ml" 78 3396 3399 "typing.ml" 89 3750 3754
 )
-"typing.ml" 77 2878 2890 "typing.ml" 77 2878 2899
+"typing.ml" 77 3363 3375 "typing.ml" 77 3363 3384
 type(
   Ast.typ Env.t -> 'a Ast.expr -> Ast.typ
 )
 ident(
   int_ref type_expr "typing.ml" 35 1021 1029 "typing.ml" 35 1021 1038
 )
-"typing.ml" 77 2878 2900 "typing.ml" 77 2878 2903
+"typing.ml" 77 3363 3385 "typing.ml" 77 3363 3388
 type(
   Ast.typ Env.t
 )
 ident(
   int_ref env "typing.ml" 35 1021 1039 "typing.ml" 35 1021 1042
 )
-"typing.ml" 77 2878 2904 "typing.ml" 77 2878 2906
+"typing.ml" 77 3363 3389 "typing.ml" 77 3363 3391
 type(
   'a Ast.expr
 )
 ident(
-  int_ref e1 "typing.ml" 76 2851 2862 "typing.ml" 76 2851 2864
+  int_ref e1 "typing.ml" 76 3336 3347 "typing.ml" 76 3336 3349
 )
-"typing.ml" 77 2878 2890 "typing.ml" 77 2878 2906
+"typing.ml" 77 3363 3375 "typing.ml" 77 3363 3391
 call(
   stack
 )
 type(
   Ast.typ
 )
-"typing.ml" 78 2911 2918 "typing.ml" 78 2911 2920
+"typing.ml" 78 3396 3403 "typing.ml" 78 3396 3405
 type(
   Ast.typ
 )
 ident(
-  def t2 "typing.ml" 79 2944 2947 "typing.ml" 89 3265 3269
+  def t2 "typing.ml" 79 3429 3432 "typing.ml" 89 3750 3754
 )
-"typing.ml" 78 2911 2923 "typing.ml" 78 2911 2932
+"typing.ml" 78 3396 3408 "typing.ml" 78 3396 3417
 type(
   Ast.typ Env.t -> 'a Ast.expr -> Ast.typ
 )
 ident(
   int_ref type_expr "typing.ml" 35 1021 1029 "typing.ml" 35 1021 1038
 )
-"typing.ml" 78 2911 2933 "typing.ml" 78 2911 2936
+"typing.ml" 78 3396 3418 "typing.ml" 78 3396 3421
 type(
   Ast.typ Env.t
 )
 ident(
   int_ref env "typing.ml" 35 1021 1039 "typing.ml" 35 1021 1042
 )
-"typing.ml" 78 2911 2937 "typing.ml" 78 2911 2939
+"typing.ml" 78 3396 3422 "typing.ml" 78 3396 3424
 type(
   'a Ast.expr
 )
 ident(
-  int_ref e2 "typing.ml" 76 2851 2870 "typing.ml" 76 2851 2872
+  int_ref e2 "typing.ml" 76 3336 3355 "typing.ml" 76 3336 3357
 )
-"typing.ml" 78 2911 2923 "typing.ml" 78 2911 2939
+"typing.ml" 78 3396 3408 "typing.ml" 78 3396 3424
 call(
   stack
 )
 type(
   Ast.typ
 )
-"typing.ml" 80 2950 2954 "typing.ml" 80 2950 2959
+"typing.ml" 80 3435 3439 "typing.ml" 80 3435 3444
 type(
   Ast.typ -> unit
 )
 ident(
   ext_ref Type_class.print
 )
-"typing.ml" 80 2950 2960 "typing.ml" 80 2950 2962
+"typing.ml" 80 3435 3445 "typing.ml" 80 3435 3447
 type(
   Ast.typ
 )
 ident(
-  int_ref t1 "typing.ml" 77 2878 2885 "typing.ml" 77 2878 2887
+  int_ref t1 "typing.ml" 77 3363 3370 "typing.ml" 77 3363 3372
 )
-"typing.ml" 80 2950 2954 "typing.ml" 80 2950 2962
+"typing.ml" 80 3435 3439 "typing.ml" 80 3435 3447
 call(
   stack
 )
 type(
   unit
 )
-"typing.ml" 81 2965 2969 "typing.ml" 81 2965 2974
+"typing.ml" 81 3450 3454 "typing.ml" 81 3450 3459
 type(
   Ast.typ -> unit
 )
 ident(
   ext_ref Type_class.print
 )
-"typing.ml" 81 2965 2975 "typing.ml" 81 2965 2977
+"typing.ml" 81 3450 3460 "typing.ml" 81 3450 3462
 type(
   Ast.typ
 )
 ident(
-  int_ref t2 "typing.ml" 78 2911 2918 "typing.ml" 78 2911 2920
+  int_ref t2 "typing.ml" 78 3396 3403 "typing.ml" 78 3396 3405
 )
-"typing.ml" 81 2965 2969 "typing.ml" 81 2965 2977
+"typing.ml" 81 3450 3454 "typing.ml" 81 3450 3462
 call(
   stack
 )
 type(
   unit
 )
-"typing.ml" 82 2980 2990 "typing.ml" 82 2980 2992
+"typing.ml" 82 3465 3475 "typing.ml" 82 3465 3477
 type(
   Ast.binop
 )
 ident(
-  int_ref op "typing.ml" 76 2851 2866 "typing.ml" 76 2851 2868
+  int_ref op "typing.ml" 76 3336 3351 "typing.ml" 76 3336 3353
 )
-"typing.ml" 83 2999 3005 "typing.ml" 83 2999 3009
+"typing.ml" 83 3484 3490 "typing.ml" 83 3484 3494
 type(
   Ast.binop
 )
-"typing.ml" 83 2999 3012 "typing.ml" 83 2999 3015
+"typing.ml" 83 3484 3497 "typing.ml" 83 3484 3500
 type(
   Ast.binop
 )
-"typing.ml" 83 2999 3005 "typing.ml" 83 2999 3015
+"typing.ml" 83 3484 3490 "typing.ml" 83 3484 3500
 type(
   Ast.binop
 )
-"typing.ml" 83 2999 3018 "typing.ml" 83 2999 3021
+"typing.ml" 83 3484 3503 "typing.ml" 83 3484 3506
 type(
   Ast.binop
 )
-"typing.ml" 83 2999 3005 "typing.ml" 83 2999 3021
+"typing.ml" 83 3484 3490 "typing.ml" 83 3484 3506
 type(
   Ast.binop
 )
-"typing.ml" 83 2999 3024 "typing.ml" 83 2999 3028
+"typing.ml" 83 3484 3509 "typing.ml" 83 3484 3513
 type(
   Ast.binop
 )
-"typing.ml" 83 2999 3005 "typing.ml" 83 2999 3028
+"typing.ml" 83 3484 3490 "typing.ml" 83 3484 3513
 type(
   Ast.binop
 )
-"typing.ml" 83 2999 3031 "typing.ml" 83 2999 3034
+"typing.ml" 83 3484 3516 "typing.ml" 83 3484 3519
 type(
   Ast.binop
 )
-"typing.ml" 83 2999 3005 "typing.ml" 83 2999 3034
+"typing.ml" 83 3484 3490 "typing.ml" 83 3484 3519
 type(
   Ast.binop
 )
-"typing.ml" 83 2999 3037 "typing.ml" 83 2999 3041
+"typing.ml" 83 3484 3522 "typing.ml" 83 3484 3526
 type(
   Ast.binop
 )
-"typing.ml" 83 2999 3005 "typing.ml" 83 2999 3041
+"typing.ml" 83 3484 3490 "typing.ml" 83 3484 3526
 type(
   Ast.binop
 )
-"typing.ml" 83 2999 3044 "typing.ml" 83 2999 3047
+"typing.ml" 83 3484 3529 "typing.ml" 83 3484 3532
 type(
   Ast.binop
 )
-"typing.ml" 83 2999 3005 "typing.ml" 83 2999 3047
+"typing.ml" 83 3484 3490 "typing.ml" 83 3484 3532
 type(
   Ast.binop
 )
-"typing.ml" 83 2999 3050 "typing.ml" 83 2999 3054
+"typing.ml" 83 3484 3535 "typing.ml" 83 3484 3539
 type(
   Ast.binop
 )
-"typing.ml" 83 2999 3005 "typing.ml" 83 2999 3054
+"typing.ml" 83 3484 3490 "typing.ml" 83 3484 3539
 type(
   Ast.binop
 )
-"typing.ml" 84 3059 3069 "typing.ml" 84 3059 3079
+"typing.ml" 84 3544 3554 "typing.ml" 84 3544 3564
 type(
   Ast.typ -> Ast.typ -> bool
 )
 ident(
   int_ref compatible "typing.ml" 23 567 571 "typing.ml" 23 567 581
 )
-"typing.ml" 84 3059 3080 "typing.ml" 84 3059 3082
+"typing.ml" 84 3544 3565 "typing.ml" 84 3544 3567
 type(
   Ast.typ
 )
 ident(
-  int_ref t1 "typing.ml" 77 2878 2885 "typing.ml" 77 2878 2887
+  int_ref t1 "typing.ml" 77 3363 3370 "typing.ml" 77 3363 3372
 )
-"typing.ml" 84 3059 3083 "typing.ml" 84 3059 3085
+"typing.ml" 84 3544 3568 "typing.ml" 84 3544 3570
 type(
   Ast.typ
 )
 ident(
-  int_ref t2 "typing.ml" 78 2911 2918 "typing.ml" 78 2911 2920
+  int_ref t2 "typing.ml" 78 3396 3403 "typing.ml" 78 3396 3405
 )
-"typing.ml" 84 3059 3069 "typing.ml" 84 3059 3085
+"typing.ml" 84 3544 3554 "typing.ml" 84 3544 3570
 call(
   stack
 )
 type(
   bool
 )
-"typing.ml" 85 3092 3100 "typing.ml" 85 3092 3108
+"typing.ml" 85 3577 3585 "typing.ml" 85 3577 3593
 type(
   Ast.typ
 )
-"typing.ml" 87 3123 3131 "typing.ml" 87 3123 3136
+"typing.ml" 87 3608 3616 "typing.ml" 87 3608 3621
 type(
   exn -> Ast.typ
 )
 ident(
   ext_ref Pervasives.raise
 )
-"typing.ml" 87 3123 3155 "typing.ml" 87 3123 3194
+"typing.ml" 87 3608 3640 "typing.ml" 87 3608 3679
 type(
   string
 )
-"typing.ml" 87 3123 3137 "typing.ml" 87 3123 3195
+"typing.ml" 87 3608 3622 "typing.ml" 87 3608 3680
 type(
   exn
 )
-"typing.ml" 87 3123 3131 "typing.ml" 87 3123 3195
+"typing.ml" 87 3608 3616 "typing.ml" 87 3608 3680
 type(
   Ast.typ
 )
-"typing.ml" 84 3059 3065 "typing.ml" 87 3123 3196
+"typing.ml" 84 3544 3550 "typing.ml" 87 3608 3681
 type(
   Ast.typ
 )
-"typing.ml" 88 3198 3204 "typing.ml" 88 3198 3205
+"typing.ml" 88 3683 3689 "typing.ml" 88 3683 3690
 type(
   Ast.binop
 )
-"typing.ml" 88 3198 3209 "typing.ml" 88 3198 3214
+"typing.ml" 88 3683 3694 "typing.ml" 88 3683 3699
 type(
   exn -> Ast.typ
 )
 ident(
   ext_ref Pervasives.raise
 )
-"typing.ml" 88 3198 3233 "typing.ml" 88 3198 3262
+"typing.ml" 88 3683 3718 "typing.ml" 88 3683 3747
 type(
   string
 )
-"typing.ml" 88 3198 3215 "typing.ml" 88 3198 3263
+"typing.ml" 88 3683 3700 "typing.ml" 88 3683 3748
 type(
   exn
 )
-"typing.ml" 88 3198 3209 "typing.ml" 88 3198 3263
+"typing.ml" 88 3683 3694 "typing.ml" 88 3683 3748
 type(
   Ast.typ
 )
-"typing.ml" 82 2980 2984 "typing.ml" 88 3198 3263
+"typing.ml" 82 3465 3469 "typing.ml" 88 3683 3748
 type(
   Ast.typ
 )
-"typing.ml" 81 2965 2969 "typing.ml" 88 3198 3263
+"typing.ml" 81 3450 3454 "typing.ml" 88 3683 3748
 type(
   Ast.typ
 )
-"typing.ml" 79 2944 2947 "typing.ml" 89 3265 3269
+"typing.ml" 79 3429 3432 "typing.ml" 89 3750 3754
 type(
   Ast.typ
 )
-"typing.ml" 78 2911 2914 "typing.ml" 89 3265 3269
+"typing.ml" 78 3396 3399 "typing.ml" 89 3750 3754
 type(
   Ast.typ
 )
-"typing.ml" 77 2878 2881 "typing.ml" 89 3265 3269
+"typing.ml" 77 3363 3366 "typing.ml" 89 3750 3754
 type(
   Ast.typ
 )
-"typing.ml" 106 4487 4503 "typing.ml" 106 4487 4504
+"typing.ml" 106 4972 4988 "typing.ml" 106 4972 4989
 type(
   'a Ast.expr
 )
 ident(
-  def e "typing.ml" 106 4487 4512 "typing.ml" 106 4487 4527
+  def e "typing.ml" 106 4972 4997 "typing.ml" 106 4972 5012
 )
-"typing.ml" 106 4487 4506 "typing.ml" 106 4487 4507
+"typing.ml" 106 4972 4991 "typing.ml" 106 4972 4992
 type(
   Ast.typ
 )
 ident(
-  def t "typing.ml" 106 4487 4512 "typing.ml" 106 4487 4527
+  def t "typing.ml" 106 4972 4997 "typing.ml" 106 4972 5012
 )
-"typing.ml" 106 4487 4490 "typing.ml" 106 4487 4508
+"typing.ml" 106 4972 4975 "typing.ml" 106 4972 4993
 type(
   'a Ast.expr_node
 )
-"typing.ml" 106 4487 4512 "typing.ml" 106 4487 4520
+"typing.ml" 106 4972 4997 "typing.ml" 106 4972 5005
 type(
   string -> Ast.typ
 )
 ident(
   ext_ref Pervasives.failwith
 )
-"typing.ml" 106 4487 4521 "typing.ml" 106 4487 4527
+"typing.ml" 106 4972 5006 "typing.ml" 106 4972 5012
 type(
   string
 )
-"typing.ml" 106 4487 4512 "typing.ml" 106 4487 4527
+"typing.ml" 106 4972 4997 "typing.ml" 106 4972 5012
 call(
   tail
 )
 type(
   Ast.typ
 )
-"typing.ml" 111 4833 4843 "typing.ml" 111 4833 4844
+"typing.ml" 111 5318 5328 "typing.ml" 111 5318 5329
 type(
   Ast.typ
 )
 ident(
-  def t "typing.ml" 111 4833 4852 "typing.ml" 111 4833 4867
+  def t "typing.ml" 111 5318 5337 "typing.ml" 111 5318 5352
 )
-"typing.ml" 111 4833 4846 "typing.ml" 111 4833 4847
+"typing.ml" 111 5318 5331 "typing.ml" 111 5318 5332
 type(
   'a Ast.expr
 )
 ident(
-  def e "typing.ml" 111 4833 4852 "typing.ml" 111 4833 4867
+  def e "typing.ml" 111 5318 5337 "typing.ml" 111 5318 5352
 )
-"typing.ml" 111 4833 4836 "typing.ml" 111 4833 4848
+"typing.ml" 111 5318 5321 "typing.ml" 111 5318 5333
 type(
   'a Ast.expr_node
 )
-"typing.ml" 111 4833 4852 "typing.ml" 111 4833 4860
+"typing.ml" 111 5318 5337 "typing.ml" 111 5318 5345
 type(
   string -> Ast.typ
 )
 ident(
   ext_ref Pervasives.failwith
 )
-"typing.ml" 111 4833 4861 "typing.ml" 111 4833 4867
+"typing.ml" 111 5318 5346 "typing.ml" 111 5318 5352
 type(
   string
 )
-"typing.ml" 111 4833 4852 "typing.ml" 111 4833 4867
+"typing.ml" 111 5318 5337 "typing.ml" 111 5318 5352
 call(
   tail
 )
 type(
   Ast.typ
 )
-"typing.ml" 36 1048 1049 "typing.ml" 111 4833 4867
+"typing.ml" 36 1048 1049 "typing.ml" 111 5318 5352
 type(
   Ast.typ
 )
-"typing.ml" 117 5179 5183 "typing.ml" 117 5179 5194
+"typing.ml" 117 5664 5668 "typing.ml" 117 5664 5679
 type(
   Ast.typ Env.t -> 'a Ast.lvalue -> Ast.typ
 )
 ident(
   def type_lvalue "typing.ml" 35 1021 1021 "_none_" 1 0 -1
 )
-"typing.ml" 117 5179 5195 "typing.ml" 117 5179 5198
+"typing.ml" 117 5664 5680 "typing.ml" 117 5664 5683
 type(
   Ast.typ Env.t
 )
 ident(
-  def env "typing.ml" 117 5179 5199 "typing.ml" 123 5403 5418
+  def env "typing.ml" 117 5664 5684 "typing.ml" 124 5928 5943
 )
-"typing.ml" 117 5179 5199 "typing.ml" 117 5179 5200
+"typing.ml" 117 5664 5684 "typing.ml" 117 5664 5685
 type(
   'a Ast.lvalue
 )
 ident(
-  def l "typing.ml" 118 5204 5205 "typing.ml" 123 5403 5418
+  def l "typing.ml" 118 5689 5690 "typing.ml" 124 5928 5943
 )
-"typing.ml" 118 5204 5211 "typing.ml" 118 5204 5212
+"typing.ml" 118 5689 5696 "typing.ml" 118 5689 5697
 type(
   'a Ast.lvalue
 )
 ident(
-  int_ref l "typing.ml" 117 5179 5199 "typing.ml" 117 5179 5200
+  int_ref l "typing.ml" 117 5664 5684 "typing.ml" 117 5664 5685
 )
-"typing.ml" 119 5219 5229 "typing.ml" 119 5219 5230
+"typing.ml" 119 5704 5714 "typing.ml" 119 5704 5715
 type(
   'a Ast.ident
 )
 ident(
-  def x "typing.ml" 119 5219 5234 "typing.ml" 119 5219 5309
+  def x "typing.ml" 119 5704 5719 "typing.ml" 120 5746 5834
 )
-"typing.ml" 119 5219 5222 "typing.ml" 119 5219 5230
+"typing.ml" 119 5704 5707 "typing.ml" 119 5704 5715
 type(
   'a Ast.lvalue
 )
-"typing.ml" 119 5219 5239 "typing.ml" 119 5219 5247
+"typing.ml" 119 5704 5724 "typing.ml" 119 5704 5732
 type(
   Env.key -> Ast.typ Env.t -> Ast.typ
 )
 ident(
   ext_ref Env.find
 )
-"typing.ml" 119 5219 5248 "typing.ml" 119 5219 5249
+"typing.ml" 119 5704 5733 "typing.ml" 119 5704 5734
 type(
   'a Ast.ident
 )
 ident(
-  int_ref x "typing.ml" 119 5219 5229 "typing.ml" 119 5219 5230
+  int_ref x "typing.ml" 119 5704 5714 "typing.ml" 119 5704 5715
 )
-"typing.ml" 119 5219 5248 "typing.ml" 119 5219 5254
+"typing.ml" 119 5704 5733 "typing.ml" 119 5704 5739
 type(
   Env.key
 )
-"typing.ml" 119 5219 5255 "typing.ml" 119 5219 5258
+"typing.ml" 119 5704 5740 "typing.ml" 119 5704 5743
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref env "typing.ml" 117 5179 5195 "typing.ml" 117 5179 5198
+  int_ref env "typing.ml" 117 5664 5680 "typing.ml" 117 5664 5683
 )
-"typing.ml" 119 5219 5239 "typing.ml" 119 5219 5258
+"typing.ml" 119 5704 5724 "typing.ml" 119 5704 5743
 call(
   stack
 )
 type(
   Ast.typ
 )
-"typing.ml" 119 5219 5264 "typing.ml" 119 5219 5273
+"typing.ml" 120 5746 5752 "typing.ml" 120 5746 5761
 type(
   exn
 )
-"typing.ml" 119 5219 5277 "typing.ml" 119 5219 5285
+"typing.ml" 120 5746 5765 "typing.ml" 120 5746 5770
 type(
-  string -> Ast.typ
+  exn -> Ast.typ
 )
 ident(
-  ext_ref Pervasives.failwith
+  ext_ref Pervasives.raise
 )
-"typing.ml" 119 5219 5286 "typing.ml" 119 5219 5308
+"typing.ml" 120 5746 5790 "typing.ml" 120 5746 5803
 type(
   string
 )
-"typing.ml" 119 5219 5277 "typing.ml" 119 5219 5308
-call(
-  tail
-)
+"typing.ml" 120 5746 5804 "typing.ml" 120 5746 5805
 type(
-  Ast.typ
-)
-"typing.ml" 119 5219 5234 "typing.ml" 119 5219 5309
-type(
-  Ast.typ
-)
-"typing.ml" 120 5311 5323 "typing.ml" 120 5311 5324
-type(
-  'a Ast.expr
+  string -> string -> string
 )
 ident(
-  def e "typing.ml" 120 5311 5332 "typing.ml" 123 5403 5418
+  ext_ref Pervasives.( ^ )
 )
-"typing.ml" 120 5311 5326 "typing.ml" 120 5311 5327
+"typing.ml" 120 5746 5806 "typing.ml" 120 5746 5807
 type(
   'a Ast.ident
 )
 ident(
-  def x "typing.ml" 120 5311 5332 "typing.ml" 123 5403 5418
+  int_ref x "typing.ml" 119 5704 5714 "typing.ml" 119 5704 5715
 )
-"typing.ml" 120 5311 5314 "typing.ml" 120 5311 5328
+"typing.ml" 120 5746 5806 "typing.ml" 120 5746 5812
+type(
+  string
+)
+"typing.ml" 120 5746 5813 "typing.ml" 120 5746 5814
+type(
+  string -> string -> string
+)
+ident(
+  ext_ref Pervasives.( ^ )
+)
+"typing.ml" 120 5746 5815 "typing.ml" 120 5746 5830
+type(
+  string
+)
+"typing.ml" 120 5746 5806 "typing.ml" 120 5746 5830
+call(
+  stack
+)
+type(
+  string
+)
+"typing.ml" 120 5746 5789 "typing.ml" 120 5746 5831
+call(
+  stack
+)
+type(
+  string
+)
+"typing.ml" 120 5746 5771 "typing.ml" 120 5746 5833
+type(
+  exn
+)
+"typing.ml" 120 5746 5765 "typing.ml" 120 5746 5833
+type(
+  Ast.typ
+)
+"typing.ml" 119 5704 5719 "typing.ml" 120 5746 5834
+type(
+  Ast.typ
+)
+"typing.ml" 121 5836 5848 "typing.ml" 121 5836 5849
+type(
+  'a Ast.expr
+)
+ident(
+  def e "typing.ml" 121 5836 5857 "typing.ml" 124 5928 5943
+)
+"typing.ml" 121 5836 5851 "typing.ml" 121 5836 5852
+type(
+  'a Ast.ident
+)
+ident(
+  def x "typing.ml" 121 5836 5857 "typing.ml" 124 5928 5943
+)
+"typing.ml" 121 5836 5839 "typing.ml" 121 5836 5853
 type(
   'a Ast.lvalue
 )
-"typing.ml" 120 5311 5336 "typing.ml" 120 5311 5337
+"typing.ml" 121 5836 5861 "typing.ml" 121 5836 5862
 type(
   Ast.typ
 )
 ident(
-  def t "typing.ml" 121 5360 5363 "typing.ml" 123 5403 5418
+  def t "typing.ml" 122 5885 5888 "typing.ml" 124 5928 5943
 )
-"typing.ml" 120 5311 5340 "typing.ml" 120 5311 5349
+"typing.ml" 121 5836 5865 "typing.ml" 121 5836 5874
 type(
   Ast.typ Env.t -> 'a Ast.expr -> Ast.typ
 )
 ident(
   int_ref type_expr "typing.ml" 35 1021 1029 "typing.ml" 35 1021 1038
 )
-"typing.ml" 120 5311 5350 "typing.ml" 120 5311 5353
+"typing.ml" 121 5836 5875 "typing.ml" 121 5836 5878
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref env "typing.ml" 117 5179 5195 "typing.ml" 117 5179 5198
+  int_ref env "typing.ml" 117 5664 5680 "typing.ml" 117 5664 5683
 )
-"typing.ml" 120 5311 5354 "typing.ml" 120 5311 5355
+"typing.ml" 121 5836 5879 "typing.ml" 121 5836 5880
 type(
   'a Ast.expr
 )
 ident(
-  int_ref e "typing.ml" 120 5311 5323 "typing.ml" 120 5311 5324
+  int_ref e "typing.ml" 121 5836 5848 "typing.ml" 121 5836 5849
 )
-"typing.ml" 120 5311 5340 "typing.ml" 120 5311 5355
+"typing.ml" 121 5836 5865 "typing.ml" 121 5836 5880
 call(
   stack
 )
 type(
   Ast.typ
 )
-"typing.ml" 121 5360 5369 "typing.ml" 121 5360 5370
+"typing.ml" 122 5885 5894 "typing.ml" 122 5885 5895
 type(
   Ast.typ
 )
 ident(
-  int_ref t "typing.ml" 120 5311 5336 "typing.ml" 120 5311 5337
+  int_ref t "typing.ml" 121 5836 5861 "typing.ml" 121 5836 5862
 )
-"typing.ml" 122 5377 5382 "typing.ml" 122 5377 5383
+"typing.ml" 123 5902 5907 "typing.ml" 123 5902 5908
 type(
   Ast.typ
 )
-"typing.ml" 122 5377 5387 "typing.ml" 122 5377 5395
+"typing.ml" 123 5902 5912 "typing.ml" 123 5902 5920
 type(
   string -> Ast.typ
 )
 ident(
   ext_ref Pervasives.failwith
 )
-"typing.ml" 122 5377 5396 "typing.ml" 122 5377 5401
+"typing.ml" 123 5902 5921 "typing.ml" 123 5902 5926
 type(
   string
 )
-"typing.ml" 122 5377 5387 "typing.ml" 122 5377 5401
+"typing.ml" 123 5902 5912 "typing.ml" 123 5902 5926
 call(
   tail
 )
 type(
   Ast.typ
 )
-"typing.ml" 123 5403 5408 "typing.ml" 123 5403 5409
+"typing.ml" 124 5928 5933 "typing.ml" 124 5928 5934
 type(
   Ast.typ
 )
-"typing.ml" 123 5403 5413 "typing.ml" 123 5403 5418
+"typing.ml" 124 5928 5938 "typing.ml" 124 5928 5943
 type(
   Ast.typ
 )
-"typing.ml" 121 5360 5363 "typing.ml" 123 5403 5418
+"typing.ml" 122 5885 5888 "typing.ml" 124 5928 5943
 type(
   Ast.typ
 )
-"typing.ml" 120 5311 5332 "typing.ml" 123 5403 5418
+"typing.ml" 121 5836 5857 "typing.ml" 124 5928 5943
 type(
   Ast.typ
 )
-"typing.ml" 118 5204 5205 "typing.ml" 123 5403 5418
+"typing.ml" 118 5689 5690 "typing.ml" 124 5928 5943
 type(
   Ast.typ
 )
-"typing.ml" 125 5422 5430 "typing.ml" 125 5422 5440
+"typing.ml" 126 5947 5955 "typing.ml" 126 5947 5965
 type(
   Ast.typ Env.t -> Ast.position Ast.instr -> Ast.typ Env.t
 )
 ident(
-  def type_instr "typing.ml" 125 5422 5422 "_none_" 1 0 -1
+  def type_instr "typing.ml" 126 5947 5947 "_none_" 1 0 -1
 )
-"typing.ml" 125 5422 5441 "typing.ml" 125 5422 5444
+"typing.ml" 126 5947 5966 "typing.ml" 126 5947 5969
 type(
   Ast.typ Env.t
 )
 ident(
-  def env "typing.ml" 125 5422 5445 "typing.ml" 171 6828 6895
+  def env "typing.ml" 126 5947 5970 "typing.ml" 172 7353 7420
 )
-"typing.ml" 125 5422 5445 "typing.ml" 125 5422 5446
+"typing.ml" 126 5947 5970 "typing.ml" 126 5947 5971
 type(
   Ast.position Ast.instr
 )
 ident(
-  def i "typing.ml" 126 5491 5492 "typing.ml" 171 6828 6895
+  def i "typing.ml" 127 6016 6017 "typing.ml" 172 7353 7420
 )
-"typing.ml" 126 5491 5498 "typing.ml" 126 5491 5499
+"typing.ml" 127 6016 6023 "typing.ml" 127 6016 6024
 type(
   Ast.position Ast.instr
 )
 ident(
-  int_ref i "typing.ml" 125 5422 5445 "typing.ml" 125 5422 5446
+  int_ref i "typing.ml" 126 5947 5970 "typing.ml" 126 5947 5971
 )
-"typing.ml" 126 5491 5498 "typing.ml" 126 5491 5504
+"typing.ml" 127 6016 6023 "typing.ml" 127 6016 6029
 type(
   Ast.position Ast.instr_node
 )
-"typing.ml" 127 5511 5520 "typing.ml" 127 5511 5521
+"typing.ml" 128 6036 6045 "typing.ml" 128 6036 6046
 type(
   Ast.position Ast.expr
 )
 ident(
-  def e "typing.ml" 127 5511 5525 "typing.ml" 129 5557 5563
+  def e "typing.ml" 128 6036 6050 "typing.ml" 130 6082 6088
 )
-"typing.ml" 127 5511 5514 "typing.ml" 127 5511 5521
+"typing.ml" 128 6036 6039 "typing.ml" 128 6036 6046
 type(
   Ast.position Ast.instr_node
 )
-"typing.ml" 127 5511 5529 "typing.ml" 127 5511 5530
+"typing.ml" 128 6036 6054 "typing.ml" 128 6036 6055
 type(
   Ast.typ
 )
-"typing.ml" 127 5511 5533 "typing.ml" 127 5511 5542
+"typing.ml" 128 6036 6058 "typing.ml" 128 6036 6067
 type(
   Ast.typ Env.t -> Ast.position Ast.expr -> Ast.typ
 )
 ident(
   int_ref type_expr "typing.ml" 35 1021 1029 "typing.ml" 35 1021 1038
 )
-"typing.ml" 127 5511 5543 "typing.ml" 127 5511 5546
+"typing.ml" 128 6036 6068 "typing.ml" 128 6036 6071
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref env "typing.ml" 125 5422 5441 "typing.ml" 125 5422 5444
+  int_ref env "typing.ml" 126 5947 5966 "typing.ml" 126 5947 5969
 )
-"typing.ml" 127 5511 5547 "typing.ml" 127 5511 5548
+"typing.ml" 128 6036 6072 "typing.ml" 128 6036 6073
 type(
   Ast.position Ast.expr
 )
 ident(
-  int_ref e "typing.ml" 127 5511 5520 "typing.ml" 127 5511 5521
+  int_ref e "typing.ml" 128 6036 6045 "typing.ml" 128 6036 6046
 )
-"typing.ml" 127 5511 5533 "typing.ml" 127 5511 5548
+"typing.ml" 128 6036 6058 "typing.ml" 128 6036 6073
 call(
   stack
 )
 type(
   Ast.typ
 )
-"typing.ml" 129 5557 5560 "typing.ml" 129 5557 5563
+"typing.ml" 130 6082 6085 "typing.ml" 130 6082 6088
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref env "typing.ml" 125 5422 5441 "typing.ml" 125 5422 5444
+  int_ref env "typing.ml" 126 5947 5966 "typing.ml" 126 5947 5969
 )
-"typing.ml" 127 5511 5525 "typing.ml" 129 5557 5563
+"typing.ml" 128 6036 6050 "typing.ml" 130 6082 6088
 type(
   Ast.typ Env.t
 )
-"typing.ml" 130 5565 5574 "typing.ml" 130 5565 5575
+"typing.ml" 131 6090 6099 "typing.ml" 131 6090 6100
 type(
   Ast.typ
 )
 ident(
-  def t "typing.ml" 130 5565 5590 "typing.ml" 133 5695 5720
+  def t "typing.ml" 131 6090 6115 "typing.ml" 134 6220 6245
 )
-"typing.ml" 130 5565 5577 "typing.ml" 130 5565 5579
+"typing.ml" 131 6090 6102 "typing.ml" 131 6090 6104
 type(
   Ast.position Ast.ident
 )
 ident(
-  def id "typing.ml" 130 5565 5590 "typing.ml" 133 5695 5720
+  def id "typing.ml" 131 6090 6115 "typing.ml" 134 6220 6245
 )
-"typing.ml" 130 5565 5581 "typing.ml" 130 5565 5585
+"typing.ml" 131 6090 6106 "typing.ml" 131 6090 6110
 type(
   Ast.position Ast.expr option
 )
-"typing.ml" 130 5565 5568 "typing.ml" 130 5565 5586
+"typing.ml" 131 6090 6093 "typing.ml" 131 6090 6111
 type(
   Ast.position Ast.instr_node
 )
-"typing.ml" 130 5565 5593 "typing.ml" 130 5565 5600
+"typing.ml" 131 6090 6118 "typing.ml" 131 6090 6125
 type(
   Env.key -> Ast.typ Env.t -> bool
 )
 ident(
   ext_ref Env.mem
 )
-"typing.ml" 130 5565 5601 "typing.ml" 130 5565 5603
+"typing.ml" 131 6090 6126 "typing.ml" 131 6090 6128
 type(
   Ast.position Ast.ident
 )
 ident(
-  int_ref id "typing.ml" 130 5565 5577 "typing.ml" 130 5565 5579
+  int_ref id "typing.ml" 131 6090 6102 "typing.ml" 131 6090 6104
 )
-"typing.ml" 130 5565 5601 "typing.ml" 130 5565 5608
+"typing.ml" 131 6090 6126 "typing.ml" 131 6090 6133
 type(
   Env.key
 )
-"typing.ml" 130 5565 5609 "typing.ml" 130 5565 5612
+"typing.ml" 131 6090 6134 "typing.ml" 131 6090 6137
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref env "typing.ml" 125 5422 5441 "typing.ml" 125 5422 5444
+  int_ref env "typing.ml" 126 5947 5966 "typing.ml" 126 5947 5969
 )
-"typing.ml" 130 5565 5593 "typing.ml" 130 5565 5612
+"typing.ml" 131 6090 6118 "typing.ml" 131 6090 6137
 call(
   stack
 )
 type(
   bool
 )
-"typing.ml" 131 5619 5623 "typing.ml" 131 5619 5628
+"typing.ml" 132 6144 6148 "typing.ml" 132 6144 6153
 type(
   string -> Ast.position -> Ast.typ Env.t
 )
 ident(
   int_ref error "typing.ml" 7 119 123 "typing.ml" 7 119 128
 )
-"typing.ml" 131 5619 5630 "typing.ml" 131 5619 5644
+"typing.ml" 132 6144 6155 "typing.ml" 132 6144 6169
 type(
   string
 )
-"typing.ml" 131 5619 5645 "typing.ml" 131 5619 5646
+"typing.ml" 132 6144 6170 "typing.ml" 132 6144 6171
 type(
   string -> string -> string
 )
 ident(
   ext_ref Pervasives.( ^ )
 )
-"typing.ml" 131 5619 5647 "typing.ml" 131 5619 5649
+"typing.ml" 132 6144 6172 "typing.ml" 132 6144 6174
 type(
   Ast.position Ast.ident
 )
 ident(
-  int_ref id "typing.ml" 130 5565 5577 "typing.ml" 130 5565 5579
+  int_ref id "typing.ml" 131 6090 6102 "typing.ml" 131 6090 6104
 )
-"typing.ml" 131 5619 5647 "typing.ml" 131 5619 5654
+"typing.ml" 132 6144 6172 "typing.ml" 132 6144 6179
 type(
   string
 )
-"typing.ml" 131 5619 5655 "typing.ml" 131 5619 5656
+"typing.ml" 132 6144 6180 "typing.ml" 132 6144 6181
 type(
   string -> string -> string
 )
 ident(
   ext_ref Pervasives.( ^ )
 )
-"typing.ml" 131 5619 5657 "typing.ml" 131 5619 5675
+"typing.ml" 132 6144 6182 "typing.ml" 132 6144 6200
 type(
   string
 )
-"typing.ml" 131 5619 5647 "typing.ml" 131 5619 5675
+"typing.ml" 132 6144 6172 "typing.ml" 132 6144 6200
 call(
   stack
 )
 type(
   string
 )
-"typing.ml" 131 5619 5629 "typing.ml" 131 5619 5676
+"typing.ml" 132 6144 6154 "typing.ml" 132 6144 6201
 call(
   stack
 )
 type(
   string
 )
-"typing.ml" 131 5619 5677 "typing.ml" 131 5619 5679
+"typing.ml" 132 6144 6202 "typing.ml" 132 6144 6204
 type(
   Ast.position Ast.ident
 )
 ident(
-  int_ref id "typing.ml" 130 5565 5577 "typing.ml" 130 5565 5579
+  int_ref id "typing.ml" 131 6090 6102 "typing.ml" 131 6090 6104
 )
-"typing.ml" 131 5619 5677 "typing.ml" 131 5619 5684
+"typing.ml" 132 6144 6202 "typing.ml" 132 6144 6209
 type(
   Ast.position
 )
-"typing.ml" 131 5619 5623 "typing.ml" 131 5619 5684
+"typing.ml" 132 6144 6148 "typing.ml" 132 6144 6209
 call(
   tail
 )
 type(
   Ast.typ Env.t
 )
-"typing.ml" 133 5695 5699 "typing.ml" 133 5695 5706
+"typing.ml" 134 6220 6224 "typing.ml" 134 6220 6231
 type(
   Env.key -> Ast.typ -> Ast.typ Env.t -> Ast.typ Env.t
 )
 ident(
   ext_ref Env.add
 )
-"typing.ml" 133 5695 5707 "typing.ml" 133 5695 5709
+"typing.ml" 134 6220 6232 "typing.ml" 134 6220 6234
 type(
   Ast.position Ast.ident
 )
 ident(
-  int_ref id "typing.ml" 130 5565 5577 "typing.ml" 130 5565 5579
+  int_ref id "typing.ml" 131 6090 6102 "typing.ml" 131 6090 6104
 )
-"typing.ml" 133 5695 5707 "typing.ml" 133 5695 5714
+"typing.ml" 134 6220 6232 "typing.ml" 134 6220 6239
 type(
   Env.key
 )
-"typing.ml" 133 5695 5715 "typing.ml" 133 5695 5716
+"typing.ml" 134 6220 6240 "typing.ml" 134 6220 6241
 type(
   Ast.typ
 )
 ident(
-  int_ref t "typing.ml" 130 5565 5574 "typing.ml" 130 5565 5575
+  int_ref t "typing.ml" 131 6090 6099 "typing.ml" 131 6090 6100
 )
-"typing.ml" 133 5695 5717 "typing.ml" 133 5695 5720
+"typing.ml" 134 6220 6242 "typing.ml" 134 6220 6245
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref env "typing.ml" 125 5422 5441 "typing.ml" 125 5422 5444
+  int_ref env "typing.ml" 126 5947 5966 "typing.ml" 126 5947 5969
 )
-"typing.ml" 133 5695 5699 "typing.ml" 133 5695 5720
+"typing.ml" 134 6220 6224 "typing.ml" 134 6220 6245
 call(
   tail
 )
 type(
   Ast.typ Env.t
 )
-"typing.ml" 130 5565 5590 "typing.ml" 133 5695 5720
+"typing.ml" 131 6090 6115 "typing.ml" 134 6220 6245
 type(
   Ast.typ Env.t
 )
-"typing.ml" 134 5722 5731 "typing.ml" 134 5722 5732
+"typing.ml" 135 6247 6256 "typing.ml" 135 6247 6257
 type(
   Ast.typ
 )
 ident(
-  def t "typing.ml" 134 5722 5749 "typing.ml" 141 6022 6054
+  def t "typing.ml" 135 6247 6274 "typing.ml" 142 6547 6579
 )
-"typing.ml" 134 5722 5734 "typing.ml" 134 5722 5736
+"typing.ml" 135 6247 6259 "typing.ml" 135 6247 6261
 type(
   Ast.position Ast.ident
 )
 ident(
-  def id "typing.ml" 134 5722 5749 "typing.ml" 141 6022 6054
+  def id "typing.ml" 135 6247 6274 "typing.ml" 142 6547 6579
 )
-"typing.ml" 134 5722 5743 "typing.ml" 134 5722 5744
+"typing.ml" 135 6247 6268 "typing.ml" 135 6247 6269
 type(
   Ast.position Ast.expr
 )
 ident(
-  def e "typing.ml" 134 5722 5749 "typing.ml" 141 6022 6054
+  def e "typing.ml" 135 6247 6274 "typing.ml" 142 6547 6579
 )
-"typing.ml" 134 5722 5738 "typing.ml" 134 5722 5744
+"typing.ml" 135 6247 6263 "typing.ml" 135 6247 6269
 type(
   Ast.position Ast.expr option
 )
-"typing.ml" 134 5722 5725 "typing.ml" 134 5722 5745
+"typing.ml" 135 6247 6250 "typing.ml" 135 6247 6270
 type(
   Ast.position Ast.instr_node
 )
-"typing.ml" 134 5722 5752 "typing.ml" 134 5722 5759
+"typing.ml" 135 6247 6277 "typing.ml" 135 6247 6284
 type(
   Env.key -> Ast.typ Env.t -> bool
 )
 ident(
   ext_ref Env.mem
 )
-"typing.ml" 134 5722 5760 "typing.ml" 134 5722 5762
+"typing.ml" 135 6247 6285 "typing.ml" 135 6247 6287
 type(
   Ast.position Ast.ident
 )
 ident(
-  int_ref id "typing.ml" 134 5722 5734 "typing.ml" 134 5722 5736
+  int_ref id "typing.ml" 135 6247 6259 "typing.ml" 135 6247 6261
 )
-"typing.ml" 134 5722 5760 "typing.ml" 134 5722 5767
+"typing.ml" 135 6247 6285 "typing.ml" 135 6247 6292
 type(
   Env.key
 )
-"typing.ml" 134 5722 5768 "typing.ml" 134 5722 5771
+"typing.ml" 135 6247 6293 "typing.ml" 135 6247 6296
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref env "typing.ml" 125 5422 5441 "typing.ml" 125 5422 5444
+  int_ref env "typing.ml" 126 5947 5966 "typing.ml" 126 5947 5969
 )
-"typing.ml" 134 5722 5752 "typing.ml" 134 5722 5771
+"typing.ml" 135 6247 6277 "typing.ml" 135 6247 6296
 call(
   stack
 )
 type(
   bool
 )
-"typing.ml" 135 5778 5782 "typing.ml" 135 5778 5787
+"typing.ml" 136 6303 6307 "typing.ml" 136 6303 6312
 type(
   string -> Ast.position -> Ast.typ Env.t
 )
 ident(
   int_ref error "typing.ml" 7 119 123 "typing.ml" 7 119 128
 )
-"typing.ml" 135 5778 5789 "typing.ml" 135 5778 5803
+"typing.ml" 136 6303 6314 "typing.ml" 136 6303 6328
 type(
   string
 )
-"typing.ml" 135 5778 5804 "typing.ml" 135 5778 5805
+"typing.ml" 136 6303 6329 "typing.ml" 136 6303 6330
 type(
   string -> string -> string
 )
 ident(
   ext_ref Pervasives.( ^ )
 )
-"typing.ml" 135 5778 5806 "typing.ml" 135 5778 5808
+"typing.ml" 136 6303 6331 "typing.ml" 136 6303 6333
 type(
   Ast.position Ast.ident
 )
 ident(
-  int_ref id "typing.ml" 134 5722 5734 "typing.ml" 134 5722 5736
+  int_ref id "typing.ml" 135 6247 6259 "typing.ml" 135 6247 6261
 )
-"typing.ml" 135 5778 5806 "typing.ml" 135 5778 5813
+"typing.ml" 136 6303 6331 "typing.ml" 136 6303 6338
 type(
   string
 )
-"typing.ml" 135 5778 5814 "typing.ml" 135 5778 5815
+"typing.ml" 136 6303 6339 "typing.ml" 136 6303 6340
 type(
   string -> string -> string
 )
 ident(
   ext_ref Pervasives.( ^ )
 )
-"typing.ml" 135 5778 5816 "typing.ml" 135 5778 5834
+"typing.ml" 136 6303 6341 "typing.ml" 136 6303 6359
 type(
   string
 )
-"typing.ml" 135 5778 5806 "typing.ml" 135 5778 5834
+"typing.ml" 136 6303 6331 "typing.ml" 136 6303 6359
 call(
   stack
 )
 type(
   string
 )
-"typing.ml" 135 5778 5788 "typing.ml" 135 5778 5835
+"typing.ml" 136 6303 6313 "typing.ml" 136 6303 6360
 call(
   stack
 )
 type(
   string
 )
-"typing.ml" 135 5778 5836 "typing.ml" 135 5778 5838
+"typing.ml" 136 6303 6361 "typing.ml" 136 6303 6363
 type(
   Ast.position Ast.ident
 )
 ident(
-  int_ref id "typing.ml" 134 5722 5734 "typing.ml" 134 5722 5736
+  int_ref id "typing.ml" 135 6247 6259 "typing.ml" 135 6247 6261
 )
-"typing.ml" 135 5778 5836 "typing.ml" 135 5778 5843
+"typing.ml" 136 6303 6361 "typing.ml" 136 6303 6368
 type(
   Ast.position
 )
-"typing.ml" 135 5778 5782 "typing.ml" 135 5778 5843
+"typing.ml" 136 6303 6307 "typing.ml" 136 6303 6368
 call(
   tail
 )
 type(
   Ast.typ Env.t
 )
-"typing.ml" 137 5854 5863 "typing.ml" 137 5854 5868
+"typing.ml" 138 6379 6388 "typing.ml" 138 6379 6393
 type(
   Ast.typ
 )
 ident(
-  def type_ "typing.ml" 138 5891 5896 "typing.ml" 141 6022 6053
+  def type_ "typing.ml" 139 6416 6421 "typing.ml" 142 6547 6578
 )
-"typing.ml" 137 5854 5871 "typing.ml" 137 5854 5880
+"typing.ml" 138 6379 6396 "typing.ml" 138 6379 6405
 type(
   Ast.typ Env.t -> Ast.position Ast.expr -> Ast.typ
 )
 ident(
   int_ref type_expr "typing.ml" 35 1021 1029 "typing.ml" 35 1021 1038
 )
-"typing.ml" 137 5854 5881 "typing.ml" 137 5854 5884
+"typing.ml" 138 6379 6406 "typing.ml" 138 6379 6409
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref env "typing.ml" 125 5422 5441 "typing.ml" 125 5422 5444
+  int_ref env "typing.ml" 126 5947 5966 "typing.ml" 126 5947 5969
 )
-"typing.ml" 137 5854 5885 "typing.ml" 137 5854 5886
+"typing.ml" 138 6379 6410 "typing.ml" 138 6379 6411
 type(
   Ast.position Ast.expr
 )
 ident(
-  int_ref e "typing.ml" 134 5722 5743 "typing.ml" 134 5722 5744
+  int_ref e "typing.ml" 135 6247 6268 "typing.ml" 135 6247 6269
 )
-"typing.ml" 137 5854 5871 "typing.ml" 137 5854 5886
+"typing.ml" 138 6379 6396 "typing.ml" 138 6379 6411
 call(
   stack
 )
 type(
   Ast.typ
 )
-"typing.ml" 138 5891 5900 "typing.ml" 138 5891 5905
+"typing.ml" 139 6416 6425 "typing.ml" 139 6416 6430
 type(
   bool
 )
 ident(
-  def check "typing.ml" 139 5931 5936 "typing.ml" 141 6022 6053
+  def check "typing.ml" 140 6456 6461 "typing.ml" 142 6547 6578
 )
-"typing.ml" 138 5891 5908 "typing.ml" 138 5891 5918
+"typing.ml" 139 6416 6433 "typing.ml" 139 6416 6443
 type(
   Ast.typ -> Ast.typ -> bool
 )
 ident(
   int_ref compatible "typing.ml" 23 567 571 "typing.ml" 23 567 581
 )
-"typing.ml" 138 5891 5919 "typing.ml" 138 5891 5924
+"typing.ml" 139 6416 6444 "typing.ml" 139 6416 6449
 type(
   Ast.typ
 )
 ident(
-  int_ref type_ "typing.ml" 137 5854 5863 "typing.ml" 137 5854 5868
+  int_ref type_ "typing.ml" 138 6379 6388 "typing.ml" 138 6379 6393
 )
-"typing.ml" 138 5891 5925 "typing.ml" 138 5891 5926
+"typing.ml" 139 6416 6450 "typing.ml" 139 6416 6451
 type(
   Ast.typ
 )
 ident(
-  int_ref t "typing.ml" 134 5722 5731 "typing.ml" 134 5722 5732
+  int_ref t "typing.ml" 135 6247 6256 "typing.ml" 135 6247 6257
 )
-"typing.ml" 138 5891 5908 "typing.ml" 138 5891 5926
+"typing.ml" 139 6416 6433 "typing.ml" 139 6416 6451
 call(
   stack
 )
 type(
   bool
 )
-"typing.ml" 139 5931 5939 "typing.ml" 139 5931 5942
+"typing.ml" 140 6456 6464 "typing.ml" 140 6456 6467
 type(
   bool -> bool
 )
 ident(
   ext_ref Pervasives.not
 )
-"typing.ml" 139 5931 5943 "typing.ml" 139 5931 5948
+"typing.ml" 140 6456 6468 "typing.ml" 140 6456 6473
 type(
   bool
 )
 ident(
-  int_ref check "typing.ml" 138 5891 5900 "typing.ml" 138 5891 5905
+  int_ref check "typing.ml" 139 6416 6425 "typing.ml" 139 6416 6430
 )
-"typing.ml" 139 5931 5939 "typing.ml" 139 5931 5948
+"typing.ml" 140 6456 6464 "typing.ml" 140 6456 6473
 type(
   bool
 )
-"typing.ml" 140 5955 5961 "typing.ml" 140 5955 5966
+"typing.ml" 141 6480 6486 "typing.ml" 141 6480 6491
 type(
   string -> Ast.position -> Ast.typ Env.t
 )
 ident(
   int_ref error "typing.ml" 7 119 123 "typing.ml" 7 119 128
 )
-"typing.ml" 140 5955 5968 "typing.ml" 140 5955 5982
+"typing.ml" 141 6480 6493 "typing.ml" 141 6480 6507
 type(
   string
 )
-"typing.ml" 140 5955 5983 "typing.ml" 140 5955 5984
+"typing.ml" 141 6480 6508 "typing.ml" 141 6480 6509
 type(
   string -> string -> string
 )
 ident(
   ext_ref Pervasives.( ^ )
 )
-"typing.ml" 140 5955 5985 "typing.ml" 140 5955 5987
+"typing.ml" 141 6480 6510 "typing.ml" 141 6480 6512
 type(
   Ast.position Ast.ident
 )
 ident(
-  int_ref id "typing.ml" 134 5722 5734 "typing.ml" 134 5722 5736
+  int_ref id "typing.ml" 135 6247 6259 "typing.ml" 135 6247 6261
 )
-"typing.ml" 140 5955 5985 "typing.ml" 140 5955 5992
+"typing.ml" 141 6480 6510 "typing.ml" 141 6480 6517
 type(
   string
 )
-"typing.ml" 140 5955 5993 "typing.ml" 140 5955 5994
+"typing.ml" 141 6480 6518 "typing.ml" 141 6480 6519
 type(
   string -> string -> string
 )
 ident(
   ext_ref Pervasives.( ^ )
 )
-"typing.ml" 140 5955 5995 "typing.ml" 140 5955 6011
+"typing.ml" 141 6480 6520 "typing.ml" 141 6480 6536
 type(
   string
 )
-"typing.ml" 140 5955 5985 "typing.ml" 140 5955 6011
+"typing.ml" 141 6480 6510 "typing.ml" 141 6480 6536
 call(
   stack
 )
 type(
   string
 )
-"typing.ml" 140 5955 5967 "typing.ml" 140 5955 6012
+"typing.ml" 141 6480 6492 "typing.ml" 141 6480 6537
 call(
   stack
 )
 type(
   string
 )
-"typing.ml" 140 5955 6013 "typing.ml" 140 5955 6015
+"typing.ml" 141 6480 6538 "typing.ml" 141 6480 6540
 type(
   Ast.position Ast.ident
 )
 ident(
-  int_ref id "typing.ml" 134 5722 5734 "typing.ml" 134 5722 5736
+  int_ref id "typing.ml" 135 6247 6259 "typing.ml" 135 6247 6261
 )
-"typing.ml" 140 5955 6013 "typing.ml" 140 5955 6020
+"typing.ml" 141 6480 6538 "typing.ml" 141 6480 6545
 type(
   Ast.position
 )
-"typing.ml" 140 5955 5961 "typing.ml" 140 5955 6020
+"typing.ml" 141 6480 6486 "typing.ml" 141 6480 6545
 call(
   tail
 )
 type(
   Ast.typ Env.t
 )
-"typing.ml" 141 6022 6032 "typing.ml" 141 6022 6039
+"typing.ml" 142 6547 6557 "typing.ml" 142 6547 6564
 type(
   Env.key -> Ast.typ -> Ast.typ Env.t -> Ast.typ Env.t
 )
 ident(
   ext_ref Env.add
 )
-"typing.ml" 141 6022 6040 "typing.ml" 141 6022 6042
+"typing.ml" 142 6547 6565 "typing.ml" 142 6547 6567
 type(
   Ast.position Ast.ident
 )
 ident(
-  int_ref id "typing.ml" 134 5722 5734 "typing.ml" 134 5722 5736
+  int_ref id "typing.ml" 135 6247 6259 "typing.ml" 135 6247 6261
 )
-"typing.ml" 141 6022 6040 "typing.ml" 141 6022 6047
+"typing.ml" 142 6547 6565 "typing.ml" 142 6547 6572
 type(
   Env.key
 )
-"typing.ml" 141 6022 6048 "typing.ml" 141 6022 6049
+"typing.ml" 142 6547 6573 "typing.ml" 142 6547 6574
 type(
   Ast.typ
 )
 ident(
-  int_ref t "typing.ml" 134 5722 5731 "typing.ml" 134 5722 5732
+  int_ref t "typing.ml" 135 6247 6256 "typing.ml" 135 6247 6257
 )
-"typing.ml" 141 6022 6050 "typing.ml" 141 6022 6053
+"typing.ml" 142 6547 6575 "typing.ml" 142 6547 6578
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref env "typing.ml" 125 5422 5441 "typing.ml" 125 5422 5444
+  int_ref env "typing.ml" 126 5947 5966 "typing.ml" 126 5947 5969
 )
-"typing.ml" 141 6022 6032 "typing.ml" 141 6022 6053
+"typing.ml" 142 6547 6557 "typing.ml" 142 6547 6578
 call(
   tail
 )
 type(
   Ast.typ Env.t
 )
-"typing.ml" 139 5931 5936 "typing.ml" 141 6022 6053
+"typing.ml" 140 6456 6461 "typing.ml" 142 6547 6578
 type(
   Ast.typ Env.t
 )
-"typing.ml" 138 5891 5896 "typing.ml" 141 6022 6053
+"typing.ml" 139 6416 6421 "typing.ml" 142 6547 6578
 type(
   Ast.typ Env.t
 )
-"typing.ml" 137 5854 5858 "typing.ml" 141 6022 6054
+"typing.ml" 138 6379 6383 "typing.ml" 142 6547 6579
 type(
   Ast.typ Env.t
 )
-"typing.ml" 134 5722 5749 "typing.ml" 141 6022 6054
+"typing.ml" 135 6247 6274 "typing.ml" 142 6547 6579
 type(
   Ast.typ Env.t
 )
-"typing.ml" 142 6056 6064 "typing.ml" 142 6056 6066
+"typing.ml" 143 6581 6589 "typing.ml" 143 6581 6591
 type(
   Ast.position Ast.expr
 )
 ident(
-  def e1 "typing.ml" 143 6082 6085 "typing.ml" 154 6324 6374
+  def e1 "typing.ml" 144 6607 6610 "typing.ml" 155 6849 6899
 )
-"typing.ml" 142 6056 6068 "typing.ml" 142 6056 6071
+"typing.ml" 143 6581 6593 "typing.ml" 143 6581 6596
 type(
   Ast.position Ast.instr
 )
 ident(
-  def in1 "typing.ml" 143 6082 6085 "typing.ml" 154 6324 6374
+  def in1 "typing.ml" 144 6607 6610 "typing.ml" 155 6849 6899
 )
-"typing.ml" 142 6056 6073 "typing.ml" 142 6056 6076
+"typing.ml" 143 6581 6598 "typing.ml" 143 6581 6601
 type(
   Ast.position Ast.instr
 )
 ident(
-  def in2 "typing.ml" 143 6082 6085 "typing.ml" 154 6324 6374
+  def in2 "typing.ml" 144 6607 6610 "typing.ml" 155 6849 6899
 )
-"typing.ml" 142 6056 6059 "typing.ml" 142 6056 6077
+"typing.ml" 143 6581 6584 "typing.ml" 143 6581 6602
 type(
   Ast.position Ast.instr_node
 )
-"typing.ml" 144 6091 6099 "typing.ml" 144 6091 6101
+"typing.ml" 145 6616 6624 "typing.ml" 145 6616 6626
 type(
   Ast.typ
 )
 ident(
-  def t1 "typing.ml" 145 6125 6129 "typing.ml" 153 6316 6322
+  def t1 "typing.ml" 146 6650 6654 "typing.ml" 154 6841 6847
 )
-"typing.ml" 144 6091 6104 "typing.ml" 144 6091 6113
+"typing.ml" 145 6616 6629 "typing.ml" 145 6616 6638
 type(
   Ast.typ Env.t -> Ast.position Ast.expr -> Ast.typ
 )
 ident(
   int_ref type_expr "typing.ml" 35 1021 1029 "typing.ml" 35 1021 1038
 )
-"typing.ml" 144 6091 6114 "typing.ml" 144 6091 6117
+"typing.ml" 145 6616 6639 "typing.ml" 145 6616 6642
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref env "typing.ml" 125 5422 5441 "typing.ml" 125 5422 5444
+  int_ref env "typing.ml" 126 5947 5966 "typing.ml" 126 5947 5969
 )
-"typing.ml" 144 6091 6118 "typing.ml" 144 6091 6120
+"typing.ml" 145 6616 6643 "typing.ml" 145 6616 6645
 type(
   Ast.position Ast.expr
 )
 ident(
-  int_ref e1 "typing.ml" 142 6056 6064 "typing.ml" 142 6056 6066
+  int_ref e1 "typing.ml" 143 6581 6589 "typing.ml" 143 6581 6591
 )
-"typing.ml" 144 6091 6104 "typing.ml" 144 6091 6120
+"typing.ml" 145 6616 6629 "typing.ml" 145 6616 6645
 call(
   stack
 )
 type(
   Ast.typ
 )
-"typing.ml" 145 6125 6132 "typing.ml" 145 6125 6134
+"typing.ml" 146 6650 6657 "typing.ml" 146 6650 6659
 type(
   Ast.typ
 )
 ident(
-  int_ref t1 "typing.ml" 144 6091 6099 "typing.ml" 144 6091 6101
+  int_ref t1 "typing.ml" 145 6616 6624 "typing.ml" 145 6616 6626
 )
-"typing.ml" 145 6125 6135 "typing.ml" 145 6125 6137
+"typing.ml" 146 6650 6660 "typing.ml" 146 6650 6662
 type(
   Ast.typ -> Ast.typ -> bool
 )
 ident(
   ext_ref Pervasives.( <> )
 )
-"typing.ml" 145 6125 6138 "typing.ml" 145 6125 6146
+"typing.ml" 146 6650 6663 "typing.ml" 146 6650 6671
 type(
   Ast.typ
 )
-"typing.ml" 145 6125 6132 "typing.ml" 145 6125 6146
+"typing.ml" 146 6650 6657 "typing.ml" 146 6650 6671
 type(
   bool
 )
-"typing.ml" 146 6148 6157 "typing.ml" 146 6148 6162
+"typing.ml" 147 6673 6682 "typing.ml" 147 6673 6687
 type(
   string -> Ast.position -> Ast.typ Env.t
 )
 ident(
   int_ref error "typing.ml" 7 119 123 "typing.ml" 7 119 128
 )
-"typing.ml" 146 6148 6163 "typing.ml" 146 6148 6199
+"typing.ml" 147 6673 6688 "typing.ml" 147 6673 6724
 type(
   string
 )
-"typing.ml" 146 6148 6200 "typing.ml" 146 6148 6202
+"typing.ml" 147 6673 6725 "typing.ml" 147 6673 6727
 type(
   Ast.position Ast.expr
 )
 ident(
-  int_ref e1 "typing.ml" 142 6056 6064 "typing.ml" 142 6056 6066
+  int_ref e1 "typing.ml" 143 6581 6589 "typing.ml" 143 6581 6591
 )
-"typing.ml" 146 6148 6200 "typing.ml" 146 6148 6207
+"typing.ml" 147 6673 6725 "typing.ml" 147 6673 6732
 type(
   Ast.position
 )
-"typing.ml" 146 6148 6157 "typing.ml" 146 6148 6207
+"typing.ml" 147 6673 6682 "typing.ml" 147 6673 6732
 call(
   stack
 )
 type(
   Ast.typ Env.t
 )
-"typing.ml" 149 6227 6237 "typing.ml" 149 6227 6238
+"typing.ml" 150 6752 6762 "typing.ml" 150 6752 6763
 type(
   Ast.typ Env.t
 )
-"typing.ml" 149 6227 6241 "typing.ml" 149 6227 6251
+"typing.ml" 150 6752 6766 "typing.ml" 150 6752 6776
 type(
   Ast.typ Env.t -> Ast.position Ast.instr -> Ast.typ Env.t
 )
 ident(
-  int_ref type_instr "typing.ml" 125 5422 5430 "typing.ml" 125 5422 5440
+  int_ref type_instr "typing.ml" 126 5947 5955 "typing.ml" 126 5947 5965
 )
-"typing.ml" 149 6227 6252 "typing.ml" 149 6227 6255
+"typing.ml" 150 6752 6777 "typing.ml" 150 6752 6780
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref env "typing.ml" 125 5422 5441 "typing.ml" 125 5422 5444
+  int_ref env "typing.ml" 126 5947 5966 "typing.ml" 126 5947 5969
 )
-"typing.ml" 149 6227 6256 "typing.ml" 149 6227 6259
+"typing.ml" 150 6752 6781 "typing.ml" 150 6752 6784
 type(
   Ast.position Ast.instr
 )
 ident(
-  int_ref in1 "typing.ml" 142 6056 6068 "typing.ml" 142 6056 6071
+  int_ref in1 "typing.ml" 143 6581 6593 "typing.ml" 143 6581 6596
 )
-"typing.ml" 149 6227 6241 "typing.ml" 149 6227 6259
+"typing.ml" 150 6752 6766 "typing.ml" 150 6752 6784
 call(
   stack
 )
 type(
   Ast.typ Env.t
 )
-"typing.ml" 150 6261 6271 "typing.ml" 150 6261 6272
+"typing.ml" 151 6786 6796 "typing.ml" 151 6786 6797
 type(
   Ast.typ Env.t
 )
-"typing.ml" 150 6261 6275 "typing.ml" 150 6261 6285
+"typing.ml" 151 6786 6800 "typing.ml" 151 6786 6810
 type(
   Ast.typ Env.t -> Ast.position Ast.instr -> Ast.typ Env.t
 )
 ident(
-  int_ref type_instr "typing.ml" 125 5422 5430 "typing.ml" 125 5422 5440
+  int_ref type_instr "typing.ml" 126 5947 5955 "typing.ml" 126 5947 5965
 )
-"typing.ml" 150 6261 6286 "typing.ml" 150 6261 6289
+"typing.ml" 151 6786 6811 "typing.ml" 151 6786 6814
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref env "typing.ml" 125 5422 5441 "typing.ml" 125 5422 5444
+  int_ref env "typing.ml" 126 5947 5966 "typing.ml" 126 5947 5969
 )
-"typing.ml" 150 6261 6290 "typing.ml" 150 6261 6293
+"typing.ml" 151 6786 6815 "typing.ml" 151 6786 6818
 type(
   Ast.position Ast.instr
 )
 ident(
-  int_ref in2 "typing.ml" 142 6056 6073 "typing.ml" 142 6056 6076
+  int_ref in2 "typing.ml" 143 6581 6598 "typing.ml" 143 6581 6601
 )
-"typing.ml" 150 6261 6275 "typing.ml" 150 6261 6293
+"typing.ml" 151 6786 6800 "typing.ml" 151 6786 6818
 call(
   stack
 )
 type(
   Ast.typ Env.t
 )
-"typing.ml" 152 6305 6311 "typing.ml" 152 6305 6314
+"typing.ml" 153 6830 6836 "typing.ml" 153 6830 6839
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref env "typing.ml" 125 5422 5441 "typing.ml" 125 5422 5444
+  int_ref env "typing.ml" 126 5947 5966 "typing.ml" 126 5947 5969
 )
-"typing.ml" 148 6219 6224 "typing.ml" 153 6316 6322
+"typing.ml" 149 6744 6749 "typing.ml" 154 6841 6847
 type(
   Ast.typ Env.t
 )
-"typing.ml" 145 6125 6129 "typing.ml" 153 6316 6322
+"typing.ml" 146 6650 6654 "typing.ml" 154 6841 6847
 type(
   Ast.typ Env.t
 )
-"typing.ml" 144 6091 6095 "typing.ml" 153 6316 6322
+"typing.ml" 145 6616 6620 "typing.ml" 154 6841 6847
 type(
   Ast.typ Env.t
 )
-"typing.ml" 154 6324 6349 "typing.ml" 154 6324 6352
+"typing.ml" 155 6849 6874 "typing.ml" 155 6849 6877
 type(
   string
 )
 ident(
-  def msg "typing.ml" 154 6324 6356 "typing.ml" 154 6324 6373
+  def msg "typing.ml" 155 6849 6881 "typing.ml" 155 6849 6898
 )
-"typing.ml" 154 6324 6332 "typing.ml" 154 6324 6352
+"typing.ml" 155 6849 6857 "typing.ml" 155 6849 6877
 type(
   exn
 )
-"typing.ml" 154 6324 6356 "typing.ml" 154 6324 6361
+"typing.ml" 155 6849 6881 "typing.ml" 155 6849 6886
 type(
   string -> Ast.position -> Ast.typ Env.t
 )
 ident(
   int_ref error "typing.ml" 7 119 123 "typing.ml" 7 119 128
 )
-"typing.ml" 154 6324 6362 "typing.ml" 154 6324 6365
+"typing.ml" 155 6849 6887 "typing.ml" 155 6849 6890
 type(
   string
 )
 ident(
-  int_ref msg "typing.ml" 154 6324 6349 "typing.ml" 154 6324 6352
+  int_ref msg "typing.ml" 155 6849 6874 "typing.ml" 155 6849 6877
 )
-"typing.ml" 154 6324 6366 "typing.ml" 154 6324 6368
+"typing.ml" 155 6849 6891 "typing.ml" 155 6849 6893
 type(
   Ast.position Ast.expr
 )
 ident(
-  int_ref e1 "typing.ml" 142 6056 6064 "typing.ml" 142 6056 6066
+  int_ref e1 "typing.ml" 143 6581 6589 "typing.ml" 143 6581 6591
 )
-"typing.ml" 154 6324 6366 "typing.ml" 154 6324 6373
+"typing.ml" 155 6849 6891 "typing.ml" 155 6849 6898
 type(
   Ast.position
 )
-"typing.ml" 154 6324 6356 "typing.ml" 154 6324 6373
+"typing.ml" 155 6849 6881 "typing.ml" 155 6849 6898
 call(
   tail
 )
 type(
   Ast.typ Env.t
 )
-"typing.ml" 143 6082 6085 "typing.ml" 154 6324 6374
+"typing.ml" 144 6607 6610 "typing.ml" 155 6849 6899
 type(
   Ast.typ Env.t
 )
-"typing.ml" 155 6376 6390 "typing.ml" 155 6376 6392
+"typing.ml" 156 6901 6915 "typing.ml" 156 6901 6917
 type(
   Ast.position Ast.expr
 )
 ident(
-  def e1 "typing.ml" 157 6465 6468 "typing.ml" 163 6609 6615
+  def e1 "typing.ml" 158 6990 6993 "typing.ml" 164 7134 7140
 )
-"typing.ml" 155 6376 6385 "typing.ml" 155 6376 6392
+"typing.ml" 156 6901 6910 "typing.ml" 156 6901 6917
 type(
   Ast.position Ast.expr option
 )
-"typing.ml" 155 6376 6399 "typing.ml" 155 6376 6401
+"typing.ml" 156 6901 6924 "typing.ml" 156 6901 6926
 type(
   Ast.position Ast.expr
 )
 ident(
-  def e2 "typing.ml" 157 6465 6468 "typing.ml" 163 6609 6615
+  def e2 "typing.ml" 158 6990 6993 "typing.ml" 164 7134 7140
 )
-"typing.ml" 155 6376 6394 "typing.ml" 155 6376 6401
+"typing.ml" 156 6901 6919 "typing.ml" 156 6901 6926
 type(
   Ast.position Ast.expr option
 )
-"typing.ml" 155 6376 6408 "typing.ml" 155 6376 6410
+"typing.ml" 156 6901 6933 "typing.ml" 156 6901 6935
 type(
   Ast.position Ast.expr
 )
 ident(
-  def e3 "typing.ml" 157 6465 6468 "typing.ml" 163 6609 6615
+  def e3 "typing.ml" 158 6990 6993 "typing.ml" 164 7134 7140
 )
-"typing.ml" 155 6376 6403 "typing.ml" 155 6376 6410
+"typing.ml" 156 6901 6928 "typing.ml" 156 6901 6935
 type(
   Ast.position Ast.expr option
 )
-"typing.ml" 155 6376 6412 "typing.ml" 155 6376 6415
+"typing.ml" 156 6901 6937 "typing.ml" 156 6901 6940
 type(
   Ast.position Ast.instr
 )
 ident(
-  def in1 "typing.ml" 157 6465 6468 "typing.ml" 163 6609 6615
+  def in1 "typing.ml" 158 6990 6993 "typing.ml" 164 7134 7140
 )
-"typing.ml" 155 6376 6379 "typing.ml" 155 6376 6416
+"typing.ml" 156 6901 6904 "typing.ml" 156 6901 6941
 type(
   Ast.position Ast.instr_node
 )
-"typing.ml" 157 6465 6472 "typing.ml" 157 6465 6475
+"typing.ml" 158 6990 6997 "typing.ml" 158 6990 7000
 type(
   Ast.typ
 )
 ident(
-  def te2 "typing.ml" 158 6499 6502 "typing.ml" 163 6609 6615
+  def te2 "typing.ml" 159 7024 7027 "typing.ml" 164 7134 7140
 )
-"typing.ml" 157 6465 6478 "typing.ml" 157 6465 6487
+"typing.ml" 158 6990 7003 "typing.ml" 158 6990 7012
 type(
   Ast.typ Env.t -> Ast.position Ast.expr -> Ast.typ
 )
 ident(
   int_ref type_expr "typing.ml" 35 1021 1029 "typing.ml" 35 1021 1038
 )
-"typing.ml" 157 6465 6488 "typing.ml" 157 6465 6491
+"typing.ml" 158 6990 7013 "typing.ml" 158 6990 7016
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref env "typing.ml" 125 5422 5441 "typing.ml" 125 5422 5444
+  int_ref env "typing.ml" 126 5947 5966 "typing.ml" 126 5947 5969
 )
-"typing.ml" 157 6465 6492 "typing.ml" 157 6465 6494
+"typing.ml" 158 6990 7017 "typing.ml" 158 6990 7019
 type(
   Ast.position Ast.expr
 )
 ident(
-  int_ref e2 "typing.ml" 155 6376 6399 "typing.ml" 155 6376 6401
+  int_ref e2 "typing.ml" 156 6901 6924 "typing.ml" 156 6901 6926
 )
-"typing.ml" 157 6465 6478 "typing.ml" 157 6465 6494
+"typing.ml" 158 6990 7003 "typing.ml" 158 6990 7019
 call(
   stack
 )
 type(
   Ast.typ
 )
-"typing.ml" 158 6499 6505 "typing.ml" 158 6499 6508
+"typing.ml" 159 7024 7030 "typing.ml" 159 7024 7033
 type(
   bool -> bool
 )
 ident(
   ext_ref Pervasives.not
 )
-"typing.ml" 158 6499 6509 "typing.ml" 158 6499 6519
+"typing.ml" 159 7024 7034 "typing.ml" 159 7024 7044
 type(
   Ast.typ -> Ast.typ -> bool
 )
 ident(
   int_ref compatible "typing.ml" 23 567 571 "typing.ml" 23 567 581
 )
-"typing.ml" 158 6499 6520 "typing.ml" 158 6499 6523
+"typing.ml" 159 7024 7045 "typing.ml" 159 7024 7048
 type(
   Ast.typ
 )
 ident(
-  int_ref te2 "typing.ml" 157 6465 6472 "typing.ml" 157 6465 6475
+  int_ref te2 "typing.ml" 158 6990 6997 "typing.ml" 158 6990 7000
 )
-"typing.ml" 158 6499 6524 "typing.ml" 158 6499 6528
+"typing.ml" 159 7024 7049 "typing.ml" 159 7024 7053
 type(
   Ast.typ
 )
-"typing.ml" 158 6499 6508 "typing.ml" 158 6499 6530
+"typing.ml" 159 7024 7033 "typing.ml" 159 7024 7055
 call(
   stack
 )
 type(
   bool
 )
-"typing.ml" 158 6499 6505 "typing.ml" 158 6499 6530
+"typing.ml" 159 7024 7030 "typing.ml" 159 7024 7055
 type(
   bool
 )
-"typing.ml" 160 6541 6545 "typing.ml" 160 6541 6553
+"typing.ml" 161 7066 7070 "typing.ml" 161 7066 7078
 type(
   string -> unit
 )
 ident(
   ext_ref Pervasives.failwith
 )
-"typing.ml" 160 6541 6554 "typing.ml" 160 6541 6570
+"typing.ml" 161 7066 7079 "typing.ml" 161 7066 7095
 type(
   string
 )
-"typing.ml" 160 6541 6545 "typing.ml" 160 6541 6570
+"typing.ml" 161 7066 7070 "typing.ml" 161 7066 7095
 call(
   stack
 )
 type(
   unit
 )
-"typing.ml" 158 6499 6502 "typing.ml" 160 6541 6570
+"typing.ml" 159 7024 7027 "typing.ml" 161 7066 7095
 type(
   unit
 )
-"typing.ml" 162 6575 6582 "typing.ml" 162 6575 6583
+"typing.ml" 163 7100 7107 "typing.ml" 163 7100 7108
 type(
   Ast.typ Env.t
 )
-"typing.ml" 162 6575 6586 "typing.ml" 162 6575 6596
+"typing.ml" 163 7100 7111 "typing.ml" 163 7100 7121
 type(
   Ast.typ Env.t -> Ast.position Ast.instr -> Ast.typ Env.t
 )
 ident(
-  int_ref type_instr "typing.ml" 125 5422 5430 "typing.ml" 125 5422 5440
+  int_ref type_instr "typing.ml" 126 5947 5955 "typing.ml" 126 5947 5965
 )
-"typing.ml" 162 6575 6597 "typing.ml" 162 6575 6600
+"typing.ml" 163 7100 7122 "typing.ml" 163 7100 7125
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref env "typing.ml" 125 5422 5441 "typing.ml" 125 5422 5444
+  int_ref env "typing.ml" 126 5947 5966 "typing.ml" 126 5947 5969
 )
-"typing.ml" 162 6575 6601 "typing.ml" 162 6575 6604
+"typing.ml" 163 7100 7126 "typing.ml" 163 7100 7129
 type(
   Ast.position Ast.instr
 )
 ident(
-  int_ref in1 "typing.ml" 155 6376 6412 "typing.ml" 155 6376 6415
+  int_ref in1 "typing.ml" 156 6901 6937 "typing.ml" 156 6901 6940
 )
-"typing.ml" 162 6575 6586 "typing.ml" 162 6575 6604
+"typing.ml" 163 7100 7111 "typing.ml" 163 7100 7129
 call(
   stack
 )
 type(
   Ast.typ Env.t
 )
-"typing.ml" 163 6609 6612 "typing.ml" 163 6609 6615
+"typing.ml" 164 7134 7137 "typing.ml" 164 7134 7140
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref env "typing.ml" 125 5422 5441 "typing.ml" 125 5422 5444
+  int_ref env "typing.ml" 126 5947 5966 "typing.ml" 126 5947 5969
 )
-"typing.ml" 162 6575 6578 "typing.ml" 163 6609 6615
+"typing.ml" 163 7100 7103 "typing.ml" 164 7134 7140
 type(
   Ast.typ Env.t
 )
-"typing.ml" 158 6499 6502 "typing.ml" 163 6609 6615
+"typing.ml" 159 7024 7027 "typing.ml" 164 7134 7140
 type(
   Ast.typ Env.t
 )
-"typing.ml" 157 6465 6468 "typing.ml" 163 6609 6615
+"typing.ml" 158 6990 6993 "typing.ml" 164 7134 7140
 type(
   Ast.typ Env.t
 )
-"typing.ml" 164 6617 6627 "typing.ml" 164 6617 6634
+"typing.ml" 165 7142 7152 "typing.ml" 165 7142 7159
 ident(
-  def in_list "typing.ml" 165 6642 6644 "typing.ml" 169 6771 6792
+  def in_list "typing.ml" 166 7167 7169 "typing.ml" 170 7296 7317
 )
-"typing.ml" 164 6617 6626 "typing.ml" 164 6617 6635
+"typing.ml" 165 7142 7151 "typing.ml" 165 7142 7160
 type(
   Ast.position Ast.instr list
 )
-"typing.ml" 164 6617 6620 "typing.ml" 164 6617 6635
+"typing.ml" 165 7142 7145 "typing.ml" 165 7142 7160
 type(
   Ast.position Ast.instr_node
 )
-"typing.ml" 165 6642 6652 "typing.ml" 165 6642 6655
+"typing.ml" 166 7167 7177 "typing.ml" 166 7167 7180
 type(
   Ast.typ Env.t -> Ast.position Ast.instr list -> Ast.typ Env.t
 )
 ident(
-  def aux "typing.ml" 165 6642 6644 "typing.ml" 169 6771 6792
+  def aux "typing.ml" 166 7167 7169 "typing.ml" 170 7296 7317
 )
-"typing.ml" 165 6642 6656 "typing.ml" 165 6642 6659
+"typing.ml" 166 7167 7181 "typing.ml" 166 7167 7184
 type(
   Ast.typ Env.t
 )
 ident(
-  def env "typing.ml" 165 6642 6660 "typing.ml" 168 6706 6769
+  def env "typing.ml" 166 7167 7185 "typing.ml" 169 7231 7294
 )
-"typing.ml" 165 6642 6660 "typing.ml" 165 6642 6664
+"typing.ml" 166 7167 7185 "typing.ml" 166 7167 7189
 type(
   Ast.position Ast.instr list
 )
 ident(
-  def list "typing.ml" 166 6668 6672 "typing.ml" 168 6706 6769
+  def list "typing.ml" 167 7193 7197 "typing.ml" 169 7231 7294
 )
-"typing.ml" 166 6668 6678 "typing.ml" 166 6668 6682
+"typing.ml" 167 7193 7203 "typing.ml" 167 7193 7207
 type(
   Ast.position Ast.instr list
 )
 ident(
-  int_ref list "typing.ml" 165 6642 6660 "typing.ml" 165 6642 6664
+  int_ref list "typing.ml" 166 7167 7185 "typing.ml" 166 7167 7189
 )
-"typing.ml" 167 6689 6695 "typing.ml" 167 6689 6697
+"typing.ml" 168 7214 7220 "typing.ml" 168 7214 7222
 type(
   Ast.position Ast.instr list
 )
-"typing.ml" 167 6689 6701 "typing.ml" 167 6689 6704
+"typing.ml" 168 7214 7226 "typing.ml" 168 7214 7229
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref env "typing.ml" 165 6642 6656 "typing.ml" 165 6642 6659
+  int_ref env "typing.ml" 166 7167 7181 "typing.ml" 166 7167 7184
 )
-"typing.ml" 168 6706 6712 "typing.ml" 168 6706 6713
+"typing.ml" 169 7231 7237 "typing.ml" 169 7231 7238
 type(
   Ast.position Ast.instr
 )
 ident(
-  def a "typing.ml" 168 6706 6722 "typing.ml" 168 6706 6769
+  def a "typing.ml" 169 7231 7247 "typing.ml" 169 7231 7294
 )
-"typing.ml" 168 6706 6717 "typing.ml" 168 6706 6718
+"typing.ml" 169 7231 7242 "typing.ml" 169 7231 7243
 type(
   Ast.position Ast.instr list
 )
 ident(
-  def r "typing.ml" 168 6706 6722 "typing.ml" 168 6706 6769
+  def r "typing.ml" 169 7231 7247 "typing.ml" 169 7231 7294
 )
-"typing.ml" 168 6706 6712 "typing.ml" 168 6706 6718
+"typing.ml" 169 7231 7237 "typing.ml" 169 7231 7243
 type(
   Ast.position Ast.instr list
 )
-"typing.ml" 168 6706 6726 "typing.ml" 168 6706 6733
+"typing.ml" 169 7231 7251 "typing.ml" 169 7231 7258
 type(
   Ast.typ Env.t
 )
 ident(
-  def new_env "typing.ml" 168 6706 6756 "typing.ml" 168 6706 6769
+  def new_env "typing.ml" 169 7231 7281 "typing.ml" 169 7231 7294
 )
-"typing.ml" 168 6706 6736 "typing.ml" 168 6706 6746
+"typing.ml" 169 7231 7261 "typing.ml" 169 7231 7271
 type(
   Ast.typ Env.t -> Ast.position Ast.instr -> Ast.typ Env.t
 )
 ident(
-  int_ref type_instr "typing.ml" 125 5422 5430 "typing.ml" 125 5422 5440
+  int_ref type_instr "typing.ml" 126 5947 5955 "typing.ml" 126 5947 5965
 )
-"typing.ml" 168 6706 6747 "typing.ml" 168 6706 6750
+"typing.ml" 169 7231 7272 "typing.ml" 169 7231 7275
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref env "typing.ml" 165 6642 6656 "typing.ml" 165 6642 6659
+  int_ref env "typing.ml" 166 7167 7181 "typing.ml" 166 7167 7184
 )
-"typing.ml" 168 6706 6751 "typing.ml" 168 6706 6752
+"typing.ml" 169 7231 7276 "typing.ml" 169 7231 7277
 type(
   Ast.position Ast.instr
 )
 ident(
-  int_ref a "typing.ml" 168 6706 6712 "typing.ml" 168 6706 6713
+  int_ref a "typing.ml" 169 7231 7237 "typing.ml" 169 7231 7238
 )
-"typing.ml" 168 6706 6736 "typing.ml" 168 6706 6752
+"typing.ml" 169 7231 7261 "typing.ml" 169 7231 7277
 call(
   stack
 )
 type(
   Ast.typ Env.t
 )
-"typing.ml" 168 6706 6756 "typing.ml" 168 6706 6759
+"typing.ml" 169 7231 7281 "typing.ml" 169 7231 7284
 type(
   Ast.typ Env.t -> Ast.position Ast.instr list -> Ast.typ Env.t
 )
 ident(
-  int_ref aux "typing.ml" 165 6642 6652 "typing.ml" 165 6642 6655
+  int_ref aux "typing.ml" 166 7167 7177 "typing.ml" 166 7167 7180
 )
-"typing.ml" 168 6706 6760 "typing.ml" 168 6706 6767
+"typing.ml" 169 7231 7285 "typing.ml" 169 7231 7292
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref new_env "typing.ml" 168 6706 6726 "typing.ml" 168 6706 6733
+  int_ref new_env "typing.ml" 169 7231 7251 "typing.ml" 169 7231 7258
 )
-"typing.ml" 168 6706 6768 "typing.ml" 168 6706 6769
+"typing.ml" 169 7231 7293 "typing.ml" 169 7231 7294
 type(
   Ast.position Ast.instr list
 )
 ident(
-  int_ref r "typing.ml" 168 6706 6717 "typing.ml" 168 6706 6718
+  int_ref r "typing.ml" 169 7231 7242 "typing.ml" 169 7231 7243
 )
-"typing.ml" 168 6706 6756 "typing.ml" 168 6706 6769
+"typing.ml" 169 7231 7281 "typing.ml" 169 7231 7294
 call(
   tail
 )
 type(
   Ast.typ Env.t
 )
-"typing.ml" 168 6706 6722 "typing.ml" 168 6706 6769
+"typing.ml" 169 7231 7247 "typing.ml" 169 7231 7294
 type(
   Ast.typ Env.t
 )
-"typing.ml" 166 6668 6672 "typing.ml" 168 6706 6769
+"typing.ml" 167 7193 7197 "typing.ml" 169 7231 7294
 type(
   Ast.typ Env.t
 )
-"typing.ml" 169 6771 6777 "typing.ml" 169 6771 6780
+"typing.ml" 170 7296 7302 "typing.ml" 170 7296 7305
 type(
   Ast.typ Env.t -> Ast.position Ast.instr list -> Ast.typ Env.t
 )
 ident(
-  int_ref aux "typing.ml" 165 6642 6652 "typing.ml" 165 6642 6655
+  int_ref aux "typing.ml" 166 7167 7177 "typing.ml" 166 7167 7180
 )
-"typing.ml" 169 6771 6781 "typing.ml" 169 6771 6784
+"typing.ml" 170 7296 7306 "typing.ml" 170 7296 7309
 type(
   Ast.typ Env.t
 )
 ident(
-  int_ref env "typing.ml" 125 5422 5441 "typing.ml" 125 5422 5444
+  int_ref env "typing.ml" 126 5947 5966 "typing.ml" 126 5947 5969
 )
-"typing.ml" 169 6771 6785 "typing.ml" 169 6771 6792
+"typing.ml" 170 7296 7310 "typing.ml" 170 7296 7317
 type(
   Ast.position Ast.instr list
 )
 ident(
-  int_ref in_list "typing.ml" 164 6617 6626 "typing.ml" 164 6617 6635
+  int_ref in_list "typing.ml" 165 7142 7151 "typing.ml" 165 7142 7160
 )
-"typing.ml" 169 6771 6777 "typing.ml" 169 6771 6792
+"typing.ml" 170 7296 7302 "typing.ml" 170 7296 7317
 call(
   tail
 )
 type(
   Ast.typ Env.t
 )
-"typing.ml" 165 6642 6644 "typing.ml" 169 6771 6792
+"typing.ml" 166 7167 7169 "typing.ml" 170 7296 7317
 type(
   Ast.typ Env.t
 )
-"typing.ml" 170 6794 6805 "typing.ml" 170 6794 6806
+"typing.ml" 171 7319 7330 "typing.ml" 171 7319 7331
 type(
   Ast.position Ast.expr option
 )
-"typing.ml" 170 6794 6797 "typing.ml" 170 6794 6806
+"typing.ml" 171 7319 7322 "typing.ml" 171 7319 7331
 type(
   Ast.position Ast.instr_node
 )
-"typing.ml" 170 6794 6810 "typing.ml" 170 6794 6818
+"typing.ml" 171 7319 7335 "typing.ml" 171 7319 7343
 type(
   string -> Ast.typ Env.t
 )
 ident(
   ext_ref Pervasives.failwith
 )
-"typing.ml" 170 6794 6819 "typing.ml" 170 6794 6826
+"typing.ml" 171 7319 7344 "typing.ml" 171 7319 7351
 type(
   string
 )
-"typing.ml" 170 6794 6810 "typing.ml" 170 6794 6826
+"typing.ml" 171 7319 7335 "typing.ml" 171 7319 7351
 call(
   tail
 )
 type(
   Ast.typ Env.t
 )
-"typing.ml" 171 6828 6831 "typing.ml" 171 6828 6832
+"typing.ml" 172 7353 7356 "typing.ml" 172 7353 7357
 type(
   Ast.position Ast.instr_node
 )
-"typing.ml" 171 6828 6836 "typing.ml" 171 6828 6844
+"typing.ml" 172 7353 7361 "typing.ml" 172 7353 7369
 type(
   string -> Ast.typ Env.t
 )
 ident(
   ext_ref Pervasives.failwith
 )
-"typing.ml" 171 6828 6845 "typing.ml" 171 6828 6895
+"typing.ml" 172 7353 7370 "typing.ml" 172 7353 7420
 type(
   string
 )
-"typing.ml" 171 6828 6836 "typing.ml" 171 6828 6895
+"typing.ml" 172 7353 7361 "typing.ml" 172 7353 7420
 call(
   tail
 )
 type(
   Ast.typ Env.t
 )
-"typing.ml" 126 5491 5492 "typing.ml" 171 6828 6895
+"typing.ml" 127 6016 6017 "typing.ml" 172 7353 7420
 type(
   Ast.typ Env.t
 )
-"typing.ml" 176 7059 7063 "typing.ml" 176 7059 7072
+"typing.ml" 177 7584 7588 "typing.ml" 177 7584 7597
 type(
   Ast.position Ast.klass list * 'a * Ast.position Ast.instr -> unit
 )
 ident(
-  def type_prog "typing.ml" 179 7140 7179 "_none_" 1 0 -1
+  def type_prog "typing.ml" 180 7665 7704 "_none_" 1 0 -1
 )
-"typing.ml" 176 7059 7073 "typing.ml" 176 7059 7077
+"typing.ml" 177 7584 7598 "typing.ml" 177 7584 7602
 type(
   Ast.position Ast.klass list * 'a * Ast.position Ast.instr
 )
 ident(
-  def prog "typing.ml" 177 7081 7082 "typing.ml" 179 7140 7179
+  def prog "typing.ml" 178 7606 7607 "typing.ml" 180 7665 7704
 )
-"typing.ml" 177 7081 7082 "typing.ml" 177 7081 7092
+"typing.ml" 178 7606 7607 "typing.ml" 178 7606 7617
 type(
   Ast.position Ast.klass list * 'a * Ast.position Ast.instr -> unit
 )
 ident(
   ext_ref Type_class.init_table
 )
-"typing.ml" 177 7081 7093 "typing.ml" 177 7081 7097
+"typing.ml" 178 7606 7618 "typing.ml" 178 7606 7622
 type(
   Ast.position Ast.klass list * 'a * Ast.position Ast.instr
 )
 ident(
-  int_ref prog "typing.ml" 176 7059 7073 "typing.ml" 176 7059 7077
+  int_ref prog "typing.ml" 177 7584 7598 "typing.ml" 177 7584 7602
 )
-"typing.ml" 177 7081 7082 "typing.ml" 177 7081 7097
+"typing.ml" 178 7606 7607 "typing.ml" 178 7606 7622
 call(
   stack
 )
 type(
   unit
 )
-"typing.ml" 178 7100 7105 "typing.ml" 178 7100 7110
+"typing.ml" 179 7625 7630 "typing.ml" 179 7625 7635
 type(
   Ast.position Ast.klass list
 )
 ident(
-  def clist "typing.ml" 179 7140 7141 "typing.ml" 179 7140 7179
+  def clist "typing.ml" 180 7665 7666 "typing.ml" 180 7665 7704
 )
-"typing.ml" 178 7100 7112 "typing.ml" 178 7100 7116
+"typing.ml" 179 7625 7637 "typing.ml" 179 7625 7641
 type(
   'a
 )
 ident(
-  def name "typing.ml" 179 7140 7141 "typing.ml" 179 7140 7179
+  def name "typing.ml" 180 7665 7666 "typing.ml" 180 7665 7704
 )
-"typing.ml" 178 7100 7119 "typing.ml" 178 7100 7128
+"typing.ml" 179 7625 7644 "typing.ml" 179 7625 7653
 type(
   Ast.position Ast.instr
 )
 ident(
-  def main_body "typing.ml" 179 7140 7141 "typing.ml" 179 7140 7179
+  def main_body "typing.ml" 180 7665 7666 "typing.ml" 180 7665 7704
 )
-"typing.ml" 178 7100 7105 "typing.ml" 178 7100 7128
+"typing.ml" 179 7625 7630 "typing.ml" 179 7625 7653
 type(
   Ast.position Ast.klass list * 'a * Ast.position Ast.instr
 )
-"typing.ml" 178 7100 7131 "typing.ml" 178 7100 7135
+"typing.ml" 179 7625 7656 "typing.ml" 179 7625 7660
 type(
   Ast.position Ast.klass list * 'a * Ast.position Ast.instr
 )
 ident(
-  int_ref prog "typing.ml" 176 7059 7073 "typing.ml" 176 7059 7077
+  int_ref prog "typing.ml" 177 7584 7598 "typing.ml" 177 7584 7602
 )
-"typing.ml" 179 7140 7145 "typing.ml" 179 7140 7146
+"typing.ml" 180 7665 7670 "typing.ml" 180 7665 7671
 type(
   Ast.typ Env.t
 )
-"typing.ml" 179 7140 7149 "typing.ml" 179 7140 7159
+"typing.ml" 180 7665 7674 "typing.ml" 180 7665 7684
 type(
   Ast.typ Env.t -> Ast.position Ast.instr -> Ast.typ Env.t
 )
 ident(
-  int_ref type_instr "typing.ml" 125 5422 5430 "typing.ml" 125 5422 5440
+  int_ref type_instr "typing.ml" 126 5947 5955 "typing.ml" 126 5947 5965
 )
-"typing.ml" 179 7140 7160 "typing.ml" 179 7140 7163
+"typing.ml" 180 7665 7685 "typing.ml" 180 7665 7688
 type(
   Ast.typ Env.t
 )
 ident(
   int_ref env "typing.ml" 10 202 206 "typing.ml" 10 202 209
 )
-"typing.ml" 179 7140 7164 "typing.ml" 179 7140 7173
+"typing.ml" 180 7665 7689 "typing.ml" 180 7665 7698
 type(
   Ast.position Ast.instr
 )
 ident(
-  int_ref main_body "typing.ml" 178 7100 7119 "typing.ml" 178 7100 7128
+  int_ref main_body "typing.ml" 179 7625 7644 "typing.ml" 179 7625 7653
 )
-"typing.ml" 179 7140 7149 "typing.ml" 179 7140 7173
+"typing.ml" 180 7665 7674 "typing.ml" 180 7665 7698
 call(
   stack
 )
 type(
   Ast.typ Env.t
 )
-"typing.ml" 179 7140 7177 "typing.ml" 179 7140 7179
+"typing.ml" 180 7665 7702 "typing.ml" 180 7665 7704
 type(
   unit
 )
-"typing.ml" 179 7140 7141 "typing.ml" 179 7140 7179
+"typing.ml" 180 7665 7666 "typing.ml" 180 7665 7704
 type(
   unit
 )
-"typing.ml" 178 7100 7101 "typing.ml" 179 7140 7179
+"typing.ml" 179 7625 7626 "typing.ml" 180 7665 7704
 type(
   unit
 )
-"typing.ml" 177 7081 7082 "typing.ml" 179 7140 7179
+"typing.ml" 178 7606 7607 "typing.ml" 180 7665 7704
 type(
   unit
 )

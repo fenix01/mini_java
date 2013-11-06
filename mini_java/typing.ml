@@ -41,16 +41,16 @@ let rec type_expr env e =
 				| Cbool b -> Tboolean
 				| Cnull -> Tnull)
 	
-	| Elval e ->
-			(match e with
-				| Lident id ->
-						(try
-							let type_ = Env.find id.node env in
-							type_
-						with
-							Not_found -> failwith "erreur critique, variable non trouvée")
-				| Laccess (_, _) ->	failwith "Unknown"
-			)
+	| Elval e -> type_lvalue env e
+			(* (match e with                                                          *)
+			(* 	| Lident id ->                                                       *)
+			(* 			(try                                                             *)
+			(* 				let type_ = Env.find id.node env in                            *)
+			(* 				type_                                                          *)
+			(* 			with                                                             *)
+			(* 				Not_found -> failwith "erreur critique, variable non trouvée") *)
+			(* 	| Laccess (_, _) ->	failwith "Unknown"                              *)
+			(* )                                                                      *)
 	| Eassign (l, exp) ->
 	(* let type_var = type_lvalue env l in let t2 = type_expr env exp  *)
 	(* in if compatible type_var t2.info then add_node t2.info         *)
@@ -116,7 +116,8 @@ let rec type_expr env e =
 
 and type_lvalue env l =
 	match l with
-	| Lident x -> (try Env.find x.node env with Not_found -> failwith "variable non trouvée")
+	| Lident x -> (try Env.find x.node env 
+	with Not_found -> raise (Expression_error ("la variable" ^ x.node ^ " n'existe pas") ))
 	| Laccess (e, x) -> let t = type_expr env e in
 			match t with
 			| _ -> failwith "..."
