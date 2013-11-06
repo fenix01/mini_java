@@ -115,7 +115,7 @@ and type_lvalue env l =
 				let t = type_expr env e in
 				match t with
 				| _ -> failwith "..."
-				| _ -> Tnull
+				| _ -> failwith "..."
 			with Expression_error msg -> raise (Expression_error msg)
 
 let rec type_instr env i =   (* : type_instr Env.empty main_body *)
@@ -154,15 +154,25 @@ let rec type_instr env i =   (* : type_instr Env.empty main_body *)
 						env
 					)
 			with Expression_error msg -> error msg e1.info)
-	| Ifor (Some e1, Some e2, Some e3, in1) ->
-	(* let _,te1 = type_block env [] e1 in *)
-			let te2 = type_expr env e2 in
-			if not(compatible te2 Tint )
-			then
-				failwith "type for error";
-			
-			let _ = type_instr env in1 in
-			env
+	| Ifor (Some e1, Some e2, Some e3, inst) ->
+			(try
+				let t1 = type_expr env e1 in
+				(try
+					let t2 = type_expr env e2 in
+					(try
+						let t3 = type_expr env e3 in
+						let _ = type_instr env inst in
+						if compatible t1 Tint && compatible t2 Tboolean && compatible t3 Tint
+						then
+							env
+						else 
+							error ("la boucle for est mal typée.") e1.info
+						with Expression_error msg -> error msg e3.info
+						)
+				with Expression_error msg -> error msg e2.info
+				)
+			with Expression_error msg -> error msg e1.info
+			)
 	| Iblock(in_list) ->
 			let rec aux env list =
 				match list with
@@ -170,7 +180,7 @@ let rec type_instr env i =   (* : type_instr Env.empty main_body *)
 				| a :: r -> let new_env = type_instr env a in aux new_env r
 			in aux env in_list
 	| Ireturn _ -> failwith "todo2"
-	| _ -> failwith "le compilateur a rencontré une erreur inattendue"
+	| _ -> error "instruction non gérée." i.info
 
 (* and type_block env il sl = (* let il0, env0 = type_decl env il in *)    *)
 (* let sl0 = List.map(type_instr env) sl in il0, sl0                       *)

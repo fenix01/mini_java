@@ -34,7 +34,17 @@ date:01/10/2013
 public class Peoples{
 	public static void main (String args[]){
 		int a = 2;
-		boolean b;
-		b = -2 + 3 * 4;
+		boolean d;
+		{
+			int b = 4;
+			{
+				int c;
+				int i;
+				c = a + b;
+				for (d=0; ;i++){
+					
+				}
+			}
+		}
 	}
     }
