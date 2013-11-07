@@ -16,6 +16,7 @@ let rec subtype t1 t2 =
 	| Tint, Tint -> true
 	| Tnull, Tnull -> true
 	| (Tclass "Object" | Tclass "String"), (Tclass "Object" | Tclass "String") -> true
+	| Tnull , Tclass _ -> true
 	| Tclass c1, Tclass c2 -> if c1 = c2 then true else false
 	| _, _ -> false
 
@@ -66,7 +67,12 @@ let rec type_expr env e =
 	| Eunop(op, exp) ->
 		(try 
 			let type_ = type_expr env exp in
-			(* match inutile ici car les opérateurs unaires ne prennent que des ints *)
+			match op with
+			| Unot -> if compatible type_ Tboolean then
+				Tboolean
+				else
+				raise (Expression_error "l'expression doit être de type boolean.")
+			| _ ->
 			if compatible type_ Tint then
 				Tint
 			else
@@ -76,19 +82,21 @@ let rec type_expr env e =
 			let t1 = type_expr env e1 in
 			let t2 = type_expr env e2 in
 			(
-				print t1;
-				print t2;
 				match op with
-				| Band | Bor | Bneq ->
+				| Beq  | Bneq -> if compatible t1 t2 then
+													Tboolean
+												 else
+													raise (Expression_error "les types comparés sont incompatibles")
+				| Band | Bor ->
 					if compatible t1 Tboolean && compatible t2 Tboolean then
 						Tboolean
 					else
 						raise (Expression_error "les expressions doivent être de types boolean.")
-				| Beq  | Blt | Blte | Bgt | Bgte ->
-						(if compatible t1 t2 then
+				| Blt | Blte | Bgt | Bgte ->
+						if compatible t1 Tint && compatible t2 Tint then
 								Tboolean
 							else
-								raise (Expression_error "les types comparés sont incompatibles"))
+								raise (Expression_error "les expressions doivent être de types int.")
 				| Badd | Bsub | Bmul | Bdiv | Bmod ->
 						if compatible t1 Tint && compatible t2 Tint then
 							Tint
@@ -126,18 +134,18 @@ let rec type_instr env i =   (* : type_instr Env.empty main_body *)
 				env
 			with Expression_error msg -> error msg i.info)
 	| Idecl(t, id, None) -> if Env.mem id.node env then
-				error ("la variable " ^ id.node ^ " est déjà défini") id.info
+				error ("l'identificateur " ^ id.node ^ " est déjà défini.") id.info
 			else
 				Env.add id.node t env
 	| Idecl(t, id, Some e) -> if Env.mem id.node env then
-				error ("la variable " ^ id.node ^ " est déjà défini") id.info
+				error ("l'identificateur " ^ id.node ^ " est déjà défini.") id.info
 			else
 				(
 					try
 						let type_ = type_expr env e in
 						let check = compatible type_ t in
 						if not check then
-							error ("la variable " ^ id.node ^ " est mal typée") id.info
+							error ("la variable " ^ id.node ^ " est mal typée.") id.info
 						else Env.add id.node t env
 					with Expression_error msg -> error msg id.info
 				)
@@ -145,7 +153,7 @@ let rec type_instr env i =   (* : type_instr Env.empty main_body *)
 			(try
 				let t1 = type_expr env e1 in
 				if t1 <> Tboolean
-				then error ("l'expression n'est pas booléenne") e1.info
+				then error ("l'expression n'est pas booléenne.") e1.info
 				else
 					(
 						let _ = type_instr env in1
@@ -154,7 +162,7 @@ let rec type_instr env i =   (* : type_instr Env.empty main_body *)
 						env
 					)
 			with Expression_error msg -> error msg e1.info)
-	| Ifor (Some e1, Some e2, Some e3, inst) ->
+	| Ifor (Some e1, Some e2,Some e3, inst) ->
 			(try
 				let t1 = type_expr env e1 in
 				(try
@@ -165,7 +173,7 @@ let rec type_instr env i =   (* : type_instr Env.empty main_body *)
 						if compatible t1 Tint && compatible t2 Tboolean && compatible t3 Tint
 						then
 							env
-						else 
+						else
 							error ("la boucle for est mal typée.") e1.info
 						with Expression_error msg -> error msg e3.info
 						)
@@ -182,35 +190,52 @@ let rec type_instr env i =   (* : type_instr Env.empty main_body *)
 	| Ireturn _ -> failwith "todo2"
 	| _ -> error "instruction non gérée." i.info
 
-(* and type_block env il sl = (* let il0, env0 = type_decl env il in *)    *)
-(* let sl0 = List.map(type_instr env) sl in il0, sl0                       *)
+(* créé l'environnement pour l'identificateur this *)
+let create_class_env env class_info =
+	Env.add "this" (Tclass class_info.name) env
+	
+(* créé l'environnement pour les paramètres *)
+let create_params_env env params =
+	List.fold_left (
+		fun new_env (type_,name_) ->
+			Env.add name_ type_ new_env
+		) env params
 
-let type_methods methods =
+(* permet le typage de toutes les méthodes d'une classe *)
+let type_methods classes_ =
+	let class_info,fclass_table = classes_ in
 	List.iter (
 		fun method_ ->
+			let class_env = create_class_env env class_info in
 			match method_ with
-			| _,( _, _, _,Some instr) -> let _ = type_instr env instr in ()
+			| _,( _, params_, _,Some instr) -> 
+				let params_env = create_params_env class_env params_ in
+				let _ = type_instr params_env instr in ()
 			| _,( _, _, _,None) -> ()
-		) methods
+		) class_info.methods	
 		
-let type_cotrs cotrs =
+(* permet le typage de tous les constructeurs d'une classe		 *)
+let type_cotrs classes_ =
+	let class_info,fclass_table = classes_ in
 	List.iter (
 		fun cotr_ ->
+			let class_env = create_class_env env class_info in
 			match cotr_ with
-			| _,Some instr -> let _ = type_instr env instr in ()
+			| params_,Some instr -> 
+				let params_env = create_params_env class_env params_ in
+				let _ = type_instr params_env instr in ()
 			| _,None -> ()
-		) cotrs
+		) class_info.cotrs
 
-let type_classes table =
+let type_classes fclass_table =
 	Hashtbl.iter (
-		fun _ class_info ->
-			type_methods class_info.methods;
-			type_cotrs class_info.cotrs
-		) class_table
-			 
+		fun class_name class_info ->
+			type_methods (class_info,fclass_table);
+			type_cotrs (class_info,fclass_table)
+		) fclass_table
 
 let type_prog prog =
-	let class_table = init_table prog in
+	let table = init_table prog in
 	let _, _ , main_body = prog in
 	let _ = type_instr env main_body in
-	type_classes class_table
+	type_classes table

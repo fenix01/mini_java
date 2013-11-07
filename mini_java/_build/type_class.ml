@@ -34,16 +34,23 @@ let string_info =
 			[ "equals", (Tboolean, [ ((Tclass "String"), "a") ], "String", None) ];
 	}
 
-(* représente un hashtable *)
+(* représente un hashtable contenant la nouvelle représentation des classes *)
 let class_table =
 	let h = Hashtbl.create 17
 	in
 	(Hashtbl.add h "Object" object_info;
 		Hashtbl.add h "String" string_info;
 		h)
+		
+(* fonction qui renvoit vrai si la classe hérite d'un parent x *)
+(* let rec is_parent p_name class_info class_table =      *)
+(* 		if class_info.parent = p_name then true            *)
+(* 		else                                               *)
+(* 			let parent_info = get_class class_info.parent in *)
+	
 
 (* récupère une classe_info en fonction de son nom *)
-let get_class class_name =
+let get_class class_name class_table =
 	try
 		Hashtbl.find class_table class_name
 	with Not_found -> failwith "erreur critique : la classe n'existe pas."
@@ -62,15 +69,15 @@ let object_ast =
 
 (* select_field permet de connaître le type d'un attribut il suffit de     *)
 (* fournir le nom de la classe et le nom de l'attribut                     *)
-let select_field class_name attribute_name =
-	let class_ = get_class class_name in
+let select_field class_name attribute_name class_table =
+	let class_ = get_class class_name class_table in
 	try
 		List.assoc attribute_name class_.attributes
 	with
 	| Not_found -> failwith ("l'attribut " ^ attribute_name ^ "n'existe pas")
 
 (* effectue un trie topologique sur le graphe d'héritage *)
-let topological_sort (clist : (position klass) list) =
+let topological_sort (clist : (position klass) list) class_table =
 	let l = ref [] in
 	let s = ref [ object_ast ] in
 	let graph = ref clist
@@ -124,11 +131,11 @@ let class_exists class_name =
 	Hashtbl.mem class_table class_name
 
 (* fonction vérifiant l'existence d'un attribut *)
-let exist_attr class_info attr_name =
+let attr_exists class_info attr_name =
 	List.mem_assoc attr_name class_info.attributes
 
 (* fonction vérifiant l'existence d'une méthode *)
-let method_exist class_info method_name =
+let method_exists class_info method_name =
 	List.mem_assoc method_name class_info.methods
 
 let is_function type_ =
@@ -162,7 +169,7 @@ let check_unique_vparam params =
 	in ()
 	
 (* compare 2 types *)
-let compare_types type_ type2_ =
+let compare_classtypes type_ type2_ =
 	match type_,type2_ with
 		| Tclass cname1,Tclass cname2 -> (cname1 = cname2)
 		| Tclass class_name1,_ -> false
@@ -170,13 +177,13 @@ let compare_types type_ type2_ =
 		| _,_ -> (type_ = type2_)
 	
 (* vérifie que les types sont identiques pour 2 listes de paramètres *)
-let rec check_types plist1 plist2 =
+let rec check_classtypes plist1 plist2 =
 	match plist1, plist2 with
 	| [],[] -> true
 	| [], _ -> false
 	| _,[] -> false
 	| (type_, _):: r, (type2_, _):: s ->
-										(compare_types type_ type2_) && check_types r s	
+										(compare_classtypes type_ type2_) && check_classtypes r s	
 	
 let check_method_signature method_ class_info =
 	let type_,name_,params_ = method_ in
@@ -185,7 +192,7 @@ let check_method_signature method_ class_info =
 		fun (mname_,(mtype_,mparams_,mclass_name,_)) ->
 			let length2 = List.length mparams_ in
 			 if name_.node = mname_ then                               
-				if length1 = length2 && check_types params_ mparams_
+				if length1 = length2 && check_classtypes params_ mparams_
 				&& mclass_name = class_info.name then
 					error ("méthode dupliquer " ^ mname_) name_.info
 	) class_info.methods
@@ -215,12 +222,12 @@ let print type_ =
 (* la classe parent                                                        *)
 let check_is_parent_method class_info class_parent method_ =
 	let type_, name_, params = method_ in
-	if method_exist class_parent name_.node then
+	if method_exists class_parent name_.node then
 		let (mtype_, mparams, _,_) = get_method class_parent name_.node in
 		let length1 = List.length params in
 		let length2 = List.length mparams in
-		if (length1 = length2) && check_types mparams params
-		&& not (compare_types mtype_ type_) then
+		if (length1 = length2) && check_classtypes mparams params
+		&& not (compare_classtypes mtype_ type_) then
 			error ("type de retour invalide lors de redéfinition de la méthode " ^ name_.node) name_.info
 
 (* méthode qui vérifie si un constructeur avec la même définition existe   *)
@@ -235,7 +242,7 @@ let exist_constr class_info params =
 				if length1 <> length2 then
 					false || check_constrs r
 				else
-					check_types (fst a) params || check_constrs r
+					check_classtypes (fst a) params || check_constrs r
 	in check_constrs class_info.cotrs
 
 (* génère le constructeur à partir de la liste des paramètres de l'ast *)
@@ -249,7 +256,7 @@ let rec parse_declarations cdecl class_info class_parent =
 	| [] -> class_info
 	| Dfield (type_, name_) :: r ->
 	(* vérifie que l'attribut n'existe pas dans la classe parent *)
-			if exist_attr class_parent name_.node then
+			if attr_exists class_parent name_.node then
 				error ("l'attribut " ^ name_.node ^ " a été redéfini") name_.info;
 			(* vérifie que le type de l'attribut si c'est une classe existe *)
 			check_class_var_exists type_ name_;
@@ -283,7 +290,7 @@ let rec parse_declarations cdecl class_info class_parent =
 			parse_declarations r class_info class_parent
 
 (* fonction qui parse une première fois le nom des classes *)
-let rec parse_classes clist =
+let rec parse_classes clist class_table =
 	match clist with
 	| [] -> ()
 	| (name_, parent_, decl_class) :: s -> (* impossible d'hériter de string *)
@@ -301,11 +308,11 @@ let rec parse_classes clist =
 							cotrs = [];
 							methods = [];
 						};
-				parse_classes s)
+				parse_classes s class_table)
 
 (* fonction qui parse la liste des classes après le passage du trie        *)
 (* topologique                                                             *)
-let rec parse_classes2 clist =
+let rec parse_classes2 clist class_table =
 	match clist with
 	| [] -> ()
 	| (name_, parent_, decl_class) :: s -> (* la classe parent n'existe pas *)
@@ -330,17 +337,17 @@ let rec parse_classes2 clist =
 				parse_declarations decl_class class_info_parent class_parent
 			in
 				Hashtbl.add class_table name_.node check_class_info;
-				parse_classes2 s
+				parse_classes2 s class_table
 
 let init_table prog =
 	let (clist, _, _) = prog
 	in
-	parse_classes clist;
-		let clist2 = topological_sort clist
+	parse_classes clist class_table;
+		let clist2 = topological_sort clist class_table
 		in
 			Hashtbl.reset class_table;
 			Hashtbl.add class_table "Object" object_info;
 			Hashtbl.add class_table "String" string_info;
-			parse_classes clist2;
-			parse_classes2 clist2;
+			parse_classes clist2 class_table;
+			parse_classes2 clist2 class_table;
 			class_table
