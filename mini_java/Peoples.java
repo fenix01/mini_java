@@ -1,29 +1,14 @@
-class People extends Peoples{
+
+
+class People {
 	int leg;
 	int hand;
 	int age;
 	String name;
 	People(String s){
-		name = s;
-		this.init();
-	}
-	
-	int setAge(int a){
-		this.age = a ;
-		return age;
-	}
-	
-	void init(){
-	leg = 2;
-	hand = 2;
-	System.out.println(name + " has " + hand + " hands " + leg +" legs ");
-	}
-}
-
-class Peoples{
-	int setAge(int a, int b){
-		this.age = a ;
-		return age;
+		String s;
+		this.leg = 2;
+		leg = 2;
 	}
 //classe en cours de développement
 /*
@@ -33,6 +18,19 @@ date:01/10/2013
 
 public class Peoples{
 	public static void main (String args[]){
-		int a = "String";
+		People p;
+		p.leg = 2;
+		int a;
+		{
+			int b;
+			{
+				int c;
+				c = a + b;
+				for (a+"";;){
+					
+				}
+				
+			}
+		}
 	}
     }

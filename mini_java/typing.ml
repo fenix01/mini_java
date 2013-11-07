@@ -118,13 +118,12 @@ and type_lvalue env l =
 	match l with
 	| Lident x -> (try Env.find x.node env
 			with Not_found -> raise (Expression_error ("l'identificateur " ^ x.node ^ " n'existe pas.") ))
-	| Laccess (e, x) ->
-			try
-				let t = type_expr env e in
-				match t with
-				| _ -> failwith "..."
-				| _ -> failwith "..."
-			with Expression_error msg -> raise (Expression_error msg)
+	| Laccess (e, x) ->(
+		try 
+			Env.find x.node env
+		with 
+		Not_found -> raise (Expression_error ("l'identificateur " ^ x.node ^ " n'existe pas.") )
+		)
 
 let rec type_instr env i =   (* : type_instr Env.empty main_body *)
 	match i.node with
@@ -162,25 +161,30 @@ let rec type_instr env i =   (* : type_instr Env.empty main_body *)
 						env
 					)
 			with Expression_error msg -> error msg e1.info)
-	| Ifor (Some e1, Some e2,Some e3, inst) ->
+	| Ifor (e1, e2, e3, inst) ->
+		(match e1, e2, e3 with
+		| Some ex1, Some ex2, Some ex3 -> 		
 			(try
-				let t1 = type_expr env e1 in
+				let t1 = type_expr env ex1 in
 				(try
-					let t2 = type_expr env e2 in
+					let t2 = type_expr env ex2 in
 					(try
-						let t3 = type_expr env e3 in
+						let t3 = type_expr env ex3 in
 						let _ = type_instr env inst in
 						if compatible t1 Tint && compatible t2 Tboolean && compatible t3 Tint
 						then
 							env
 						else
-							error ("la boucle for est mal typée.") e1.info
-						with Expression_error msg -> error msg e3.info
+							error ("la boucle for est mal typée.") ex1.info
+						with Expression_error msg -> error msg ex3.info
 						)
-				with Expression_error msg -> error msg e2.info
+				with Expression_error msg -> error msg ex2.info
 				)
-			with Expression_error msg -> error msg e1.info
+			with Expression_error msg -> error msg ex1.info
 			)
+		| _ , _ , _ -> env
+		)
+
 	| Iblock(in_list) ->
 			let rec aux env list =
 				match list with
