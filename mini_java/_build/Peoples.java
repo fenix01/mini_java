@@ -10,6 +10,10 @@ class People {
 	}
 }
 
+class People {
+	
+}
+
 public class Peoples{
 	public static void main (String args[]){
 		int a = 2;

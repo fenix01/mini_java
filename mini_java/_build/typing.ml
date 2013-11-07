@@ -227,6 +227,7 @@ let type_cotrs classes_ =
 			| _,None -> ()
 		) class_info.cotrs
 
+(* effectue le typage sur toutes les classes excepté la classe main *)
 let type_classes fclass_table =
 	Hashtbl.iter (
 		fun class_name class_info ->
@@ -234,6 +235,7 @@ let type_classes fclass_table =
 			type_cotrs (class_info,fclass_table)
 		) fclass_table
 
+(* effectue le typage sur l'ensemble du programme *)
 let type_prog prog =
 	let table = init_table prog in
 	let _, _ , main_body = prog in

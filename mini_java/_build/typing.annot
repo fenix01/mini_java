@@ -4098,7 +4098,7 @@ type(
   Type_class.class_info * 'a -> unit
 )
 ident(
-  def type_cotrs "typing.ml" 230 7827 7827 "_none_" 1 0 -1
+  def type_cotrs "typing.ml" 231 7899 7899 "_none_" 1 0 -1
 )
 "typing.ml" 218 7470 7485 "typing.ml" 218 7470 7493
 type(
@@ -4340,21 +4340,21 @@ type(
 type(
   unit
 )
-"typing.ml" 230 7827 7831 "typing.ml" 230 7827 7843
+"typing.ml" 231 7899 7903 "typing.ml" 231 7899 7915
 type(
   ('a, Type_class.class_info) Hashtbl.t -> unit
 )
 ident(
-  def type_classes "typing.ml" 237 8014 8014 "_none_" 1 0 -1
+  def type_classes "typing.ml" 239 8140 8140 "_none_" 1 0 -1
 )
-"typing.ml" 230 7827 7844 "typing.ml" 230 7827 7856
+"typing.ml" 231 7899 7916 "typing.ml" 231 7899 7928
 type(
   ('a, Type_class.class_info) Hashtbl.t
 )
 ident(
-  def fclass_table "typing.ml" 231 7860 7861 "typing.ml" 235 7994 8010
+  def fclass_table "typing.ml" 232 7932 7933 "typing.ml" 236 8066 8082
 )
-"typing.ml" 231 7860 7861 "typing.ml" 231 7860 7873
+"typing.ml" 232 7932 7933 "typing.ml" 232 7932 7945
 type(
   ('a -> Type_class.class_info -> unit) ->
   ('a, Type_class.class_info) Hashtbl.t -> unit
@@ -4362,128 +4362,128 @@ type(
 ident(
   ext_ref Hashtbl.iter
 )
-"typing.ml" 232 7877 7883 "typing.ml" 232 7877 7893
+"typing.ml" 233 7949 7955 "typing.ml" 233 7949 7965
 type(
   'a
 )
 ident(
-  def class_name "typing.ml" 232 7877 7894 "typing.ml" 234 7953 7992
+  def class_name "typing.ml" 233 7949 7966 "typing.ml" 235 8025 8064
 )
-"typing.ml" 232 7877 7894 "typing.ml" 232 7877 7904
+"typing.ml" 233 7949 7966 "typing.ml" 233 7949 7976
 type(
   Type_class.class_info
 )
 ident(
-  def class_info "typing.ml" 233 7909 7912 "typing.ml" 234 7953 7992
+  def class_info "typing.ml" 234 7981 7984 "typing.ml" 235 8025 8064
 )
-"typing.ml" 233 7909 7912 "typing.ml" 233 7909 7924
+"typing.ml" 234 7981 7984 "typing.ml" 234 7981 7996
 type(
   Type_class.class_info * ('a, Type_class.class_info) Hashtbl.t -> unit
 )
 ident(
   int_ref type_methods "typing.ml" 205 7015 7019 "typing.ml" 205 7015 7031
 )
-"typing.ml" 233 7909 7926 "typing.ml" 233 7909 7936
+"typing.ml" 234 7981 7998 "typing.ml" 234 7981 8008
 type(
   Type_class.class_info
 )
 ident(
-  int_ref class_info "typing.ml" 232 7877 7894 "typing.ml" 232 7877 7904
+  int_ref class_info "typing.ml" 233 7949 7966 "typing.ml" 233 7949 7976
 )
-"typing.ml" 233 7909 7937 "typing.ml" 233 7909 7949
+"typing.ml" 234 7981 8009 "typing.ml" 234 7981 8021
 type(
   ('a, Type_class.class_info) Hashtbl.t
 )
 ident(
-  int_ref fclass_table "typing.ml" 230 7827 7844 "typing.ml" 230 7827 7856
+  int_ref fclass_table "typing.ml" 231 7899 7916 "typing.ml" 231 7899 7928
 )
-"typing.ml" 233 7909 7925 "typing.ml" 233 7909 7950
+"typing.ml" 234 7981 7997 "typing.ml" 234 7981 8022
 type(
   Type_class.class_info * ('a, Type_class.class_info) Hashtbl.t
 )
-"typing.ml" 233 7909 7912 "typing.ml" 233 7909 7950
+"typing.ml" 234 7981 7984 "typing.ml" 234 7981 8022
 call(
   stack
 )
 type(
   unit
 )
-"typing.ml" 234 7953 7956 "typing.ml" 234 7953 7966
+"typing.ml" 235 8025 8028 "typing.ml" 235 8025 8038
 type(
   Type_class.class_info * ('a, Type_class.class_info) Hashtbl.t -> unit
 )
 ident(
   int_ref type_cotrs "typing.ml" 218 7470 7474 "typing.ml" 218 7470 7484
 )
-"typing.ml" 234 7953 7968 "typing.ml" 234 7953 7978
+"typing.ml" 235 8025 8040 "typing.ml" 235 8025 8050
 type(
   Type_class.class_info
 )
 ident(
-  int_ref class_info "typing.ml" 232 7877 7894 "typing.ml" 232 7877 7904
+  int_ref class_info "typing.ml" 233 7949 7966 "typing.ml" 233 7949 7976
 )
-"typing.ml" 234 7953 7979 "typing.ml" 234 7953 7991
+"typing.ml" 235 8025 8051 "typing.ml" 235 8025 8063
 type(
   ('a, Type_class.class_info) Hashtbl.t
 )
 ident(
-  int_ref fclass_table "typing.ml" 230 7827 7844 "typing.ml" 230 7827 7856
+  int_ref fclass_table "typing.ml" 231 7899 7916 "typing.ml" 231 7899 7928
 )
-"typing.ml" 234 7953 7967 "typing.ml" 234 7953 7992
+"typing.ml" 235 8025 8039 "typing.ml" 235 8025 8064
 type(
   Type_class.class_info * ('a, Type_class.class_info) Hashtbl.t
 )
-"typing.ml" 234 7953 7956 "typing.ml" 234 7953 7992
+"typing.ml" 235 8025 8028 "typing.ml" 235 8025 8064
 call(
   tail
 )
 type(
   unit
 )
-"typing.ml" 233 7909 7912 "typing.ml" 234 7953 7992
+"typing.ml" 234 7981 7984 "typing.ml" 235 8025 8064
 type(
   unit
 )
-"typing.ml" 231 7860 7874 "typing.ml" 235 7994 7997
+"typing.ml" 232 7932 7946 "typing.ml" 236 8066 8069
 type(
   'a -> Type_class.class_info -> unit
 )
-"typing.ml" 235 7994 7998 "typing.ml" 235 7994 8010
+"typing.ml" 236 8066 8070 "typing.ml" 236 8066 8082
 type(
   ('a, Type_class.class_info) Hashtbl.t
 )
 ident(
-  int_ref fclass_table "typing.ml" 230 7827 7844 "typing.ml" 230 7827 7856
+  int_ref fclass_table "typing.ml" 231 7899 7916 "typing.ml" 231 7899 7928
 )
-"typing.ml" 231 7860 7861 "typing.ml" 235 7994 8010
+"typing.ml" 232 7932 7933 "typing.ml" 236 8066 8082
 call(
   tail
 )
 type(
   unit
 )
-"typing.ml" 237 8014 8018 "typing.ml" 237 8014 8027
+"typing.ml" 239 8140 8144 "typing.ml" 239 8140 8153
 type(
   Ast.position Ast.klass list * 'a * Ast.position Ast.instr -> unit
 )
 ident(
-  def type_prog "typing.ml" 241 8140 8159 "_none_" 1 0 -1
+  def type_prog "typing.ml" 243 8266 8285 "_none_" 1 0 -1
 )
-"typing.ml" 237 8014 8028 "typing.ml" 237 8014 8032
+"typing.ml" 239 8140 8154 "typing.ml" 239 8140 8158
 type(
   Ast.position Ast.klass list * 'a * Ast.position Ast.instr
 )
 ident(
-  def prog "typing.ml" 238 8036 8037 "typing.ml" 241 8140 8159
+  def prog "typing.ml" 240 8162 8163 "typing.ml" 243 8266 8285
 )
-"typing.ml" 238 8036 8041 "typing.ml" 238 8036 8046
+"typing.ml" 240 8162 8167 "typing.ml" 240 8162 8172
 type(
   (string, Type_class.class_info) Hashtbl.t
 )
 ident(
-  def table "typing.ml" 239 8069 8070 "typing.ml" 241 8140 8159
+  def table "typing.ml" 241 8195 8196 "typing.ml" 243 8266 8285
 )
-"typing.ml" 238 8036 8049 "typing.ml" 238 8036 8059
+"typing.ml" 240 8162 8175 "typing.ml" 240 8162 8185
 type(
   Ast.position Ast.klass list * 'a * Ast.position Ast.instr ->
   (string, Type_class.class_info) Hashtbl.t
@@ -4491,108 +4491,108 @@ type(
 ident(
   ext_ref Type_class.init_table
 )
-"typing.ml" 238 8036 8060 "typing.ml" 238 8036 8064
+"typing.ml" 240 8162 8186 "typing.ml" 240 8162 8190
 type(
   Ast.position Ast.klass list * 'a * Ast.position Ast.instr
 )
 ident(
-  int_ref prog "typing.ml" 237 8014 8028 "typing.ml" 237 8014 8032
+  int_ref prog "typing.ml" 239 8140 8154 "typing.ml" 239 8140 8158
 )
-"typing.ml" 238 8036 8049 "typing.ml" 238 8036 8064
+"typing.ml" 240 8162 8175 "typing.ml" 240 8162 8190
 call(
   stack
 )
 type(
   (string, Type_class.class_info) Hashtbl.t
 )
-"typing.ml" 239 8069 8074 "typing.ml" 239 8069 8075
+"typing.ml" 241 8195 8200 "typing.ml" 241 8195 8201
 type(
   Ast.position Ast.klass list
 )
-"typing.ml" 239 8069 8077 "typing.ml" 239 8069 8078
+"typing.ml" 241 8195 8203 "typing.ml" 241 8195 8204
 type(
   'a
 )
-"typing.ml" 239 8069 8081 "typing.ml" 239 8069 8090
+"typing.ml" 241 8195 8207 "typing.ml" 241 8195 8216
 type(
   Ast.position Ast.instr
 )
 ident(
-  def main_body "typing.ml" 240 8102 8103 "typing.ml" 241 8140 8159
+  def main_body "typing.ml" 242 8228 8229 "typing.ml" 243 8266 8285
 )
-"typing.ml" 239 8069 8074 "typing.ml" 239 8069 8090
+"typing.ml" 241 8195 8200 "typing.ml" 241 8195 8216
 type(
   Ast.position Ast.klass list * 'a * Ast.position Ast.instr
 )
-"typing.ml" 239 8069 8093 "typing.ml" 239 8069 8097
+"typing.ml" 241 8195 8219 "typing.ml" 241 8195 8223
 type(
   Ast.position Ast.klass list * 'a * Ast.position Ast.instr
 )
 ident(
-  int_ref prog "typing.ml" 237 8014 8028 "typing.ml" 237 8014 8032
+  int_ref prog "typing.ml" 239 8140 8154 "typing.ml" 239 8140 8158
 )
-"typing.ml" 240 8102 8107 "typing.ml" 240 8102 8108
+"typing.ml" 242 8228 8233 "typing.ml" 242 8228 8234
 type(
   Ast.typ Env.t
 )
-"typing.ml" 240 8102 8111 "typing.ml" 240 8102 8121
+"typing.ml" 242 8228 8237 "typing.ml" 242 8228 8247
 type(
   Ast.typ Env.t -> Ast.position Ast.instr -> Ast.typ Env.t
 )
 ident(
   int_ref type_instr "typing.ml" 129 4692 4700 "typing.ml" 129 4692 4710
 )
-"typing.ml" 240 8102 8122 "typing.ml" 240 8102 8125
+"typing.ml" 242 8228 8248 "typing.ml" 242 8228 8251
 type(
   Ast.typ Env.t
 )
 ident(
   int_ref env "typing.ml" 10 202 206 "typing.ml" 10 202 209
 )
-"typing.ml" 240 8102 8126 "typing.ml" 240 8102 8135
+"typing.ml" 242 8228 8252 "typing.ml" 242 8228 8261
 type(
   Ast.position Ast.instr
 )
 ident(
-  int_ref main_body "typing.ml" 239 8069 8081 "typing.ml" 239 8069 8090
+  int_ref main_body "typing.ml" 241 8195 8207 "typing.ml" 241 8195 8216
 )
-"typing.ml" 240 8102 8111 "typing.ml" 240 8102 8135
+"typing.ml" 242 8228 8237 "typing.ml" 242 8228 8261
 call(
   stack
 )
 type(
   Ast.typ Env.t
 )
-"typing.ml" 241 8140 8141 "typing.ml" 241 8140 8153
+"typing.ml" 243 8266 8267 "typing.ml" 243 8266 8279
 type(
   (string, Type_class.class_info) Hashtbl.t -> unit
 )
 ident(
-  int_ref type_classes "typing.ml" 230 7827 7831 "typing.ml" 230 7827 7843
+  int_ref type_classes "typing.ml" 231 7899 7903 "typing.ml" 231 7899 7915
 )
-"typing.ml" 241 8140 8154 "typing.ml" 241 8140 8159
+"typing.ml" 243 8266 8280 "typing.ml" 243 8266 8285
 type(
   (string, Type_class.class_info) Hashtbl.t
 )
 ident(
-  int_ref table "typing.ml" 238 8036 8041 "typing.ml" 238 8036 8046
+  int_ref table "typing.ml" 240 8162 8167 "typing.ml" 240 8162 8172
 )
-"typing.ml" 241 8140 8141 "typing.ml" 241 8140 8159
+"typing.ml" 243 8266 8267 "typing.ml" 243 8266 8285
 call(
   tail
 )
 type(
   unit
 )
-"typing.ml" 240 8102 8103 "typing.ml" 241 8140 8159
+"typing.ml" 242 8228 8229 "typing.ml" 243 8266 8285
 type(
   unit
 )
-"typing.ml" 239 8069 8070 "typing.ml" 241 8140 8159
+"typing.ml" 241 8195 8196 "typing.ml" 243 8266 8285
 type(
   unit
 )
-"typing.ml" 238 8036 8037 "typing.ml" 241 8140 8159
+"typing.ml" 240 8162 8163 "typing.ml" 243 8266 8285
 type(
   unit
 )
