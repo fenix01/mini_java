@@ -65,15 +65,6 @@ let object_ast =
 	({ node = "Object"; info = dummy_pos2; },
 		{ node = ""; info = dummy_pos2; }, [])
 
-(* select_field permet de connaître le type d'un attribut il suffit de     *)
-(* fournir le nom de la classe et le nom de l'attribut                     *)
-let select_field class_name attribute_name class_table =
-	let class_ = get_class class_name class_table in
-	try
-		List.assoc attribute_name class_.attributes
-	with
-	| Not_found -> failwith ("l'attribut " ^ attribute_name ^ "n'existe pas")
-
 (* effectue un trie topologique sur le graphe d'héritage *)
 let topological_sort (clist : (position klass) list) class_table =
 	let l = ref [] in
@@ -125,7 +116,7 @@ let copy_parent_decls class_ class_parent =
 			class_)
 
 (* fonction vérifiant l'existence d'une classe *)
-let class_exists class_name =
+let class_exists class_name class_table =
 	Hashtbl.mem class_table class_name
 
 (* fonction vérifiant l'existence d'un attribut *)
@@ -195,9 +186,9 @@ let check_method_signature method_ class_info =
 
 (* vérifie que l'utilisation d'un type class existe pour un paramètre      *)
 (* donné                                                                   *)
-let check_class_var_exists type_ name_ =
+let check_class_var_exists type_ name_ class_table =
 	match type_ with
-	| Tclass class_name -> if not (class_exists class_name) then
+	| Tclass class_name -> if not (class_exists class_name class_table) then
 				error ("la classe " ^ class_name ^ " n'existe pas.") name_.info;
 	| _ -> ()
 
@@ -205,7 +196,7 @@ let check_class_var_exists type_ name_ =
 (* paramètre                                                               *)
 let check_class_vlist_exists params =
 	List.iter ( fun (type_, name_) ->
-					check_class_var_exists type_ name_
+					check_class_var_exists type_ name_ class_table
 		) params
 
 let print type_ =
@@ -292,7 +283,7 @@ let rec parse_classes clist class_table =
 			if parent_.node = "String"
 				then error "Il n'est pas possible d'hériter de String." parent_.info
 				else ();
-				if class_exists name_.node
+				if class_exists name_.node class_table
 				then error ("Redéfinition de la classe " ^ name_.node) name_.info
 				else
 					Hashtbl.add class_table name_.node
