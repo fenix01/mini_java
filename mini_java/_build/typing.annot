@@ -3494,118 +3494,546 @@ type(
 type(
   Ast.typ Env.t
 )
-"typing.ml" 188 6502 6506 "typing.ml" 188 6502 6515
+"typing.ml" 188 6502 6506 "typing.ml" 188 6502 6518
 type(
-  Ast.position Ast.klass list * 'a * Ast.position Ast.instr -> unit
+  ('a * ('b * 'c * 'd * Ast.position Ast.instr option)) list -> unit
 )
 ident(
-  def type_prog "typing.ml" 191 6583 6622 "_none_" 1 0 -1
+  def type_methods "typing.ml" 196 6700 6700 "_none_" 1 0 -1
 )
-"typing.ml" 188 6502 6516 "typing.ml" 188 6502 6520
+"typing.ml" 188 6502 6519 "typing.ml" 188 6502 6526
 type(
-  Ast.position Ast.klass list * 'a * Ast.position Ast.instr
+  ('a * ('b * 'c * 'd * Ast.position Ast.instr option)) list
 )
 ident(
-  def prog "typing.ml" 189 6524 6525 "typing.ml" 191 6583 6622
+  def methods "typing.ml" 189 6530 6531 "typing.ml" 194 6683 6694
 )
-"typing.ml" 189 6524 6525 "typing.ml" 189 6524 6535
+"typing.ml" 189 6530 6531 "typing.ml" 189 6530 6540
 type(
-  Ast.position Ast.klass list * 'a * Ast.position Ast.instr -> unit
+  ('a * ('b * 'c * 'd * Ast.position Ast.instr option) -> unit) ->
+  ('a * ('b * 'c * 'd * Ast.position Ast.instr option)) list -> unit
 )
 ident(
-  ext_ref Type_class.init_table
+  ext_ref List.iter
 )
-"typing.ml" 189 6524 6536 "typing.ml" 189 6524 6540
+"typing.ml" 190 6544 6550 "typing.ml" 190 6544 6557
 type(
-  Ast.position Ast.klass list * 'a * Ast.position Ast.instr
+  'a * ('b * 'c * 'd * Ast.position Ast.instr option)
 )
 ident(
-  int_ref prog "typing.ml" 188 6502 6516 "typing.ml" 188 6502 6520
+  def method_ "typing.ml" 191 6562 6565 "typing.ml" 193 6653 6681
 )
-"typing.ml" 189 6524 6525 "typing.ml" 189 6524 6540
-call(
-  stack
-)
+"typing.ml" 191 6562 6571 "typing.ml" 191 6562 6578
 type(
-  unit
-)
-"typing.ml" 190 6543 6548 "typing.ml" 190 6543 6553
-type(
-  Ast.position Ast.klass list
+  'a * ('b * 'c * 'd * Ast.position Ast.instr option)
 )
 ident(
-  def clist "typing.ml" 191 6583 6584 "typing.ml" 191 6583 6622
+  int_ref method_ "typing.ml" 190 6544 6550 "typing.ml" 190 6544 6557
 )
-"typing.ml" 190 6543 6555 "typing.ml" 190 6543 6559
+"typing.ml" 192 6585 6590 "typing.ml" 192 6585 6591
 type(
   'a
 )
-ident(
-  def name "typing.ml" 191 6583 6584 "typing.ml" 191 6583 6622
+"typing.ml" 192 6585 6594 "typing.ml" 192 6585 6595
+type(
+  'b
 )
-"typing.ml" 190 6543 6562 "typing.ml" 190 6543 6571
+"typing.ml" 192 6585 6597 "typing.ml" 192 6585 6598
+type(
+  'c
+)
+"typing.ml" 192 6585 6600 "typing.ml" 192 6585 6601
+type(
+  'd
+)
+"typing.ml" 192 6585 6607 "typing.ml" 192 6585 6612
 type(
   Ast.position Ast.instr
 )
 ident(
-  def main_body "typing.ml" 191 6583 6584 "typing.ml" 191 6583 6622
+  def instr "typing.ml" 192 6585 6617 "typing.ml" 192 6585 6651
 )
-"typing.ml" 190 6543 6548 "typing.ml" 190 6543 6571
+"typing.ml" 192 6585 6602 "typing.ml" 192 6585 6612
 type(
-  Ast.position Ast.klass list * 'a * Ast.position Ast.instr
+  Ast.position Ast.instr option
 )
-"typing.ml" 190 6543 6574 "typing.ml" 190 6543 6578
+"typing.ml" 192 6585 6592 "typing.ml" 192 6585 6613
 type(
-  Ast.position Ast.klass list * 'a * Ast.position Ast.instr
+  'b * 'c * 'd * Ast.position Ast.instr option
 )
-ident(
-  int_ref prog "typing.ml" 188 6502 6516 "typing.ml" 188 6502 6520
+"typing.ml" 192 6585 6590 "typing.ml" 192 6585 6613
+type(
+  'a * ('b * 'c * 'd * Ast.position Ast.instr option)
 )
-"typing.ml" 191 6583 6588 "typing.ml" 191 6583 6589
+"typing.ml" 192 6585 6621 "typing.ml" 192 6585 6622
 type(
   Ast.typ Env.t
 )
-"typing.ml" 191 6583 6592 "typing.ml" 191 6583 6602
+"typing.ml" 192 6585 6625 "typing.ml" 192 6585 6635
 type(
   Ast.typ Env.t -> Ast.position Ast.instr -> Ast.typ Env.t
 )
 ident(
   int_ref type_instr "typing.ml" 121 4419 4427 "typing.ml" 121 4419 4437
 )
-"typing.ml" 191 6583 6603 "typing.ml" 191 6583 6606
+"typing.ml" 192 6585 6636 "typing.ml" 192 6585 6639
 type(
   Ast.typ Env.t
 )
 ident(
   int_ref env "typing.ml" 10 202 206 "typing.ml" 10 202 209
 )
-"typing.ml" 191 6583 6607 "typing.ml" 191 6583 6616
+"typing.ml" 192 6585 6640 "typing.ml" 192 6585 6645
 type(
   Ast.position Ast.instr
 )
 ident(
-  int_ref main_body "typing.ml" 190 6543 6562 "typing.ml" 190 6543 6571
+  int_ref instr "typing.ml" 192 6585 6607 "typing.ml" 192 6585 6612
 )
-"typing.ml" 191 6583 6592 "typing.ml" 191 6583 6616
+"typing.ml" 192 6585 6625 "typing.ml" 192 6585 6645
 call(
   stack
 )
 type(
   Ast.typ Env.t
 )
-"typing.ml" 191 6583 6620 "typing.ml" 191 6583 6622
+"typing.ml" 192 6585 6649 "typing.ml" 192 6585 6651
 type(
   unit
 )
-"typing.ml" 191 6583 6584 "typing.ml" 191 6583 6622
+"typing.ml" 192 6585 6617 "typing.ml" 192 6585 6651
 type(
   unit
 )
-"typing.ml" 190 6543 6544 "typing.ml" 191 6583 6622
+"typing.ml" 193 6653 6658 "typing.ml" 193 6653 6659
+type(
+  'a
+)
+"typing.ml" 193 6653 6662 "typing.ml" 193 6653 6663
+type(
+  'b
+)
+"typing.ml" 193 6653 6665 "typing.ml" 193 6653 6666
+type(
+  'c
+)
+"typing.ml" 193 6653 6668 "typing.ml" 193 6653 6669
+type(
+  'd
+)
+"typing.ml" 193 6653 6670 "typing.ml" 193 6653 6674
+type(
+  Ast.position Ast.instr option
+)
+"typing.ml" 193 6653 6660 "typing.ml" 193 6653 6675
+type(
+  'b * 'c * 'd * Ast.position Ast.instr option
+)
+"typing.ml" 193 6653 6658 "typing.ml" 193 6653 6675
+type(
+  'a * ('b * 'c * 'd * Ast.position Ast.instr option)
+)
+"typing.ml" 193 6653 6679 "typing.ml" 193 6653 6681
 type(
   unit
 )
-"typing.ml" 189 6524 6525 "typing.ml" 191 6583 6622
+"typing.ml" 191 6562 6565 "typing.ml" 193 6653 6681
+type(
+  unit
+)
+"typing.ml" 189 6530 6541 "typing.ml" 194 6683 6686
+type(
+  'a * ('b * 'c * 'd * Ast.position Ast.instr option) -> unit
+)
+"typing.ml" 194 6683 6687 "typing.ml" 194 6683 6694
+type(
+  ('a * ('b * 'c * 'd * Ast.position Ast.instr option)) list
+)
+ident(
+  int_ref methods "typing.ml" 188 6502 6519 "typing.ml" 188 6502 6526
+)
+"typing.ml" 189 6530 6531 "typing.ml" 194 6683 6694
+call(
+  tail
+)
+type(
+  unit
+)
+"typing.ml" 196 6700 6704 "typing.ml" 196 6700 6714
+type(
+  ('a * Ast.position Ast.instr option) list -> unit
+)
+ident(
+  def type_cotrs "typing.ml" 204 6864 6864 "_none_" 1 0 -1
+)
+"typing.ml" 196 6700 6715 "typing.ml" 196 6700 6720
+type(
+  ('a * Ast.position Ast.instr option) list
+)
+ident(
+  def cotrs "typing.ml" 197 6724 6725 "typing.ml" 202 6851 6860
+)
+"typing.ml" 197 6724 6725 "typing.ml" 197 6724 6734
+type(
+  ('a * Ast.position Ast.instr option -> unit) ->
+  ('a * Ast.position Ast.instr option) list -> unit
+)
+ident(
+  ext_ref List.iter
+)
+"typing.ml" 198 6738 6744 "typing.ml" 198 6738 6749
+type(
+  'a * Ast.position Ast.instr option
+)
+ident(
+  def cotr_ "typing.ml" 199 6754 6757 "typing.ml" 201 6832 6849
+)
+"typing.ml" 199 6754 6763 "typing.ml" 199 6754 6768
+type(
+  'a * Ast.position Ast.instr option
+)
+ident(
+  int_ref cotr_ "typing.ml" 198 6738 6744 "typing.ml" 198 6738 6749
+)
+"typing.ml" 200 6775 6780 "typing.ml" 200 6775 6781
+type(
+  'a
+)
+"typing.ml" 200 6775 6787 "typing.ml" 200 6775 6792
+type(
+  Ast.position Ast.instr
+)
+ident(
+  def instr "typing.ml" 200 6775 6796 "typing.ml" 200 6775 6830
+)
+"typing.ml" 200 6775 6782 "typing.ml" 200 6775 6792
+type(
+  Ast.position Ast.instr option
+)
+"typing.ml" 200 6775 6780 "typing.ml" 200 6775 6792
+type(
+  'a * Ast.position Ast.instr option
+)
+"typing.ml" 200 6775 6800 "typing.ml" 200 6775 6801
+type(
+  Ast.typ Env.t
+)
+"typing.ml" 200 6775 6804 "typing.ml" 200 6775 6814
+type(
+  Ast.typ Env.t -> Ast.position Ast.instr -> Ast.typ Env.t
+)
+ident(
+  int_ref type_instr "typing.ml" 121 4419 4427 "typing.ml" 121 4419 4437
+)
+"typing.ml" 200 6775 6815 "typing.ml" 200 6775 6818
+type(
+  Ast.typ Env.t
+)
+ident(
+  int_ref env "typing.ml" 10 202 206 "typing.ml" 10 202 209
+)
+"typing.ml" 200 6775 6819 "typing.ml" 200 6775 6824
+type(
+  Ast.position Ast.instr
+)
+ident(
+  int_ref instr "typing.ml" 200 6775 6787 "typing.ml" 200 6775 6792
+)
+"typing.ml" 200 6775 6804 "typing.ml" 200 6775 6824
+call(
+  stack
+)
+type(
+  Ast.typ Env.t
+)
+"typing.ml" 200 6775 6828 "typing.ml" 200 6775 6830
+type(
+  unit
+)
+"typing.ml" 200 6775 6796 "typing.ml" 200 6775 6830
+type(
+  unit
+)
+"typing.ml" 201 6832 6837 "typing.ml" 201 6832 6838
+type(
+  'a
+)
+"typing.ml" 201 6832 6839 "typing.ml" 201 6832 6843
+type(
+  Ast.position Ast.instr option
+)
+"typing.ml" 201 6832 6837 "typing.ml" 201 6832 6843
+type(
+  'a * Ast.position Ast.instr option
+)
+"typing.ml" 201 6832 6847 "typing.ml" 201 6832 6849
+type(
+  unit
+)
+"typing.ml" 199 6754 6757 "typing.ml" 201 6832 6849
+type(
+  unit
+)
+"typing.ml" 197 6724 6735 "typing.ml" 202 6851 6854
+type(
+  'a * Ast.position Ast.instr option -> unit
+)
+"typing.ml" 202 6851 6855 "typing.ml" 202 6851 6860
+type(
+  ('a * Ast.position Ast.instr option) list
+)
+ident(
+  int_ref cotrs "typing.ml" 196 6700 6715 "typing.ml" 196 6700 6720
+)
+"typing.ml" 197 6724 6725 "typing.ml" 202 6851 6860
+call(
+  tail
+)
+type(
+  unit
+)
+"typing.ml" 204 6864 6868 "typing.ml" 204 6864 6880
+type(
+  'a -> unit
+)
+ident(
+  def type_classes "typing.ml" 212 7024 7024 "_none_" 1 0 -1
+)
+"typing.ml" 204 6864 6881 "typing.ml" 204 6864 6886
+type(
+  'a
+)
+ident(
+  def table "typing.ml" 205 6890 6891 "typing.ml" 209 6999 7014
+)
+"typing.ml" 205 6890 6891 "typing.ml" 205 6890 6903
+type(
+  (string -> Type_class.class_info -> unit) ->
+  (string, Type_class.class_info) Hashtbl.t -> unit
+)
+ident(
+  ext_ref Hashtbl.iter
+)
+"typing.ml" 206 6907 6913 "typing.ml" 206 6907 6914
+type(
+  string
+)
+"typing.ml" 206 6907 6915 "typing.ml" 206 6907 6925
+type(
+  Type_class.class_info
+)
+ident(
+  def class_info "typing.ml" 207 6930 6933 "typing.ml" 208 6967 6997
+)
+"typing.ml" 207 6930 6933 "typing.ml" 207 6930 6945
+type(
+  (string *
+   (Ast.typ * (Ast.typ * string) list * string *
+    Ast.position Ast.instr option))
+  list -> unit
+)
+ident(
+  int_ref type_methods "typing.ml" 188 6502 6506 "typing.ml" 188 6502 6518
+)
+"typing.ml" 207 6930 6946 "typing.ml" 207 6930 6956
+type(
+  Type_class.class_info
+)
+ident(
+  int_ref class_info "typing.ml" 206 6907 6915 "typing.ml" 206 6907 6925
+)
+"typing.ml" 207 6930 6946 "typing.ml" 207 6930 6964
+type(
+  (string *
+   (Ast.typ * (Ast.typ * string) list * string *
+    Ast.position Ast.instr option))
+  list
+)
+"typing.ml" 207 6930 6933 "typing.ml" 207 6930 6964
+call(
+  stack
+)
+type(
+  unit
+)
+"typing.ml" 208 6967 6970 "typing.ml" 208 6967 6980
+type(
+  ((Ast.typ * string) list * Ast.position Ast.instr option) list -> unit
+)
+ident(
+  int_ref type_cotrs "typing.ml" 196 6700 6704 "typing.ml" 196 6700 6714
+)
+"typing.ml" 208 6967 6981 "typing.ml" 208 6967 6991
+type(
+  Type_class.class_info
+)
+ident(
+  int_ref class_info "typing.ml" 206 6907 6915 "typing.ml" 206 6907 6925
+)
+"typing.ml" 208 6967 6981 "typing.ml" 208 6967 6997
+type(
+  ((Ast.typ * string) list * Ast.position Ast.instr option) list
+)
+"typing.ml" 208 6967 6970 "typing.ml" 208 6967 6997
+call(
+  tail
+)
+type(
+  unit
+)
+"typing.ml" 207 6930 6933 "typing.ml" 208 6967 6997
+type(
+  unit
+)
+"typing.ml" 205 6890 6904 "typing.ml" 209 6999 7002
+type(
+  string -> Type_class.class_info -> unit
+)
+"typing.ml" 209 6999 7003 "typing.ml" 209 6999 7014
+type(
+  (string, Type_class.class_info) Hashtbl.t
+)
+ident(
+  ext_ref Type_class.class_table
+)
+"typing.ml" 205 6890 6891 "typing.ml" 209 6999 7014
+call(
+  tail
+)
+type(
+  unit
+)
+"typing.ml" 212 7024 7028 "typing.ml" 212 7024 7037
+type(
+  Ast.position Ast.klass list * 'a * Ast.position Ast.instr -> unit
+)
+ident(
+  def type_prog "typing.ml" 216 7156 7181 "_none_" 1 0 -1
+)
+"typing.ml" 212 7024 7038 "typing.ml" 212 7024 7042
+type(
+  Ast.position Ast.klass list * 'a * Ast.position Ast.instr
+)
+ident(
+  def prog "typing.ml" 213 7046 7047 "typing.ml" 216 7156 7181
+)
+"typing.ml" 213 7046 7051 "typing.ml" 213 7046 7062
+type(
+  (string, Type_class.class_info) Hashtbl.t
+)
+ident(
+  def class_table "typing.ml" 214 7085 7086 "typing.ml" 216 7156 7181
+)
+"typing.ml" 213 7046 7065 "typing.ml" 213 7046 7075
+type(
+  Ast.position Ast.klass list * 'a * Ast.position Ast.instr ->
+  (string, Type_class.class_info) Hashtbl.t
+)
+ident(
+  ext_ref Type_class.init_table
+)
+"typing.ml" 213 7046 7076 "typing.ml" 213 7046 7080
+type(
+  Ast.position Ast.klass list * 'a * Ast.position Ast.instr
+)
+ident(
+  int_ref prog "typing.ml" 212 7024 7038 "typing.ml" 212 7024 7042
+)
+"typing.ml" 213 7046 7065 "typing.ml" 213 7046 7080
+call(
+  stack
+)
+type(
+  (string, Type_class.class_info) Hashtbl.t
+)
+"typing.ml" 214 7085 7090 "typing.ml" 214 7085 7091
+type(
+  Ast.position Ast.klass list
+)
+"typing.ml" 214 7085 7093 "typing.ml" 214 7085 7094
+type(
+  'a
+)
+"typing.ml" 214 7085 7097 "typing.ml" 214 7085 7106
+type(
+  Ast.position Ast.instr
+)
+ident(
+  def main_body "typing.ml" 215 7118 7119 "typing.ml" 216 7156 7181
+)
+"typing.ml" 214 7085 7090 "typing.ml" 214 7085 7106
+type(
+  Ast.position Ast.klass list * 'a * Ast.position Ast.instr
+)
+"typing.ml" 214 7085 7109 "typing.ml" 214 7085 7113
+type(
+  Ast.position Ast.klass list * 'a * Ast.position Ast.instr
+)
+ident(
+  int_ref prog "typing.ml" 212 7024 7038 "typing.ml" 212 7024 7042
+)
+"typing.ml" 215 7118 7123 "typing.ml" 215 7118 7124
+type(
+  Ast.typ Env.t
+)
+"typing.ml" 215 7118 7127 "typing.ml" 215 7118 7137
+type(
+  Ast.typ Env.t -> Ast.position Ast.instr -> Ast.typ Env.t
+)
+ident(
+  int_ref type_instr "typing.ml" 121 4419 4427 "typing.ml" 121 4419 4437
+)
+"typing.ml" 215 7118 7138 "typing.ml" 215 7118 7141
+type(
+  Ast.typ Env.t
+)
+ident(
+  int_ref env "typing.ml" 10 202 206 "typing.ml" 10 202 209
+)
+"typing.ml" 215 7118 7142 "typing.ml" 215 7118 7151
+type(
+  Ast.position Ast.instr
+)
+ident(
+  int_ref main_body "typing.ml" 214 7085 7097 "typing.ml" 214 7085 7106
+)
+"typing.ml" 215 7118 7127 "typing.ml" 215 7118 7151
+call(
+  stack
+)
+type(
+  Ast.typ Env.t
+)
+"typing.ml" 216 7156 7157 "typing.ml" 216 7156 7169
+type(
+  (string, Type_class.class_info) Hashtbl.t -> unit
+)
+ident(
+  int_ref type_classes "typing.ml" 204 6864 6868 "typing.ml" 204 6864 6880
+)
+"typing.ml" 216 7156 7170 "typing.ml" 216 7156 7181
+type(
+  (string, Type_class.class_info) Hashtbl.t
+)
+ident(
+  int_ref class_table "typing.ml" 213 7046 7051 "typing.ml" 213 7046 7062
+)
+"typing.ml" 216 7156 7157 "typing.ml" 216 7156 7181
+call(
+  tail
+)
+type(
+  unit
+)
+"typing.ml" 215 7118 7119 "typing.ml" 216 7156 7181
+type(
+  unit
+)
+"typing.ml" 214 7085 7086 "typing.ml" 216 7156 7181
+type(
+  unit
+)
+"typing.ml" 213 7046 7047 "typing.ml" 216 7156 7181
 type(
   unit
 )

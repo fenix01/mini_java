@@ -8,8 +8,8 @@ type class_info =
 	{ name : string; parent : string;
 		(* nom de variable avec couple (type, nom de la classe) *)
 		mutable attributes : (string * (typ * string)) list;
-		mutable cotrs : ((typ * string) list) list;
-		mutable methods : (string * (typ * ((typ * string) list) * string)) list
+		mutable cotrs : ((typ * string) list * Ast.position Ast.instr option) list;
+		mutable methods : (string * (typ * ((typ * string) list) * string * Ast.position Ast.instr option)) list
 	}
 
 (* représente la class object à l'aide du type class_info *)
@@ -20,7 +20,7 @@ let object_info =
 		attributes = [];
 		cotrs = [];
 		methods =
-			[ "equals", (Tboolean, [ ((Tclass "String"), "a") ], "String") ];
+			[ "equals", (Tboolean, [ ((Tclass "String"), "a") ], "String", None) ];
 	}
 
 (* représente la class string à l'aide du type class_info *)
@@ -31,19 +31,11 @@ let string_info =
 		attributes = [];
 		cotrs = [];
 		methods =
-			[ "equals", (Tboolean, [ ((Tclass "String"), "a") ], "String") ];
+			[ "equals", (Tboolean, [ ((Tclass "String"), "a") ], "String", None) ];
 	}
 
 (* représente un hashtable *)
 let class_table =
-	let h = Hashtbl.create 17
-	in
-	(Hashtbl.add h "Object" object_info;
-		Hashtbl.add h "String" string_info;
-		h)
-			
-(* représente un hashtable temporaire *)
-let tmp_class_table = 
 	let h = Hashtbl.create 17
 	in
 	(Hashtbl.add h "Object" object_info;
@@ -153,10 +145,10 @@ let is_function type_ =
 
 (* génère la méthode à partir des définitions de l'ast *)
 let create_method method_ class_name =
-	let type_, name_, params = method_ in
+	let type_, name_, params, instr = method_ in
 	let params_ = List.fold_left ( fun x (type_, name_) -> (type_, name_.node):: x) [] params in
 	let rev = List.rev params_ in
-	name_.node, (type_, rev, class_name)
+	name_.node, (type_, rev, class_name, Some instr)
 
 (* vérifie que les paramètres d'une méthode ou d'un constructeur sont uniques *)
 let check_unique_vparam params =
@@ -190,7 +182,7 @@ let check_method_signature method_ class_info =
 	let type_,name_,params_ = method_ in
 	let length1 = List.length params_ in
 	List.iter (
-		fun (mname_,(mtype_,mparams_,mclass_name)) ->
+		fun (mname_,(mtype_,mparams_,mclass_name,_)) ->
 			let length2 = List.length mparams_ in
 			 if name_.node = mname_ then                               
 				if length1 = length2 && check_types params_ mparams_
@@ -224,7 +216,7 @@ let print type_ =
 let check_is_parent_method class_info class_parent method_ =
 	let type_, name_, params = method_ in
 	if method_exist class_parent name_.node then
-		let (mtype_, mparams, _) = get_method class_parent name_.node in
+		let (mtype_, mparams, _,_) = get_method class_parent name_.node in
 		let length1 = List.length params in
 		let length2 = List.length mparams in
 		if (length1 = length2) && check_types mparams params
@@ -239,16 +231,17 @@ let exist_constr class_info params =
 		match clist with
 		| [] -> false
 		| a :: r ->
-				let length2 = List.length a in
+				let length2 = List.length (fst a) in
 				if length1 <> length2 then
 					false || check_constrs r
 				else
-					check_types a params || check_constrs r
+					check_types (fst a) params || check_constrs r
 	in check_constrs class_info.cotrs
 
 (* génère le constructeur à partir de la liste des paramètres de l'ast *)
-let create_cotrs cparams_ =
-	List.fold_left ( fun x (type_, name_) -> (type_, name_.node):: x) [] cparams_
+let create_cotrs cparams_ instr =
+	let params_ = List.fold_left ( fun x (type_, name_) -> (type_, name_.node):: x) [] cparams_ in
+	(params_,Some instr)
 
 (* parcours la liste des déclarations de la classe *)
 let rec parse_declarations cdecl class_info class_parent =
@@ -263,7 +256,7 @@ let rec parse_declarations cdecl class_info class_parent =
 			
 			class_info.attributes <- (name_.node, (type_, class_info.name)):: class_info.attributes;
 			parse_declarations r class_info class_parent
-	| Dconstr (name_, cparams_, _) :: r ->
+	| Dconstr (name_, cparams_, instr) :: r ->
 	(* vérifie dans un premier temps que le constructeur a le même nom que   *)
 	(* la classe                                                             *)
 			if name_.node <> class_info.name then
@@ -274,18 +267,18 @@ let rec parse_declarations cdecl class_info class_parent =
 			(* vérifie les types des paramètres *)
 			check_class_vlist_exists cparams_;
 			check_unique_vparam cparams_;
-			let cotrs = create_cotrs cparams_ in
+			let cotrs = create_cotrs cparams_ instr in
 			class_info.cotrs <- cotrs:: class_info.cotrs;
 			
 			parse_declarations r class_info class_parent
-	| Dmeth (type_, name_, params, instrs) :: r ->
+	| Dmeth (type_, name_, params, instr) :: r ->
 			check_is_parent_method class_info class_parent (type_, name_, params);
 			check_class_vlist_exists params;
 			check_unique_vparam params;
 			(* if is_function type_ then *)
 			(* 	check_function instrs;  *)
 			check_method_signature (type_, name_, params) class_info;
-			let cmethod = create_method (type_, name_, params) class_info.name in
+			let cmethod = create_method (type_, name_, params, instr) class_info.name in
 			class_info.methods <- cmethod:: class_info.methods;
 			parse_declarations r class_info class_parent
 
@@ -349,4 +342,5 @@ let init_table prog =
 			Hashtbl.add class_table "Object" object_info;
 			Hashtbl.add class_table "String" string_info;
 			parse_classes clist2;
-			parse_classes2 clist2
+			parse_classes2 clist2;
+			class_table

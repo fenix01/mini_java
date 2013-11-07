@@ -1,1 +1,1 @@
-typing.ml: Ast Map String Type_class
+typing.ml: Ast Hashtbl List Map String Type_class

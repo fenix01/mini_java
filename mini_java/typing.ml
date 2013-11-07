@@ -185,7 +185,32 @@ let rec type_instr env i =   (* : type_instr Env.empty main_body *)
 (* and type_block env il sl = (* let il0, env0 = type_decl env il in *)    *)
 (* let sl0 = List.map(type_instr env) sl in il0, sl0                       *)
 
+let type_methods methods =
+	List.iter (
+		fun method_ ->
+			match method_ with
+			| _,( _, _, _,Some instr) -> let _ = type_instr env instr in ()
+			| _,( _, _, _,None) -> ()
+		) methods
+		
+let type_cotrs cotrs =
+	List.iter (
+		fun cotr_ ->
+			match cotr_ with
+			| _,Some instr -> let _ = type_instr env instr in ()
+			| _,None -> ()
+		) cotrs
+
+let type_classes table =
+	Hashtbl.iter (
+		fun _ class_info ->
+			type_methods class_info.methods;
+			type_cotrs class_info.cotrs
+		) class_table
+			 
+
 let type_prog prog =
-	init_table prog;
-	let clist, name , main_body = prog in
-	let _ = type_instr env main_body in ()
+	let class_table = init_table prog in
+	let _, _ , main_body = prog in
+	let _ = type_instr env main_body in
+	type_classes class_table
