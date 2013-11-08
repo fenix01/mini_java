@@ -10,7 +10,7 @@ class People {
 		People a;
 		a instanceof People;
 	}
-	void allo(String a){
+	void allo(People p){
 		
 	}	
 //classe en cours de développement
@@ -20,7 +20,7 @@ date:01/10/2013
 }
 
 class Toto extends People {
-
+	
 }
 
 class Nada {
@@ -34,9 +34,11 @@ class Test {
 		
 	}
 	void test(){
+		People d;
 		this.p.leg = 2;
 		copy(this.p.leg);
-		this.p.allos("");
+		String s = "a";
+		s.equals("b");
 	}
 }
 

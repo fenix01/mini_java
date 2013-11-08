@@ -48,6 +48,23 @@ let select_field class_name attribute_name class_table =
 	with
 	| Not_found -> raise (Expression_error ("l'identificateur " ^ attribute_name ^ " n'existe pas"))
 
+(* select_cotrs permet de connaître le type d'une méthode. Prend le nom de *)
+(* la classe et le nom de la méthode                                       *)
+let select_cotrs class_name signature class_table =
+	let class_info = get_class class_name class_table in
+	if List.length class_info.cotrs > 0 then
+		let check = List.fold_left (
+					fun found cotr_ ->
+							let params_, _ = cotr_ in
+							let cotr_sign = get_lparams_signature params_ in
+							(compare_signature signature cotr_sign class_table, Tclass class_name)
+				) (false, Tnull) class_info.cotrs in
+		if fst check then snd check else
+			raise (Expression_error ("aucun constructeur pour la classe "^
+						class_name ^ " n'existe pour la signature correspondante."))
+	else
+		raise (Expression_error ("le constructeur n'existe pas dans la classe " ^ class_name))
+
 (* select_method permet de connaître le type d'une méthode. Prend le nom   *)
 (* de la classe et le nom de la méthode                                    *)
 let select_method class_name method_name signature class_table =
@@ -60,7 +77,7 @@ let select_method class_name method_name signature class_table =
 		let check = List.fold_left (
 					fun found method_ ->
 							let name_, (type_, params_, class_name, _) = method_ in
-							let meth_sign = get_method_signatue params_ in
+							let meth_sign = get_lparams_signature params_ in
 							(compare_signature signature meth_sign class_table, type_)
 				) (false, Tnull) methods_ in
 		if fst check then snd check else
@@ -196,7 +213,8 @@ and type_lvalue env l fclass_table =
 							else raise (Expression_error ("l'identificateur " ^ x.node ^ " n'existe pas."))
 						with Not_found ->	raise (Expression_error ("l'identificateur " ^ x.node ^ " n'existe pas."))
 			)
-	| Laccess (e, x) -> (
+	| Laccess (e, x) ->
+			(
 				try
 					let type_e = type_expr env e fclass_table in
 					match type_e with
