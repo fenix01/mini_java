@@ -35,26 +35,22 @@ let check_classvar type_ class_table =
 let is_class env =
 	Env.mem "this" env
 
-let rec subtype t1 t2 =
+let rec subtype t1 t2 fclass_table =
 	match t1, t2 with
 	| Tvoid, Tvoid -> true
 	| Tboolean, Tboolean -> true
 	| Tint, Tint -> true
 	| Tnull, Tnull -> true
-	| (Tclass "Object" | Tclass "String"), (Tclass "Object" | Tclass "String") -> true
 	| Tnull , Tclass _ -> true
-	| Tclass c1, Tclass c2 -> if c1 = c2 then true else false
+	| Tclass c1, Tclass c2 -> 
+		let c1_ = get_class c1 fclass_table in
+		if c1 = c2 || is_parent c2 c1_ fclass_table then true else false
 	| _, _ -> false
 
-let compatible t1 t2 = subtype t1 t2 || subtype t2 t1
+let compatible t1 t2 fclass_table  = subtype t1 t2 fclass_table || subtype t2 t1 fclass_table
+let compatible_strict t1 t2 fclass_table = subtype t1 t2 fclass_table
 
-let is_string t =
-	match t with
-	| Tclass "String" -> true
-	| _ -> false
-
-(* let findClass env c = Env.mem c env let isClass env c = try findClass   *)
-(* env c with | Not_found-> false                                          *)
+                              
 
 (* typage d'une expression pour chaque expression, on commence par typer   *)
 (* les sous-expression pour typer l'expression de resultat                 *)
@@ -73,8 +69,8 @@ let rec type_expr env e fclass_table =
 				try
 					let type_var = type_lvalue env l fclass_table in
 					let type_exp = type_expr env exp fclass_table in
-					if compatible type_var type_exp then
-						type_exp
+					if compatible_strict type_exp type_var fclass_table then
+						type_var
 					else
 						raise (Expression_error ("types incompatibles lors de l'assignation."))
 				with Expression_error msg -> raise (Expression_error msg)
@@ -94,12 +90,12 @@ let rec type_expr env e fclass_table =
 			(try
 				let type_ = type_expr env exp fclass_table in
 				match op with
-				| Unot -> if compatible type_ Tboolean then
+				| Unot -> if compatible type_ Tboolean fclass_table then
 							Tboolean
 						else
 							raise (Expression_error "l'expression doit être de type boolean.")
 				| _ ->
-						if compatible type_ Tint then
+						if compatible type_ Tint fclass_table then
 							Tint
 						else
 							raise (Expression_error "les expressions doivent être de types int.")
@@ -109,22 +105,22 @@ let rec type_expr env e fclass_table =
 			let t2 = type_expr env e2 fclass_table in
 			(
 				match op with
-				| Beq | Bneq -> if compatible t1 t2 then
+				| Beq | Bneq -> if compatible t1 t2 fclass_table then
 							Tboolean
 						else
 							raise (Expression_error "les types comparés sont incompatibles")
 				| Band | Bor ->
-						if compatible t1 Tboolean && compatible t2 Tboolean then
+						if compatible t1 Tboolean fclass_table && compatible t2 Tboolean fclass_table then
 							Tboolean
 						else
 							raise (Expression_error "les expressions doivent être de types boolean.")
 				| Blt | Blte | Bgt | Bgte ->
-						if compatible t1 Tint && compatible t2 Tint then
+						if compatible t1 Tint fclass_table && compatible t2 Tint fclass_table then
 							Tboolean
 						else
 							raise (Expression_error "les expressions doivent être de types int.")
 				| Bsub | Bmul | Bdiv | Bmod ->
-						if compatible t1 Tint && compatible t2 Tint then
+						if compatible t1 Tint fclass_table && compatible t2 Tint fclass_table then
 							Tint
 						else
 							raise (Expression_error "les expressions doivent être de types int.")
@@ -136,17 +132,23 @@ let rec type_expr env e fclass_table =
 					| _ , _ -> raise (Expression_error "addition impossible entre ces deux expressions.")	
 								
 			)
-	| Einstanceof (e, t) -> failwith "todo"
-	(* let te = type_expr env e in if (te.info = Tnull || isClass te) then   *)
-	(* if compatible te.info t then add_node Tboolean (Einstanceof (te,t))   *)
-	(* else failwith "type error einstanceof" else failwith " te should be a *)
-	(* class or null"                                                        *)
-	| Ecast (t, e) -> failwith "todo"
-(* if (not(Env.mem (stringOf t) env)) then failwith "t should be a type    *)
-(* Tclass --Ecast" else let te = type_expr env e in if ((subtype t         *)
-(* te.info)|| (subtype te.info t)) then add_node te.info (Ecast(t,te))     *)
-(* else failwith "typing error Ecast "                                     *)
-
+	| Einstanceof (e, t) ->
+		let type_e = type_expr env e fclass_table in
+		(match type_e with
+		| (Tclass _) | Tnull  ->  
+			if not (check_classvar type_e fclass_table) then
+				raise (Expression_error "le type de cette classe n'existe pas")
+			else
+				if compatible type_e t fclass_table then
+					Tboolean
+				else raise (Expression_error "les types comparés sont incompatibles")
+		| _ -> raise (Expression_error "instanceof ne s'applique qu'avec des types classes, ou type null") )                                      
+	| Ecast (t, e) -> 
+		let type_e = type_expr env e fclass_table in
+		if compatible type_e t fclass_table then
+			t
+		else
+			raise (Expression_error "type incompatible lors de la tentative de cast")
 and type_lvalue env l fclass_table =
 	match l with
 	| Lident x -> (
@@ -158,8 +160,9 @@ and type_lvalue env l fclass_table =
 							if is_class env then
 								let class_info = this_to_classinfo env fclass_table in
 								let field_ = select_field class_info.name x.node fclass_table in fst field_
-							else
-								raise (Expression_error ("l'identificateur " ^ x.node ^ " n'existe pas."))
+							else if x.node = "this" then
+								raise (Expression_error "this n'existe pas dans le contexte actuel.")
+								else raise (Expression_error ("l'identificateur " ^ x.node ^ " n'existe pas."))
 						with Not_found ->	raise (Expression_error ("l'identificateur " ^ x.node ^ " n'existe pas."))
 				)
 	| Laccess (e, x) -> (
@@ -202,7 +205,7 @@ let rec type_instr env i fclass_table =   (* : type_instr Env.empty main_body *)
 				(
 					try
 						let type_ = type_expr env e fclass_table in
-						let check = compatible type_ t in
+						let check = compatible type_ t fclass_table in
 						if not check then
 							error ("la variable " ^ id.node ^ " est mal typée.") id.info
 						else Env.add id.node t env
@@ -231,7 +234,7 @@ let rec type_instr env i fclass_table =   (* : type_instr Env.empty main_body *)
 								(try
 									let t3 = type_expr env ex3 fclass_table in
 									let _ = type_instr env inst fclass_table in
-									if compatible t1 Tint && compatible t2 Tboolean && compatible t3 Tint
+									if compatible t1 Tint fclass_table && compatible t2 Tboolean fclass_table && compatible t3 Tint fclass_table
 									then
 										env
 									else

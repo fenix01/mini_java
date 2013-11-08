@@ -43,15 +43,22 @@ let class_table =
 		Hashtbl.add h "String" string_info;
 		h)
 
-(* fonction qui renvoit vrai si la classe hérite d'un parent x let rec     *)
-(* is_parent p_name class_info class_table = if class_info.parent = p_name *)
-(* then true else let parent_info = get_class class_info.parent in         *)
-
 (* récupère une classe_info en fonction de son nom *)
 let get_class class_name class_table =
 	try
 		Hashtbl.find class_table class_name
 	with Not_found -> failwith "erreur critique : la classe n'existe pas."
+
+(* fonction qui renvoit vrai si la classe hérite d'un parent x  *)
+let rec is_parent p_name class_info class_table =
+	if class_info.parent = p_name
+	then true 
+	else 
+		if class_info.parent = "Object" then 
+			false
+		else
+			let parent_info = get_class class_info.parent class_table in
+			is_parent p_name parent_info class_table
 
 (* récupère une méthode en fonction de son nom *)
 let get_method class_info method_name =
@@ -247,7 +254,7 @@ let rec parse_declarations cdecl class_info class_parent =
 			if attr_exists class_parent name_.node then
 				error ("l'attribut " ^ name_.node ^ " a été redéfini") name_.info;
 			(* vérifie que le type de l'attribut si c'est une classe existe *)
-			check_class_var_exists type_ name_;
+			check_class_var_exists type_ name_ class_table;
 			
 			class_info.attributes <- (name_.node, (type_, class_info.name)):: class_info.attributes;
 			parse_declarations r class_info class_parent
