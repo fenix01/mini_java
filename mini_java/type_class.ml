@@ -143,6 +143,9 @@ let is_function type_ =
 (* = instr_node.node in match instr with | _ -> true | _ :: r -> false &&  *)
 (* check_function r                                                        *)
 
+let get_method_signatue params_ =
+	List.fold_left ( fun x (type_, name_) -> type_:: x) [] params_
+
 (* génère la méthode à partir des définitions de l'ast *)
 let create_method method_ class_name =
 	let type_, name_, params, instr = method_ in

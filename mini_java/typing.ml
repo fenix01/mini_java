@@ -9,6 +9,36 @@ let error s p = raise (Instruction_error (s, p))
 module Env = Map.Make(String)
 let env = Env.empty
 
+let is_class env =
+	Env.mem "this" env
+
+let rec subtype t1 t2 fclass_table =
+	match t1, t2 with
+	| Tvoid, Tvoid -> true
+	| Tboolean, Tboolean -> true
+	| Tint, Tint -> true
+	| Tnull, Tnull -> true
+	| Tnull , Tclass _ -> true
+	| Tclass c1, Tclass c2 ->
+			let c1_ = get_class c1 fclass_table in
+			if c1 = c2 || is_parent c2 c1_ fclass_table then true else false
+	| _, _ -> false
+
+let compatible t1 t2 fclass_table = subtype t1 t2 fclass_table || subtype t2 t1 fclass_table
+let compatible_strict t1 t2 fclass_table = subtype t1 t2 fclass_table
+
+(* vérifie que sign1 est sous type de sign2 t1 = méthode étudiée, t2 =     *)
+(* méthode de classe                                                       *)
+let compare_signature sign1 sign2 fclass_table =
+	try
+		List.fold_left2 (
+				fun comp t1 t2 ->
+						if compatible_strict t1 t2 fclass_table then
+							comp && true
+						else comp && false
+			) true sign1 sign2
+	with Invalid_argument _ -> raise (Expression_error ("aucune méthode de classe n'existe pour la signature correspondante."))
+
 (* select_field permet de connaître le type d'un attribut il suffit de     *)
 (* fournir le nom de la classe et le nom de l'attribut                     *)
 let select_field class_name attribute_name class_table =
@@ -17,6 +47,26 @@ let select_field class_name attribute_name class_table =
 		List.assoc attribute_name class_.attributes
 	with
 	| Not_found -> raise (Expression_error ("l'identificateur " ^ attribute_name ^ " n'existe pas"))
+
+(* select_method permet de connaître le type d'une méthode. Prend le nom   *)
+(* de la classe et le nom de la méthode                                    *)
+let select_method class_name method_name signature class_table =
+	let class_info = get_class class_name class_table in
+	let methods_ = List.find_all (
+				fun method_ -> let name_, _ = method_ in
+						if name_ = method_name then true else false
+			) class_info.methods in
+	if List.length methods_ > 0 then
+		let check = List.fold_left (
+					fun found method_ ->
+							let name_, (type_, params_, class_name, _) = method_ in
+							let meth_sign = get_method_signatue params_ in
+							(compare_signature signature meth_sign class_table, type_)
+				) (false, Tnull) methods_ in
+		if fst check then snd check else
+			raise (Expression_error ("aucune méthode de classe n'existe pour la signature correspondante."))
+	else
+		raise (Expression_error ("la méthode " ^ method_name ^ " n'existe pas dans la classe " ^ class_name))
 
 let this_to_classinfo env class_table =
 	try
@@ -31,26 +81,6 @@ let check_classvar type_ class_table =
 	match type_ with
 	| Tclass class_name -> if Hashtbl.mem class_table class_name then true else false
 	| _ -> true
-
-let is_class env =
-	Env.mem "this" env
-
-let rec subtype t1 t2 fclass_table =
-	match t1, t2 with
-	| Tvoid, Tvoid -> true
-	| Tboolean, Tboolean -> true
-	| Tint, Tint -> true
-	| Tnull, Tnull -> true
-	| Tnull , Tclass _ -> true
-	| Tclass c1, Tclass c2 -> 
-		let c1_ = get_class c1 fclass_table in
-		if c1 = c2 || is_parent c2 c1_ fclass_table then true else false
-	| _, _ -> false
-
-let compatible t1 t2 fclass_table  = subtype t1 t2 fclass_table || subtype t2 t1 fclass_table
-let compatible_strict t1 t2 fclass_table = subtype t1 t2 fclass_table
-
-                              
 
 (* typage d'une expression pour chaque expression, on commence par typer   *)
 (* les sous-expression pour typer l'expression de resultat                 *)
@@ -76,15 +106,7 @@ let rec type_expr env e fclass_table =
 				with Expression_error msg -> raise (Expression_error msg)
 			)
 	
-	| Ecall (l, elist) ->
-	(* let ret_typ param_list = try Env.find l.node fun_env with Not_found   *)
-	(* -> failwith "type call inconnue" in begin try let args0 = List.map2   *)
-	(* (fun e0 (tx,_) -> let et0 = type_expr env e0 in if compatible         *)
-	(* et0.node tx then et0 else failwith "type Ecall error" )args           *)
-	(* param_list in add_node ret_typ (Ecall (l,args0)) with                 *)
-	(* Invalide_argument _ -> failwith "function %s expects %i arguments but *)
-	(* was called with %i" end                                               *)
-			failwith "todo"
+	| Ecall (l, elist) -> type_lvalue2 env l elist fclass_table
 	| Enew (id, elist) -> failwith "todo"
 	| Eunop(op, exp) ->
 			(try
@@ -124,31 +146,40 @@ let rec type_expr env e fclass_table =
 							Tint
 						else
 							raise (Expression_error "les expressions doivent être de types int.")
-				| Badd -> 
-					match t1,t2 with
-					| Tclass "String",((Tclass "String") | Tint) -> Tclass "String"
-					| Tint,Tclass "String" -> Tclass "String"
-					| Tint , Tint -> Tint
-					| _ , _ -> raise (Expression_error "addition impossible entre ces deux expressions.")	
-								
+				| Badd ->
+						match t1, t2 with
+						| Tclass "String", ((Tclass "String") | Tint) -> Tclass "String"
+						| Tint, Tclass "String" -> Tclass "String"
+						| Tint , Tint -> Tint
+						| _ , _ -> raise (Expression_error "addition impossible entre ces deux expressions.")
+				
 			)
 	| Einstanceof (e, t) ->
-		let type_e = type_expr env e fclass_table in
-		(match type_e with
-		| (Tclass _) | Tnull  ->  
-			if not (check_classvar type_e fclass_table) then
-				raise (Expression_error "le type de cette classe n'existe pas")
+			let type_e = type_expr env e fclass_table in
+			(match type_e with
+				| (Tclass _) | Tnull ->
+						if not (check_classvar type_e fclass_table) then
+							raise (Expression_error "le type de cette classe n'existe pas")
+						else
+						if compatible type_e t fclass_table then
+							Tboolean
+						else raise (Expression_error "les types comparés sont incompatibles")
+				| _ -> raise (Expression_error "instanceof ne s'applique qu'avec des types classes, ou type null") )
+	| Ecast (t, e) ->
+			let type_e = type_expr env e fclass_table in
+			if compatible type_e t fclass_table then
+				t
 			else
-				if compatible type_e t fclass_table then
-					Tboolean
-				else raise (Expression_error "les types comparés sont incompatibles")
-		| _ -> raise (Expression_error "instanceof ne s'applique qu'avec des types classes, ou type null") )                                      
-	| Ecast (t, e) -> 
-		let type_e = type_expr env e fclass_table in
-		if compatible type_e t fclass_table then
-			t
-		else
-			raise (Expression_error "type incompatible lors de la tentative de cast")
+				raise (Expression_error "type incompatible lors de la tentative de cast")
+
+and create_signature params env fclass_table =
+	List.fold_left ( fun x exp ->
+					try
+						let type_ = type_expr env exp fclass_table in
+						type_:: x
+					with Expression_error msg -> raise (Expression_error msg)
+		) [] params
+
 and type_lvalue env l fclass_table =
 	match l with
 	| Lident x -> (
@@ -162,19 +193,51 @@ and type_lvalue env l fclass_table =
 								let field_ = select_field class_info.name x.node fclass_table in fst field_
 							else if x.node = "this" then
 								raise (Expression_error "this n'existe pas dans le contexte actuel.")
-								else raise (Expression_error ("l'identificateur " ^ x.node ^ " n'existe pas."))
+							else raise (Expression_error ("l'identificateur " ^ x.node ^ " n'existe pas."))
 						with Not_found ->	raise (Expression_error ("l'identificateur " ^ x.node ^ " n'existe pas."))
-				)
+			)
 	| Laccess (e, x) -> (
 				try
 					let type_e = type_expr env e fclass_table in
 					match type_e with
-					| Tclass class_name -> 
-						if not (check_classvar type_e fclass_table) then
-							raise (Expression_error "le type de cette classe n'existe pas")
+					| Tclass class_name ->
+							if not (check_classvar type_e fclass_table) then
+								raise (Expression_error "le type de cette classe n'existe pas")
+							else
+								let class_info = get_class class_name fclass_table in
+								let field_ = select_field class_info.name x.node fclass_table in fst field_
+					| _ -> raise (Expression_error ("l'accès à un identifiant nécessite un type classe"))
+				with
+					Not_found ->	raise (Expression_error ("l'expression d'accès est incorrect"))
+			)
+and type_lvalue2 env l params fclass_table =
+	match l with
+	| Lident x -> (
+				try
+					Env.find x.node env
+				with
+					Not_found ->
+						if is_class env then
+							let class_info = this_to_classinfo env fclass_table in
+							let method_name = x.node in
+							let signature = create_signature params env fclass_table in
+							select_method class_info.name method_name signature fclass_table
 						else
-							let class_info = get_class class_name fclass_table in
-							let field_ = select_field class_info.name x.node fclass_table in fst field_
+							raise (Expression_error "cette méthode n'existe pas.")
+			)
+	| Laccess (e, x) ->
+			(
+				try
+					let type_e = type_expr env e fclass_table in
+					match type_e with
+					| Tclass class_name ->
+							if not (check_classvar type_e fclass_table) then
+								raise (Expression_error "le type de cette classe n'existe pas")
+							else
+								let class_info = get_class class_name fclass_table in
+								let method_name = x.node in
+								let signature = create_signature params env fclass_table in
+								select_method class_info.name method_name signature fclass_table
 					| _ -> raise (Expression_error ("l'accès à un identifiant nécessite un type classe"))
 				with
 					Not_found ->	raise (Expression_error ("l'expression d'accès est incorrect"))
