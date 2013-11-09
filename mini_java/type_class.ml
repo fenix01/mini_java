@@ -11,6 +11,26 @@ type class_info =
 		mutable cotrs : ((typ * string) list * Ast.position Ast.instr option) list;
 		mutable methods : (string * (typ * ((typ * string) list) * string * Ast.position Ast.instr option)) list
 	}
+	
+(* représente la class object à l'aide du type class_info *)
+let system_info =
+	{
+		name = "System";
+		parent = "Object";
+		attributes = ["out",(Tclass "PrintStream","PrintStream")];
+		cotrs = [];
+		methods = [] ;
+	}
+	
+(* représente la class object à l'aide du type class_info *)
+let printstream_info =
+	{
+		name = "PrintStream";
+		parent = "Object";
+		attributes = [];
+		cotrs = [];
+		methods = ["print", (Tvoid, [ ((Tclass "String"), "a") ], "PrintStream", None)];
+	}
 
 (* représente la class object à l'aide du type class_info *)
 let object_info =
@@ -40,6 +60,8 @@ let class_table =
 	let h = Hashtbl.create 17
 	in
 	(Hashtbl.add h "Object" object_info;
+		Hashtbl.add h "System" system_info;
+		Hashtbl.add h "PrintStream" printstream_info;
 		Hashtbl.add h "String" string_info;
 		h)
 
@@ -342,6 +364,8 @@ let init_table prog =
 	in
 	Hashtbl.reset class_table;
 	Hashtbl.add class_table "Object" object_info;
+	Hashtbl.add class_table "System" system_info;
+	Hashtbl.add class_table "PrintStream" printstream_info;
 	Hashtbl.add class_table "String" string_info;
 	parse_classes clist2 class_table;
 	parse_classes2 clist2 class_table;

@@ -7,7 +7,7 @@ exception Expression_error of string
 let error s p = raise (Instruction_error (s, p))
 
 module Env = Map.Make(String)
-let env = Env.empty
+let env = Env.add "System" (Tclass "System") Env.empty
 
 let is_class env =
 	Env.mem "this" env
@@ -124,7 +124,13 @@ let rec type_expr env e fclass_table =
 			)
 	
 	| Ecall (l, elist) -> type_lvalue2 env l elist fclass_table
-	| Enew (id, elist) -> failwith "todo"
+	| Enew (id, elist) -> 
+		if not (class_exists id.node fclass_table) then
+								raise (Expression_error "le type de cette classe n'existe pas")
+							else
+								let class_info = get_class id.node fclass_table in
+								let signature = create_signature elist env fclass_table in
+								select_cotrs class_info.name signature fclass_table
 	| Eunop(op, exp) ->
 			(try
 				let type_ = type_expr env exp fclass_table in
@@ -184,10 +190,13 @@ let rec type_expr env e fclass_table =
 				| _ -> raise (Expression_error "instanceof ne s'applique qu'avec des types classes, ou type null") )
 	| Ecast (t, e) ->
 			let type_e = type_expr env e fclass_table in
-			if compatible type_e t fclass_table then
-				t
+			if not (check_classvar t fclass_table) then
+				raise (Expression_error "le type de cette classe n'existe pas")
 			else
-				raise (Expression_error "type incompatible lors de la tentative de cast")
+				if compatible type_e t fclass_table then
+					t
+				else
+					raise (Expression_error "type incompatible lors de la tentative de cast")
 
 and create_signature params env fclass_table =
 	List.fold_left ( fun x exp ->
