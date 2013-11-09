@@ -2,6 +2,9 @@ class Young extends People {
 	Young(int a){
 		
 	}
+	Young(int a, String b){
+		
+	}
 }
 
 class People {
@@ -14,7 +17,10 @@ class People {
 		
 	}
 	void build(String s){
-		
+		for (;;){
+			return;
+		}
+		int a;
 	}
 }
 
@@ -22,7 +28,6 @@ public class Peoples{
 	public static void main (String args[]){
 		People p;
 		Young y;
-		(Toto)y;
 		int a;
 		{
 			int b;
