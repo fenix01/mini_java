@@ -16,11 +16,11 @@ class People {
 	People(String s){
 		
 	}
-	void build(String s){
-		for (;;){
-			return;
+	int build(String s){
+		{
+			return 1;
 		}
-		int a;
+		return "";
 	}
 }
 

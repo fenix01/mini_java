@@ -270,13 +270,13 @@ and type_lvalue2 env l params fclass_table =
 					Not_found ->	raise (Expression_error ("l'expression d'accès est incorrect"))
 			)
 
-let rec type_instr env i return_ fclass_table =
-	match i.node with
+let rec type_instr env instr return_ fclass_table =
+	match instr.node with
 	| Iexpr e ->
 			(try
 				let _ = type_expr env e fclass_table in
 				env
-			with Expression_error msg -> error msg i.info)
+			with Expression_error msg -> error msg instr.info)
 	| Idecl(t, id, None) ->
 			if not (check_classvar t fclass_table) then
 				error ("le type de cette classe n'existe pas") id.info
@@ -315,15 +315,77 @@ let rec type_instr env i return_ fclass_table =
 					)
 			with Expression_error msg -> error msg e1.info)
 	| Ifor (e1, e2, e3, inst) ->
-			(match e1, e2, e3 with
-				| Some ex1, Some ex2, Some ex3 ->
+	(match e1, e2, e3 with
+				| Some ex1, Some ex2, Some ex3 -> 
+					let t1 = type_expr env ex1 fclass_table in
+					let t2 = type_expr env ex2 fclass_table in
+					let t3 = type_expr env ex3 fclass_table in
+					if compatible t1 Tint fclass_table && compatible t2 Tboolean fclass_table 
+					&& compatible t3 Tint fclass_table then
+						env
+					else
+						error ("la boucle for est mal typée.") ex1.info
+				| Some ex1 , Some ex2 , None -> 
+					let t1 = type_expr env ex1 fclass_table in
+					let t2 = type_expr env ex2 fclass_table in
+					if compatible t1 Tint fclass_table && compatible t2 Tboolean fclass_table then
+						env
+					else error ("la boucle for est mal typée.") ex1.info
+				| Some ex1 , None , Some ex3 ->
+					let t1 = type_expr env ex1 fclass_table in
+					let t3 = type_expr env ex3 fclass_table in
+					if compatible t1 Tint fclass_table && compatible t3 Tint fclass_table then
+						env
+					else error ("la boucle for est mal typée.") ex1.info
+				| Some e1 , None , None -> env
+				| None , None , None -> env
+				| None , None , Some ex3 -> env
+				| None , Some ex2 , None -> env
+				| None, Some ex2, Some ex3 -> env
+	)
+	| Iblock(in_list) ->
+			let rec aux env has_return list =
+				match list with
+				| [] -> env
+				| a :: r -> 
+					let is_return =
+						match a.node with
+						| Ireturn _ -> true
+						| _ -> false
+					in
+					if has_return then
+						error "l'instruction return doit se trouver à la fin d'un bloc d'instruction" a.info
+					else
+					if is_return then
+						if (List.length r) > 0 then
+							error "l'instruction return doit se trouver à la fin d'un bloc d'instruction" a.info
+						else
+							let new_env = type_instr env a return_ fclass_table in aux new_env true r
+					else
+					let new_env = type_instr env a return_ fclass_table in aux new_env false r
+						in aux env false in_list
+	| Ireturn e -> 
+		match e with
+		| Some ex ->
+			let type_e = type_expr env ex fclass_table in
+			if return_ = Tvoid then
+				error "une méthode de type void ne peut retourner de valeur" ex.info
+			else if compatible_strict type_e return_ fclass_table then
+					env
+					else error "le type de retour est incompatible." instr.info
+		| None -> 
+							if return_ = Tvoid then
+							env
+							else error "le type de retour est incompatible." instr.info
+
+and check_for ex1 ex2 ex3 instr env return_ fclass_table = 				
 						(try
 							let t1 = type_expr env ex1 fclass_table in
 							(try
 								let t2 = type_expr env ex2 fclass_table in
 								(try
 									let t3 = type_expr env ex3 fclass_table in
-									let _ = type_instr env inst return_ fclass_table in
+									let _ = type_instr env instr return_ fclass_table in
 									if compatible t1 Tint fclass_table && compatible t2 Tboolean fclass_table && compatible t3 Tint fclass_table
 									then
 										env
@@ -335,39 +397,6 @@ let rec type_instr env i return_ fclass_table =
 							)
 						with Expression_error msg -> error msg ex1.info
 						)
-				| _ , _ , _ -> env
-			)
-	
-	| Iblock(in_list) ->
-			let rec aux env list =
-				match list with
-				| [] -> env
-				| a :: r -> 
-					let is_return =
-						match a.node with
-						| Ireturn _ -> true
-						| _ -> false
-					in
-					if is_return && (List.length r) > 0 then
-						error "l'instruction return doit se trouver à la fin d'un bloc d'instruction" a.info
-					else
-					let new_env = type_instr env a return_ fclass_table in aux new_env r
-			in aux env in_list
-	| Ireturn e -> 
-		match e with
-		| Some ex ->
-			let type_e = type_expr env ex fclass_table in
-			let return_typ = fst return_ in
-			if return_typ = Tvoid then
-				error "une méthode de type void ne peut retourner de valeur" ex.info
-			else if compatible_strict type_e return_typ fclass_table then
-					env
-					else error "le type de retour est incompatible." i.info
-		| None -> 
-							let return_typ = fst return_ in
-							if return_typ = Tvoid then
-							env
-							else error "le type de retour est incompatible." i.info
 
 (* créé l'environnement pour l'identificateur this *)
 let create_class_env env class_info =
@@ -389,7 +418,7 @@ let type_methods classes_ =
 					match method_ with
 					| _, ( type_, params_, _, Some instr) ->
 							let params_env = create_params_env class_env params_ in
-							let _ = type_instr params_env instr (type_,false) fclass_table in ()
+							let _ = type_instr params_env instr type_ fclass_table in ()
 					| _, ( _, _, _, None) -> ()
 		) class_info.methods
 
@@ -402,7 +431,7 @@ let type_cotrs classes_ =
 					match cotr_ with
 					| params_, Some instr ->
 							let params_env = create_params_env class_env params_ in
-							let _ = type_instr params_env instr ((Tclass class_info.name),false) fclass_table in ()
+							let _ = type_instr params_env instr (Tclass class_info.name) fclass_table in ()
 					| _, None -> ()
 		) class_info.cotrs
 
@@ -418,5 +447,5 @@ let type_classes fclass_table =
 let type_prog prog =
 	let table = init_table prog in
 	let _, _ , main_body = prog in
-	let _ = type_instr env main_body (Tvoid,false) table in
+	let _ = type_instr env main_body Tvoid table in
 	type_classes table
