@@ -93,6 +93,18 @@ let dummy_pos2 = (Lexing.dummy_pos, Lexing.dummy_pos)
 let object_ast =
 	({ node = "Object"; info = dummy_pos2; },
 		{ node = ""; info = dummy_pos2; }, [])
+		
+(* fonction vérifiant l'existence d'une classe *)
+let class_exists class_name class_table =
+	Hashtbl.mem class_table class_name
+
+(* fonction vérifiant l'existence d'un attribut *)
+let attr_exists class_info attr_name =
+	List.mem_assoc attr_name class_info.attributes
+
+(* fonction vérifiant l'existence d'une méthode *)
+let method_exists class_info method_name =
+	List.mem_assoc method_name class_info.methods
 
 (* effectue un trie topologique sur le graphe d'héritage *)
 let topological_sort (clist : (position klass) list) class_table =
@@ -128,8 +140,9 @@ let topological_sort (clist : (position klass) list) class_table =
 		then
 			(let (class_, class_parent, _) = List.hd !graph
 				in
-				error ("définition d'une classe cyclique : " ^ class_parent.node)
-					class_parent.info)
+				if class_exists class_parent.node class_table then
+				error ("définition d'une classe cyclique : " ^ class_parent.node) class_parent.info
+				else error ("la classe parent " ^ class_parent.node ^ " n'existe pas" ) class_parent.info)
 		else ();
 		List.tl (List.rev !l))
 
@@ -143,18 +156,6 @@ let copy_parent_decls class_ class_parent =
 			class_.cotrs <- class_parent.cotrs;
 			class_.methods <- class_parent.methods;
 			class_)
-
-(* fonction vérifiant l'existence d'une classe *)
-let class_exists class_name class_table =
-	Hashtbl.mem class_table class_name
-
-(* fonction vérifiant l'existence d'un attribut *)
-let attr_exists class_info attr_name =
-	List.mem_assoc attr_name class_info.attributes
-
-(* fonction vérifiant l'existence d'une méthode *)
-let method_exists class_info method_name =
-	List.mem_assoc method_name class_info.methods
 
 let is_function type_ =
 	match type_ with
