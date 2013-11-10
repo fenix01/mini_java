@@ -20,7 +20,6 @@ class People {
 		{
 			return 1;
 		}
-		return "";
 	}
 }
 
@@ -35,7 +34,7 @@ public class Peoples{
 				p = new People(""+2);
 				int c;
 				c = a + b;
-				for (a;a<100;a++){
+				for (a+"";a;a++){
 					
 				}
 				

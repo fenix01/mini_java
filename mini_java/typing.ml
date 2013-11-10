@@ -314,35 +314,23 @@ let rec type_instr env instr return_ fclass_table =
 						env
 					)
 			with Expression_error msg -> error msg e1.info)
-	| Ifor (e1, e2, e3, inst) ->
-	(match e1, e2, e3 with
-				| Some ex1, Some ex2, Some ex3 -> 
-					let t1 = type_expr env ex1 fclass_table in
-					let t2 = type_expr env ex2 fclass_table in
-					let t3 = type_expr env ex3 fclass_table in
-					if compatible t1 Tint fclass_table && compatible t2 Tboolean fclass_table 
-					&& compatible t3 Tint fclass_table then
-						env
-					else
-						error ("la boucle for est mal typée.") ex1.info
-				| Some ex1 , Some ex2 , None -> 
-					let t1 = type_expr env ex1 fclass_table in
-					let t2 = type_expr env ex2 fclass_table in
-					if compatible t1 Tint fclass_table && compatible t2 Tboolean fclass_table then
-						env
-					else error ("la boucle for est mal typée.") ex1.info
-				| Some ex1 , None , Some ex3 ->
-					let t1 = type_expr env ex1 fclass_table in
-					let t3 = type_expr env ex3 fclass_table in
-					if compatible t1 Tint fclass_table && compatible t3 Tint fclass_table then
-						env
-					else error ("la boucle for est mal typée.") ex1.info
-				| Some e1 , None , None -> env
-				| None , None , None -> env
-				| None , None , Some ex3 -> env
-				| None , Some ex2 , None -> env
-				| None, Some ex2, Some ex3 -> env
-	)
+	| Ifor (e1, e2, e3, inst) -> 
+		let type_opt cstr oe msg =
+            match oe  with
+               None ->  ()  (* s'il n'ya pas d'expression c'est forcément bien typé *)
+             | Some e -> 
+							let type_e = type_expr env e fclass_table in
+																print type_e;
+              (match cstr with
+              | None -> () (* pas de contrainte de type, l'expression est ok*)
+              | Some type_ -> 
+									if not (compatible type_e type_ fclass_table)
+									then error (msg) e.info)
+	  in
+     type_opt None e1 "cette expression est mal typée";
+     type_opt (Some Tboolean) e2 "l'expression doit être booléenne";
+     type_opt None e3 "cette expression est mal typée";
+		 let _ = type_instr env inst return_ fclass_table in env                                                               
 	| Iblock(in_list) ->
 			let rec aux env has_return list =
 				match list with
@@ -377,26 +365,6 @@ let rec type_instr env instr return_ fclass_table =
 							if return_ = Tvoid then
 							env
 							else error "le type de retour est incompatible." instr.info
-
-and check_for ex1 ex2 ex3 instr env return_ fclass_table = 				
-						(try
-							let t1 = type_expr env ex1 fclass_table in
-							(try
-								let t2 = type_expr env ex2 fclass_table in
-								(try
-									let t3 = type_expr env ex3 fclass_table in
-									let _ = type_instr env instr return_ fclass_table in
-									if compatible t1 Tint fclass_table && compatible t2 Tboolean fclass_table && compatible t3 Tint fclass_table
-									then
-										env
-									else
-										error ("la boucle for est mal typée.") ex1.info
-								with Expression_error msg -> error msg ex3.info
-								)
-							with Expression_error msg -> error msg ex2.info
-							)
-						with Expression_error msg -> error msg ex1.info
-						)
 
 (* créé l'environnement pour l'identificateur this *)
 let create_class_env env class_info =
