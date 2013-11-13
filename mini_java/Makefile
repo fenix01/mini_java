@@ -4,7 +4,7 @@
 # a.ml, a.ml doit se trouver avant dans la liste.
 #
 
-SOURCES = ast.mli parser.mly lexer.mll type_class.ml typing.ml main.ml
+SOURCES = mips.mli mips.ml ast.mli error.ml type_class.ml typing.ml parser.mly lexer.mll main.ml
 
 # Nom du binaire
 
@@ -19,7 +19,7 @@ EXEC = deca
 
 # Compilateurs
 
-CAMLC = ocamlc
+CAMLC = ocamlc -g
 CAMLOPT = ocamlopt
 CAMLDEP = ocamldep
 CAMLLEX = ocamllex

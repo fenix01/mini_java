@@ -1,1 +1,1 @@
-lexer.ml: Ast Buffer Hashtbl Int32 Lexing List Parser String
+lexer.ml: Ast Buffer Error Format Hashtbl Int32 Lexing List Parser String

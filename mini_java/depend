@@ -1,5 +1,14 @@
+mips.cmi :
+mips.cmo : mips.cmi
+mips.cmx : mips.cmi
 ast.cmi :
-parser.cmo : ast.cmi parser.cmi
-parser.cmx : ast.cmi parser.cmi
-main.cmo : parser.cmi ast.cmi
-main.cmx : parser.cmx ast.cmi
+error.cmo : ast.cmi
+error.cmx : ast.cmi
+type_class.cmo : error.cmo ast.cmi type_class.cmi
+type_class.cmx : error.cmx ast.cmi type_class.cmi
+typing.cmo : type_class.cmi error.cmo ast.cmi typing.cmi
+typing.cmx : type_class.cmx error.cmx ast.cmi typing.cmi
+parser.cmo : error.cmo ast.cmi parser.cmi
+parser.cmx : error.cmx ast.cmi parser.cmi
+main.cmo : typing.cmi parser.cmi mips.cmi lexer.cmo error.cmo ast.cmi
+main.cmx : typing.cmx parser.cmx mips.cmx lexer.cmx error.cmx ast.cmi

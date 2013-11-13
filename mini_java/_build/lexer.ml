@@ -4,10 +4,12 @@
   open Lexing
   open Parser
   open Ast
+  open Error
+  open Format
 
-  (* Erreurs lexicales *)
-
-  exception Lexical_error of string
+  let current_pos b =
+    lexeme_start_p b,
+    lexeme_end_p b
 
   let id_or_keyword =
     let h = Hashtbl.create 17 in
@@ -32,20 +34,10 @@
       ];
     fun s -> try Hashtbl.find h s with Not_found -> IDENT s
 
-  let decode_char s =
-    if String.length s = 1 then s.[0] else
-      if String.length s = 2 then
-        match s.[1] with
-        | 'n' -> '\n'
-        | 't' -> '\t'
-        | '\'' -> '\''
-        | '\"' -> '\"'
-        | _ -> raise (Lexical_error ("invalid escape sequence " ^ s))
-      else assert false
 
   let str_buff = Buffer.create 256
 
-# 49 "lexer.ml"
+# 41 "lexer.ml"
 let __ocaml_lex_tables = {
   Lexing.lex_base = 
    "\000\000\221\255\222\255\002\000\003\000\031\000\002\000\001\000\
@@ -116,14 +108,14 @@ let __ocaml_lex_tables = {
     \050\000\050\000\050\000\050\000\050\000\050\000\050\000\050\000\
     \050\000\050\000\050\000\050\000\050\000\050\000\050\000\050\000\
     \050\000\050\000\050\000\050\000\050\000\050\000\050\000\050\000\
-    \050\000\050\000\000\000\000\000\000\000\000\000\050\000\000\000\
+    \050\000\050\000\000\000\000\000\000\000\000\000\000\000\000\000\
     \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
     \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
     \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
     \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
     \000\000\000\000\041\000\000\000\000\000\000\000\000\000\000\000\
     \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
-    \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
+    \000\000\000\000\000\000\050\000\000\000\000\000\000\000\000\000\
     \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
     \000\000\000\000\000\000\000\000\000\000\050\000\000\000\000\000\
     \000\000\000\000\000\000\050\000\000\000\000\000\000\000\000\000\
@@ -190,14 +182,14 @@ let __ocaml_lex_tables = {
     \045\000\045\000\045\000\045\000\045\000\045\000\045\000\045\000\
     \045\000\045\000\045\000\045\000\045\000\045\000\045\000\045\000\
     \045\000\045\000\045\000\045\000\045\000\045\000\045\000\045\000\
-    \045\000\049\000\255\255\255\255\255\255\255\255\049\000\255\255\
+    \045\000\049\000\255\255\255\255\255\255\255\255\255\255\255\255\
     \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
     \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
     \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
     \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
     \255\255\255\255\039\000\255\255\255\255\255\255\255\255\255\255\
     \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
-    \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
+    \255\255\255\255\255\255\049\000\255\255\255\255\255\255\255\255\
     \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
     \255\255\255\255\255\255\255\255\255\255\049\000\255\255\255\255\
     \255\255\255\255\255\255\049\000\255\255\255\255\255\255\255\255\
@@ -238,190 +230,194 @@ let rec token lexbuf =
 and __ocaml_lex_token_rec lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
-# 55 "lexer.mll"
-      ( Lexing.new_line lexbuf; token lexbuf )
-# 244 "lexer.ml"
+# 48 "lexer.mll"
+      ( new_line lexbuf; token lexbuf )
+# 236 "lexer.ml"
 
   | 1 ->
-# 57 "lexer.mll"
+# 50 "lexer.mll"
       ( token lexbuf )
-# 249 "lexer.ml"
+# 241 "lexer.ml"
 
   | 2 ->
-# 59 "lexer.mll"
+# 52 "lexer.mll"
       ( comment lexbuf; token lexbuf )
-# 254 "lexer.ml"
+# 246 "lexer.ml"
 
   | 3 ->
-# 61 "lexer.mll"
+# 54 "lexer.mll"
       ( Lexing.new_line lexbuf; token lexbuf )
-# 259 "lexer.ml"
+# 251 "lexer.ml"
 
   | 4 ->
-# 63 "lexer.mll"
+# 56 "lexer.mll"
       ( id_or_keyword (lexeme lexbuf) )
-# 264 "lexer.ml"
+# 256 "lexer.ml"
 
   | 5 ->
 let
-# 64 "lexer.mll"
+# 57 "lexer.mll"
               s
-# 270 "lexer.ml"
+# 262 "lexer.ml"
 = Lexing.sub_lexeme lexbuf lexbuf.Lexing.lex_start_pos lexbuf.Lexing.lex_curr_pos in
-# 65 "lexer.mll"
+# 58 "lexer.mll"
       (
 	try
 	  INTEGER (Int32.of_string s)
 	with _ ->
-	  raise (Lexical_error ("invalid integer constant '" ^ s ^ "'"))
+          error (Lexical_error
+                   (sprintf "invalid integer constant '%s'" s))
+            (current_pos lexbuf)
       )
-# 279 "lexer.ml"
+# 273 "lexer.ml"
 
   | 6 ->
-# 72 "lexer.mll"
+# 67 "lexer.mll"
       ( Buffer.reset str_buff;
         string lexbuf )
-# 285 "lexer.ml"
+# 279 "lexer.ml"
 
   | 7 ->
-# 75 "lexer.mll"
+# 70 "lexer.mll"
         ( LP )
-# 290 "lexer.ml"
+# 284 "lexer.ml"
 
   | 8 ->
-# 76 "lexer.mll"
+# 71 "lexer.mll"
         ( RP )
-# 295 "lexer.ml"
+# 289 "lexer.ml"
 
   | 9 ->
-# 77 "lexer.mll"
+# 72 "lexer.mll"
         ( LB )
-# 300 "lexer.ml"
+# 294 "lexer.ml"
 
   | 10 ->
-# 78 "lexer.mll"
+# 73 "lexer.mll"
         ( RB )
-# 305 "lexer.ml"
+# 299 "lexer.ml"
 
   | 11 ->
-# 80 "lexer.mll"
+# 75 "lexer.mll"
       ( LSB )
-# 310 "lexer.ml"
+# 304 "lexer.ml"
 
   | 12 ->
-# 82 "lexer.mll"
+# 77 "lexer.mll"
       ( RSB )
-# 315 "lexer.ml"
+# 309 "lexer.ml"
 
   | 13 ->
-# 84 "lexer.mll"
+# 79 "lexer.mll"
       ( COMMA )
-# 320 "lexer.ml"
+# 314 "lexer.ml"
 
   | 14 ->
-# 86 "lexer.mll"
+# 81 "lexer.mll"
       ( SEMICOLON )
-# 325 "lexer.ml"
+# 319 "lexer.ml"
 
   | 15 ->
-# 88 "lexer.mll"
+# 83 "lexer.mll"
       ( DOT )
-# 330 "lexer.ml"
+# 324 "lexer.ml"
 
   | 16 ->
-# 90 "lexer.mll"
+# 85 "lexer.mll"
       ( MINUS )
-# 335 "lexer.ml"
+# 329 "lexer.ml"
 
   | 17 ->
-# 92 "lexer.mll"
+# 87 "lexer.mll"
       ( PLUS )
-# 340 "lexer.ml"
+# 334 "lexer.ml"
 
   | 18 ->
-# 94 "lexer.mll"
+# 89 "lexer.mll"
       ( TIMES )
-# 345 "lexer.ml"
+# 339 "lexer.ml"
 
   | 19 ->
-# 96 "lexer.mll"
+# 91 "lexer.mll"
       ( DIV )
-# 350 "lexer.ml"
+# 344 "lexer.ml"
 
   | 20 ->
-# 98 "lexer.mll"
+# 93 "lexer.mll"
       ( MOD )
-# 355 "lexer.ml"
+# 349 "lexer.ml"
 
   | 21 ->
-# 100 "lexer.mll"
+# 95 "lexer.mll"
       ( BANG )
-# 360 "lexer.ml"
+# 354 "lexer.ml"
 
   | 22 ->
-# 102 "lexer.mll"
+# 97 "lexer.mll"
       ( AND )
-# 365 "lexer.ml"
+# 359 "lexer.ml"
 
   | 23 ->
-# 104 "lexer.mll"
+# 99 "lexer.mll"
       ( OR )
-# 370 "lexer.ml"
+# 364 "lexer.ml"
 
   | 24 ->
-# 106 "lexer.mll"
+# 101 "lexer.mll"
       ( EQ )
-# 375 "lexer.ml"
+# 369 "lexer.ml"
 
   | 25 ->
-# 108 "lexer.mll"
+# 103 "lexer.mll"
       ( GT )
-# 380 "lexer.ml"
+# 374 "lexer.ml"
 
   | 26 ->
-# 110 "lexer.mll"
+# 105 "lexer.mll"
       ( GEQ )
-# 385 "lexer.ml"
+# 379 "lexer.ml"
 
   | 27 ->
-# 112 "lexer.mll"
+# 107 "lexer.mll"
       ( LT )
-# 390 "lexer.ml"
+# 384 "lexer.ml"
 
   | 28 ->
-# 114 "lexer.mll"
+# 109 "lexer.mll"
       ( LEQ )
-# 395 "lexer.ml"
+# 389 "lexer.ml"
 
   | 29 ->
-# 116 "lexer.mll"
+# 111 "lexer.mll"
       ( EQEQ )
-# 400 "lexer.ml"
+# 394 "lexer.ml"
 
   | 30 ->
-# 118 "lexer.mll"
+# 113 "lexer.mll"
       ( NEQ )
-# 405 "lexer.ml"
+# 399 "lexer.ml"
 
   | 31 ->
-# 120 "lexer.mll"
+# 115 "lexer.mll"
       ( PLUSPLUS )
-# 410 "lexer.ml"
+# 404 "lexer.ml"
 
   | 32 ->
-# 122 "lexer.mll"
+# 117 "lexer.mll"
       ( MINUSMINUS )
-# 415 "lexer.ml"
+# 409 "lexer.ml"
 
   | 33 ->
-# 124 "lexer.mll"
+# 119 "lexer.mll"
       ( EOF )
-# 420 "lexer.ml"
+# 414 "lexer.ml"
 
   | 34 ->
-# 126 "lexer.mll"
-      ( raise (Lexical_error ("illegal character: " ^ lexeme lexbuf)) )
-# 425 "lexer.ml"
+# 121 "lexer.mll"
+      ( error (Lexical_error ("illegal character: " ^ lexeme lexbuf))
+          (current_pos lexbuf)
+      )
+# 421 "lexer.ml"
 
   | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; __ocaml_lex_token_rec lexbuf __ocaml_lex_state
 
@@ -430,24 +426,24 @@ and comment lexbuf =
 and __ocaml_lex_comment_rec lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
-# 129 "lexer.mll"
+# 126 "lexer.mll"
          ( () )
-# 436 "lexer.ml"
+# 432 "lexer.ml"
 
   | 1 ->
-# 130 "lexer.mll"
-         ( Lexing.new_line lexbuf; comment lexbuf )
-# 441 "lexer.ml"
+# 127 "lexer.mll"
+         ( new_line lexbuf; comment lexbuf )
+# 437 "lexer.ml"
 
   | 2 ->
-# 131 "lexer.mll"
-         ( raise (Lexical_error "unterminated comment") )
-# 446 "lexer.ml"
+# 128 "lexer.mll"
+         ( error (Lexical_error ("unterminated comment"))  (current_pos lexbuf))
+# 442 "lexer.ml"
 
   | 3 ->
-# 132 "lexer.mll"
+# 129 "lexer.mll"
          ( comment lexbuf )
-# 451 "lexer.ml"
+# 447 "lexer.ml"
 
   | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; __ocaml_lex_comment_rec lexbuf __ocaml_lex_state
 
@@ -457,34 +453,47 @@ and __ocaml_lex_string_rec lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
 let
-# 135 "lexer.mll"
-            c
-# 463 "lexer.ml"
+# 132 "lexer.mll"
+            s
+# 459 "lexer.ml"
 = Lexing.sub_lexeme lexbuf lexbuf.Lexing.lex_start_pos lexbuf.Lexing.lex_curr_pos in
-# 135 "lexer.mll"
-              ( Buffer.add_char str_buff (decode_char c);
-                string lexbuf )
-# 468 "lexer.ml"
+# 132 "lexer.mll"
+              (
+    let c =
+      if String.length s = 1 then s.[0] else
+        match s.[1] with
+        | 'n' -> '\n'
+        | 't' -> '\t'
+        | '\\' -> '\\'
+        | '\"' -> '\"'
+        | _ ->
+            error
+              (Lexical_error ("invalid escape sequence " ^ s))
+              (current_pos lexbuf)
+    in
+    Buffer.add_char str_buff c;
+    string lexbuf )
+# 477 "lexer.ml"
 
   | 1 ->
-# 137 "lexer.mll"
+# 147 "lexer.mll"
          ( STRING (Buffer.contents str_buff) )
-# 473 "lexer.ml"
+# 482 "lexer.ml"
 
   | 2 ->
-# 138 "lexer.mll"
-         ( raise (Lexical_error "unterminated string") )
-# 478 "lexer.ml"
+# 148 "lexer.mll"
+         ( error (Lexical_error ("unterminated string"))  (current_pos lexbuf))
+# 487 "lexer.ml"
 
   | 3 ->
 let
-# 139 "lexer.mll"
+# 149 "lexer.mll"
          c
-# 484 "lexer.ml"
+# 493 "lexer.ml"
 = Lexing.sub_lexeme_char lexbuf lexbuf.Lexing.lex_start_pos in
-# 139 "lexer.mll"
-           ( raise (Lexical_error ("invalid character " ^ (String.make 1 c))) )
-# 488 "lexer.ml"
+# 149 "lexer.mll"
+           ( error (Lexical_error (sprintf "invalid character '%c'" c)) (current_pos lexbuf) )
+# 497 "lexer.ml"
 
   | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; __ocaml_lex_string_rec lexbuf __ocaml_lex_state
 

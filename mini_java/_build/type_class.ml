@@ -1,346 +1,291 @@
 open Ast
+open Error
 
-exception Class_error of string * position
+module MethodSignature =
+  struct
+    (* name * arguments *)
+    type t = string * typ list
+    let compare = compare
+  end
 
-let error s p = raise (Class_error (s, p))
+module MethodSet = Set.Make(MethodSignature)
+module MethodMap = Map.Make(MethodSignature)
 
-type class_info =
-	{ name : string; parent : string;
-		(* nom de variable avec couple (type, nom de la classe) *)
-		mutable attributes : (string * (typ * string)) list;
-		mutable cotrs : ((typ * string) list * Ast.position Ast.instr option) list;
-		mutable methods : (string * (typ * ((typ * string) list) * string * Ast.position Ast.instr option)) list
-	}
+type method_desc = {
+  return : typ;
+  (* type de retour de la mÃ©thode *)
+  class_def : string;
+  (* classe dans laquelle est dÃ©finie la mÃ©thode *)
+  class_override : string;
+  (* classe oÃ¹ Ã©tait dÃ©finie la premiÃ¨re version de la mÃ©thode *)
+}
 
-(* représente la class object à l'aide du type class_info *)
-let object_info =
-	{
-		name = "Object";
-		parent = "";
-		attributes = [];
-		cotrs = [];
-		methods =
-			[ "equals", (Tboolean, [ ((Tclass "String"), "a") ], "String", None) ];
-	}
+let mangle =
+    let buf = Buffer.create 128 in
+    fun prefix cls f tlist ->
+      Buffer.reset buf;
+      Buffer.add_string buf prefix;
+      Buffer.add_char buf '$';
+      Buffer.add_string buf cls;
+      Buffer.add_char buf '$';
+      Buffer.add_string buf f;
+      List.iter (fun t ->
+        Buffer.add_char buf '$';
+        Buffer.add_string buf (typ_to_string t))
+        tlist;
+      Buffer.contents buf
 
-(* représente la class string à l'aide du type class_info *)
-let string_info =
-	{
-		name = "String";
-		parent = "Object";
-		attributes = [];
-		cotrs = [];
-		methods =
-			[ "equals", (Tboolean, [ ((Tclass "String"), "a") ], "String", None) ];
-	}
+type class_desc = {
+  name : string;
+  (* nom de la classe *)
+  parent: string;
+  (* nom du parent, "" pour le parent de Object *)
+  mutable fields : (string * (typ * string)) list;
+  (* liste des attributs, leur type et la classe dans laquelle ils
+     sont dÃ©finis *)
+  mutable methods : method_desc MethodMap.t;
+  (* Table qui donne pour chaque mÃ©thode (identifiÃ©e par son nom et sa
+     signature) les informations de mÃ©thode (type method_desc) *)
+  mutable ctors : method_desc MethodMap.t;
+  (* Pareil pour les constructeurs mais le method_desc contient des
+     valeurs bidons (le type de retour est Tvoid, la classe de
+     dÃ©finition "" et la classe de dÃ©finition initiale "")
+     Cela permet de partager le code de select_method et select_const.
+  *)
+}
 
-(* représente un hashtable contenant la nouvelle représentation des        *)
-(* classes                                                                 *)
-let class_table =
-	let h = Hashtbl.create 17
-	in
-	(Hashtbl.add h "Object" object_info;
-		Hashtbl.add h "String" string_info;
-		h)
+let ctor_desc = { return = Tvoid; class_def = ""; class_override = "" }
 
-(* fonction qui renvoit vrai si la classe hérite d'un parent x let rec     *)
-(* is_parent p_name class_info class_table = if class_info.parent = p_name *)
-(* then true else let parent_info = get_class class_info.parent in         *)
+let empty_desc = { name = "";
+                   parent = "";
+                   fields = [];
+                   methods = MethodMap.empty;
+                   ctors = MethodMap.empty;
+                 }
 
-(* récupère une classe_info en fonction de son nom *)
-let get_class class_name class_table =
-	try
-		Hashtbl.find class_table class_name
-	with Not_found -> failwith "erreur critique : la classe n'existe pas."
+let object_desc = { empty_desc with name = "Object"  }
 
-(* récupère une méthode en fonction de son nom *)
-let get_method class_info method_name =
-	try
-		List.assoc method_name class_info.methods
-	with Not_found -> failwith "erreur critique : la méthode n'existe pas."
 
-let dummy_pos2 = (Lexing.dummy_pos, Lexing.dummy_pos)
+let equals_sig = "equals", [ Tclass "Object" ]
+let equal_desc = { return = Tboolean;
+                   class_def = "String";
+                   class_override = "String";
+                 }
+let string_desc = { name = "String";
+                    parent = "Object";
+                    fields = [];
+                    methods =
+                       MethodMap.add
+                         equals_sig equal_desc
+                         MethodMap.empty;
+                    ctors = MethodMap.empty;
+                  }
 
-let object_ast =
-	({ node = "Object"; info = dummy_pos2; },
-		{ node = ""; info = dummy_pos2; }, [])
+let mk_dummy v = { node = v; info = Lexing.dummy_pos, Lexing.dummy_pos }
 
-(* select_field permet de connaître le type d'un attribut il suffit de     *)
-(* fournir le nom de la classe et le nom de l'attribut                     *)
-let select_field class_name attribute_name class_table =
-	let class_ = get_class class_name class_table in
-	try
-		List.assoc attribute_name class_.attributes
-	with
-	| Not_found -> failwith ("l'attribut " ^ attribute_name ^ "n'existe pas")
 
-(* effectue un trie topologique sur le graphe d'héritage *)
-let topological_sort (clist : (position klass) list) class_table =
-	let l = ref [] in
-	let s = ref [ object_ast ] in
-	let graph = ref clist
-	in
-	(while !s <> [] do
-			(let n = List.hd !s in
-				let (cname, _, _) = n
-				in
-				(s := List.tl !s;
-					l := n :: !l;
-					graph :=
-					List.fold_left
-						(fun agraph m ->
-									let (mname, _, _) = m in
-									let minfo =
-										try Hashtbl.find class_table mname.node
-										with
-										| Not_found ->
-												error
-													("La classe " ^
-														(mname.node ^ " parent n'existe pas"))
-													mname.info
-									in
-									if minfo.parent = cname.node
-									then (s := m :: !s; agraph)
-									else m :: agraph)
-						[] !graph))
-		done;
-		if !graph <> []
-		then
-			(let (class_, class_parent, _) = List.hd !graph
-				in
-				error ("définition d'une classe cyclique : " ^ class_parent.node)
-					class_parent.info)
-		else ();
-		List.tl (List.rev !l))
+let object_ast = (mk_dummy "Object"), (mk_dummy ""), []
 
-(* fonction qui copie les déclarations de la classe parent dans la classe  *)
-(* enfant                                                                  *)
-let copy_parent_decls class_ class_parent =
-	if class_parent.name = ""
-	then class_
-	else
-		(class_.attributes <- class_parent.attributes;
-			class_.cotrs <- class_parent.cotrs;
-			class_.methods <- class_parent.methods;
-			class_)
 
-(* fonction vérifiant l'existence d'une classe *)
-let class_exists class_name =
-	Hashtbl.mem class_table class_name
+let class_table = Hashtbl.create 17
 
-(* fonction vérifiant l'existence d'un attribut *)
-let attr_exists class_info attr_name =
-	List.mem_assoc attr_name class_info.attributes
+(* Tri topologique (version fonctionnelle).
+   PrÃ©-condition: toutes les classes ainsi que leur parents existent
+   dans class_table
+*)
+let topological_sort class_list =
+  let rec loop s l e =
+    match s, e with
+      [], [] -> List.tl (List.rev l) (* On renverse la liste et on
+                                        retire object_ast qu'on a
+                                        placÃ© en tÃªte *)
+    | [], (cname,_,_) :: _ -> error (Cyclic_inheritance cname.node) cname.info
+    | ((cname, _, _) as cls) ::ss, _ ->
+        let ll = cls :: l in
+        let ee, ss =
+          List.fold_left (fun (acee, acss) ((_, par2, _) as cls2) ->
+            if par2.node = cname.node then
+              (acee, cls2 :: acss)
+            else
+              (cls2 :: acee, acss)
+          ) ([], ss) e
+        in
+        loop ss ll ee
+  in
+  loop [ object_ast ] [] class_list
+    
+let rec subclass c1 c2 =
+  if c1 = "" then false
+  else
+    let c1_desc = Hashtbl.find class_table c1 in
+    c1_desc.parent = c2 || subclass c1_desc.parent c2
 
-(* fonction vérifiant l'existence d'une méthode *)
-let method_exists class_info method_name =
-	List.mem_assoc method_name class_info.methods
+let subtype t1 t2 =
+  match t1, t2 with
+    Tboolean, Tboolean | Tint, Tint
+  | Tnull, Tnull
+  | Tvoid, Tvoid -> true
+  | Tclass c1,  Tclass c2 -> c1 = c2 || subclass c1 c2
+  | Tnull, Tclass _ -> true
+  | _ -> false
 
-let is_function type_ =
-	match type_ with
-	| Tvoid -> true
-	| _ -> false
+let compatible t1 t2 = subtype t1 t2 || subtype t2 t1
 
-(* let rec check_function instr = let instr_node = instr.node in let block *)
-(* = instr_node.node in match instr with | _ -> true | _ :: r -> false &&  *)
-(* check_function r                                                        *)
+let wf t =
+  match t with
+    Tclass c -> c = "Object" || c = "String" || Hashtbl.mem class_table c
+  | Tint | Tboolean -> true
+  | _ -> false
 
-(* génère la méthode à partir des définitions de l'ast *)
-let create_method method_ class_name =
-	let type_, name_, params, instr = method_ in
-	let params_ = List.fold_left ( fun x (type_, name_) -> (type_, name_.node):: x) [] params in
-	let rev = List.rev params_ in
-	name_.node, (type_, rev, class_name, Some instr)
+let check_wf t loc =
+  if not (wf t) then error (Invalid_type t) loc
 
-(* vérifie que les paramètres d'une méthode ou d'un constructeur sont      *)
-(* uniques                                                                 *)
-let check_unique_vparam params =
-	let _ =
-		List.fold_left (
-				fun tmp_names (_, name_) ->
-						if List.mem name_.node tmp_names then
-							error ("Un paramètre " ^ name_.node ^ " existe déjà.") name_.info
-						else name_.node :: tmp_names
-			) [] params
-	in ()
+(* Variante de List.for_all2 qui renvoie false quand les
+   listes sont de tailles diffÃ©rentes au lieu de lever une
+   exception
+*)
+let for_all2 f l1 l2 =
+  try
+    List.for_all2 f l1 l2
+  with
+    Invalid_argument _ -> false
 
-(* compare 2 types *)
-let compare_classtypes type_ type2_ =
-	match type_, type2_ with
-	| Tclass cname1, Tclass cname2 -> (cname1 = cname2)
-	| Tclass class_name1, _ -> false
-	| _, Tclass class_name2 -> false
-	| _, _ -> (type_ = type2_)
+let min_meth f a1 a2 =
+  let _, sig1, _, _ = a1 in
+  let _, sig2, _, _ = a2 in
+  if for_all2 subtype sig1 sig2 then a1
+  else if for_all2 subtype sig2 sig1 then a2
+  else error (Ambiguous_method_call f.node) f.info
 
-(* vérifie que les types sont identiques pour 2 listes de paramètres *)
-let rec check_classtypes plist1 plist2 =
-	match plist1, plist2 with
-	| [],[] -> true
-	| [], _ -> false
-	| _,[] -> false
-	| (type_, _):: r, (type2_, _):: s ->
-			(compare_classtypes type_ type2_) && check_classtypes r s
+(* select_method telle que demandÃ©e dans l'Ã©noncÃ© *)
+let select_by_sig f targs map =
+  let candidates =
+    (* on selectionne tous les candidats potentiels:
+       toutes les mÃ©thodes ayant le mÃªme nom que la mÃ©thode demandÃ©e
+       et dont le profil convient (est un supertype) des types des
+       arguments *)
+    MethodMap.fold (fun (g,gargs) d acand ->
+      if g = f.node && for_all2 subtype targs gargs then
+        (g, gargs, d.return, d.class_override) :: acand
+      else acand
+    ) map []
+  in
+  (* On a obtenu une liste de candidats: *)
+  match candidates with
+    [] -> error (No_candidate_method f.node) f.info
+  | [ m ] -> m
+  | c :: r -> List.fold_left (min_meth f) c r
 
-let check_method_signature method_ class_info =
-	let type_, name_, params_ = method_ in
-	let length1 = List.length params_ in
-	List.iter (
-			fun (mname_, (mtype_, mparams_, mclass_name, _)) ->
-					let length2 = List.length mparams_ in
-					if name_.node = mname_ then
-						if length1 = length2 && check_classtypes params_ mparams_
-						&& mclass_name = class_info.name then
-							error ("méthode dupliquer " ^ mname_) name_.info
-		) class_info.methods
+let select_method cls f targs =
+  select_by_sig f targs (Hashtbl.find class_table cls).methods
 
-(* vérifie que l'utilisation d'un type class existe pour un paramètre      *)
-(* donné                                                                   *)
-let check_class_var_exists type_ name_ =
-	match type_ with
-	| Tclass class_name -> if not (class_exists class_name) then
-				error ("la classe " ^ class_name ^ " n'existe pas.") name_.info;
-	| _ -> ()
+let select_constr cls targs =
+  select_by_sig cls targs (Hashtbl.find class_table cls.node).ctors
 
-(* vérifie que l'utilisation d'un type class existe pour une liste de      *)
-(* paramètre                                                               *)
-let check_class_vlist_exists params =
-	List.iter ( fun (type_, name_) ->
-					check_class_var_exists type_ name_
-		) params
+let select_field c x =
+  let c_desc = Hashtbl.find class_table c in
+    try
+      List.assoc x.node c_desc.fields
+    with
+      Not_found ->
+        error (Invalid_field_access x.node) x.info
 
-let print type_ =
-	match type_ with
-	| Tclass cname -> Printf.printf "%s\r\n" cname;
-	| Tint -> Printf.printf "int\r\n";
-	| Tvoid -> Printf.printf "void\r\n";
-	| _ -> ()
+module StringSet = Set.Make(String)
 
-(* vérifie que la redéfinition est correcte si une méthode se trouve dans  *)
-(* la classe parent                                                        *)
-let check_is_parent_method class_info class_parent method_ =
-	let type_, name_, params = method_ in
-	if method_exists class_parent name_.node then
-		let (mtype_, mparams, _, _) = get_method class_parent name_.node in
-		let length1 = List.length params in
-		let length2 = List.length mparams in
-		if (length1 = length2) && check_classtypes mparams params
-		&& not (compare_classtypes mtype_ type_) then
-			error ("type de retour invalide lors de redéfinition de la méthode " ^ name_.node) name_.info
+let check_params params =
+  let s = ref StringSet.empty in
+  List.map (fun (t, x) ->
+    check_wf t x.info;
+    if StringSet.mem x.node !s then
+      error (Already_defined x.node) x.info
+    else begin
+      s := StringSet.add x.node !s;
+      t
+    end) params
 
-(* méthode qui vérifie si un constructeur avec la même définition existe   *)
-(* déjà dans la lise                                                       *)
-let constr_exists class_info params =
-	let length1 = List.length params in
-	let rec check_constrs clist =
-		match clist with
-		| [] -> false
-		| a :: r ->
-				let length2 = List.length (fst a) in
-				if length1 <> length2 then
-					false || check_constrs r
-				else
-					check_classtypes (fst a) params || check_constrs r
-	in check_constrs class_info.cotrs
-
-(* génère le constructeur à partir de la liste des paramètres de l'ast *)
-let create_cotrs cparams_ instr =
-	let params_ = List.fold_left ( fun x (type_, name_) -> (type_, name_.node):: x) [] cparams_ in
-	(params_, Some instr)
-
-(* parcours la liste des déclarations de la classe *)
-let rec parse_declarations cdecl class_info class_parent =
-	match cdecl with
-	| [] -> class_info
-	| Dfield (type_, name_) :: r ->
-	(* vérifie que l'attribut n'existe pas dans la classe parent *)
-			if attr_exists class_parent name_.node then
-				error ("l'attribut " ^ name_.node ^ " a été redéfini") name_.info;
-			(* vérifie que le type de l'attribut si c'est une classe existe *)
-			check_class_var_exists type_ name_;
-			
-			class_info.attributes <- (name_.node, (type_, class_info.name)):: class_info.attributes;
-			parse_declarations r class_info class_parent
-	| Dconstr (name_, cparams_, instr) :: r ->
-	(* vérifie dans un premier temps que le constructeur a le même nom que   *)
-	(* la classe                                                             *)
-			if name_.node <> class_info.name then
-				error ("le constructeur " ^ name_.node ^ " doit avoir le même nom que la classe.") name_.info;
-			(* vérifie que les constructeurs sont deux à deux distincts *)
-			if constr_exists class_info cparams_ then
-				error ("le constructeur " ^ name_.node ^ " a été redéfini.") name_.info;
-			(* vérifie les types des paramètres *)
-			check_class_vlist_exists cparams_;
-			check_unique_vparam cparams_;
-			let cotrs = create_cotrs cparams_ instr in
-			class_info.cotrs <- cotrs:: class_info.cotrs;
-			
-			parse_declarations r class_info class_parent
-	| Dmeth (type_, name_, params, instr) :: r ->
-			check_is_parent_method class_info class_parent (type_, name_, params);
-			check_class_vlist_exists params;
-			check_unique_vparam params;
-			(* if is_function type_ then check_function instrs; *)
-			check_method_signature (type_, name_, params) class_info;
-			let cmethod = create_method (type_, name_, params, instr) class_info.name in
-			class_info.methods <- cmethod:: class_info.methods;
-			parse_declarations r class_info class_parent
-
-(* fonction qui parse une première fois le nom des classes *)
-let rec parse_classes clist class_table =
-	List.iter (
-		fun (name_, parent_, decl_class) ->
-			if parent_.node = "String"
-				then error "Il n'est pas possible d'hériter de String." parent_.info
-				else ();
-				if class_exists name_.node
-				then error ("Redéfinition de la classe " ^ name_.node) name_.info
-				else
-					Hashtbl.add class_table name_.node
-						{
-							name = name_.node;
-							parent = parent_.node;
-							attributes = [];
-							cotrs = [];
-							methods = [];
-						};
-		) clist
-
-(* fonction qui parse la liste des classes après le passage du trie        *)
-(* topologique                                                             *)
-let rec parse_classes2 clist class_table =
-	List.iter (
-		fun (name_, parent_, decl_class) ->
-		if not (Hashtbl.mem class_table parent_.node)
-			then
-				error ("La classe " ^ (parent_.node ^ " parent n'existe pas"))
-					parent_.info;
-			
-			let class_info =
-				{
-					name = name_.node;
-					parent = parent_.node;
-					attributes = [];
-					cotrs = [];
-					methods = [];
-				} in
-			let class_parent =
-				(try Hashtbl.find class_table parent_.node
-				with | Not_found -> failwith "erreur fatale") in
-			let class_info_parent = copy_parent_decls class_info class_parent in
-			let check_class_info =
-				parse_declarations decl_class class_info_parent class_parent
-			in
-			Hashtbl.add class_table name_.node check_class_info;
-		) clist	
-let init_table prog =
-	let (clist, _, _) = prog
-	in
-	parse_classes clist class_table;
-	let clist2 = topological_sort clist class_table
-	in
-	Hashtbl.reset class_table;
-	Hashtbl.add class_table "Object" object_info;
-	Hashtbl.add class_table "String" string_info;
-	parse_classes clist2 class_table;
-	parse_classes2 clist2 class_table;
-	class_table
+let init_class_table class_list =
+  Hashtbl.clear class_table;
+  (* Les deux classes prÃ©dÃ©finies *)
+  Hashtbl.replace class_table "Object" object_desc;
+  Hashtbl.replace class_table "String" string_desc;
+  (* Pour chaque classe de l'AST, on ajoute une descripteur (vide)
+     dans la table *)
+  List.iter (fun (cl, par, _) ->
+    if Hashtbl.mem class_table cl.node then
+      error (Class_redefinition cl.node) (cl.info);
+    if par.node = "String" then
+      error (Cannot_extend_string cl.node) (par.info);
+    Hashtbl.add class_table cl.node
+      { empty_desc with
+        name = cl.node;
+        parent = par.node
+      }
+  ) class_list;
+  (* On vÃ©rifie que le parent de chaque classe existe *)
+  List.iter (fun (_, parent, _) ->
+    if not (Hashtbl.mem class_table parent.node) then
+      error (Undefined_class parent.node) parent.info
+  ) class_list;
+  (* On effectue un tri topologique des classes *)
+  let sorted_class_list = topological_sort class_list in
+    (* On remplit le dÃ©scripteur de classe pour chaque classe du fichier *)
+  List.iter (fun (this, parent, defns) ->
+    let parent_desc = Hashtbl.find class_table parent.node in
+    let atts, methods, ctors =
+      (* On vÃ©rifie chaque dÃ©finition et on l'ajoute Ã  l'ensemble
+         des attributs/methodes/constructeurs
+      *)
+      List.fold_left (fun (a_atts, a_meths, a_ctors) def ->
+        match def with
+          Dfield (t, x) ->
+            check_wf t x.info;
+            if List.mem_assoc x.node a_atts then
+              error (Redefined_attribute (this.node,x.node)) x.info
+            else (x.node,(t,this.node)) :: a_atts, a_meths, a_ctors
+        | Dconstr (f, params, _ ) ->
+            let tparams = check_params params in
+            if f.node <> this.node then
+              error (Invalid_constructor(this.node, f.node)) f.info
+            else if MethodMap.mem (f.node, tparams) a_ctors then
+              error (Redefined_constructor this.node) f.info
+            else a_atts, a_meths, (MethodMap.add (f.node,tparams) ctor_desc 
+                                     a_ctors)
+        | Dmeth (ret, f, params, _) ->
+            let tparams = check_params params in
+            let msig = f.node, tparams in
+            let new_meth_info =
+            try
+              let meth_info = MethodMap.find msig a_meths in
+              (* s'il existe une mÃ©thode de mÃªme signature dans la
+                 classe que l'on est en train de dÃ©finir, c'est une
+                 erreur *)
+              if meth_info.class_def = this.node then
+                error (Redefined_method (this.node, f.node)) f.info
+              else
+                if not (compatible meth_info.return ret) then
+                  error
+                    (Invalid_override
+                       (f.node, this.node,
+                        meth_info.class_override, ret, meth_info.return)
+                    ) f.info
+                else
+                  {meth_info with
+                    class_def = this.node;
+                  }
+            with
+              Not_found ->
+                { return = ret;
+                  class_def = this.node;
+                  class_override = this.node;
+                }
+            in
+            a_atts, MethodMap.add msig new_meth_info a_meths, a_ctors
+      ) ([], parent_desc.methods, MethodMap.empty) defns
+    in
+    let this_desc = Hashtbl.find class_table this.node in
+    this_desc.fields <- List.rev_append atts parent_desc.fields;
+    this_desc.methods <- methods;
+    this_desc.ctors <- ctors
+  ) class_list;
+  (* enfin, on renvoie la liste triÃ©e *)
+  sorted_class_list

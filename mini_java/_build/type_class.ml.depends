@@ -1,1 +1,1 @@
-type_class.ml: Ast Hashtbl Lexing List Printf
+type_class.ml: Ast Buffer Error Hashtbl Lexing List Map Set String

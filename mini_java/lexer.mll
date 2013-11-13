@@ -4,10 +4,12 @@
   open Lexing
   open Parser
   open Ast
+  open Error
+  open Format
 
-  (* Erreurs lexicales *)
-
-  exception Lexical_error of string
+  let current_pos b =
+    lexeme_start_p b,
+    lexeme_end_p b
 
   let id_or_keyword =
     let h = Hashtbl.create 17 in
@@ -32,27 +34,18 @@
       ];
     fun s -> try Hashtbl.find h s with Not_found -> IDENT s
 
-  let decode_char s =
-    if String.length s = 1 then s.[0] else
-      if String.length s = 2 then
-        match s.[1] with
-        | 'n' -> '\n'
-        | 't' -> '\t'
-        | '\'' -> '\''
-        | '\"' -> '\"'
-        | _ -> raise (Lexical_error ("invalid escape sequence " ^ s))
-      else assert false
 
   let str_buff = Buffer.create 256
 }
+
 let alpha = ['a'-'z' 'A'-'Z']
 let digit = ['0'-'9']
 let ident = (alpha | '_') (alpha | '_' | digit)*
-let char = ([' ' - '~'] # [ '\\' '\'' '\"']) | '\\' ('n' | 't' | '\'' |'\"')
+let char = ([' ' - '~'] # [ '\\' '\'' '\"']) | '\\' ('n' | 't' | '\\' |'\"')
 
 rule token = parse
   | '\n'
-      { Lexing.new_line lexbuf; token lexbuf }
+      { new_line lexbuf; token lexbuf }
   | [' ' '\t' '\r']+
       { token lexbuf }
   | "/*"
@@ -66,7 +59,9 @@ rule token = parse
 	try
 	  INTEGER (Int32.of_string s)
 	with _ ->
-	  raise (Lexical_error ("invalid integer constant '" ^ s ^ "'"))
+          error (Lexical_error
+                   (sprintf "invalid integer constant '%s'" s))
+            (current_pos lexbuf)
       }
   | '\"'
       { Buffer.reset str_buff;
@@ -123,17 +118,32 @@ rule token = parse
   | eof
       { EOF }
   | _
-      { raise (Lexical_error ("illegal character: " ^ lexeme lexbuf)) }
+      { error (Lexical_error ("illegal character: " ^ lexeme lexbuf))
+          (current_pos lexbuf)
+      }
 
 and comment = parse
   | "*/" { () }
-  | '\n' { Lexing.new_line lexbuf; comment lexbuf }
-  | eof  { raise (Lexical_error "unterminated comment") }
+  | '\n' { new_line lexbuf; comment lexbuf }
+  | eof  { error (Lexical_error ("unterminated comment"))  (current_pos lexbuf)}
   | _    { comment lexbuf }
 
 and string = parse
-  | char as c { Buffer.add_char str_buff (decode_char c);
-                string lexbuf }
+  | char as s {
+    let c =
+      if String.length s = 1 then s.[0] else
+        match s.[1] with
+        | 'n' -> '\n'
+        | 't' -> '\t'
+        | '\\' -> '\\'
+        | '\"' -> '\"'
+        | _ ->
+            error
+              (Lexical_error ("invalid escape sequence " ^ s))
+              (current_pos lexbuf)
+    in
+    Buffer.add_char str_buff c;
+    string lexbuf }
   | '\"' { STRING (Buffer.contents str_buff) }
-  | eof  { raise (Lexical_error "unterminated string") }
-  | _ as c { raise (Lexical_error ("invalid character " ^ (String.make 1 c))) }
+  | eof  { error (Lexical_error ("unterminated string"))  (current_pos lexbuf)}
+  | _ as c { error (Lexical_error (sprintf "invalid character '%c'" c)) (current_pos lexbuf) }

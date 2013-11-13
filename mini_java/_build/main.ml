@@ -5,10 +5,7 @@ open Lexing
 open Lexer
 open Parser
 open Ast
-open Type_class
 open Typing
-
-exception InvalidPublicClass of string
 
 let ext = ".java"
 let usage = sprintf "usage: %s [options] file%s" Sys.argv.(0) ext
@@ -32,45 +29,35 @@ let file =
   Arg.parse spec set_file usage;
   match !file with Some f -> f | None -> Arg.usage spec usage; exit 1
 
-let report_loc (b,e) =
-  if b = dummy_pos || e = dummy_pos then
-  eprintf "File \"%s\"\nerror: " file
-  else
-  let l = b.pos_lnum in
-  let fc = b.pos_cnum - b.pos_bol + 1 in
-  let lc = e.pos_cnum - b.pos_bol + 1 in
-  eprintf "File \"%s\", line %d, characters %d-%d\nerror: " file l fc lc
-
 let () =
   let c = open_in file in
   let lb = Lexing.from_channel c in
   try
-    let (_, main, _) as p = Parser.prog Lexer.token lb in
-    if main ^ ext <> Filename.basename file then  raise (InvalidPublicClass main);
+    let (_, main, body) as p = Parser.prog Lexer.token lb in
+    if main ^ ext <> Filename.basename file then
+      Error.error (Error.Invalid_public_class main) body.info;
     close_in c;
     if !parse_only then exit 0;
-		type_prog p;
+    let tast = Typing.prog p in
+    if !type_only then exit 0;
+    let prog = failwith "compiler tast" in
+    let output_file = (Filename.chop_suffix file ext) ^ ".s" in
+    let out = open_out output_file in
+    let outf = formatter_of_out_channel out in
+    Mips.print_program outf prog;
+    pp_print_flush outf ();
+    close_out out
   with
-    | Lexical_error s ->
-	report_loc (lexeme_start_p lb, lexeme_end_p lb);
-	eprintf "lexical error: %s\n@." s;
-	exit 1
-    | Parsing.Parse_error ->
-	report_loc (lexeme_start_p lb, lexeme_end_p lb);
-	eprintf "syntax error\n@.";
-	exit 1
-    |  InvalidPublicClass main ->
-	report_loc (lexeme_start_p lb, lexeme_end_p lb);
-	eprintf "this file should be named %s%s\n@." main ext;
-	exit 1
-    |  Class_error (msg,p) ->
-	report_loc p;
-	eprintf "%s\n@." msg ;
-	exit 1
-    |  Instruction_error (msg,p) ->
-	report_loc p;
-	eprintf "%s\n@." msg ;
-	exit 1
-    | e ->
-	eprintf "Anomaly: %s\n@." (Printexc.to_string e);
-	exit 2
+  | Error.Error (e,p) ->
+      Error.print err_formatter file e p;
+      exit 1
+  | Parsing.Parse_error ->
+      Error.print err_formatter file Error.Syntax_error
+        (Parsing.symbol_start_pos(),
+         Parsing.symbol_end_pos());
+      exit 1
+  | e ->
+      let s = Printexc.get_backtrace() in
+      eprintf "Anomaly: %s\n@." (Printexc.to_string e);
+      eprintf "Backtrace: %s\n@." s;
+      exit 2

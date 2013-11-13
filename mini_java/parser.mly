@@ -5,7 +5,8 @@
     Parsing.symbol_end_pos ()
 
   let loc x = { node = x; info = current_pos () }
-
+  let syntax_error () =
+    Error.error Error.Syntax_error (current_pos())
 %}
 /* objet de base */
 %token <Int32.t> INTEGER
@@ -45,13 +46,13 @@
 prog:
   class_list main_class EOF { let main, instr = $2 in
                               $1, main, instr }
-
+  | error               EOF { syntax_error () }
 ;
 
 main_class:
 PUBLIC CLASS IDENT LB PUBLIC STATIC VOID IDENT LP IDENT IDENT LSB RSB RP block RB
 {
-  if  $8 <> "main" || $10 <> "String" then failwith "foo"
+  if  $8 <> "main" || $10 <> "String" then syntax_error ()
   else $3, $15
 }
 ;
@@ -61,7 +62,7 @@ class_list:
 ;
 
 class_list_rev:
-  class_               { [ $1 ] }
+|                       { [  ] }
 | class_list_rev class_ { $2 :: $1 }
 ;
 
@@ -185,7 +186,7 @@ expr:
 | LP expr RP expr     %prec cast  {
                          match ($2).node with
                                | Elval (Lident id) -> loc (Ecast(Tclass id.node, $4))
-                               | _ -> raise Parsing.Parse_error
+                               | _ -> syntax_error ()
 }
 | expr INSTANCEOF type_expr  { loc (Einstanceof($1, $3)) }
 

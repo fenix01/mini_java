@@ -1,247 +1,314 @@
 open Ast
 open Type_class
+open Error
 
-exception Instruction_error of string * position
-exception Expression_error of string
+let mk_t e t = { e with info = t }
 
-let error s p = raise (Instruction_error (s, p))
+let mk e t = { node = e; info = t }
+
+let type_error l t1 t2 = error (Type_error (t1,t2)) l
+
+let lval_info l =
+  match l with
+    Lident id | Laccess( _, id) -> id.info
+
+let update_ident l new_id =
+  match l with
+    Lident id -> Lident {id with node = new_id }
+  | Laccess (e, id) -> Laccess (e, {id with node = new_id })
+
+let is_system_out_print l =
+  match l with
+    Laccess (e, id) when id.node = "print" ->
+      begin match e.node with
+        Elval (Laccess (e, id)) when id.node = "out" ->
+          begin match e.node with
+            Elval (Lident id) -> id.node = "System"
+          | _ -> false
+          end
+      | _ -> false
+      end
+  | _ -> false
 
 module Env = Map.Make(String)
-let env = Env.empty
 
-let rec subtype t1 t2 =
-	match t1, t2 with
-	| Tvoid, Tvoid -> true
-	| Tboolean, Tboolean -> true
-	| Tint, Tint -> true
-	| Tnull, Tnull -> true
-	| (Tclass "Object" | Tclass "String"), (Tclass "Object" | Tclass "String") -> true
-	| Tnull , Tclass _ -> true
-	| Tclass c1, Tclass c2 -> if c1 = c2 then true else false
-	| _, _ -> false
-
-let compatible t1 t2 = subtype t1 t2 || subtype t2 t1
-
-let is_string t =
-	match t with
-	| Tclass "String" -> true
-	| _ -> false
-
-(* let findClass env c = Env.mem c env let isClass env c = try findClass   *)
-(* env c with | Not_found-> false                                          *)
-
-(* typage d'une expression pour chaque expression, on commence par typer   *)
-(* les sous-expression pour typer l'expression de resultat                 *)
 let rec type_expr env e =
-	match e.node with
-	| Econst c -> (
-				match c with
-				| Cint c -> Tint
-				| Cstring s -> Tclass "String"
-				| Cbool b -> Tboolean
-				| Cnull -> Tnull)
-	
-	| Elval e -> type_lvalue env e
-	| Eassign (l, exp) ->
-			(
-				try
-					let type_var = type_lvalue env l in
-					let type_exp = type_expr env exp in
-					if compatible type_var type_exp then
-						type_exp
-					else
-						raise (Expression_error ("types incompatibles lors de l'assignation."))
-				with Expression_error msg -> raise (Expression_error msg)
-			)
-	
-	| Ecall (l, elist) ->
-	(* let ret_typ param_list = try Env.find l.node fun_env with Not_found   *)
-	(* -> failwith "type call inconnue" in begin try let args0 = List.map2   *)
-	(* (fun e0 (tx,_) -> let et0 = type_expr env e0 in if compatible         *)
-	(* et0.node tx then et0 else failwith "type Ecall error" )args           *)
-	(* param_list in add_node ret_typ (Ecall (l,args0)) with                 *)
-	(* Invalide_argument _ -> failwith "function %s expects %i arguments but *)
-	(* was called with %i" end                                               *)
-			failwith "todo"
-	| Enew (id, elist) -> failwith "todo"
-	| Eunop(op, exp) ->
-		(try 
-			let type_ = type_expr env exp in
-			match op with
-			| Unot -> if compatible type_ Tboolean then
-				Tboolean
-				else
-				raise (Expression_error "l'expression doit Ítre de type boolean.")
-			| _ ->
-			if compatible type_ Tint then
-				Tint
-			else
-				raise (Expression_error "les expressions doivent Ítre de types int.")
-		with Expression_error msg -> raise (Expression_error msg))
-	| Ebinop (e1, op, e2) ->
-			let t1 = type_expr env e1 in
-			let t2 = type_expr env e2 in
-			(
-				match op with
-				| Beq  | Bneq -> if compatible t1 t2 then
-													Tboolean
-												 else
-													raise (Expression_error "les types comparÈs sont incompatibles")
-				| Band | Bor ->
-					if compatible t1 Tboolean && compatible t2 Tboolean then
-						Tboolean
-					else
-						raise (Expression_error "les expressions doivent Ítre de types boolean.")
-				| Blt | Blte | Bgt | Bgte ->
-						if compatible t1 Tint && compatible t2 Tint then
-								Tboolean
-							else
-								raise (Expression_error "les expressions doivent Ítre de types int.")
-				| Badd | Bsub | Bmul | Bdiv | Bmod ->
-						if compatible t1 Tint && compatible t2 Tint then
-							Tint
-						else
-							raise (Expression_error "les expressions doivent Ítre de types int.")
-			)                                                                  
-	| Einstanceof (e, t) -> failwith "todo"
-	(* let te = type_expr env e in if (te.info = Tnull || isClass te) then   *)
-	(* if compatible te.info t then add_node Tboolean (Einstanceof (te,t))   *)
-	(* else failwith "type error einstanceof" else failwith " te should be a *)
-	(* class or null"                                                        *)
-	| Ecast (t, e) -> failwith "todo"
-(* if (not(Env.mem (stringOf t) env)) then failwith "t should be a type    *)
-(* Tclass --Ecast" else let te = type_expr env e in if ((subtype t         *)
-(* te.info)|| (subtype te.info t)) then add_node te.info (Ecast(t,te))     *)
-(* else failwith "typing error Ecast "                                     *)
+  match e.node with
+  | Econst (c) -> let t =
+                    match c with
+                      Cint _   ->  Tint
+                    | Cstring _ -> Tclass "String"
+                    | Cbool _ -> Tboolean
+                    | Cnull -> Tnull
+                  in
+                  mk (Econst c) t
+  | Elval l -> let tl = type_lval env l in
+               mk (Elval tl) (lval_info tl)
 
-and type_lvalue env l =
-	match l with
-	| Lident x -> (try Env.find x.node env
-			with Not_found -> raise (Expression_error ("l'identificateur " ^ x.node ^ " n'existe pas.") ))
-	| Laccess (e, x) ->(
-		try 
-			Env.find x.node env
-		with 
-		Not_found -> raise (Expression_error ("l'identificateur " ^ x.node ^ " n'existe pas.") )
-		)
+  | Eassign (l, e) ->
+      let te = type_expr env e in
+      let tl = type_lval env l in
+      let t = lval_info tl in
+      if subtype te.info t then mk (Eassign (tl, te)) t
+      else type_error e.info t  te.info
 
-let rec type_instr env i =   (* : type_instr Env.empty main_body *)
-	match i.node with
-	| Iexpr e ->
-			(try
-				let _ = type_expr env e in
-				env
-			with Expression_error msg -> error msg i.info)
-	| Idecl(t, id, None) -> if Env.mem id.node env then
-				error ("l'identificateur " ^ id.node ^ " est dÈj‡ dÈfini.") id.info
-			else
-				Env.add id.node t env
-	| Idecl(t, id, Some e) -> if Env.mem id.node env then
-				error ("l'identificateur " ^ id.node ^ " est dÈj‡ dÈfini.") id.info
-			else
-				(
-					try
-						let type_ = type_expr env e in
-						let check = compatible type_ t in
-						if not check then
-							error ("la variable " ^ id.node ^ " est mal typÈe.") id.info
-						else Env.add id.node t env
-					with Expression_error msg -> error msg id.info
-				)
-	| Iif (e1, in1, in2) ->
-			(try
-				let t1 = type_expr env e1 in
-				if t1 <> Tboolean
-				then error ("l'expression n'est pas boolÈenne.") e1.info
-				else
-					(
-						let _ = type_instr env in1
-						and _ = type_instr env in2
-						in
-						env
-					)
-			with Expression_error msg -> error msg e1.info)
-	| Ifor (e1, e2, e3, inst) ->
-		(match e1, e2, e3 with
-		| Some ex1, Some ex2, Some ex3 -> 		
-			(try
-				let t1 = type_expr env ex1 in
-				(try
-					let t2 = type_expr env ex2 in
-					(try
-						let t3 = type_expr env ex3 in
-						let _ = type_instr env inst in
-						if compatible t1 Tint && compatible t2 Tboolean && compatible t3 Tint
-						then
-							env
-						else
-							error ("la boucle for est mal typÈe.") ex1.info
-						with Expression_error msg -> error msg ex3.info
-						)
-				with Expression_error msg -> error msg ex2.info
-				)
-			with Expression_error msg -> error msg ex1.info
-			)
-		| _ , _ , _ -> env
-		)
+  | Ecall (lval, args) ->
+      let targs = List.map (type_expr env) args in
 
-	| Iblock(in_list) ->
-			let rec aux env list =
-				match list with
-				| [] -> env
-				| a :: r -> let new_env = type_instr env a in aux new_env r
-			in aux env in_list
-	| Ireturn _ -> failwith "todo2"
-	| _ -> error "instruction non gÈrÈe." i.info
+      if is_system_out_print lval then
+        match targs with
+          [ te ] when
+              List.exists (compatible te.info)
+                [ Tint; Tboolean;Tclass "String"] ->
+            (* On cr√©e un Lident fictif. C'est plus pratique pour
+               faire la g√©n√©ration de code *)
+                  let new_id = "System$out$print" in
+                  mk (Ecall (Lident (mk new_id te.info), targs)) Tvoid
+        | _ -> error Invalid_print e.info
+      else
+        let  cls, tl, f =
+          match lval with
+          | Lident f -> let c =
+                          try
+                            Env.find "this" env
+                          with Not_found -> error This_in_static f.info
+                        in c, Laccess (mk (Elval(Lident (mk "this" c)) ) c, (mk f.node c)), f
+          | Laccess (e, f) ->
+              let te = type_expr env e in
+              te.info, Laccess (te, mk f.node te.info) , f
+        in
+        let _ , tparams, rt, class_override =
+          match cls with
+            Tclass cname ->
+              select_method cname f (List.map (fun x -> x.info) targs)
+          | _ -> error (Call_on_non_class_type(f.node,cls)) f.info
+        in
+        let new_id = mangle "_method" class_override f.node tparams in
+        mk  (Ecall (update_ident tl new_id, targs)) rt
 
-(* crÈÈ l'environnement pour l'identificateur this *)
-let create_class_env env class_info =
-	Env.add "this" (Tclass class_info.name) env
-	
-(* crÈÈ l'environnement pour les paramËtres *)
-let create_params_env env params =
-	List.fold_left (
-		fun new_env (type_,name_) ->
-			Env.add name_ type_ new_env
-		) env params
+  | Enew (cls, args) ->
+      check_wf (Tclass cls.node) e.info;
+      let targs = List.map (type_expr env) args in
+      let _, sigc, _, _ =
+        select_constr cls (List.map (fun x -> x.info) targs)
+      in
+      let rt = Tclass cls.node in
+      let new_id = mangle "_ctor" cls.node cls.node sigc in
+      mk (Enew (mk new_id rt, targs)) rt
+  | Eunop (Unot, e) ->
+      let te = type_expr env e in
+      if te.info =  Tboolean then
+        mk (Eunop (Unot, te)) Tboolean
+      else type_error e.info Tboolean  te.info
 
-(* permet le typage de toutes les mÈthodes d'une classe *)
-let type_methods classes_ =
-	let class_info,fclass_table = classes_ in
-	List.iter (
-		fun method_ ->
-			let class_env = create_class_env env class_info in
-			match method_ with
-			| _,( _, params_, _,Some instr) -> 
-				let params_env = create_params_env class_env params_ in
-				let _ = type_instr params_env instr in ()
-			| _,( _, _, _,None) -> ()
-		) class_info.methods	
-		
-(* permet le typage de tous les constructeurs d'une classe		 *)
-let type_cotrs classes_ =
-	let class_info,fclass_table = classes_ in
-	List.iter (
-		fun cotr_ ->
-			let class_env = create_class_env env class_info in
-			match cotr_ with
-			| params_,Some instr -> 
-				let params_env = create_params_env class_env params_ in
-				let _ = type_instr params_env instr in ()
-			| _,None -> ()
-		) class_info.cotrs
+  | Eunop (Uneg, e) ->
+      let te = type_expr env e in
+      if te.info =  Tint then
+        mk (Eunop (Uneg, te)) Tint
+      else type_error e.info Tint  te.info
 
-(* effectue le typage sur toutes les classes exceptÈ la classe main *)
-let type_classes fclass_table =
-	Hashtbl.iter (
-		fun class_name class_info ->
-			type_methods (class_info,fclass_table);
-			type_cotrs (class_info,fclass_table)
-		) fclass_table
+  | Eunop (u, e' ) -> begin
+    match e'.node with
+      Elval l ->
+        let tl = type_lval env l in
+        let t = lval_info tl in
+        if t = Tint then
+          mk (Eunop(u, mk (Elval tl) Tint)) Tint
+        else type_error e'.info Tint  t
+    | _ -> error Not_lvalue e'.info
+  end
+  | Ebinop (e1, o, e2) ->
+      let te1 = type_expr env e1 in
+      let te2 = type_expr env e2 in
+      begin
+        match o with
+        | Beq | Bneq ->
+            if compatible te1.info te2.info then
+              mk (Ebinop(te1, o, te2)) Tboolean
+            else
+              type_error e2.info te1.info te2.info
+        | Blt | Blte | Bgt | Bgte ->
+            if te1.info <> Tint then
+              type_error e1.info Tint te1.info
+            else if te2.info <> Tint then
+              type_error e2.info Tint te2.info
+            else
+              mk (Ebinop (te1, o, te2)) Tboolean
 
-(* effectue le typage sur l'ensemble du programme *)
-let type_prog prog =
-	let table = init_table prog in
-	let _, _ , main_body = prog in
-	let _ = type_instr env main_body in
-	type_classes table
+        | Bsub | Bmul | Bdiv | Bmod ->
+            if te1.info <> Tint then
+              type_error e1.info Tint te1.info
+            else if te2.info <> Tint then
+              type_error e2.info Tint te2.info
+            else
+              mk (Ebinop (te1, o, te2)) Tint
+
+        | Band | Bor ->
+            if te1.info <> Tboolean then
+              type_error e1.info Tboolean te1.info
+            else if te2.info <> Tboolean then
+              type_error e2.info Tboolean te2.info
+            else
+              mk (Ebinop (te1, o, te2)) Tboolean
+        | Badd ->
+          match te1.info, te2.info with
+            Tint, Tint -> mk (Ebinop (te1, o, te2)) Tint
+          | ((Tint|Tclass "String"), (Tint|Tclass "String")) ->
+              mk (Ebinop (te1, o, te2)) (Tclass "String")
+          | a,b -> error (Invalid_addition (a,b)) e.info
+
+      end
+  | Ecast (t, e') ->
+      check_wf t e.info;
+      let te = type_expr env e' in
+      if subtype te.info t then te (* upcast, on peut le supprimer statiquement *)
+      else if subtype t te.info then (* downcast, on testera √† runtime *)
+        mk (Ecast (t, te)) t
+      else
+        error (Invalid_cast (t, te.info)) e.info
+
+  | Einstanceof (e', typ) ->
+      check_wf typ e.info;
+      let te = type_expr env e' in
+      match te.info with
+      | Tnull | Tclass _  ->
+          if subtype te.info typ then
+            (* Un super-type est une instance *)
+            mk (Econst (Cbool true)) Tboolean
+          else (* Un sous-type est peut-√™tre une instance... on v√©rifiera √† runtime *)
+            if subtype typ te.info then
+              mk (Einstanceof (te, typ)) Tboolean
+            else (* on sait statiquement que c'est faux *)
+              mk (Econst (Cbool false)) Tboolean
+      | _ ->
+          error (Invalid_instanceof (typ, te.info)) e.info
+
+
+and type_lval env l =
+  match l with
+    Lident x -> begin
+      try
+        let t = Env.find x.node env in
+        Lident (mk x.node t)
+      with Not_found ->
+        try
+          let this_class =
+            match Env.find "this" env with
+              Tclass c -> c
+            | _ -> raise Not_found
+          in
+          let tc = Tclass this_class in
+          let t, cdef = select_field this_class x in
+          Laccess (mk (Elval (Lident (mk "this" tc))) tc,
+                   mk (cdef ^ "$" ^ x.node) t)
+        with
+          Not_found ->  error (Unbound_identifier x.node) x.info
+    end
+  | Laccess (e, x) ->
+      let te = type_expr env e in
+      match te.info with
+      | Tclass c -> let t, cdef = select_field c x in
+                    Laccess (te, mk (cdef ^ "$" ^ x.node) t)
+      | _ -> error (Invalid_field_access x.node) x.info
+
+(* [type_opt env t e] type une expression contenue dans un option et
+   renvoie son type, ou [t] si l'option vaut None *)
+let type_opt env t oe =
+  match oe with
+    None -> t, None
+  | Some e -> let te = type_expr env e in
+              te.info, Some te
+
+
+(* [type_instr ret env i] renvoie un triplet [ti, env, b] o√π ti est
+   l'instruction typ√©e, env l'environnement de typage et b un bool√©en
+   qui vaut vrai si tous les chemin d'ex√©cution contiennent un return
+*)
+let rec type_instr ret env i =
+  match i.node with
+  | Iexpr e -> let te = type_expr env e in
+               mk (Iexpr te) te.info, env, false
+  | Idecl (t, x, eopt) ->
+      check_wf t i.info;
+      if Env.mem x.node env then
+        error (Already_defined x.node) x.info;
+      let topt, teopt = type_opt env t eopt in
+      if not (subtype topt t) then type_error i.info t topt;
+      mk (Idecl (t, mk x.node t, teopt)) t,
+        Env.add x.node t env,
+        false
+  | Iif (e, i1, i2) ->
+      let te = type_expr env e in
+      if te.info <> Tboolean then
+        type_error e.info Tboolean te.info
+      else
+        let ti1, _, b1 = type_instr ret env i1 in
+        let ti2, _, b2 = type_instr ret env i2 in
+        mk (Iif (te, ti1, ti2)) Tvoid, env, b1 && b2
+  | Ifor (oe1, oe2, oe3, i') ->
+      let _, toe1 = type_opt env Tvoid oe1 in
+      let t2, toe2 = type_opt env Tboolean oe2 in
+      if not (compatible t2 Tboolean) then type_error i.info Tboolean t2;
+      let _, toe3 = type_opt env Tvoid oe3 in
+      let ti, _, b = type_instr ret env i' in
+      mk (Ifor (toe1, toe2, toe3, ti)) Tvoid,
+      env,
+      (b && oe2 = None)
+  (* petit rafinement: si on sait qu'on est dans une boucle
+     infinie et que le corp de la boucle a un return, on
+     renvoie vrai *)
+  | Iblock li ->
+      let tli, _, b = List.fold_left (fun (ai, ae, b) i ->
+        let ti, aee, bb = type_instr ret ae i in
+        ti :: ai, aee, b || bb) ([], env, false) li
+      in
+      mk (Iblock (List.rev tli)) Tvoid, env, b
+  | Ireturn oe ->
+      let te, toe = type_opt env Tvoid oe in
+      if compatible te ret then
+        mk (Ireturn toe) te, env, true
+      else error (Invalid_return ret) i.info
+
+let enter_params l env =
+  let tparams, nenv =
+    List.fold_left (fun (acct, acce) (t,x) ->
+      ((t, mk x.node t)::acct,
+       Env.add x.node t acce)
+    ) ([], env) l
+  in
+  List.rev tparams, nenv
+
+
+let type_class (this, super, dlist) =
+  let env = Env.add "this" (Tclass this.node) Env.empty in
+  let tdlist =
+    List.map (fun d ->
+      match d with
+      | Dfield (typ, x) ->
+          Dfield (typ, mk x.node typ)
+      | Dmeth (rtyp, name, params, body) ->
+          let tparams, nenv = enter_params params env in
+          let tbody, _, b = type_instr rtyp nenv body in
+          if not b && rtyp != Tvoid then
+            error Missing_return name.info
+          else
+            Dmeth (rtyp, mk name.node rtyp, tparams, tbody)
+      | Dconstr (name, params, body) ->
+          let tparams, nenv = enter_params params env in
+          let tbody, _, _ = type_instr Tvoid nenv body in
+          Dconstr(mk name.node Tvoid, tparams, tbody)
+    ) dlist
+  in
+  (mk this.node (Tclass this.node),
+   mk super.node (Tclass super.node),
+   tdlist)
+
+let prog (class_list, main_class, main_body) =
+  let class_list = init_class_table class_list in
+  if Hashtbl.mem class_table main_class then
+    error (Class_redefinition main_class) (main_body.info);
+  (* init_class_table a v√©rifi√© la bonne formation des attributs de
+   classe et des param√®tres de m√©thodes/constructeurs.  *)
+  let tclass_list = List.map type_class class_list in
+  let tmain_body, _, _ = type_instr Tvoid Env.empty main_body in
+  tclass_list, main_class, tmain_body
