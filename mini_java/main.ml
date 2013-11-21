@@ -6,6 +6,7 @@ open Lexer
 open Parser
 open Ast
 open Typing
+open Compile
 
 let ext = ".java"
 let usage = sprintf "usage: %s [options] file%s" Sys.argv.(0) ext
@@ -40,7 +41,7 @@ let () =
     if !parse_only then exit 0;
     let tast = Typing.prog p in
     if !type_only then exit 0;
-    let prog = failwith "compiler tast" in
+    let prog = prog tast in
     let output_file = (Filename.chop_suffix file ext) ^ ".s" in
     let out = open_out output_file in
     let outf = formatter_of_out_channel out in
