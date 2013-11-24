@@ -1,5 +1,6 @@
 open Ast
 open Mips
+open Descriptor
 
 let caller_method label_name =
 	let push_treg = push t0 @@ push t1 @@push t2 @@ push t3 in
@@ -193,6 +194,18 @@ let rec compile_instr fp_shift loc_size env instr =
 			in aux fp_shift loc_size env li
 	| _ -> fp_shift, loc_size, env, comment "c'est le main"
 
+let rec compile_class defns =
+	match defns with
+	| [] -> assert false
+	| el :: r -> assert false
+
+let compile_classes class_list =
+		let rec compile clist =
+		match clist with
+		| [] -> assert false
+		| (this, parent, defns) :: r -> assert false
+		in compile class_list
+
 let prog (class_list, main_class, main_body) =
 	let loc_size = get_local_size main_body in
 	let fp_shift,_,_,body_code = compile_instr (-4) loc_size Env.empty main_body in
@@ -207,5 +220,5 @@ let prog (class_list, main_class, main_body) =
 			@@ print_string
 			@@ cerr_div_by_zero
 			@@ end_;
-		data = data_label;
+		data = generate_descriptors class_list @@ data_label;
 	}
