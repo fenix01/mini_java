@@ -76,11 +76,11 @@ let rec compile_expr loc_size env e =
 				| Cbool vbool -> if vbool then li t0 1 else li t0 0
 				| Cnull -> li t0 0
 			in t
-  | Elval l -> let clval = compile_lval_access loc_size env l in
+  | Elval l -> let clval = compile_lval loc_size false t0 env l in
                clval
   | Eassign (l, e) ->
       let cexp = compile_expr loc_size env e in
-      let cl = compile_lval_assign loc_size env t0 l in
+      let cl = compile_lval loc_size true t0 env l in
 			cexp @@ cl	
 	| Ebinop (e1, o, e2) ->
 			(match o with
@@ -103,10 +103,10 @@ let rec compile_expr loc_size env e =
 				match unop,e.node with
 				| Unot,_ -> compile_expr loc_size env e @@ compile_cond (sub t0 t0 oreg t0) (add t0 t0 oi 1)
 				| Uneg,_ -> compile_expr loc_size env e @@ neg t0 t0
-				| Upost_inc,Elval l -> compile_expr loc_size env e @@ add t1 t0 oi 1 @@ compile_lval_assign loc_size env t1 l
-				| Upost_dec,Elval l -> compile_expr loc_size env e @@ sub t1 t0 oi 1 @@ compile_lval_assign loc_size env t1 l
-				| Upre_inc,Elval l ->  compile_expr loc_size env e @@ add t0 t0 oi 1 @@ compile_lval_assign loc_size env t0 l
-				| Upre_dec,Elval l ->  compile_expr loc_size env e @@ sub t0 t0 oi 1 @@ compile_lval_assign loc_size env t0 l
+				| Upost_inc,Elval l -> compile_expr loc_size env e @@ add t1 t0 oi 1 @@ compile_lval loc_size true t1 env l
+				| Upost_dec,Elval l -> compile_expr loc_size env e @@ sub t1 t0 oi 1 @@ compile_lval loc_size true t1 env l
+				| Upre_inc,Elval l ->  compile_expr loc_size env e @@ add t0 t0 oi 1 @@ compile_lval loc_size true t0 env l
+				| Upre_dec,Elval l ->  compile_expr loc_size env e @@ sub t0 t0 oi 1 @@ compile_lval loc_size true t0 env l
 				| _,_ -> assert false
 			)
 	|	Ecall (lval, args) ->
@@ -130,23 +130,15 @@ let rec compile_expr loc_size env e =
 
 and compile_binop loc_size env e1 e2 =
 	compile_expr loc_size env e1 @@ push t0 @@ compile_expr loc_size env e2 @@ pop t1
-	
-and compile_lval_access loc_size env l =
-  match l with
-    Lident x -> begin
-      try
-        let fp_shift = Env.find x.node env in
-        lw t0 areg (fp_shift,fp)
-      with Not_found -> assert false
-    end
-  | Laccess (e, x) -> assert false
 
-and compile_lval_assign loc_size env reg l =
+(* rw = lecture = false, ecriture = true*)
+(* reg = registre servant pour la lecture ou l'écriture *)	
+and compile_lval loc_size rw reg env l =
   match l with
     Lident x -> begin
       try
         let fp_shift = Env.find x.node env in
-        sw reg areg (fp_shift,fp)
+        if rw then sw reg areg (fp_shift,fp) else lw reg areg (fp_shift,fp)
       with Not_found -> assert false
     end
   | Laccess (e, x) -> assert false
@@ -155,7 +147,7 @@ and compile_lval_assign loc_size env reg l =
 (* option                                                                  *)
 let compile_opt loc_size env oe =
 	match oe with
-		None -> move t0 zero
+		None -> nop
 	| Some e -> compile_expr loc_size env e
 
 
@@ -186,14 +178,11 @@ let rec compile_instr fp_shift loc_size env instr =
 			and _,_,_,code2 = compile_instr fp_shift loc_size env i2 in
 			fp_shift, loc_size, env, cexpr @@ compile_cond code1 code2
 	| Ifor (oe1, oe2, oe3, i') ->
-			(match oe1, oe2, oe3 with
-				| Some e1, Some e2, Some e3 ->
-						let e1' = compile_expr loc_size env e1 in
-						let e2' = compile_expr loc_size env e2 in
-						let e3' = compile_expr loc_size env e3 in
+						let e1' = compile_opt loc_size env oe1 in
+						let e2' = compile_opt loc_size env oe2 in
+						let e3' = compile_opt loc_size env oe3 in
 						let _,_,_,code1 = compile_instr fp_shift loc_size env i' in
 						fp_shift, loc_size, env, compile_for e1' e2' e3' code1
-				| _ -> assert false)
 	| Iblock li ->
 			let rec aux cfp_shift cloc_size cenv clist =
 				match clist with
