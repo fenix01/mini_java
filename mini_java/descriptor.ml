@@ -58,7 +58,7 @@ let str_type type_ =
 
 let class_desc class_name = "_desc$"^class_name
 
-let attr_desc class_name attr_name = "_desc$"^class_name^"$"^attr_name
+let attr_desc class_name attr_name = class_name^"$"^attr_name
 
 let method_desc class_name method_name method_type params =
 	let prolog = method_type ^ class_name ^ "$" ^ method_name in

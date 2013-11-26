@@ -24,7 +24,8 @@ let endcond i = Printf.sprintf "endcond%i" i
 (* ######################################################## *)
 
 (* LISTE DES ERREURS D'EXECUTION *)
-let err_div_by_zero = label "err_div_by_zero" @@ asciiz "division par zéro"
+let err_div_by_zero = label "err_div_by_zero" @@ asciiz "division by zero"
+let err_null_pointer = label "err_null_pointer" @@ asciiz "null pointer exception"
 (* ######################################################## *)
 
 (* LISTE DES DATAS PAR DEFAUTS *)
@@ -34,13 +35,15 @@ let backslashn = label "backslashn" @@ asciiz "\r\n"
 (* ######################################################## *)
 
 (* LISTE DES LABELS DE DATA *)
-let data_label = btrue @@ bfalse @@ backslashn @@ err_div_by_zero
+let data_label = btrue @@ bfalse @@ backslashn @@ err_div_by_zero @@ err_null_pointer
 
 (* ######################################################## *)
 
 (* LISTE DES APPELS LORS D'ERREURS *)
 let raise_error error_name = print_str error_name @@ b "end"
 let cerr_div_by_zero = label "cerr_div_by_zero" @@ raise_error "err_div_by_zero"
+let cerr_null_pointer = label "cerr_null_pointer" @@ raise_error "err_null_pointer"
+let cerrors = cerr_div_by_zero @@ cerr_null_pointer
 (* ######################################################## *)
 
 module Env = Map.Make(String)
@@ -162,9 +165,12 @@ and compile_lval loc_size rw reg env l =
 							| _ -> ""
 						in
 						let class_addr = get_this_addr class_name in
-						let attr_shift = get_attr_addr class_addr.attrs x.node in
 						let cexp = compile_expr loc_size env e in
-        		if rw then cexp @@ sw reg areg (attr_shift,reg) else cexp @@ lw reg areg (attr_shift,reg)
+						let attr_shift = get_attr_addr class_addr.attrs x.node in
+        		if rw then 
+							push reg @@ cexp @@ pop t1 @@ compile_cond (sw t1 areg (attr_shift,reg)) (b "cerr_null_pointer")
+									else
+							push reg @@ cexp @@ pop t1 @@ compile_cond (lw t0 areg (attr_shift,reg)) (b "cerr_null_pointer")
       		with Not_found -> assert false)
 
 (* [compile_opt env oe] génère le code d'une expression contenue dans un      *)
@@ -191,7 +197,11 @@ let rec compile_instr fp_shift loc_size env instr =
 	match instr.node with
 	| Iexpr e -> fp_shift, loc_size, env, compile_expr loc_size env e
 	| Idecl (t, x, eopt) -> (match t with
-													| Tint | Tboolean | Tclass _ -> 
+													| Tint | Tboolean -> 
+														let shift = fp_shift + 4 in
+														let new_env = Env.add x.node shift env in
+														shift,loc_size,new_env,compile_opt loc_size new_env eopt @@ sw t0 areg(shift,fp)
+													| Tclass _ ->
 														let shift = fp_shift + 4 in
 														let new_env = Env.add x.node shift env in
 														shift,loc_size,new_env,compile_opt loc_size new_env eopt @@ sw t0 areg(shift,fp)
@@ -255,7 +265,7 @@ let prog (class_list, main_class, main_body) =
 			@@ callee_method loc_size body_code
 			@@ print_int
 			@@ print_string
-			@@ cerr_div_by_zero
+			@@ cerrors
 			@@ equal_string
 			@@ compile_classes class_list
 			@@ end_;
