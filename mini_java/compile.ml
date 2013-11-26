@@ -3,15 +3,15 @@ open Mips
 open Descriptor
 
 let caller_method label_name =
-	let push_treg = push t0 @@ push t1 @@push t2 @@ push t3 in
-	let pop_treg = pop t3 @@ pop t2 @@ pop t1 @@ pop t0 in
+	let push_treg = comment "caller init" @@ push t0 @@ push t1 @@push t2 @@ push t3 in
+	let pop_treg = comment "caller final" @@ pop t3 @@ pop t2 @@ pop t1 @@ pop t0 in
 	push_treg @@ jal label_name @@ pop_treg
 	
 let callee_method loc_size code =
-	let init = comment "init" @@ push fp @@ push ra in
+	let init = comment "calle init" @@ push fp @@ push ra in
 	let init_fp = sub fp sp oi loc_size @@ move sp fp in
-	let final = comment "final" @@ add sp fp oi loc_size @@ pop ra @@ pop fp @@ jr ra
-	in init @@ init_fp @@ comment "code" @@ code @@ final
+	let final = comment "calle final" @@ add sp fp oi loc_size @@ pop ra @@ pop fp @@ jr ra
+	in init @@ init_fp @@ comment "callee code" @@ code @@ final
 	
 let print_str label_name =
 	la t0 alab label_name
@@ -57,6 +57,12 @@ let print_int =
 
 let print_string =
 	label "print_string" @@ callee_method 0 (print 4)
+	
+let equal_string =
+	label "_method$String$equals$Object"
+
+let alloc_mem size =
+	li a0 size @@ li v0 9 @@ syscall @@ move t0 v0
 
 (* code qui effectue un if then else et qui branche sur code 1 ou code 2 *)
 let compile_cond code1 code2 =
@@ -96,7 +102,7 @@ let rec compile_expr loc_size env e =
 				| Badd -> compile_binop loc_size env e1 e2 @@ add t0 t1 oreg t0
 				| Bsub -> compile_binop loc_size env e1 e2 @@ sub t0 t1 oreg t0
 				| Bmul -> compile_binop loc_size env e1 e2 @@ mul t0 t1 oreg t0
-				| Bdiv -> compile_binop loc_size env e1 e2 @@ beqz t0 "cerr_div_by_zero" @@ div t0 t1 oreg t0
+				| Bdiv -> compile_binop loc_size env e1 e2 @@ compile_cond (div t0 t1 oreg t0) (b "cerr_div_by_zero")
 				| Bmod -> compile_binop loc_size env e1 e2 @@ beqz t0 "cerr_div_by_zero" @@ rem t0 t1 oreg t0
 			)
 	| Eunop (unop, e) ->
@@ -127,6 +133,13 @@ let rec compile_expr loc_size env e =
 							| _ -> assert false
 						else assert false
 				| _ -> assert false)
+	  | Enew (cls, args) -> let class_name = 
+													match cls.info with
+													| Tclass cname -> cname
+													| _ -> ""
+													in
+													let class_addr = get_this_addr class_name in
+													alloc_mem class_addr.attrs_shift
 	| _ -> assert false
 
 and compile_binop loc_size env e1 e2 =
@@ -136,13 +149,23 @@ and compile_binop loc_size env e1 e2 =
 (* reg = registre servant pour la lecture ou l'écriture *)	
 and compile_lval loc_size rw reg env l =
   match l with
-    Lident x -> begin
-      try
-        let fp_shift = Env.find x.node env in
-        if rw then sw reg areg (fp_shift,fp) else lw reg areg (fp_shift,fp)
-      with Not_found -> assert false
-    end
-  | Laccess (e, x) -> assert false
+    Lident x -> 
+      		(try
+        		let fp_shift = Env.find x.node env in
+        		if rw then sw reg areg (fp_shift,fp) else lw reg areg (fp_shift,fp)
+      		with Not_found -> assert false)
+  | Laccess (e, x) -> 
+					(try
+						let class_name = 
+							match e.info with
+							| Tclass cname -> cname
+							| _ -> ""
+						in
+						let class_addr = get_this_addr class_name in
+						let attr_shift = get_attr_addr class_addr.attrs x.node in
+						let cexp = compile_expr loc_size env e in
+        		if rw then cexp @@ sw reg areg (attr_shift,reg) else cexp @@ lw reg areg (attr_shift,reg)
+      		with Not_found -> assert false)
 
 (* [compile_opt env oe] génère le code d'une expression contenue dans un      *)
 (* option                                                                  *)
@@ -168,7 +191,7 @@ let rec compile_instr fp_shift loc_size env instr =
 	match instr.node with
 	| Iexpr e -> fp_shift, loc_size, env, compile_expr loc_size env e
 	| Idecl (t, x, eopt) -> (match t with
-													| Tint | Tboolean -> 
+													| Tint | Tboolean | Tclass _ -> 
 														let shift = fp_shift + 4 in
 														let new_env = Env.add x.node shift env in
 														shift,loc_size,new_env,compile_opt loc_size new_env eopt @@ sw t0 areg(shift,fp)
@@ -194,19 +217,33 @@ let rec compile_instr fp_shift loc_size env instr =
 			in aux fp_shift loc_size env li
 	| _ -> fp_shift, loc_size, env, comment "c'est le main"
 
-let rec compile_class defns =
+let rec compile_class this_addr defns =
 	match defns with
-	| [] -> assert false
-	| el :: r -> assert false
+	| [] -> nop
+	| def :: r ->
+		let cmethod = match def with
+							| Dconstr (f, params, i ) -> 
+								let desc_name = method_desc this_addr.name f.node "_ctor$" params in
+								let meth_addr = get_method_addr this_addr.methods desc_name in
+								label desc_name @@ (comment (Printf.sprintf "%i" meth_addr))
+							| Dmeth (ret, f, params, i ) -> 
+								let desc_name = method_desc this_addr.name f.node "_method$" params in
+								let meth_addr = get_method_addr this_addr.methods desc_name in
+								label desc_name @@ (comment (Printf.sprintf "%i" meth_addr))
+							| Dfield (typ, x) -> nop
+							in cmethod @@ compile_class this_addr r
 
 let compile_classes class_list =
 		let rec compile clist =
 		match clist with
-		| [] -> assert false
-		| (this, parent, defns) :: r -> assert false
+		| [] -> nop
+		| (this, parent, defns) :: r -> 
+			let this_addr = get_this_addr this.node in
+			compile_class this_addr defns @@ compile r
 		in compile class_list
 
 let prog (class_list, main_class, main_body) =
+	build_descriptors class_list;
 	let loc_size = get_local_size main_body in
 	let fp_shift,_,_,body_code = compile_instr (-4) loc_size Env.empty main_body in
 	{
@@ -219,6 +256,10 @@ let prog (class_list, main_class, main_body) =
 			@@ print_int
 			@@ print_string
 			@@ cerr_div_by_zero
+			@@ equal_string
+			@@ compile_classes class_list
 			@@ end_;
-		data = generate_descriptors class_list @@ data_label;
+		data = 
+			classes_addr.descriptors
+			@@ data_label;
 	}
