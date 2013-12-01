@@ -9,7 +9,8 @@ module MethodSignature =
   end
 
 module MethodSet = Set.Make(MethodSignature)
-module MethodMap = Map.Make(MethodSignature)
+
+
 
 type method_desc = {
   return : typ;
@@ -19,6 +20,15 @@ type method_desc = {
   class_override : string;
   (* classe où était définie la première version de la méthode *)
 }
+
+module MethodMap = struct
+  include Map.Make(MethodSignature)
+  let print ppf m =
+    let l = bindings m in
+    List.iter (fun ((f, s), d) ->
+      Format.fprintf ppf "%s (%s, %s)\n" f d.class_override d.class_def
+    ) l
+end
 
 let mangle =
     let buf = Buffer.create 128 in
@@ -113,7 +123,7 @@ let topological_sort class_list =
         loop ss ll ee
   in
   loop [ object_ast ] [] class_list
-    
+
 let rec subclass c1 c2 =
   if c1 = "" then false
   else
@@ -248,7 +258,7 @@ let init_class_table class_list =
               error (Invalid_constructor(this.node, f.node)) f.info
             else if MethodMap.mem (f.node, tparams) a_ctors then
               error (Redefined_constructor this.node) f.info
-            else a_atts, a_meths, (MethodMap.add (f.node,tparams) ctor_desc 
+            else a_atts, a_meths, (MethodMap.add (f.node,tparams) ctor_desc
                                      a_ctors)
         | Dmeth (ret, f, params, _) ->
             let tparams = check_params params in
@@ -286,6 +296,6 @@ let init_class_table class_list =
     this_desc.fields <- List.rev_append atts parent_desc.fields;
     this_desc.methods <- methods;
     this_desc.ctors <- ctors
-  ) class_list;
+  ) sorted_class_list;
   (* enfin, on renvoie la liste triée *)
   sorted_class_list

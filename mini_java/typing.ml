@@ -83,7 +83,7 @@ let rec type_expr env e =
               select_method cname f (List.map (fun x -> x.info) targs)
           | _ -> error (Call_on_non_class_type(f.node,cls)) f.info
         in
-        let new_id = mangle "_method" class_override f.node tparams in
+        let new_id = mangle "_meth" class_override f.node tparams in
         mk  (Ecall (update_ident tl new_id, targs)) rt
 
   | Enew (cls, args) ->

@@ -10,5 +10,11 @@ typing.cmo : type_class.cmi error.cmo ast.cmi typing.cmi
 typing.cmx : type_class.cmx error.cmx ast.cmi typing.cmi
 parser.cmo : error.cmo ast.cmi parser.cmi
 parser.cmx : error.cmx ast.cmi parser.cmi
-main.cmo : typing.cmi parser.cmi mips.cmi lexer.cmo error.cmo ast.cmi
-main.cmx : typing.cmx parser.cmx mips.cmx lexer.cmx error.cmx ast.cmi
+descriptor.cmo : type_class.cmi mips.cmi ast.cmi
+descriptor.cmx : type_class.cmx mips.cmx ast.cmi
+compile.cmo : mips.cmi descriptor.cmo ast.cmi
+compile.cmx : mips.cmx descriptor.cmx ast.cmi
+main.cmo : typing.cmi type_class.cmi parser.cmi mips.cmi lexer.cmo error.cmo \
+    compile.cmo ast.cmi
+main.cmx : typing.cmx type_class.cmx parser.cmx mips.cmx lexer.cmx error.cmx \
+    compile.cmx ast.cmi

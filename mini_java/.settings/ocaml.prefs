@@ -1,3 +1,4 @@
 compil_mode//_build/main.byte=byte-code
+compil_mode//_build/main.d.byte=byte-code
 compil_mode/main.byte=byte-code
 eclipse.preferences.version=1
