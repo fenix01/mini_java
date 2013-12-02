@@ -43,7 +43,7 @@ let class_string =
 		attrs_desc = Hashtbl.create 10;
 		attrs_shift = 4;
 		methods_desc = Hashtbl.create 10;
-		methods_shift = 8;
+		methods_shift = 4;
 		descriptor = label "_desc$String" @@ address ["_desc$Object"] @@ address ["_method$String$equals$Object"];
 	} in
 	classes_addr.descriptors <- classes_addr.descriptors @@ this_addr.descriptor;
