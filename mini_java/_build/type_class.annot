@@ -52,9 +52,6 @@ ident(
 type(
   method_desc t -> (key * method_desc) list
 )
-ident(
-  ext_ref bindings
-)
 "type_class.ml" 27 528 549 "type_class.ml" 27 528 550
 type(
   method_desc t
@@ -188,7 +185,7 @@ type(
   string -> string -> string -> Ast.typ list -> string
 )
 ident(
-  def mangle "type_class.ml" 48 1087 1087 "type_class.ml" 1 0 -1
+  def mangle "type_class.ml" 48 1087 1087 "_none_" 1 0 -1
 )
 "type_class.ml" 34 686 694 "type_class.ml" 34 686 697
 type(
@@ -563,7 +560,7 @@ type(
   method_desc
 )
 ident(
-  def ctor_desc "type_class.ml" 69 1930 1930 "type_class.ml" 1 0 -1
+  def ctor_desc "type_class.ml" 69 1930 1930 "_none_" 1 0 -1
 )
 "type_class.ml" 67 1857 1884 "type_class.ml" 67 1857 1889
 type(
@@ -586,7 +583,7 @@ type(
   class_desc
 )
 ident(
-  def empty_desc "type_class.ml" 76 2134 2134 "type_class.ml" 1 0 -1
+  def empty_desc "type_class.ml" 76 2134 2134 "_none_" 1 0 -1
 )
 "type_class.ml" 69 1930 1956 "type_class.ml" 69 1930 1958
 type(
@@ -623,7 +620,7 @@ type(
   class_desc
 )
 ident(
-  def object_desc "type_class.ml" 79 2191 2191 "type_class.ml" 1 0 -1
+  def object_desc "type_class.ml" 79 2191 2191 "_none_" 1 0 -1
 )
 "type_class.ml" 76 2134 2154 "type_class.ml" 76 2134 2164
 type(
@@ -645,7 +642,7 @@ type(
   string * Ast.typ list
 )
 ident(
-  def equals_sig "type_class.ml" 80 2238 2238 "type_class.ml" 1 0 -1
+  def equals_sig "type_class.ml" 80 2238 2238 "_none_" 1 0 -1
 )
 "type_class.ml" 79 2191 2208 "type_class.ml" 79 2191 2216
 type(
@@ -672,7 +669,7 @@ type(
   method_desc
 )
 ident(
-  def equal_desc "type_class.ml" 84 2382 2382 "type_class.ml" 1 0 -1
+  def equal_desc "type_class.ml" 84 2382 2382 "_none_" 1 0 -1
 )
 "type_class.ml" 80 2238 2266 "type_class.ml" 80 2238 2274
 type(
@@ -695,7 +692,7 @@ type(
   class_desc
 )
 ident(
-  def string_desc "type_class.ml" 94 2713 2713 "type_class.ml" 1 0 -1
+  def string_desc "type_class.ml" 94 2713 2713 "_none_" 1 0 -1
 )
 "type_class.ml" 84 2382 2409 "type_class.ml" 84 2382 2417
 type(
@@ -761,7 +758,7 @@ type(
   'a -> (Lexing.position * Lexing.position, 'a) Ast.node
 )
 ident(
-  def mk_dummy "type_class.ml" 97 2788 2788 "type_class.ml" 1 0 -1
+  def mk_dummy "type_class.ml" 97 2788 2788 "_none_" 1 0 -1
 )
 "type_class.ml" 94 2713 2726 "type_class.ml" 94 2713 2727
 type(
@@ -805,7 +802,7 @@ type(
   (Lexing.position * Lexing.position, string) Ast.node * 'a list
 )
 ident(
-  def object_ast "type_class.ml" 100 2846 2846 "type_class.ml" 1 0 -1
+  def object_ast "type_class.ml" 100 2846 2846 "_none_" 1 0 -1
 )
 "type_class.ml" 97 2788 2806 "type_class.ml" 97 2788 2814
 type(
@@ -857,7 +854,7 @@ type(
   (string, class_desc) Hashtbl.t
 )
 ident(
-  def class_table "type_class.ml" 106 3020 3020 "type_class.ml" 1 0 -1
+  def class_table "type_class.ml" 106 3020 3020 "_none_" 1 0 -1
 )
 "type_class.ml" 100 2846 2864 "type_class.ml" 100 2846 2878
 type(
@@ -887,7 +884,7 @@ type(
   list
 )
 ident(
-  def topological_sort "type_class.ml" 127 3755 3755 "type_class.ml" 1 0 -1
+  def topological_sort "type_class.ml" 127 3755 3755 "_none_" 1 0 -1
 )
 "type_class.ml" 106 3020 3041 "type_class.ml" 106 3020 3051
 type(
@@ -1483,7 +1480,7 @@ type(
   string -> string -> bool
 )
 ident(
-  def subclass "type_class.ml" 127 3755 3755 "type_class.ml" 1 0 -1
+  def subclass "type_class.ml" 127 3755 3755 "_none_" 1 0 -1
 )
 "type_class.ml" 127 3755 3772 "type_class.ml" 127 3755 3774
 type(
@@ -1645,7 +1642,7 @@ type(
   Ast.typ -> Ast.typ -> bool
 )
 ident(
-  def subtype "type_class.ml" 142 4132 4132 "type_class.ml" 1 0 -1
+  def subtype "type_class.ml" 142 4132 4132 "_none_" 1 0 -1
 )
 "type_class.ml" 133 3915 3927 "type_class.ml" 133 3915 3929
 type(
@@ -1870,7 +1867,7 @@ type(
   Ast.typ -> Ast.typ -> bool
 )
 ident(
-  def compatible "type_class.ml" 144 4187 4187 "type_class.ml" 1 0 -1
+  def compatible "type_class.ml" 144 4187 4187 "_none_" 1 0 -1
 )
 "type_class.ml" 142 4132 4147 "type_class.ml" 142 4132 4149
 type(
@@ -1958,7 +1955,7 @@ type(
   Ast.typ -> bool
 )
 ident(
-  def wf "type_class.ml" 150 4331 4331 "type_class.ml" 1 0 -1
+  def wf "type_class.ml" 150 4331 4331 "_none_" 1 0 -1
 )
 "type_class.ml" 144 4187 4194 "type_class.ml" 144 4187 4195
 type(
@@ -2112,7 +2109,7 @@ type(
   Ast.typ -> Ast.position -> unit
 )
 ident(
-  def check_wf "type_class.ml" 157 4534 4534 "type_class.ml" 1 0 -1
+  def check_wf "type_class.ml" 157 4534 4534 "_none_" 1 0 -1
 )
 "type_class.ml" 150 4331 4344 "type_class.ml" 150 4331 4345
 type(
@@ -2201,7 +2198,7 @@ type(
   ('a -> 'b -> bool) -> 'a list -> 'b list -> bool
 )
 ident(
-  def for_all2 "type_class.ml" 163 4629 4629 "type_class.ml" 1 0 -1
+  def for_all2 "type_class.ml" 163 4629 4629 "_none_" 1 0 -1
 )
 "type_class.ml" 157 4534 4547 "type_class.ml" 157 4534 4548
 type(
@@ -2282,7 +2279,7 @@ type(
   'a * Ast.typ list * 'b * 'c -> 'a * Ast.typ list * 'b * 'c
 )
 ident(
-  def min_meth "type_class.ml" 171 4901 4901 "type_class.ml" 1 0 -1
+  def min_meth "type_class.ml" 171 4901 4901 "_none_" 1 0 -1
 )
 "type_class.ml" 163 4629 4642 "type_class.ml" 163 4629 4643
 type(
@@ -2512,7 +2509,7 @@ type(
   method_desc MethodMap.t -> string * Ast.typ list * Ast.typ * string
 )
 ident(
-  def select_by_sig "type_class.ml" 189 5540 5540 "type_class.ml" 1 0 -1
+  def select_by_sig "type_class.ml" 189 5540 5540 "_none_" 1 0 -1
 )
 "type_class.ml" 171 4901 4919 "type_class.ml" 171 4901 4920
 type(
@@ -2910,7 +2907,7 @@ type(
   Ast.typ list -> string * Ast.typ list * Ast.typ * string
 )
 ident(
-  def select_method "type_class.ml" 192 5636 5636 "type_class.ml" 1 0 -1
+  def select_method "type_class.ml" 192 5636 5636 "_none_" 1 0 -1
 )
 "type_class.ml" 189 5540 5558 "type_class.ml" 189 5540 5561
 type(
@@ -3001,7 +2998,7 @@ type(
   Ast.typ list -> string * Ast.typ list * Ast.typ * string
 )
 ident(
-  def select_constr "type_class.ml" 195 5735 5735 "type_class.ml" 1 0 -1
+  def select_constr "type_class.ml" 195 5735 5735 "_none_" 1 0 -1
 )
 "type_class.ml" 192 5636 5654 "type_class.ml" 192 5636 5657
 type(
@@ -3088,7 +3085,7 @@ type(
   string -> (Ast.position, string) Ast.node -> Ast.typ * string
 )
 ident(
-  def select_field "type_class.ml" 203 5929 5929 "type_class.ml" 1 0 -1
+  def select_field "type_class.ml" 203 5929 5929 "_none_" 1 0 -1
 )
 "type_class.ml" 195 5735 5752 "type_class.ml" 195 5735 5753
 type(
@@ -3236,7 +3233,7 @@ type(
   (Ast.typ * (Ast.position, StringSet.elt) Ast.node) list -> Ast.typ list
 )
 ident(
-  def check_params "type_class.ml" 216 6230 6230 "type_class.ml" 1 0 -1
+  def check_params "type_class.ml" 216 6230 6230 "_none_" 1 0 -1
 )
 "type_class.ml" 205 5966 5983 "type_class.ml" 205 5966 5989
 type(
@@ -3523,7 +3520,7 @@ type(
   list
 )
 ident(
-  def init_class_table "type_class.ml" 301 9817 9836 "type_class.ml" 1 0 -1
+  def init_class_table "type_class.ml" 301 9817 9836 "_none_" 1 0 -1
 )
 "type_class.ml" 216 6230 6251 "type_class.ml" 216 6230 6261
 type(

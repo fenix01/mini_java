@@ -5,7 +5,7 @@ open Type_class
 (* GENERATION DES DESCRIPTEURS DE CLASSES *)
 
 type class_addr = {
-	mutable name : string;
+	mutable name_ : string;
 	attrs_desc : (string, int) Hashtbl.t ;
 	methods_desc : (string, int) Hashtbl.t ;
 	mutable attrs_shift : int;
@@ -27,7 +27,7 @@ let classes_addr =
 
 let class_object =
 	let this_addr = {
-		name = "Object";
+		name_ = "Object";
 		attrs_desc = Hashtbl.create 10;
 		attrs_shift = 4;
 		methods_desc = Hashtbl.create 10;
@@ -39,7 +39,7 @@ let class_object =
 
 let class_string =
 	let this_addr = {
-		name = "String";
+		name_ = "String";
 		attrs_desc = Hashtbl.create 10;
 		attrs_shift = 4;
 		methods_desc = Hashtbl.create 10;
@@ -149,7 +149,7 @@ let build_descriptors () =
 				fun cname idecl ->
 					if cname <> "Object" && cname <> "String" then
 					(	let this_addr = {
-							name = cname;
+							name_ = cname;
 							attrs_desc = Hashtbl.create 10;
 							attrs_shift = 4;
 							methods_desc = Hashtbl.create 10;

@@ -292,7 +292,7 @@ let rec compile_class this_addr defns =
 	| def :: r ->
 		let cmethod = match def with
 							| Dconstr (f, params, i ) ->
-								let desc_name =  "_ctor$" ^ method_desc this_addr.name f.node (rem_assoc params) in
+								let desc_name =  "_ctor$" ^ method_desc this_addr.name_ f.node (rem_assoc params) in
 								let ctor_addr = get_method_addr this_addr.methods_desc desc_name in
 								let loc_size = get_local_size i in
 								let env = enter_params params Env.empty loc_size in
@@ -300,7 +300,7 @@ let rec compile_class this_addr defns =
 								let cctor = callee_method loc_size cctor_b in
 								label desc_name @@ (comment (Printf.sprintf "%i" ctor_addr)) @@ cctor
 							| Dmeth (ret, f, params, i ) ->
-								let desc_name = "_meth$" ^ method_desc this_addr.name f.node (rem_assoc params) in
+								let desc_name = "_meth$" ^ method_desc this_addr.name_ f.node (rem_assoc params) in
 								let meth_addr = get_method_addr this_addr.methods_desc desc_name in
 								let loc_size = get_local_size i in
 								let env = enter_params params Env.empty loc_size in

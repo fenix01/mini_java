@@ -3,7 +3,7 @@ type(
   ('a, 'b) Ast.node -> 'c -> ('c, 'b) Ast.node
 )
 ident(
-  def mk_t "typing.ml" 7 73 73 "typing.ml" 1 0 -1
+  def mk_t "typing.ml" 7 73 73 "_none_" 1 0 -1
 )
 "typing.ml" 5 37 46 "typing.ml" 5 37 47
 type(
@@ -42,7 +42,7 @@ type(
   'a -> 'b -> ('b, 'a) Ast.node
 )
 ident(
-  def mk "typing.ml" 9 110 110 "typing.ml" 1 0 -1
+  def mk "typing.ml" 9 110 110 "_none_" 1 0 -1
 )
 "typing.ml" 7 73 80 "typing.ml" 7 73 81
 type(
@@ -81,7 +81,7 @@ type(
   Ast.position -> Ast.typ -> Ast.typ -> 'a
 )
 ident(
-  def type_error "typing.ml" 11 165 165 "typing.ml" 1 0 -1
+  def type_error "typing.ml" 11 165 165 "_none_" 1 0 -1
 )
 "typing.ml" 9 110 125 "typing.ml" 9 110 126
 type(
@@ -148,7 +148,7 @@ type(
   'a Ast.lvalue -> 'a
 )
 ident(
-  def lval_info "typing.ml" 15 242 242 "typing.ml" 1 0 -1
+  def lval_info "typing.ml" 15 242 242 "_none_" 1 0 -1
 )
 "typing.ml" 11 165 179 "typing.ml" 11 165 180
 type(
@@ -214,7 +214,7 @@ type(
   'a Ast.lvalue -> string -> 'a Ast.lvalue
 )
 ident(
-  def update_ident "typing.ml" 20 396 396 "typing.ml" 1 0 -1
+  def update_ident "typing.ml" 20 396 396 "_none_" 1 0 -1
 )
 "typing.ml" 15 242 259 "typing.ml" 15 242 260
 type(
@@ -326,7 +326,7 @@ type(
   'a Ast.lvalue -> bool
 )
 ident(
-  def is_system_out_print "typing.ml" 33 739 739 "typing.ml" 1 0 -1
+  def is_system_out_print "typing.ml" 33 739 739 "_none_" 1 0 -1
 )
 "typing.ml" 20 396 420 "typing.ml" 20 396 421
 type(
@@ -509,6 +509,10 @@ type(
 type(
   bool
 )
+"typing.ml" 24 515 547 "typing.ml" 28 680 693
+type(
+  bool
+)
 "typing.ml" 29 694 702 "typing.ml" 29 694 703
 type(
   'a Ast.expr_node
@@ -518,6 +522,10 @@ type(
   bool
 )
 "typing.ml" 23 485 491 "typing.ml" 30 713 722
+type(
+  bool
+)
+"typing.ml" 22 439 459 "typing.ml" 30 713 722
 type(
   bool
 )
@@ -542,7 +550,7 @@ type(
   Ast.typ Env.t -> Ast.position Ast.expr -> Ast.typ Ast.expr
 )
 ident(
-  def type_expr "typing.ml" 35 770 770 "typing.ml" 1 0 -1
+  def type_expr "typing.ml" 35 770 770 "_none_" 1 0 -1
 )
 "typing.ml" 35 770 788 "typing.ml" 35 770 791
 type(
@@ -1268,6 +1276,10 @@ type(
   Ast.typ Ast.expr
 )
 "typing.ml" 65 1784 1802 "typing.ml" 66 1837 1907
+type(
+  Ast.typ Ast.expr
+)
+"typing.ml" 60 1547 1564 "typing.ml" 66 1837 1907
 type(
   Ast.typ Ast.expr
 )
@@ -4614,7 +4626,7 @@ type(
   Ast.typ Env.t -> Ast.position Ast.lvalue -> Ast.typ Ast.lvalue
 )
 ident(
-  def type_lval "typing.ml" 35 770 770 "typing.ml" 1 0 -1
+  def type_lval "typing.ml" 35 770 770 "_none_" 1 0 -1
 )
 "typing.ml" 187 6212 6226 "typing.ml" 187 6212 6229
 type(
@@ -5331,7 +5343,7 @@ type(
   Ast.position Ast.expr option -> Ast.typ * Ast.typ Ast.expr option
 )
 ident(
-  def type_opt "typing.ml" 227 7540 7540 "typing.ml" 1 0 -1
+  def type_opt "typing.ml" 227 7540 7540 "_none_" 1 0 -1
 )
 "typing.ml" 216 7190 7203 "typing.ml" 216 7190 7206
 type(
@@ -5467,7 +5479,7 @@ type(
   Ast.position Ast.instr -> Ast.typ Ast.instr * Ast.typ Env.t * bool
 )
 ident(
-  def type_instr "typing.ml" 227 7540 7540 "typing.ml" 1 0 -1
+  def type_instr "typing.ml" 227 7540 7540 "_none_" 1 0 -1
 )
 "typing.ml" 227 7540 7559 "typing.ml" 227 7540 7562
 type(
@@ -7275,7 +7287,7 @@ type(
   'a Env.t -> ('a * ('a, Env.key) Ast.node) list * 'a Env.t
 )
 ident(
-  def enter_params "typing.ml" 282 9438 9438 "typing.ml" 1 0 -1
+  def enter_params "typing.ml" 282 9438 9438 "_none_" 1 0 -1
 )
 "typing.ml" 272 9234 9251 "typing.ml" 272 9234 9252
 type(
@@ -7533,7 +7545,7 @@ type(
   Ast.typ Ast.class_decl list
 )
 ident(
-  def type_class "typing.ml" 306 10286 10286 "typing.ml" 1 0 -1
+  def type_class "typing.ml" 306 10286 10286 "_none_" 1 0 -1
 )
 "typing.ml" 282 9438 9454 "typing.ml" 282 9438 9458
 type(
@@ -8301,7 +8313,7 @@ type(
   list * string * Ast.typ Ast.instr
 )
 ident(
-  def prog "typing.ml" 314 10738 10775 "typing.ml" 1 0 -1
+  def prog "typing.ml" 314 10738 10775 "_none_" 1 0 -1
 )
 "typing.ml" 306 10286 10296 "typing.ml" 306 10286 10306
 type(
