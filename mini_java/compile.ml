@@ -3,6 +3,13 @@ open Mips
 open Descriptor
 
 module Env = Map.Make(String)
+let tbl_cstr = Hashtbl.create 10
+
+let compile_tbl_cstr () =
+	Hashtbl.fold (
+		fun id value acc ->
+			acc @@ label id @@ asciiz value
+		) tbl_cstr nop 
 
 let enter_params l env loc_size =
 	let start_shift = loc_size + 8 in
@@ -46,6 +53,8 @@ let print_str label_name =
 let next = let r = ref 0 in fun () -> r:= !r +1; !r
 let cond i = Printf.sprintf "cond%i" i
 let endcond i = Printf.sprintf "endcond%i" i
+let gen_str = let r = ref 0 in fun () -> r:= !r +1; !r
+let next_str () = let i = gen_str() in Printf.sprintf "str%i" i
 (* ######################################################## *)
 
 (* LISTE DES ERREURS D'EXECUTION *)
@@ -107,7 +116,8 @@ let rec compile_expr loc_size env e =
 	| Econst (c) -> let t =
 				match c with
 					Cint v32 -> li32 t0 v32
-				| Cstring _ -> assert false
+				| Cstring vstr -> let label_str = next_str() in 
+				Hashtbl.add tbl_cstr label_str vstr; la t0 alab(label_str)
 				| Cbool vbool -> if vbool then li t0 1 else li t0 0
 				| Cnull -> li t0 0
 			in t
@@ -163,7 +173,7 @@ let rec compile_expr loc_size env e =
 									let code1 = print_str "btrue" @@ print_str "backslashn" in
 									let code2 = print_str "bfalse" @@ print_str "backslashn" in
 									cexpr @@ compile_cond code1 code2
-							| Tclass "String" -> assert false
+							| Tclass "String" -> cexpr @@ caller_method "print_string"
 							| _ -> assert false
 						else assert false
 				| Laccess (e,x) -> let cexpr = compile_expr loc_size env e in
@@ -338,5 +348,5 @@ let prog (class_list, main_class, main_body) =
 			@@ end_;
 		data = 
 			classes_addr.descriptors
-			@@ data_label;
+			@@ data_label @@ compile_tbl_cstr ();
 	}
