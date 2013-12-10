@@ -1,9 +1,10 @@
 open Ast
 open Mips
 open Descriptor
+open Runtime
 
 module Env = Map.Make(String)
-let tbl_cstr = Hashtbl.create 10
+let tbl_cstr = Hashtbl.create 100
 
 let compile_tbl_cstr () =
 	Hashtbl.fold (
@@ -21,41 +22,10 @@ let enter_params l env loc_size =
 		Printf.printf "%s %d\n" name_ shift
 	) genv;
 	genv
-
-let pushad = push t0 @@ push t1 @@ push t2 @@ push t3 @@ push v0
-let popad = pop v0 @@ pop t3 @@ pop t2 @@ pop t1 @@ pop t0
-let switch r1 r2 = push r1 @@ move r1 r2 @@ pop r2
-
-let caller_method2 register args size =
-	let push_treg = comment "caller init" @@ pushad in
-	let pop_args = add sp sp oi size in
-	let pop_treg = comment "caller final" @@ popad
-	@@ comment "caller final2"
-	in
-	push_treg @@ args @@ jalr register @@ move v1 v0 @@ pop_args @@ pop_treg
-
-let caller_method label_name =
-	let push_treg = comment "caller init" @@ pushad in
-	let pop_treg = comment "caller final" @@ popad in
-	push_treg @@ jal label_name @@ pop_treg
-	
-let callee_method loc_size code =
-	let init = comment "calle init" @@ push fp @@ push ra in
-	let init_fp = sub fp sp oi loc_size @@ move sp fp in
-	let final = comment "calle final" @@ add sp fp oi loc_size @@ pop ra @@ pop fp @@ jr ra
-	in init @@ init_fp @@ comment "callee code" @@ code @@ final
 	
 let print_str label_name =
 	la t0 alab label_name
 	@@ caller_method "print_string"	
-
-(* LISTE DES GENERATEURS D'ETIQUETTE *)
-let next = let r = ref 0 in fun () -> r:= !r +1; !r
-let cond i = Printf.sprintf "cond%i" i
-let endcond i = Printf.sprintf "endcond%i" i
-let gen_str = let r = ref 0 in fun () -> r:= !r +1; !r
-let next_str () = let i = gen_str() in Printf.sprintf "str%i" i
-(* ######################################################## *)
 
 (* LISTE DES ERREURS D'EXECUTION *)
 let err_div_by_zero = label "err_div_by_zero" @@ asciiz "division by zero"
@@ -96,28 +66,21 @@ let print_string =
 let equal_string =
 	label "_method$String$equals$Object"
 
-let alloc_mem class_desc size =
-	li a0 size @@ li v0 9 @@ syscall @@ move t0 v0 @@ move t1 v0 @@
-	la t1 alab class_desc @@ sw t1 areg(0,t0)
-
-(* code qui effectue un if then else et qui branche sur code 1 ou code 2 *)
-let compile_cond code1 code2 =
-	let i = next() in
-	beqz t0 (cond i) @@ code1 @@ b (endcond i) @@ label (cond i) @@ code2 @@ label (endcond i)
-
-(* code qui effectue un for et qui branche sur code 1 *)
-let compile_for e1' e2' e3' code1 =
-	let i = next() in
-	e1' @@ label(cond i) @@ e2' @@ beqz t0 (endcond i) @@ code1 @@ e3' @@ b (cond i) @@ label (endcond i)
-
 let rec compile_expr loc_size env e =
 	match e.node with
 	(* stocke les valeurs dans le registre t0 *)
 	| Econst (c) -> let t =
 				match c with
 					Cint v32 -> li32 t0 v32
-				| Cstring vstr -> let label_str = next_str() in 
-				Hashtbl.add tbl_cstr label_str vstr; la t0 alab(label_str)
+				| Cstring vstr -> 
+					let vstr_length = Int32.of_int (String.length vstr) in
+					let label_str = next_str() in 
+					Hashtbl.add tbl_cstr label_str vstr;
+					let this_addr = get_this_addr "String" in	
+					let c_desc = class_desc "String" in
+					alloc_mem c_desc this_addr.attrs_shift @@ pushad 
+					@@ la t1 alab(label_str) @@ li32 t2 vstr_length
+					@@ sw t1 areg (4,t0) @@ sw t2 areg (8,t0) @@ popad
 				| Cbool vbool -> if vbool then li t0 1 else li t0 0
 				| Cnull -> li t0 0
 			in t
@@ -140,7 +103,7 @@ let rec compile_expr loc_size env e =
 				| Bgte -> compile_binop loc_size env e1 e2 @@ sge t0 t1 t0
 				| Band -> compile_binop loc_size env e1 e2 @@ and_ t0 t1 t0
 				| Bor -> compile_binop loc_size env e1 e2 @@ or_ t0 t1 t0
-				| Badd -> compile_binop loc_size env e1 e2 @@ add t0 t1 oreg t0
+				| Badd -> compile_add loc_size env e1 e2
 				| Bsub -> compile_binop loc_size env e1 e2 @@ sub t0 t1 oreg t0
 				| Bmul -> compile_binop loc_size env e1 e2 @@ mul t0 t1 oreg t0
 				| Bdiv -> compile_binop loc_size env e1 e2 @@ compile_cond (div t0 t1 oreg t0) (b "cerr_div_by_zero")
@@ -173,7 +136,7 @@ let rec compile_expr loc_size env e =
 									let code1 = print_str "btrue" @@ print_str "backslashn" in
 									let code2 = print_str "bfalse" @@ print_str "backslashn" in
 									cexpr @@ compile_cond code1 code2
-							| Tclass "String" -> cexpr @@ caller_method "print_string"
+							| Tclass "String" -> cexpr @@ lw t0 areg (4,t0) @@ caller_method "print_string"
 							| _ -> assert false
 						else assert false
 				| Laccess (e,x) -> let cexpr = compile_expr loc_size env e in
@@ -197,7 +160,21 @@ let rec compile_expr loc_size env e =
 	| _ -> assert false
 
 and compile_binop loc_size env e1 e2 =
-	comment "compile_binop" @@ compile_expr loc_size env e1 @@ push t0 @@ compile_expr loc_size env e2 @@ pop t1
+	comment "compile_binop" @@ 
+	compile_expr loc_size env e1 @@ 
+	push t0 @@ 
+	compile_expr loc_size env e2 @@ 
+	pop t1
+	
+and compile_add loc_size env e1 e2 =
+	match e1.info,e2.info with
+	| Tclass "String",Tclass "String" -> 
+		compile_binop loc_size env e1 e2 @@ 
+		caller_method "concatenate_str" @@
+		move t0 v1
+	| Tclass "String", Tint -> failwith "todo concatenation + convertion"
+	| Tint, Tclass "String" -> failwith "todo concatenation + convertion"
+	| _,_ -> compile_binop loc_size env e1 e2 @@ add t0 t1 oreg t0
 	
 and compile_args loc_size env args =
 	let cargs,size = List.fold_left (
@@ -331,8 +308,10 @@ let compile_classes class_list =
 
 let prog (class_list, main_class, main_body) =
 	build_descriptors();
+	let cclasses = compile_classes class_list in
 	let loc_size = get_local_size main_body in
 	let fp_shift,_,_,body_code = compile_instr (-4) loc_size Env.empty main_body in
+	let c_str = compile_tbl_cstr () in
 	{
 		text =
 			caller_method "main"
@@ -340,13 +319,14 @@ let prog (class_list, main_class, main_body) =
 			@@ label "main"
 			@@ comment "c'est le main"
 			@@ callee_method loc_size body_code
-			@@ print_int
-			@@ print_string
-			@@ cerrors
+			(* @@ concatenate_string *)
+			(* @@ print_int          *)
+			(* @@ print_string       *)
+			(* @@ cerrors            *)
 			@@ equal_string
-			@@ compile_classes class_list
+			(* @@ cclasses           *)
 			@@ end_;
 		data = 
 			classes_addr.descriptors
-			@@ data_label @@ compile_tbl_cstr ();
+			@@ data_label @@ c_str;
 	}

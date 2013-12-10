@@ -1,4 +1,4 @@
-class A {
+https://github.com/fenix01/mini_java.gitclass A {
 int x;
 int y;
 A () { }

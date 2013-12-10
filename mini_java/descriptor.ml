@@ -37,17 +37,18 @@ let class_object =
 	classes_addr.descriptors <- classes_addr.descriptors @@ this_addr.descriptor;
 	Hashtbl.add classes_addr.c "Object" this_addr
 
+(* le pointeur de chaîne est au décallage 4, la longueur de la chaîne est au décalage 8*)
 let class_string =
 	let this_addr = {
 		name_ = "String";
 		attrs_desc = Hashtbl.create 10;
-		attrs_shift = 4;
+		attrs_shift = 12;
 		methods_desc = Hashtbl.create 10;
-		methods_shift = 4;
+		methods_shift = 12;
 		descriptor = label "_desc$String" @@ address ["_desc$Object"] @@ address ["_method$String$equals$Object"];
 	} in
 	classes_addr.descriptors <- classes_addr.descriptors @@ this_addr.descriptor;
-	Hashtbl.add classes_addr.c "Object" this_addr
+	Hashtbl.add classes_addr.c "String" this_addr
 
 let str_type type_ =
 	match type_ with
