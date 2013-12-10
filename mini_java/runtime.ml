@@ -86,7 +86,7 @@ let concatenate_string =
 	add t2 t3 oreg t2 @@
 	(* t0 = addresse du nouveau String *)
 	push t0 @@ push t1 @@
-	alloc_mem "_descString" 12 @@
+	alloc_mem "_desc$String" 12 @@
 	pop t1 @@ pop t0 @@
 	(* stocke la longueur de la nouvelle chaîne + 1 pour \0 *)
 	add t2 t2 oi 1 @@

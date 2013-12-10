@@ -77,10 +77,14 @@ let rec compile_expr loc_size env e =
 					let label_str = next_str() in 
 					Hashtbl.add tbl_cstr label_str vstr;
 					let this_addr = get_this_addr "String" in	
-					let c_desc = class_desc "String" in
-					alloc_mem c_desc this_addr.attrs_shift @@ pushad 
-					@@ la t1 alab(label_str) @@ li32 t2 vstr_length
-					@@ sw t1 areg (4,t0) @@ sw t2 areg (8,t0) @@ popad
+					let c_desc = class_desc "String" in 
+					alloc_mem c_desc this_addr.attrs_shift @@
+					pushad @@ 
+					la t1 alab(label_str) @@ 
+					li32 t2 vstr_length @@
+					sw t1 areg (4,t0) @@
+					sw t2 areg (8,t0) @@
+					popad
 				| Cbool vbool -> if vbool then li t0 1 else li t0 0
 				| Cnull -> li t0 0
 			in t
@@ -319,12 +323,12 @@ let prog (class_list, main_class, main_body) =
 			@@ label "main"
 			@@ comment "c'est le main"
 			@@ callee_method loc_size body_code
-			(* @@ concatenate_string *)
-			(* @@ print_int          *)
-			(* @@ print_string       *)
-			(* @@ cerrors            *)
+			@@ concatenate_string
+			@@ print_int
+			@@ print_string
+			@@ cerrors
 			@@ equal_string
-			(* @@ cclasses           *)
+			@@ cclasses
 			@@ end_;
 		data = 
 			classes_addr.descriptors
