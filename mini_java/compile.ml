@@ -62,9 +62,6 @@ let print_int =
 
 let print_string =
 	label "print_string" @@ callee_method 0 (print 4)
-	
-let equal_string =
-	label "_method$String$equals$Object"
 
 let rec compile_expr loc_size env e =
 	match e.node with
@@ -186,15 +183,27 @@ and compile_args loc_size env args =
 			let cexp = compile_expr loc_size env x in
 			acc @@ cexp @@ push t0,shift+4
     ) (nop, 0) (List.rev args)
-	in comment "prepare args" @@ move t3 t0 @@ cargs 
-	@@ push v0 @@ move t0 t3 @@ comment "end args",size
+	in 
+	comment "prepare args" @@
+	move t3 t0 @@
+	cargs @@
+	push v0 @@
+	move t0 t3 @@
+	comment "end args",size
 	
 and call_method this_addr method_name args env loc_size =
 	let meth_shift = get_method_addr this_addr.methods_desc method_name in
 	let descriptor = lw t0 areg (0,t0) in
 	let meth = lw t0 areg (meth_shift,t0) in
 	let cargs,size = compile_args loc_size env args in
-	pushad @@ descriptor @@ meth @@ caller_method2 t0 cargs (size+4) @@ popad @@ move t0 v1
+	Printf.printf "cargs size : %d" size;
+	comment "equals here" @@
+	pushad @@
+	descriptor @@
+	meth @@
+	caller_method2 t0 cargs (size+4) @@
+	popad @@
+	move t0 v1
 
 (* rw = lecture = false, ecriture = true*)
 (* reg = registre servant pour la lecture ou l'écriture *)	
@@ -323,11 +332,11 @@ let prog (class_list, main_class, main_body) =
 			@@ label "main"
 			@@ comment "c'est le main"
 			@@ callee_method loc_size body_code
+			@@ is_equal
 			@@ concatenate_string
 			@@ print_int
 			@@ print_string
 			@@ cerrors
-			@@ equal_string
 			@@ cclasses
 			@@ end_;
 		data = 

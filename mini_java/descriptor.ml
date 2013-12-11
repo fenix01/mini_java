@@ -45,8 +45,9 @@ let class_string =
 		attrs_shift = 12;
 		methods_desc = Hashtbl.create 10;
 		methods_shift = 12;
-		descriptor = label "_desc$String" @@ address ["_desc$Object"] @@ address ["_method$String$equals$Object"];
+		descriptor = label "_desc$String" @@ address ["_desc$Object"] @@ address ["_meth$String$equals$Object"];
 	} in
+	Hashtbl.add this_addr.methods_desc "_meth$String$equals$Object" 4;
 	classes_addr.descriptors <- classes_addr.descriptors @@ this_addr.descriptor;
 	Hashtbl.add classes_addr.c "String" this_addr
 

@@ -71,6 +71,17 @@ let copy linit winit length reg =
 		pop v1 @@
 		pop reg in
 	push t0 @@ compile_for e1' e2' e3' code @@ pop t0
+	
+(* la fonction prend un paramètre en entrée *)
+let is_equal =
+	let equal_ =
+		la t0 areg(8,fp) @@
+		la t1 areg(12,fp) @@
+		lw t0 areg(4,t0) @@
+		lw t1 areg(4,t1) @@
+		sne t0 t0 t1 @@
+		compile_cond (li t0 1 @@ move v0 t0) (li t0 0 @@ move v0 t0)
+	in label "_meth$String$equals$Object" @@ callee_method 0 equal_
 
 let concatenate_string =
 	let concatenate =
@@ -85,12 +96,15 @@ let concatenate_string =
 	(* t2 = longueur str1 + longueur str2*)
 	add t2 t3 oreg t2 @@
 	(* t0 = addresse du nouveau String *)
-	push t0 @@ push t1 @@
+	push t0 @@ 
+	push t1 @@
 	alloc_mem "_desc$String" 12 @@
-	pop t1 @@ pop t0 @@
-	(* stocke la longueur de la nouvelle chaîne + 1 pour \0 *)
-	add t2 t2 oi 1 @@
+	pop t1 @@
+	pop t0 @@
+	(* stocke la longueur de la nouvelle chaîne sans \0 *)
 	sw t2 areg(8,v0) @@
+	(* ajoute 1 à longueur de la nouvelle chaîne pour le caractère de fin \0 *)
+	add t2 t2 oi 1 @@
 	(* v1 = mémoire allouée pour la nouvelle chaîne *)
 	alloc_str t2 @@
 	(* stocke l'addresse de la nouvelle chaîne dans le nouvelle object *)
