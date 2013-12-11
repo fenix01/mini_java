@@ -119,6 +119,56 @@ let concatenate_string =
 	comment "copy 2" @@
 	copy zero a1 t3 t1
 	in 	label "concatenate_str" @@ callee_method 0 concatenate
+
+(* let count_bytes =    *)
+(* 	let count =        *)
+(* 	move t0 zero       *)
+(* 	sw t0, areg (0,fp) *)
+(* 	move t0, zero      *)
+(* 	sw t0, (4,fp)      *)
+(* 	lw t0, (20,fp)     *)
+(* 	sw t0, (0,fp)      *)
+(* 	label "count1"     *)
+(* 	lw t0 (0,fp)       *)
+(* 	sub sp, sp, 4      *)
+(* 	sw t0, (0,sp)      *)
+(* 	li t0, 0           *)
+(* 	lw t1, 0(sp)       *)
+(* 	add sp, sp, 4      *)
+(* 	sgt t0, t1, t0     *)
+(* 	beqz t0, endcond5  *)
+(* 	lw t0, 4(fp)       *)
+(* 	add t1, t0, 1      *)
+(* 	sub sp, sp, 4      *)
+(* 	sw t0, 0(sp)       *)
+(* 	move t0, t1        *)
+(* 	lw t1, 0(sp)       *)
+(* 	add sp, sp, 4      *)
+(* 	sw t0, 4(fp)       *)
+(* 	sub sp, sp, 4      *)
+(* 	sw t1, 0(sp)       *)
+(* 	move t1, t0        *)
+(* 	lw t0, 0(sp)       *)
+(* 	add sp, sp, 4      *)
+(* #compile_binop       *)
+(* 	lw t0, 0(fp)       *)
+(* 	sub sp, sp, 4      *)
+(* 	sw t0, 0(sp)       *)
+(* 	li t0, 10          *)
+(* 	lw t1, 0(sp)       *)
+(* 	add sp, sp, 4      *)
+(* 	beqz t0, cond4     *)
+(* 	div t0, t1, t0     *)
+(* 	b endcond4         *)
+(* cond4:               *)
+(* 	b cerr_div_by_zero *)
+(* endcond4:            *)
+(* 	sw t0, 0(fp)       *)
+(* 	b cond5            *)
+(* endcond5:            *)
+(* #return              *)
+(* 	lw t0, 4(fp)       *)
+(* 	move v0, t0        *)
 	
 (* code généré par notre compilateur pour avoir la structure pour convertir facilement*)
 (* un entier en string *)
@@ -201,7 +251,7 @@ let meth_int_str =
 	
 let convert_int =
 	caller_method "int_length" @@
-	alloc_mem "_descString" 12 @@
+	alloc_mem "_desc$String" 12 @@
 	sw v1 areg(8,v0) @@
 	alloc_str v1 @@
 	sw v1 areg(4,v0) @@

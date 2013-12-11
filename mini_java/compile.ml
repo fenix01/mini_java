@@ -111,7 +111,7 @@ let rec compile_expr loc_size env e =
 				| Bmod -> compile_binop loc_size env e1 e2 @@ beqz t0 "cerr_div_by_zero" @@ rem t0 t1 oreg t0
 			)
 	(* utilise les registres t0 et t1 *)
-	| Eunop (unop, e) ->
+	| Eunop (unop, e) -> 
 			(	
 				match unop,e.node with
 				| Unot,_ -> compile_expr loc_size env e @@ compile_cond (sub t0 t0 oreg t0) (add t0 t0 oi 1)
@@ -158,7 +158,8 @@ let rec compile_expr loc_size env e =
 													let c_desc = class_desc class_name in
 													alloc_mem c_desc this_addr.attrs_shift 
 													@@ call_method this_addr cls.node args env loc_size
-	| _ -> assert false
+	| Ecast (_,_) -> Printf.printf "cast not implemented"; exit 0
+	| Einstanceof (_,_) -> Printf.printf "dynamic instance of not implemented"; exit 0
 
 and compile_binop loc_size env e1 e2 =
 	comment "compile_binop" @@ 
@@ -196,7 +197,6 @@ and call_method this_addr method_name args env loc_size =
 	let descriptor = lw t0 areg (0,t0) in
 	let meth = lw t0 areg (meth_shift,t0) in
 	let cargs,size = compile_args loc_size env args in
-	Printf.printf "cargs size : %d" size;
 	comment "equals here" @@
 	pushad @@
 	descriptor @@
@@ -255,7 +255,10 @@ let rec compile_instr fp_shift loc_size env instr =
 	| Iexpr e -> fp_shift, loc_size, env, compile_expr loc_size env e
 	| Idecl (t, x, eopt) ->		let shift = fp_shift + 4 in
 														let new_env = Env.add x.node shift env in
-														shift,loc_size,new_env,compile_opt loc_size new_env eopt @@ sw t0 areg(shift,fp)
+														shift,loc_size,new_env,
+														move t0 zero @@
+														compile_opt loc_size new_env eopt @@
+														sw t0 areg(shift,fp)
 	| Iif (e, i1, i2) ->
 			let cexpr = compile_expr loc_size env e in
 			let _,_,_,code1 = compile_instr fp_shift loc_size env i1

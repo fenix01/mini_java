@@ -84,7 +84,7 @@ let get_attr_addr attrs_addr attr_name =
 let get_method_addr meth_addr method_name =
 	try
 		Hashtbl.find meth_addr method_name
-	with Not_found -> failwith "error peu commune 3"
+	with Not_found -> Printf.printf "error %s\n" method_name; exit 1
 
 let build_ctors_desc this_addr ctors =
 	let binds = MethodMap.bindings ctors in

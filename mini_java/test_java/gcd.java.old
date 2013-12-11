@@ -1,0 +1,18 @@
+public class gcd {
+
+  public static void main(String _ [])
+    {
+      int a = 2000;
+      int b = 305;
+      int x = a;
+      int y = b;
+      for (;b != 0;)
+      {
+        int t = b;
+        b = a % b;
+        a = t;
+      }
+      System.out.print("Le pgcd de " + x + " et " + y + " est " + a + "\n");
+    }
+
+}

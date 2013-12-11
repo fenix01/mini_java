@@ -1,0 +1,9 @@
+rm *.s
+for X in *.java; do
+    ./main.byte $X
+    read
+done
+for Y in *.s; do
+    ./Mars_4_2.jar $Y
+    read
+done
