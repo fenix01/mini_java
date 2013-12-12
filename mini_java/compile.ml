@@ -18,14 +18,11 @@ let enter_params l env loc_size =
 	let genv,shift = List.fold_left ( fun (new_env,shift) (_,name_) ->
 		(Env.add name_.node (shift+4) new_env),shift+4
 	) (tenv,start_shift) l in
-	Env.iter ( fun name_ shift ->
-		Printf.printf "%s %d\n" name_ shift
-	) genv;
 	genv
 	
 let print_str label_name =
 	la t0 alab label_name
-	@@ caller_method "print_string"	
+	@@ caller_lmethod "print_string" nop 0
 
 (* LISTE DES ERREURS D'EXECUTION *)
 let err_div_by_zero = label "err_div_by_zero" @@ asciiz "division by zero"
@@ -102,8 +99,22 @@ let rec compile_expr loc_size env e =
 				| Blte -> compile_binop loc_size env e1 e2 @@ sle t0 t1 t0
 				| Bgt -> compile_binop loc_size env e1 e2 @@ sgt t0 t1 t0
 				| Bgte -> compile_binop loc_size env e1 e2 @@ sge t0 t1 t0
-				| Band -> compile_binop loc_size env e1 e2 @@ and_ t0 t1 t0
-				| Bor -> compile_binop loc_size env e1 e2 @@ or_ t0 t1 t0
+				| Band -> 
+						compile_expr loc_size env e1 @@
+						compile_cond  
+						(push t0 @@ 
+						compile_expr loc_size env e2 @@ 
+						pop t1 @@
+						and_ t0 t1 t0)
+						nop
+				| Bor -> 
+						compile_expr loc_size env e1 @@
+						compile_cond  
+						(push t0 @@ 
+						compile_expr loc_size env e2 @@ 
+						pop t1 @@
+						and_ t0 t1 t0)
+						nop
 				| Badd -> compile_add loc_size env e1 e2
 				| Bsub -> compile_binop loc_size env e1 e2 @@ sub t0 t1 oreg t0
 				| Bmul -> compile_binop loc_size env e1 e2 @@ mul t0 t1 oreg t0
@@ -132,12 +143,15 @@ let rec compile_expr loc_size env e =
 							let expr_ = List.hd args in
 							let cexpr = compile_expr loc_size env expr_ in
 							match expr_.info with
-							| Tint -> cexpr @@ caller_method "print_int" @@ print_str "backslashn"
+							| Tint -> cexpr @@ caller_lmethod "print_int" nop 0
 							| Tboolean ->
-									let code1 = print_str "btrue" @@ print_str "backslashn" in
-									let code2 = print_str "bfalse" @@ print_str "backslashn" in
+									let code1 = print_str "btrue" in
+									let code2 = print_str "bfalse" in
 									cexpr @@ compile_cond code1 code2
-							| Tclass "String" -> cexpr @@ lw t0 areg (4,t0) @@ caller_method "print_string"
+							| Tclass "String" -> 
+								cexpr @@ 
+								lw t0 areg (4,t0) @@ 
+								compile_cond (caller_lmethod "print_string" nop 0) (b "cerr_null_pointer")
 							| _ -> assert false
 						else assert false
 				| Laccess (e,x) -> let cexpr = compile_expr loc_size env e in
@@ -151,7 +165,7 @@ let rec compile_expr loc_size env e =
 				)
 	  | Enew (cls, args) -> let class_name = 
 													match cls.info with
-													| Tclass cname -> cname
+													| Tclass cname -> Printf.printf "%s" cname;cname
 													| _ -> ""
 													in
 													let this_addr = get_this_addr class_name in	
@@ -172,7 +186,7 @@ and compile_add loc_size env e1 e2 =
 	match e1.info,e2.info with
 	| Tclass "String",Tclass "String" -> 
 		compile_binop loc_size env e1 e2 @@ 
-		caller_method "concatenate_str" @@
+		caller_lmethod "concatenate_str" nop 0 @@
 		move t0 v1
 	| Tclass "String", Tint -> failwith "todo concatenation + convertion"
 	| Tint, Tclass "String" -> failwith "todo concatenation + convertion"
@@ -193,15 +207,15 @@ and compile_args loc_size env args =
 	comment "end args",size
 	
 and call_method this_addr method_name args env loc_size =
-	let meth_shift = get_method_addr this_addr.methods_desc method_name in
+	(* let meth_shift = get_method_addr this_addr.methods_desc method_name in *)
+	let meth_shift = get_shift method_name in
 	let descriptor = lw t0 areg (0,t0) in
 	let meth = lw t0 areg (meth_shift,t0) in
 	let cargs,size = compile_args loc_size env args in
-	comment "equals here" @@
 	pushad @@
 	descriptor @@
 	meth @@
-	caller_method2 t0 cargs (size+4) @@
+	caller_rmethod t0 cargs (size+4) @@
 	popad @@
 	move t0 v1
 
@@ -280,7 +294,7 @@ let rec compile_instr fp_shift loc_size env instr =
 			in aux fp_shift loc_size env li
   | Ireturn oe ->
       let coe = compile_opt loc_size env oe in
-      fp_shift, loc_size, env,comment "return" @@ coe @@ move v0 t0
+      fp_shift, loc_size, env,comment "return" @@ coe @@ move v0 t0 @@ hack_return loc_size
 
 let rem_assoc l =
 	let rec rm_l  l' = 
@@ -330,12 +344,13 @@ let prog (class_list, main_class, main_body) =
 	let c_str = compile_tbl_cstr () in
 	{
 		text =
-			caller_method "main"
+			caller_lmethod "main" nop 0
 			@@ b "end"
 			@@ label "main"
 			@@ comment "c'est le main"
 			@@ callee_method loc_size body_code
 			@@ is_equal
+			@@ count_bytes
 			@@ concatenate_string
 			@@ print_int
 			@@ print_string

@@ -15,12 +15,14 @@ type class_addr = {
 
 type classes_addr = {
 	c : (string, class_addr) Hashtbl.t;
+	methods_ : (string, int) Hashtbl.t ;
 	mutable descriptors : data
 }
 
 let classes_addr =
 	let classes_ = {
 		c = Hashtbl.create 10;
+		methods_ = Hashtbl.create 100;
 		descriptors = nop;
 	}
 	in classes_
@@ -85,6 +87,9 @@ let get_method_addr meth_addr method_name =
 	try
 		Hashtbl.find meth_addr method_name
 	with Not_found -> Printf.printf "error %s\n" method_name; exit 1
+	
+let get_shift mangle =
+	Hashtbl.find classes_addr.methods_ mangle
 
 let build_ctors_desc this_addr ctors =
 	let binds = MethodMap.bindings ctors in
@@ -93,17 +98,20 @@ let build_ctors_desc this_addr ctors =
 					let desc_name = "_ctor$"^(method_desc cotr_name cotr_name types_) in
 					let desc_ = address [desc_name] in
 					Hashtbl.add this_addr.methods_desc desc_name this_addr.methods_shift;
+					Hashtbl.add classes_addr.methods_ desc_name this_addr.methods_shift;
 					this_addr.methods_shift <- this_addr.methods_shift + 4;
 					this_addr.descriptor <- this_addr.descriptor @@ desc_;
 		) binds
 
 let build_method_desc this_addr methods =
+	Printf.printf "-----------\n";
 	List.iter (
 			fun ((meth_name, types_), m_desc) ->
 					let desc_name = "_meth$"^(method_desc m_desc.class_def meth_name types_) in
 					let desc_ = address [desc_name] in
 					Hashtbl.add this_addr.methods_desc desc_name this_addr.methods_shift;
-					Printf.printf "%s %d\n" desc_name this_addr.methods_shift;
+					Hashtbl.add classes_addr.methods_ desc_name this_addr.methods_shift;
+					Printf.printf "%s %s %d\n" this_addr.name_ desc_name this_addr.methods_shift;
 					this_addr.methods_shift <- this_addr.methods_shift + 4;
 					this_addr.descriptor <- this_addr.descriptor @@ desc_;
 		) methods
@@ -160,8 +168,8 @@ let build_descriptors () =
 						}
 						in
 						let sorted = sort_methods idecl.methods in
-						build_ctors_desc this_addr idecl.ctors;
 						build_method_desc this_addr sorted;
+						build_ctors_desc this_addr idecl.ctors;
 						build_attr_desc this_addr idecl.fields;
 						let p_desc = class_desc idecl.parent in
 						let t_desc = class_desc idecl.name in

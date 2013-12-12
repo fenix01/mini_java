@@ -3,7 +3,7 @@ type(
   string
 )
 ident(
-  def ext "main.ml" 12 127 127 "_none_" 1 0 -1
+  def ext "main.ml" 12 127 127 "main.ml" 1 0 -1
 )
 "main.ml" 11 109 119 "main.ml" 11 109 126
 type(
@@ -14,7 +14,7 @@ type(
   string
 )
 ident(
-  def usage "main.ml" 14 194 194 "_none_" 1 0 -1
+  def usage "main.ml" 14 194 194 "main.ml" 1 0 -1
 )
 "main.ml" 12 127 139 "main.ml" 12 127 146
 type(
@@ -62,7 +62,7 @@ type(
   bool ref
 )
 ident(
-  def parse_only "main.ml" 15 221 221 "_none_" 1 0 -1
+  def parse_only "main.ml" 15 221 221 "main.ml" 1 0 -1
 )
 "main.ml" 14 194 211 "main.ml" 14 194 214
 type(
@@ -84,7 +84,7 @@ type(
   bool ref
 )
 ident(
-  def type_only "main.ml" 18 249 249 "_none_" 1 0 -1
+  def type_only "main.ml" 18 249 249 "main.ml" 1 0 -1
 )
 "main.ml" 15 221 237 "main.ml" 15 221 240
 type(
@@ -106,7 +106,7 @@ type(
   (string * Arg.spec * string) list
 )
 ident(
-  def spec "main.ml" 23 391 391 "_none_" 1 0 -1
+  def spec "main.ml" 23 391 391 "main.ml" 1 0 -1
 )
 "main.ml" 19 260 263 "main.ml" 19 260 276
 type(
@@ -140,7 +140,7 @@ type(
   string
 )
 ident(
-  def file "main.ml" 33 663 663 "_none_" 1 0 -1
+  def file "main.ml" 33 663 663 "main.ml" 1 0 -1
 )
 "main.ml" 24 402 408 "main.ml" 24 402 412
 type(

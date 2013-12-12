@@ -4,6 +4,7 @@ open Mips
 let next = let r = ref 0 in fun () -> r:= !r +1; !r
 let cond i = Printf.sprintf "cond%i" i
 let endcond i = Printf.sprintf "endcond%i" i
+
 let gen_str = let r = ref 0 in fun () -> r:= !r +1; !r
 let next_str () = let i = gen_str() in Printf.sprintf "str%i" i
 (* ######################################################## *)
@@ -12,28 +13,28 @@ let pushad = push t0 @@ push t1 @@ push t2 @@ push t3 @@ push v0
 let popad = pop v0 @@ pop t3 @@ pop t2 @@ pop t1 @@ pop t0
 let switch r1 r2 = push r1 @@ move r1 r2 @@ pop r2
 
-let caller_method2 register args size =
+let caller_rmethod register args arg_size =
 	let push_treg = comment "caller init" @@ pushad in
-	let pop_args = add sp sp oi size in
+	let pop_args = add sp sp oi arg_size in
 	let pop_treg = comment "caller final" @@ popad
 	@@ comment "caller final2"
 	in
 	push_treg @@ args @@ jalr register @@ move v1 v0 @@ pop_args @@ pop_treg
 
-let caller_method label_name =
+let caller_lmethod label_name args arg_size =
 	let push_treg = comment "caller init" @@ pushad in
+	let pop_args = add sp sp oi arg_size in
 	let pop_treg = comment "caller final" @@ popad in
-	push_treg @@ jal label_name @@ move v1 v0 @@ pop_treg
+	push_treg @@ args @@ jal label_name @@ move v1 v0 @@ pop_args @@ pop_treg
+
+let hack_return loc_size = 
+	comment "calle final" @@ add sp fp oi loc_size @@ pop ra @@ pop fp @@ jr ra
 	
 let callee_method loc_size code =
 	let init = comment "calle init" @@ push fp @@ push ra in
 	let init_fp = sub fp sp oi loc_size @@ move sp fp in
 	let final = comment "calle final" @@ add sp fp oi loc_size @@ pop ra @@ pop fp @@ jr ra
 	in init @@ init_fp @@ comment "callee code" @@ code @@ final
-	
-let alloc_mem class_desc size =
-	li a0 size @@ li v0 9 @@ syscall @@ move t0 v0 @@ move t1 v0 @@
-	la t1 alab class_desc @@ sw t1 areg(0,t0)
 
 (* code qui effectue un if then else et qui branche sur code 1 ou code 2 *)
 let compile_cond code1 code2 =
@@ -45,11 +46,36 @@ let compile_for e1' e2' e3' code1 =
 	let i = next() in
 	e1' @@ label(cond i) @@ e2' @@ beqz t0 (endcond i) @@ code1 @@ e3' @@ b (cond i) @@ label (endcond i)
 	
+let zero_mem size =
+	push v0 @@
+	compile_for (move s0 zero @@ add s1 s1 oi size) 
+	(slt t0 s0 s1) (add s0 s0 oi 1) 
+	(peek t0 @@ add t0 t0 oreg s0 @@ sw zero areg(0,v0)) @@
+	pop v0
+	
+let alloc_mem class_desc size =
+	li a0 size @@
+	li v0 9 @@
+	syscall @@
+	zero_mem size @@
+	move t0 v0 @@
+	move t1 v0 @@
+	la t1 alab class_desc @@
+	sw t1 areg(0,t0)	
+	
+let zero_str reg =
+	push v0 @@
+	compile_for (move s0 zero @@ move s1 reg) 
+	(slt t0 s0 s1) (add s0 s0 oi 1) 
+	(peek t0 @@ add t0 t0 oreg s0 @@ sw zero areg(0,v0)) @@
+	pop v0
+		
 let alloc_str reg =
 		push v0 @@ 
 		move a0 reg @@
 		li v0 9 @@
 		syscall @@
+		zero_str reg @@
 		move v1 v0 @@
 		pop v0	
 	
@@ -120,59 +146,59 @@ let concatenate_string =
 	copy zero a1 t3 t1
 	in 	label "concatenate_str" @@ callee_method 0 concatenate
 
-(* let count_bytes =    *)
-(* 	let count =        *)
-(* 	move t0 zero       *)
-(* 	sw t0, areg (0,fp) *)
-(* 	move t0, zero      *)
-(* 	sw t0, (4,fp)      *)
-(* 	lw t0, (20,fp)     *)
-(* 	sw t0, (0,fp)      *)
-(* 	label "count1"     *)
-(* 	lw t0 (0,fp)       *)
-(* 	sub sp, sp, 4      *)
-(* 	sw t0, (0,sp)      *)
-(* 	li t0, 0           *)
-(* 	lw t1, 0(sp)       *)
-(* 	add sp, sp, 4      *)
-(* 	sgt t0, t1, t0     *)
-(* 	beqz t0, endcond5  *)
-(* 	lw t0, 4(fp)       *)
-(* 	add t1, t0, 1      *)
-(* 	sub sp, sp, 4      *)
-(* 	sw t0, 0(sp)       *)
-(* 	move t0, t1        *)
-(* 	lw t1, 0(sp)       *)
-(* 	add sp, sp, 4      *)
-(* 	sw t0, 4(fp)       *)
-(* 	sub sp, sp, 4      *)
-(* 	sw t1, 0(sp)       *)
-(* 	move t1, t0        *)
-(* 	lw t0, 0(sp)       *)
-(* 	add sp, sp, 4      *)
-(* #compile_binop       *)
-(* 	lw t0, 0(fp)       *)
-(* 	sub sp, sp, 4      *)
-(* 	sw t0, 0(sp)       *)
-(* 	li t0, 10          *)
-(* 	lw t1, 0(sp)       *)
-(* 	add sp, sp, 4      *)
-(* 	beqz t0, cond4     *)
-(* 	div t0, t1, t0     *)
-(* 	b endcond4         *)
-(* cond4:               *)
-(* 	b cerr_div_by_zero *)
-(* endcond4:            *)
-(* 	sw t0, 0(fp)       *)
-(* 	b cond5            *)
-(* endcond5:            *)
-(* #return              *)
-(* 	lw t0, 4(fp)       *)
-(* 	move v0, t0        *)
+(* méthode permettant de envoyer le nombre de caractère ascii d'un int *)
+let count_bytes =
+	let count =
+	move t0 zero @@
+	sw t0 areg (0,fp) @@
+	move t0 zero @@
+	sw t0 areg(4,fp) @@
+	lw t0 areg(20,fp) @@
+	sw t0 areg(0,fp) @@
+	label "c1" @@
+	lw t0 areg(0,fp) @@
+	sub sp sp oi 4 @@
+	sw t0 areg(0,sp) @@
+	li t0 0 @@
+	lw t1 areg(0,sp) @@
+	add sp sp oi 4 @@
+	sgt t0 t1 t0 @@
+	beqz t0 "ec1" @@
+	lw t0 areg(4,fp) @@
+	add t1 t0 oi 1 @@
+	sub sp sp oi 4 @@
+	sw t0 areg(0,sp) @@
+	move t0 t1 @@
+	lw t1 areg(0,sp) @@
+	add sp sp oi 4 @@
+	sw t0 areg(4,fp) @@
+	sub sp sp oi 4 @@
+	sw t1 areg(0,sp) @@
+	move t1 t0 @@
+	lw t0 areg(0,sp) @@
+	add sp sp oi 4 @@
+	lw t0 areg(0,fp) @@
+	sub sp sp oi 4 @@
+	sw t0 areg(0,sp) @@
+	li t0 10 @@
+	lw t1 areg(0,sp) @@
+	add sp sp oi 4 @@
+	beqz t0 "c2" @@
+	div t0 t1 oreg t0 @@
+	b "ec2" @@
+	label "c2" @@
+	b "cerr_div_by_zero" @@
+	label "ec2" @@
+	sw t0 areg(0,fp) @@
+	b "c1" @@
+	label "ec1" @@
+	lw t0 areg(4,fp) @@
+	move v0 t0
+	in label "count_bytes" @@ callee_method 8 count
 	
 (* code généré par notre compilateur pour avoir la structure pour convertir facilement*)
 (* un entier en string *)
-let struct_conv compute_ascii compute_size =
+let conv_int =
 	sw t0 areg(0,fp) @@
 	sw t0 areg(4,fp) @@
 	sw t0 areg(8,fp) @@
@@ -201,7 +227,7 @@ let struct_conv compute_ascii compute_size =
 	add t0 t1 oreg t0 @@
 	sw t0 areg(4,fp) @@
 	lw t0 areg(4,fp) @@
-	compute_ascii @@
+	comment "compute_ascii" @@
 	lw t0 areg(0,fp) @@
 	sub sp sp oi 4 @@
 	sw t0 areg(0,sp) @@
@@ -229,34 +255,6 @@ let struct_conv compute_ascii compute_size =
 	lw t0 areg(0,sp) @@
 	add sp sp oi 4 @@
 	b "cond4" @@
-	label "endcond4" @@
-	compute_size
-	
-(* utilise la structure de convertion pour connaître la longueur de l'entier *)
-let meth_int_length =
-	let comp_ascii = nop in
-	let comp_length = lw t0 areg(8,fp) @@ move v0 t0 in
-	label "int_length" @@ callee_method 12 (struct_conv comp_ascii comp_length)
-	
-(* utilise la structure de convertion pour stocker les caractères *)
-let meth_int_str =
-	let comp_ascii = 
-		lw t1 areg(8,fp) @@
-		add a0 a0 oreg t1 @@
-		sb t0 areg(0,a0) in
-	let comp_length = nop in
-	label "int_str" @@ 
-	move a0 v0 @@
-	callee_method 12 (struct_conv comp_ascii comp_length)
-	
-let convert_int =
-	caller_method "int_length" @@
-	alloc_mem "_desc$String" 12 @@
-	sw v1 areg(8,v0) @@
-	alloc_str v1 @@
-	sw v1 areg(4,v0) @@
-	caller_method "int_str" @@
-	move t0 v1
-	
+	label "endcond4"
 	
 	
