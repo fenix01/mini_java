@@ -76,17 +76,17 @@ let method_desc class_name method_name params =
 let get_this_addr this_name =
 	try
 		Hashtbl.find classes_addr.c this_name
-	with Not_found -> failwith "error peu commune 1"
+	with Not_found -> Printf.printf "this class doesn't exist %s\n" this_name; exit 2
 
 let get_attr_addr attrs_addr attr_name =
 	try
 		Hashtbl.find attrs_addr attr_name
-	with Not_found -> failwith "error peu commune 2"
+	with Not_found -> Printf.printf "this attribut doesn't exist %s\n" attr_name; exit 2
 
 let get_method_addr meth_addr method_name =
 	try
 		Hashtbl.find meth_addr method_name
-	with Not_found -> Printf.printf "error %s\n" method_name; exit 1
+	with Not_found -> Printf.printf "this method doesn't exist %s\n" method_name; exit 2
 	
 let get_shift mangle =
 	Hashtbl.find classes_addr.methods_ mangle
@@ -104,14 +104,12 @@ let build_ctors_desc this_addr ctors =
 		) binds
 
 let build_method_desc this_addr methods =
-	Printf.printf "-----------\n";
 	List.iter (
 			fun ((meth_name, types_), m_desc) ->
 					let desc_name = "_meth$"^(method_desc m_desc.class_def meth_name types_) in
 					let desc_ = address [desc_name] in
 					Hashtbl.add this_addr.methods_desc desc_name this_addr.methods_shift;
 					Hashtbl.add classes_addr.methods_ desc_name this_addr.methods_shift;
-					Printf.printf "%s %s %d\n" this_addr.name_ desc_name this_addr.methods_shift;
 					this_addr.methods_shift <- this_addr.methods_shift + 4;
 					this_addr.descriptor <- this_addr.descriptor @@ desc_;
 		) methods
@@ -178,6 +176,6 @@ let build_descriptors () =
 						Hashtbl.add classes_addr.c cname this_addr)
 			) class_table
 	with
-	| Not_found -> Printf.printf "not found"
+	| Not_found -> Printf.printf "critical error while generating descriptors\n"; exit 2
 
 (* ######################################################## *)

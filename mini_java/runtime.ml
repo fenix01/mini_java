@@ -228,6 +228,7 @@ let conv_int =
 	sw t0 areg(4,fp) @@
 	lw t0 areg(4,fp) @@
 	comment "compute_ascii" @@
+	alloc_mem "_desc$String" 12 @@
 	lw t0 areg(0,fp) @@
 	sub sp sp oi 4 @@
 	sw t0 areg(0,sp) @@

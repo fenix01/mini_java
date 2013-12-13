@@ -165,15 +165,15 @@ let rec compile_expr loc_size env e =
 				)
 	  | Enew (cls, args) -> let class_name = 
 													match cls.info with
-													| Tclass cname -> Printf.printf "%s" cname;cname
+													| Tclass cname -> cname
 													| _ -> ""
 													in
 													let this_addr = get_this_addr class_name in	
 													let c_desc = class_desc class_name in
 													alloc_mem c_desc this_addr.attrs_shift 
 													@@ call_method this_addr cls.node args env loc_size
-	| Ecast (_,_) -> Printf.printf "cast not implemented"; exit 0
-	| Einstanceof (_,_) -> Printf.printf "dynamic instance of not implemented"; exit 0
+	| Ecast (_,_) -> Printf.printf "cast not implemented"; exit 2
+	| Einstanceof (_,_) -> Printf.printf "dynamic instanceof not implemented"; exit 2
 
 and compile_binop loc_size env e1 e2 =
 	comment "compile_binop" @@ 
