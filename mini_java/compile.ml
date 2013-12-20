@@ -151,9 +151,9 @@ let rec compile_expr loc_size env e =
 							| Tclass "String" -> 
 								cexpr @@ 
 								lw t0 areg (4,t0) @@ 
-								compile_cond (caller_lmethod "print_string" nop 0) (b "cerr_null_pointer")
-							| _ -> assert false
-						else assert false
+								caller_lmethod "print_string" nop 0
+							| _ -> exit 0
+						else exit 0
 				| Laccess (e,x) -> let cexpr = compile_expr loc_size env e in
 													 let class_name = 
 													 match e.info with
@@ -188,8 +188,8 @@ and compile_add loc_size env e1 e2 =
 		compile_binop loc_size env e1 e2 @@ 
 		caller_lmethod "concatenate_str" nop 0 @@
 		move t0 v1
-	| Tclass "String", Tint -> failwith "todo concatenation + convertion"
-	| Tint, Tclass "String" -> failwith "todo concatenation + convertion"
+	| Tclass "String", Tint -> Printf.printf "convertion not implemented";exit 2
+	| Tint, Tclass "String" -> Printf.printf "convertion not implemented";exit 2
 	| _,_ -> compile_binop loc_size env e1 e2 @@ add t0 t1 oreg t0
 	
 and compile_args loc_size env args =
@@ -350,7 +350,7 @@ let prog (class_list, main_class, main_body) =
 			@@ comment "c'est le main"
 			@@ callee_method loc_size body_code
 			@@ is_equal
-			@@ count_bytes
+			(* @@ count_bytes *)
 			@@ concatenate_string
 			@@ print_int
 			@@ print_string

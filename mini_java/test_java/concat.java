@@ -2,7 +2,7 @@ public class concat {
 
   public static void main(String _ [])
     {
-      String s = "aa" + "bb";
+      String s = "s";
       System.out.print(s);
     }
 }

@@ -75,7 +75,6 @@ let alloc_str reg =
 		move a0 reg @@
 		li v0 9 @@
 		syscall @@
-		zero_str reg @@
 		move v1 v0 @@
 		pop v0	
 	
@@ -147,115 +146,115 @@ let concatenate_string =
 	in 	label "concatenate_str" @@ callee_method 0 concatenate
 
 (* méthode permettant de envoyer le nombre de caractère ascii d'un int *)
-let count_bytes =
-	let count =
-	move t0 zero @@
-	sw t0 areg (0,fp) @@
-	move t0 zero @@
-	sw t0 areg(4,fp) @@
-	lw t0 areg(20,fp) @@
-	sw t0 areg(0,fp) @@
-	label "c1" @@
-	lw t0 areg(0,fp) @@
-	sub sp sp oi 4 @@
-	sw t0 areg(0,sp) @@
-	li t0 0 @@
-	lw t1 areg(0,sp) @@
-	add sp sp oi 4 @@
-	sgt t0 t1 t0 @@
-	beqz t0 "ec1" @@
-	lw t0 areg(4,fp) @@
-	add t1 t0 oi 1 @@
-	sub sp sp oi 4 @@
-	sw t0 areg(0,sp) @@
-	move t0 t1 @@
-	lw t1 areg(0,sp) @@
-	add sp sp oi 4 @@
-	sw t0 areg(4,fp) @@
-	sub sp sp oi 4 @@
-	sw t1 areg(0,sp) @@
-	move t1 t0 @@
-	lw t0 areg(0,sp) @@
-	add sp sp oi 4 @@
-	lw t0 areg(0,fp) @@
-	sub sp sp oi 4 @@
-	sw t0 areg(0,sp) @@
-	li t0 10 @@
-	lw t1 areg(0,sp) @@
-	add sp sp oi 4 @@
-	beqz t0 "c2" @@
-	div t0 t1 oreg t0 @@
-	b "ec2" @@
-	label "c2" @@
-	b "cerr_div_by_zero" @@
-	label "ec2" @@
-	sw t0 areg(0,fp) @@
-	b "c1" @@
-	label "ec1" @@
-	lw t0 areg(4,fp) @@
-	move v0 t0
-	in label "count_bytes" @@ callee_method 8 count
+(* let count_bytes =                                 *)
+(* 	let count =                                     *)
+(* 	move t0 zero @@                                 *)
+(* 	sw t0 areg (0,fp) @@                            *)
+(* 	move t0 zero @@                                 *)
+(* 	sw t0 areg(4,fp) @@                             *)
+(* 	lw t0 areg(20,fp) @@                            *)
+(* 	sw t0 areg(0,fp) @@                             *)
+(* 	label "c1" @@                                   *)
+(* 	lw t0 areg(0,fp) @@                             *)
+(* 	sub sp sp oi 4 @@                               *)
+(* 	sw t0 areg(0,sp) @@                             *)
+(* 	li t0 0 @@                                      *)
+(* 	lw t1 areg(0,sp) @@                             *)
+(* 	add sp sp oi 4 @@                               *)
+(* 	sgt t0 t1 t0 @@                                 *)
+(* 	beqz t0 "ec1" @@                                *)
+(* 	lw t0 areg(4,fp) @@                             *)
+(* 	add t1 t0 oi 1 @@                               *)
+(* 	sub sp sp oi 4 @@                               *)
+(* 	sw t0 areg(0,sp) @@                             *)
+(* 	move t0 t1 @@                                   *)
+(* 	lw t1 areg(0,sp) @@                             *)
+(* 	add sp sp oi 4 @@                               *)
+(* 	sw t0 areg(4,fp) @@                             *)
+(* 	sub sp sp oi 4 @@                               *)
+(* 	sw t1 areg(0,sp) @@                             *)
+(* 	move t1 t0 @@                                   *)
+(* 	lw t0 areg(0,sp) @@                             *)
+(* 	add sp sp oi 4 @@                               *)
+(* 	lw t0 areg(0,fp) @@                             *)
+(* 	sub sp sp oi 4 @@                               *)
+(* 	sw t0 areg(0,sp) @@                             *)
+(* 	li t0 10 @@                                     *)
+(* 	lw t1 areg(0,sp) @@                             *)
+(* 	add sp sp oi 4 @@                               *)
+(* 	beqz t0 "c2" @@                                 *)
+(* 	div t0 t1 oreg t0 @@                            *)
+(* 	b "ec2" @@                                      *)
+(* 	label "c2" @@                                   *)
+(* 	b "cerr_div_by_zero" @@                         *)
+(* 	label "ec2" @@                                  *)
+(* 	sw t0 areg(0,fp) @@                             *)
+(* 	b "c1" @@                                       *)
+(* 	label "ec1" @@                                  *)
+(* 	lw t0 areg(4,fp) @@                             *)
+(* 	move v0 t0                                      *)
+(* 	in label "count_bytes" @@ callee_method 8 count *)
 	
 (* code généré par notre compilateur pour avoir la structure pour convertir facilement*)
 (* un entier en string *)
-let conv_int =
-	sw t0 areg(0,fp) @@
-	sw t0 areg(4,fp) @@
-	sw t0 areg(8,fp) @@
-	label "cond4" @@
-	lw t0 areg(0,fp) @@
-	sub sp sp oi 4 @@
-	sw t0  areg(0,sp) @@
-	li t0 0 @@
-	lw t1 areg(0,sp) @@
-	add sp sp oi 4 @@
-	sgt t0 t1 t0 @@
-	beqz t0 "endcond4" @@
-	lw t0 areg(0,fp) @@
-	sub sp sp oi 4 @@
-	sw t0  areg(0,sp) @@
-	li t0 10 @@
-	lw t1  areg(0,sp) @@
-	add sp sp oi 4 @@
-	beqz t0 "cerr_div_by_zero" @@
-	rem t0 t1 oreg t0 @@
-	sub sp sp oi 4 @@
-	sw t0  areg(0,sp) @@
-	li t0 48 @@
-	lw t1  areg(0,sp) @@
-	add sp sp oi 4 @@
-	add t0 t1 oreg t0 @@
-	sw t0 areg(4,fp) @@
-	lw t0 areg(4,fp) @@
-	comment "compute_ascii" @@
-	alloc_mem "_desc$String" 12 @@
-	lw t0 areg(0,fp) @@
-	sub sp sp oi 4 @@
-	sw t0 areg(0,sp) @@
-	li t0 10 @@
-	lw t1  areg(0,sp) @@
-	add sp sp oi 4 @@
-	beqz t0 "cond3" @@
-	div t0 t1 oreg t0 @@
-	b "endcond3" @@
-	label "cond3" @@
-	b "cerr_div_by_zero" @@
-	label "endcond3" @@
-	sw t0 areg(0,fp) @@
-	lw t0 areg(8,fp) @@
-	add t1 t0 oi 1 @@
-	sub sp sp oi 4 @@
-	sw t0 areg(0,sp) @@
-	move t0 t1 @@
-	lw t1 areg(0,sp) @@
-	add sp sp oi 4 @@
-	sw t0 areg(8,fp) @@
-	sub sp sp oi 4 @@
-	sw t1 areg(0,sp) @@
-	move t1 t0 @@
-	lw t0 areg(0,sp) @@
-	add sp sp oi 4 @@
-	b "cond4" @@
-	label "endcond4"
+(* let conv_int =                   *)
+(* 	sw t0 areg(0,fp) @@            *)
+(* 	sw t0 areg(4,fp) @@            *)
+(* 	sw t0 areg(8,fp) @@            *)
+(* 	label "cond4" @@               *)
+(* 	lw t0 areg(0,fp) @@            *)
+(* 	sub sp sp oi 4 @@              *)
+(* 	sw t0  areg(0,sp) @@           *)
+(* 	li t0 0 @@                     *)
+(* 	lw t1 areg(0,sp) @@            *)
+(* 	add sp sp oi 4 @@              *)
+(* 	sgt t0 t1 t0 @@                *)
+(* 	beqz t0 "endcond4" @@          *)
+(* 	lw t0 areg(0,fp) @@            *)
+(* 	sub sp sp oi 4 @@              *)
+(* 	sw t0  areg(0,sp) @@           *)
+(* 	li t0 10 @@                    *)
+(* 	lw t1  areg(0,sp) @@           *)
+(* 	add sp sp oi 4 @@              *)
+(* 	beqz t0 "cerr_div_by_zero" @@  *)
+(* 	rem t0 t1 oreg t0 @@           *)
+(* 	sub sp sp oi 4 @@              *)
+(* 	sw t0  areg(0,sp) @@           *)
+(* 	li t0 48 @@                    *)
+(* 	lw t1  areg(0,sp) @@           *)
+(* 	add sp sp oi 4 @@              *)
+(* 	add t0 t1 oreg t0 @@           *)
+(* 	sw t0 areg(4,fp) @@            *)
+(* 	lw t0 areg(4,fp) @@            *)
+(* 	comment "compute_ascii" @@     *)
+(* 	alloc_mem "_desc$String" 12 @@ *)
+(* 	lw t0 areg(0,fp) @@            *)
+(* 	sub sp sp oi 4 @@              *)
+(* 	sw t0 areg(0,sp) @@            *)
+(* 	li t0 10 @@                    *)
+(* 	lw t1  areg(0,sp) @@           *)
+(* 	add sp sp oi 4 @@              *)
+(* 	beqz t0 "cond3" @@             *)
+(* 	div t0 t1 oreg t0 @@           *)
+(* 	b "endcond3" @@                *)
+(* 	label "cond3" @@               *)
+(* 	b "cerr_div_by_zero" @@        *)
+(* 	label "endcond3" @@            *)
+(* 	sw t0 areg(0,fp) @@            *)
+(* 	lw t0 areg(8,fp) @@            *)
+(* 	add t1 t0 oi 1 @@              *)
+(* 	sub sp sp oi 4 @@              *)
+(* 	sw t0 areg(0,sp) @@            *)
+(* 	move t0 t1 @@                  *)
+(* 	lw t1 areg(0,sp) @@            *)
+(* 	add sp sp oi 4 @@              *)
+(* 	sw t0 areg(8,fp) @@            *)
+(* 	sub sp sp oi 4 @@              *)
+(* 	sw t1 areg(0,sp) @@            *)
+(* 	move t1 t0 @@                  *)
+(* 	lw t0 areg(0,sp) @@            *)
+(* 	add sp sp oi 4 @@              *)
+(* 	b "cond4" @@                   *)
+(* 	label "endcond4"               *)
 	
 	

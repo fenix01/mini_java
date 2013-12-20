@@ -56,7 +56,7 @@ endcond10:
 	add $sp, $sp, 4
 	move $t0, $v0
 	move $t1, $v0
-	la $t1, _desc$B
+	la $t1, _desc$A
 	sw $t1, 0($t0)
 	sub $sp, $sp, 4
 	sw $t0, 0($sp)
@@ -140,13 +140,22 @@ endcond10:
 	sw $v0, 0($sp)
 #prepare args
 	move $t3, $t0
+	li $t0, 3
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	li $t0, 1
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	li $t0, 100
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
 	sub $sp, $sp, 4
 	sw $v0, 0($sp)
 	move $t0, $t3
 #end args
 	jalr $t0
 	move $v1, $v0
-	add $sp, $sp, 4
+	add $sp, $sp, 16
 #caller final
 	lw $v0, 0($sp)
 	add $sp, $sp, 4
@@ -206,67 +215,6 @@ endcond1:
 	lw $fp, 0($sp)
 	add $sp, $sp, 4
 	jr $ra
-count_bytes:
-#calle init
-	sub $sp, $sp, 4
-	sw $fp, 0($sp)
-	sub $sp, $sp, 4
-	sw $ra, 0($sp)
-	sub $fp, $sp, 8
-	move $sp, $fp
-#callee code
-	move $t0, $zero
-	sw $t0, 0($fp)
-	move $t0, $zero
-	sw $t0, 4($fp)
-	lw $t0, 20($fp)
-	sw $t0, 0($fp)
-c1:
-	lw $t0, 0($fp)
-	sub $sp, $sp, 4
-	sw $t0, 0($sp)
-	li $t0, 0
-	lw $t1, 0($sp)
-	add $sp, $sp, 4
-	sgt $t0, $t1, $t0
-	beqz $t0, ec1
-	lw $t0, 4($fp)
-	add $t1, $t0, 1
-	sub $sp, $sp, 4
-	sw $t0, 0($sp)
-	move $t0, $t1
-	lw $t1, 0($sp)
-	add $sp, $sp, 4
-	sw $t0, 4($fp)
-	sub $sp, $sp, 4
-	sw $t1, 0($sp)
-	move $t1, $t0
-	lw $t0, 0($sp)
-	add $sp, $sp, 4
-	lw $t0, 0($fp)
-	sub $sp, $sp, 4
-	sw $t0, 0($sp)
-	li $t0, 10
-	lw $t1, 0($sp)
-	add $sp, $sp, 4
-	beqz $t0, c2
-	div $t0, $t1, $t0
-	b ec2
-c2:
-	b cerr_div_by_zero
-ec2:
-	sw $t0, 0($fp)
-	b c1
-ec1:
-	lw $t0, 4($fp)
-	move $v0, $t0
-#calle final
-	add $sp, $fp, 8
-	lw $ra, 0($sp)
-	add $sp, $sp, 4
-	lw $fp, 0($sp)
-	add $sp, $sp, 4
-	jr $ra
 concatenate_str:
 #calle init
 	sub $sp, $sp, 4
@@ -292,15 +240,15 @@ concatenate_str:
 	sw $v0, 0($sp)
 	move $s0, $zero
 	add $s1, $s1, 12
-cond5:
+cond4:
 	slt $t0, $s0, $s1
-	beqz $t0, endcond5
+	beqz $t0, endcond4
 	lw $t0, 0($sp)
 	add $t0, $t0, $s0
 	sw $zero, 0($v0)
 	add $s0, $s0, 1
-	b cond5
-endcond5:
+	b cond4
+endcond4:
 	lw $v0, 0($sp)
 	add $sp, $sp, 4
 	move $t0, $v0
@@ -318,21 +266,6 @@ endcond5:
 	move $a0, $t2
 	li $v0, 9
 	syscall
-	sub $sp, $sp, 4
-	sw $v0, 0($sp)
-	move $s0, $zero
-	move $s1, $t2
-cond4:
-	slt $t0, $s0, $s1
-	beqz $t0, endcond4
-	lw $t0, 0($sp)
-	add $t0, $t0, $s0
-	sw $zero, 0($v0)
-	add $s0, $s0, 1
-	b cond4
-endcond4:
-	lw $v0, 0($sp)
-	add $sp, $sp, 4
 	move $v1, $v0
 	lw $v0, 0($sp)
 	add $sp, $sp, 4
@@ -494,101 +427,7 @@ cerr_null_pointer:
 	lw $t0, 0($sp)
 	add $sp, $sp, 4
 	b end
-_meth$A$f:
-#4
-#calle init
-	sub $sp, $sp, 4
-	sw $fp, 0($sp)
-	sub $sp, $sp, 4
-	sw $ra, 0($sp)
-	sub $fp, $sp, 0
-	move $sp, $fp
-#callee code
-	li $a0, 12
-	li $v0, 9
-	syscall
-	sub $sp, $sp, 4
-	sw $v0, 0($sp)
-	move $s0, $zero
-	add $s1, $s1, 12
-cond8:
-	slt $t0, $s0, $s1
-	beqz $t0, endcond8
-	lw $t0, 0($sp)
-	add $t0, $t0, $s0
-	sw $zero, 0($v0)
-	add $s0, $s0, 1
-	b cond8
-endcond8:
-	lw $v0, 0($sp)
-	add $sp, $sp, 4
-	move $t0, $v0
-	move $t1, $v0
-	la $t1, _desc$String
-	sw $t1, 0($t0)
-	sub $sp, $sp, 4
-	sw $t0, 0($sp)
-	sub $sp, $sp, 4
-	sw $t1, 0($sp)
-	sub $sp, $sp, 4
-	sw $t2, 0($sp)
-	sub $sp, $sp, 4
-	sw $t3, 0($sp)
-	sub $sp, $sp, 4
-	sw $v0, 0($sp)
-	la $t1, str2
-	li $t2, 9
-	sw $t1, 4($t0)
-	sw $t2, 8($t0)
-	lw $v0, 0($sp)
-	add $sp, $sp, 4
-	lw $t3, 0($sp)
-	add $sp, $sp, 4
-	lw $t2, 0($sp)
-	add $sp, $sp, 4
-	lw $t1, 0($sp)
-	add $sp, $sp, 4
-	lw $t0, 0($sp)
-	add $sp, $sp, 4
-	lw $t0, 4($t0)
-	beqz $t0, cond9
-#caller init
-	sub $sp, $sp, 4
-	sw $t0, 0($sp)
-	sub $sp, $sp, 4
-	sw $t1, 0($sp)
-	sub $sp, $sp, 4
-	sw $t2, 0($sp)
-	sub $sp, $sp, 4
-	sw $t3, 0($sp)
-	sub $sp, $sp, 4
-	sw $v0, 0($sp)
-	jal print_string
-	move $v1, $v0
-	add $sp, $sp, 0
-#caller final
-	lw $v0, 0($sp)
-	add $sp, $sp, 4
-	lw $t3, 0($sp)
-	add $sp, $sp, 4
-	lw $t2, 0($sp)
-	add $sp, $sp, 4
-	lw $t1, 0($sp)
-	add $sp, $sp, 4
-	lw $t0, 0($sp)
-	add $sp, $sp, 4
-	b endcond9
-cond9:
-	b cerr_null_pointer
-endcond9:
-#calle final
-	add $sp, $fp, 0
-	lw $ra, 0($sp)
-	add $sp, $sp, 4
-	lw $fp, 0($sp)
-	add $sp, $sp, 4
-	jr $ra
-_ctor$B$B:
+_ctor$A$A:
 #8
 #calle init
 	sub $sp, $sp, 4
@@ -605,16 +444,126 @@ _ctor$B$B:
 	lw $fp, 0($sp)
 	add $sp, $sp, 4
 	jr $ra
-_meth$B$f:
+_meth$A$move$int$int$int:
 #4
 #calle init
 	sub $sp, $sp, 4
 	sw $fp, 0($sp)
 	sub $sp, $sp, 4
 	sw $ra, 0($sp)
-	sub $fp, $sp, 0
+	sub $fp, $sp, 4
 	move $sp, $fp
 #callee code
+#compile_binop
+	lw $t0, 16($fp)
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	li $t0, 0
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	seq $t0, $t1, $t0
+	beqz $t0, cond5
+#return
+	move $v0, $t0
+#calle final
+	add $sp, $fp, 4
+	lw $ra, 0($sp)
+	add $sp, $sp, 4
+	lw $fp, 0($sp)
+	add $sp, $sp, 4
+	jr $ra
+	b endcond5
+cond5:
+endcond5:
+	move $t0, $zero
+#compile_binop
+#compile_binop
+	li $t0, 6
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	lw $t0, 20($fp)
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	sub $t0, $t1, $t0
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	lw $t0, 24($fp)
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	sub $t0, $t1, $t0
+	sw $t0, 0($fp)
+	lw $t0, 12($fp)
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	sub $sp, $sp, 4
+	sw $t1, 0($sp)
+	sub $sp, $sp, 4
+	sw $t2, 0($sp)
+	sub $sp, $sp, 4
+	sw $t3, 0($sp)
+	sub $sp, $sp, 4
+	sw $v0, 0($sp)
+	lw $t0, 0($t0)
+	lw $t0, 4($t0)
+#caller init
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	sub $sp, $sp, 4
+	sw $t1, 0($sp)
+	sub $sp, $sp, 4
+	sw $t2, 0($sp)
+	sub $sp, $sp, 4
+	sw $t3, 0($sp)
+	sub $sp, $sp, 4
+	sw $v0, 0($sp)
+#prepare args
+	move $t3, $t0
+	lw $t0, 0($fp)
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	lw $t0, 20($fp)
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+#compile_binop
+	lw $t0, 16($fp)
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	li $t0, 1
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	sub $t0, $t1, $t0
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	sub $sp, $sp, 4
+	sw $v0, 0($sp)
+	move $t0, $t3
+#end args
+	jalr $t0
+	move $v1, $v0
+	add $sp, $sp, 16
+#caller final
+	lw $v0, 0($sp)
+	add $sp, $sp, 4
+	lw $t3, 0($sp)
+	add $sp, $sp, 4
+	lw $t2, 0($sp)
+	add $sp, $sp, 4
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	lw $t0, 0($sp)
+	add $sp, $sp, 4
+#caller final2
+	lw $v0, 0($sp)
+	add $sp, $sp, 4
+	lw $t3, 0($sp)
+	add $sp, $sp, 4
+	lw $t2, 0($sp)
+	add $sp, $sp, 4
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	lw $t0, 0($sp)
+	add $sp, $sp, 4
+	move $t0, $v1
 	li $a0, 12
 	li $v0, 9
 	syscall
@@ -648,7 +597,7 @@ endcond6:
 	sub $sp, $sp, 4
 	sw $v0, 0($sp)
 	la $t1, str1
-	li $t2, 9
+	li $t2, 5
 	sw $t1, 4($t0)
 	sw $t2, 8($t0)
 	lw $v0, 0($sp)
@@ -662,7 +611,6 @@ endcond6:
 	lw $t0, 0($sp)
 	add $sp, $sp, 4
 	lw $t0, 4($t0)
-	beqz $t0, cond7
 #caller init
 	sub $sp, $sp, 4
 	sw $t0, 0($sp)
@@ -688,12 +636,374 @@ endcond6:
 	add $sp, $sp, 4
 	lw $t0, 0($sp)
 	add $sp, $sp, 4
-	b endcond7
+	lw $t0, 16($fp)
+#caller init
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	sub $sp, $sp, 4
+	sw $t1, 0($sp)
+	sub $sp, $sp, 4
+	sw $t2, 0($sp)
+	sub $sp, $sp, 4
+	sw $t3, 0($sp)
+	sub $sp, $sp, 4
+	sw $v0, 0($sp)
+	jal print_int
+	move $v1, $v0
+	add $sp, $sp, 0
+#caller final
+	lw $v0, 0($sp)
+	add $sp, $sp, 4
+	lw $t3, 0($sp)
+	add $sp, $sp, 4
+	lw $t2, 0($sp)
+	add $sp, $sp, 4
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	lw $t0, 0($sp)
+	add $sp, $sp, 4
+	li $a0, 12
+	li $v0, 9
+	syscall
+	sub $sp, $sp, 4
+	sw $v0, 0($sp)
+	move $s0, $zero
+	add $s1, $s1, 12
 cond7:
-	b cerr_null_pointer
+	slt $t0, $s0, $s1
+	beqz $t0, endcond7
+	lw $t0, 0($sp)
+	add $t0, $t0, $s0
+	sw $zero, 0($v0)
+	add $s0, $s0, 1
+	b cond7
 endcond7:
+	lw $v0, 0($sp)
+	add $sp, $sp, 4
+	move $t0, $v0
+	move $t1, $v0
+	la $t1, _desc$String
+	sw $t1, 0($t0)
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	sub $sp, $sp, 4
+	sw $t1, 0($sp)
+	sub $sp, $sp, 4
+	sw $t2, 0($sp)
+	sub $sp, $sp, 4
+	sw $t3, 0($sp)
+	sub $sp, $sp, 4
+	sw $v0, 0($sp)
+	la $t1, str2
+	li $t2, 6
+	sw $t1, 4($t0)
+	sw $t2, 8($t0)
+	lw $v0, 0($sp)
+	add $sp, $sp, 4
+	lw $t3, 0($sp)
+	add $sp, $sp, 4
+	lw $t2, 0($sp)
+	add $sp, $sp, 4
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	lw $t0, 0($sp)
+	add $sp, $sp, 4
+	lw $t0, 4($t0)
+#caller init
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	sub $sp, $sp, 4
+	sw $t1, 0($sp)
+	sub $sp, $sp, 4
+	sw $t2, 0($sp)
+	sub $sp, $sp, 4
+	sw $t3, 0($sp)
+	sub $sp, $sp, 4
+	sw $v0, 0($sp)
+	jal print_string
+	move $v1, $v0
+	add $sp, $sp, 0
+#caller final
+	lw $v0, 0($sp)
+	add $sp, $sp, 4
+	lw $t3, 0($sp)
+	add $sp, $sp, 4
+	lw $t2, 0($sp)
+	add $sp, $sp, 4
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	lw $t0, 0($sp)
+	add $sp, $sp, 4
+	lw $t0, 20($fp)
+#caller init
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	sub $sp, $sp, 4
+	sw $t1, 0($sp)
+	sub $sp, $sp, 4
+	sw $t2, 0($sp)
+	sub $sp, $sp, 4
+	sw $t3, 0($sp)
+	sub $sp, $sp, 4
+	sw $v0, 0($sp)
+	jal print_int
+	move $v1, $v0
+	add $sp, $sp, 0
+#caller final
+	lw $v0, 0($sp)
+	add $sp, $sp, 4
+	lw $t3, 0($sp)
+	add $sp, $sp, 4
+	lw $t2, 0($sp)
+	add $sp, $sp, 4
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	lw $t0, 0($sp)
+	add $sp, $sp, 4
+	li $a0, 12
+	li $v0, 9
+	syscall
+	sub $sp, $sp, 4
+	sw $v0, 0($sp)
+	move $s0, $zero
+	add $s1, $s1, 12
+cond8:
+	slt $t0, $s0, $s1
+	beqz $t0, endcond8
+	lw $t0, 0($sp)
+	add $t0, $t0, $s0
+	sw $zero, 0($v0)
+	add $s0, $s0, 1
+	b cond8
+endcond8:
+	lw $v0, 0($sp)
+	add $sp, $sp, 4
+	move $t0, $v0
+	move $t1, $v0
+	la $t1, _desc$String
+	sw $t1, 0($t0)
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	sub $sp, $sp, 4
+	sw $t1, 0($sp)
+	sub $sp, $sp, 4
+	sw $t2, 0($sp)
+	sub $sp, $sp, 4
+	sw $t3, 0($sp)
+	sub $sp, $sp, 4
+	sw $v0, 0($sp)
+	la $t1, str3
+	li $t2, 4
+	sw $t1, 4($t0)
+	sw $t2, 8($t0)
+	lw $v0, 0($sp)
+	add $sp, $sp, 4
+	lw $t3, 0($sp)
+	add $sp, $sp, 4
+	lw $t2, 0($sp)
+	add $sp, $sp, 4
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	lw $t0, 0($sp)
+	add $sp, $sp, 4
+	lw $t0, 4($t0)
+#caller init
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	sub $sp, $sp, 4
+	sw $t1, 0($sp)
+	sub $sp, $sp, 4
+	sw $t2, 0($sp)
+	sub $sp, $sp, 4
+	sw $t3, 0($sp)
+	sub $sp, $sp, 4
+	sw $v0, 0($sp)
+	jal print_string
+	move $v1, $v0
+	add $sp, $sp, 0
+#caller final
+	lw $v0, 0($sp)
+	add $sp, $sp, 4
+	lw $t3, 0($sp)
+	add $sp, $sp, 4
+	lw $t2, 0($sp)
+	add $sp, $sp, 4
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	lw $t0, 0($sp)
+	add $sp, $sp, 4
+	lw $t0, 24($fp)
+#caller init
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	sub $sp, $sp, 4
+	sw $t1, 0($sp)
+	sub $sp, $sp, 4
+	sw $t2, 0($sp)
+	sub $sp, $sp, 4
+	sw $t3, 0($sp)
+	sub $sp, $sp, 4
+	sw $v0, 0($sp)
+	jal print_int
+	move $v1, $v0
+	add $sp, $sp, 0
+#caller final
+	lw $v0, 0($sp)
+	add $sp, $sp, 4
+	lw $t3, 0($sp)
+	add $sp, $sp, 4
+	lw $t2, 0($sp)
+	add $sp, $sp, 4
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	lw $t0, 0($sp)
+	add $sp, $sp, 4
+	li $a0, 12
+	li $v0, 9
+	syscall
+	sub $sp, $sp, 4
+	sw $v0, 0($sp)
+	move $s0, $zero
+	add $s1, $s1, 12
+cond9:
+	slt $t0, $s0, $s1
+	beqz $t0, endcond9
+	lw $t0, 0($sp)
+	add $t0, $t0, $s0
+	sw $zero, 0($v0)
+	add $s0, $s0, 1
+	b cond9
+endcond9:
+	lw $v0, 0($sp)
+	add $sp, $sp, 4
+	move $t0, $v0
+	move $t1, $v0
+	la $t1, _desc$String
+	sw $t1, 0($t0)
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	sub $sp, $sp, 4
+	sw $t1, 0($sp)
+	sub $sp, $sp, 4
+	sw $t2, 0($sp)
+	sub $sp, $sp, 4
+	sw $t3, 0($sp)
+	sub $sp, $sp, 4
+	sw $v0, 0($sp)
+	la $t1, str4
+	li $t2, 1
+	sw $t1, 4($t0)
+	sw $t2, 8($t0)
+	lw $v0, 0($sp)
+	add $sp, $sp, 4
+	lw $t3, 0($sp)
+	add $sp, $sp, 4
+	lw $t2, 0($sp)
+	add $sp, $sp, 4
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	lw $t0, 0($sp)
+	add $sp, $sp, 4
+	lw $t0, 4($t0)
+#caller init
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	sub $sp, $sp, 4
+	sw $t1, 0($sp)
+	sub $sp, $sp, 4
+	sw $t2, 0($sp)
+	sub $sp, $sp, 4
+	sw $t3, 0($sp)
+	sub $sp, $sp, 4
+	sw $v0, 0($sp)
+	jal print_string
+	move $v1, $v0
+	add $sp, $sp, 0
+#caller final
+	lw $v0, 0($sp)
+	add $sp, $sp, 4
+	lw $t3, 0($sp)
+	add $sp, $sp, 4
+	lw $t2, 0($sp)
+	add $sp, $sp, 4
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	lw $t0, 0($sp)
+	add $sp, $sp, 4
+	lw $t0, 12($fp)
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	sub $sp, $sp, 4
+	sw $t1, 0($sp)
+	sub $sp, $sp, 4
+	sw $t2, 0($sp)
+	sub $sp, $sp, 4
+	sw $t3, 0($sp)
+	sub $sp, $sp, 4
+	sw $v0, 0($sp)
+	lw $t0, 0($t0)
+	lw $t0, 4($t0)
+#caller init
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	sub $sp, $sp, 4
+	sw $t1, 0($sp)
+	sub $sp, $sp, 4
+	sw $t2, 0($sp)
+	sub $sp, $sp, 4
+	sw $t3, 0($sp)
+	sub $sp, $sp, 4
+	sw $v0, 0($sp)
+#prepare args
+	move $t3, $t0
+	lw $t0, 24($fp)
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	lw $t0, 0($fp)
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+#compile_binop
+	lw $t0, 16($fp)
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	li $t0, 1
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	sub $t0, $t1, $t0
+	sub $sp, $sp, 4
+	sw $t0, 0($sp)
+	sub $sp, $sp, 4
+	sw $v0, 0($sp)
+	move $t0, $t3
+#end args
+	jalr $t0
+	move $v1, $v0
+	add $sp, $sp, 16
+#caller final
+	lw $v0, 0($sp)
+	add $sp, $sp, 4
+	lw $t3, 0($sp)
+	add $sp, $sp, 4
+	lw $t2, 0($sp)
+	add $sp, $sp, 4
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	lw $t0, 0($sp)
+	add $sp, $sp, 4
+#caller final2
+	lw $v0, 0($sp)
+	add $sp, $sp, 4
+	lw $t3, 0($sp)
+	add $sp, $sp, 4
+	lw $t2, 0($sp)
+	add $sp, $sp, 4
+	lw $t1, 0($sp)
+	add $sp, $sp, 4
+	lw $t0, 0($sp)
+	add $sp, $sp, 4
+	move $t0, $v1
 #calle final
-	add $sp, $fp, 0
+	add $sp, $fp, 4
 	lw $ra, 0($sp)
 	add $sp, $sp, 4
 	lw $fp, 0($sp)
@@ -708,11 +1018,8 @@ _desc$String:
 	.word _meth$String$equals$Object
 _desc$A:
 	.word _desc$Object
-	.word _meth$A$f
-_desc$B:
-	.word _desc$A
-	.word _meth$B$f
-	.word _ctor$B$B
+	.word _meth$A$move$int$int$int
+	.word _ctor$A$A
 btrue:
 	.asciiz "true"
 bfalse:
@@ -724,6 +1031,10 @@ err_div_by_zero:
 err_null_pointer:
 	.asciiz "null pointer exception"
 str2:
-	.asciiz "Je suis A"
+	.asciiz " from "
+str4:
+	.asciiz "\n"
+str3:
+	.asciiz " to "
 str1:
-	.asciiz "Je suis B"
+	.asciiz "Move "
